@@ -4,7 +4,7 @@
   "description": "Demonic Idle Progression Game",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && rm -rf dist/assets/images && mkdir -p dist/assets && cp -R assets/images dist/assets/images",
     "preview": "vite preview"
   },
   "devDependencies": {
