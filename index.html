@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WH8ZHSMQ58"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-WH8ZHSMQ58');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abyssal Archon: Overlord of the Pit</title>
+  <!-- Google Fonts for Gothic and Modern styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@500;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background lava particles overlay -->
+  <div class="ambient-glow"></div>
+
+  <!-- Central Game Grid -->
+  <div class="game-container">
+    
+    <!-- Top Bar -->
+    <header class="top-bar">
+      <div class="brand">
+        <h1 class="game-title" data-i18n="game_title">ABYSSAL ARCHON</h1>
+        <span class="subtitle" data-i18n="subtitle">Overlord of the Pit</span>
+      </div>
+      
+      <!-- Current Milestone Progression -->
+      <div class="milestone-tracker-card" id="milestone-tracker">
+        <div class="tracker-header">
+          <span class="tracker-label" data-i18n="active_conquest">ACTIVE CONQUEST</span>
+          <span class="milestone-name" id="active-milestone-name">Milestone 1: Awakening of the Archon</span>
+        </div>
+        <div class="milestone-goals" id="active-milestone-goals">
+          <!-- Goals will be generated dynamically -->
+        </div>
+      </div>
+
+      <!-- Action Indicator / Save System -->
+      <div class="top-bar-controls">
+        <div class="active-task-display" id="active-task-display">
+          <span class="label" data-i18n="active_focus">ACTIVE FOCUS</span>
+          <span class="value text-glow-red" id="active-task-name">Idle...</span>
+        </div>
+        <div class="save-indicator" id="save-status" data-i18n="save_status">Progress Saved</div>
+        <button class="btn btn-secondary btn-sm" id="btn-lang" title="Toggle Language">🌐 En</button>
+        <button class="btn btn-secondary btn-sm" id="btn-export-save" title="Export Save">✥ <span data-i18n="export">Export</span></button>
+        <button class="btn btn-secondary btn-sm" id="btn-import-save" title="Import Save">✦ <span data-i18n="import">Import</span></button>
+        <button class="btn btn-danger btn-sm" id="btn-hard-reset" title="Hard Reset">☠ <span data-i18n="reset">Reset</span></button>
+      </div>
+    </header>
+
+    <div class="main-layout">
+      <!-- Left Sidebar (Navigation) -->
+      <nav class="sidebar">
+        <div class="sidebar-category">
+          <h3 class="category-title" data-i18n="paths_header">Abyssal Paths</h3>
+          <button class="nav-btn active" data-tab="extraction">
+            <span class="nav-icon">🌋</span> <span data-i18n="path_extraction">Brimstone Extraction</span> <span class="nav-level-badge" id="nav-lvl-extraction">Lv. 1</span>
+          </button>
+          <button class="nav-btn" data-tab="veil">
+            <span class="nav-icon">✥</span> <span data-i18n="path_veil">Veil Tearing</span> <span class="nav-level-badge" id="nav-lvl-veil">Lv. 1</span>
+          </button>
+          <button class="nav-btn" data-tab="forge">
+            <span class="nav-icon">⚙</span> <span data-i18n="path_forge">Hellfire Forge</span> <span class="nav-level-badge" id="nav-lvl-forge">Lv. 1</span>
+          </button>
+          <button class="nav-btn" data-tab="rites">
+            <span class="nav-icon">🩸</span> <span data-i18n="path_rites">Rites & Summons</span> <span class="nav-level-badge" id="nav-lvl-rites">Lv. 1</span>
+          </button>
+          <button class="nav-btn" data-tab="conquest">
+            <span class="nav-icon">⚔</span> <span data-i18n="path_conquest">Abyssal Conquest</span> <span class="nav-level-badge" id="nav-lvl-conquest">Lv. 1</span>
+          </button>
+        </div>
+
+        <div class="sidebar-category mt-auto">
+          <h3 class="category-title" data-i18n="dominion_header">Dominion</h3>
+          <button class="nav-btn" data-tab="inventory">
+            <span class="nav-icon">🎒</span> <span data-i18n="path_inventory">Vault & Armory</span>
+          </button>
+        </div>
+
+        <!-- Minion Slots & Equipped Items Quick View -->
+        <div class="quick-slots">
+          <div class="slot-header" data-i18n="quick_slots_header">Companions & Gear</div>
+          <div class="slots-grid">
+            <div class="slot-card" id="slot-minion-1" data-slot="minion" style="position: relative;">
+              <span class="slot-label" data-i18n="slot_companion_1">Companion 1</span>
+              <span class="slot-value" id="val-slot-minion-1">Empty</span>
+              <div class="slot-tooltip" id="tip-slot-minion-1"></div>
+            </div>
+            <div class="slot-card" id="slot-minion-2" data-slot="minion" style="position: relative;">
+              <span class="slot-label" data-i18n="slot_companion_2">Companion 2</span>
+              <span class="slot-value" id="val-slot-minion-2">Empty</span>
+              <div class="slot-tooltip" id="tip-slot-minion-2"></div>
+            </div>
+            <div class="slot-card" id="slot-tool" data-slot="tool" style="position: relative;">
+              <span class="slot-label" data-i18n="slot_tool">Tool Slot</span>
+              <span class="slot-value" id="val-slot-tool">None</span>
+              <div class="slot-tooltip" id="tip-slot-tool"></div>
+            </div>
+            <div class="slot-card" id="slot-accessory" data-slot="accessory" style="position: relative;">
+              <span class="slot-label" data-i18n="slot_accessory">Accessory</span>
+              <span class="slot-value" id="val-slot-accessory">None</span>
+              <div class="slot-tooltip" id="tip-slot-accessory"></div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Center Workspace (Active Tab Views) -->
+      <main class="workspace">
+        
+        <!-- Brimstone Extraction Tab -->
+        <section class="tab-content active" id="tab-extraction">
+          <div class="view-header">
+            <h2 data-i18n="title_extraction">Brimstone Extraction</h2>
+            <p class="view-description" data-i18n="desc_extraction">Quarry minerals, tap geothermal lava, and gather Abyssal materials.</p>
+            <div class="view-level-info" id="lvl-info-extraction"></div>
+          </div>
+          <div class="activity-grid" id="grid-extraction">
+            <!-- Populated dynamically via JS -->
+          </div>
+        </section>
+
+        <!-- Veil Tearing Tab -->
+        <section class="tab-content" id="tab-veil">
+          <div class="view-header">
+            <h2 data-i18n="title_veil">Veil Tearing</h2>
+            <p class="view-description" data-i18n="desc_veil">Tear open dimensional rifts to harvest Evil Intent, Anguish, and Chaos Essence.</p>
+            <div class="view-level-info" id="lvl-info-veil"></div>
+          </div>
+          <div class="activity-grid" id="grid-veil">
+            <!-- Populated dynamically via JS -->
+          </div>
+        </section>
+
+        <!-- Hellfire Forge Tab -->
+        <section class="tab-content" id="tab-forge">
+          <div class="view-header">
+            <h2 data-i18n="title_forge">Hellfire Forge</h2>
+            <p class="view-description" data-i18n="desc_forge">Smelt raw ore into Abyssal steel and craft tools, sigils, and amulets of power.</p>
+            <div class="view-level-info" id="lvl-info-forge"></div>
+          </div>
+          <div class="activity-grid" id="grid-forge">
+            <!-- Populated dynamically via JS -->
+          </div>
+        </section>
+
+        <!-- Rites & Summons Tab -->
+        <section class="tab-content" id="tab-rites">
+          <div class="view-header">
+            <h2 data-i18n="title_rites">Rites & Summons</h2>
+            <p class="view-description" data-i18n="desc_rites">Brew dark elixirs, conduct sacrifices, and summon minions to serve in your slots.</p>
+            <div class="view-level-info" id="lvl-info-rites"></div>
+          </div>
+          <div class="activity-grid" id="grid-rites">
+            <!-- Populated dynamically via JS -->
+          </div>
+        </section>
+
+        <!-- Abyssal Conquest Tab -->
+        <section class="tab-content" id="tab-conquest">
+          <div class="view-header">
+            <h2 data-i18n="title_conquest">Abyssal Conquest</h2>
+            <p class="view-description text-glow-red" data-i18n="desc_conquest">Raid mortal boundaries. High yields but carries failure risks. Level Willpower to stay safe.</p>
+            <div class="view-level-info" id="lvl-info-conquest"></div>
+          </div>
+          <div class="activity-grid" id="grid-conquest">
+            <!-- Populated dynamically via JS -->
+          </div>
+        </section>
+
+        <!-- Vault & Armory (Inventory) Tab -->
+        <section class="tab-content" id="tab-inventory">
+          <div class="view-header">
+            <h2 data-i18n="title_inventory">Vault & Armory</h2>
+            <p class="view-description" data-i18n="desc_inventory">Your stored resources, artifacts, companions, and crafting materials.</p>
+          </div>
+          <div class="inventory-container">
+            <div class="inventory-grid" id="inventory-grid">
+              <!-- Populated dynamically via JS -->
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Right Sidebar (Characteristics / Stats) -->
+      <aside class="right-panel">
+        <h3 class="panel-title" data-i18n="panel_attributes">Archon Attributes</h3>
+        <div class="characteristics-grid" id="characteristics-grid">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </aside>
+
+    </div>
+  </div>
+
+  <!-- Contextual Slide-out Help Panel (Abyssal Codex) -->
+  <div class="codex-panel" id="codex-panel">
+    <div class="codex-header">
+      <h3 class="codex-title" id="codex-title" data-i18n="codex_title">Abyssal Codex</h3>
+      <button class="codex-close-btn" id="btn-close-codex">×</button>
+    </div>
+    <div class="codex-body" id="codex-body">
+      <!-- Generated dynamically -->
+    </div>
+  </div>
+
+  <!-- Fullscreen Modal Overlay (for Game Start Prologue and Milestone Lore alerts) -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal-card">
+      <button class="btn btn-secondary btn-sm" id="btn-modal-lang" style="position: absolute; top: 16px; right: 16px; z-index: 10;" title="Toggle Language">🌐 En</button>
+      <div class="modal-glow"></div>
+      <div class="modal-banner" id="modal-banner"></div>
+      <h2 class="modal-title" id="modal-title">THE ASCENT OF THE ABYSS</h2>
+      <div class="modal-body" id="modal-body-content">
+        <!-- Content will be injected dynamically -->
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-primary" id="btn-modal-action">Awaken the Archon</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Gain Container -->
+  <div class="floating-gain-container" id="floating-gain-container"></div>
+
+  <!-- Global Tooltip Element -->
+  <div id="global-tooltip" class="global-tooltip"></div>
+
+  <!-- Script initialization -->
+  <script src="app.js"></script>
+</body>
+</html>
