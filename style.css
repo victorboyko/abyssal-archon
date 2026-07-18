@@ -211,6 +211,9 @@ body {
   color: var(--color-text-dark);
   text-transform: uppercase;
   letter-spacing: 1px;
+  min-width: 140px;
+  text-align: center;
+  display: inline-block;
 }
 
 /* Main Workspace Layout */
