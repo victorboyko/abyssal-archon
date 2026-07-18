@@ -999,6 +999,25 @@ body {
   }
 }
 
+#btn-modal-lang {
+  background: rgba(255, 210, 63, 0.12) !important;
+  border: 1px solid var(--color-yellow) !important;
+  color: var(--color-yellow) !important;
+  box-shadow: 0 0 10px rgba(255, 210, 63, 0.25);
+  font-size: 0.8rem !important;
+  padding: 6px 10px !important;
+  border-radius: 4px;
+  font-weight: 700;
+  transition: all 0.2s ease !important;
+}
+
+#btn-modal-lang:hover {
+  background: var(--color-yellow) !important;
+  color: #0c0809 !important;
+  box-shadow: 0 0 15px rgba(255, 210, 63, 0.6);
+  transform: scale(1.05);
+}
+
 .modal-card {
   background-color: var(--color-bg-panel);
   border: 2px solid var(--color-red);

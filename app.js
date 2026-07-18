@@ -1470,7 +1470,7 @@ function renderWorkspace() {
     } else {
       const activeBtnLabel = isActive ? 
         (state.lang === 'en' ? 'Pause Focus' : 'Призупинити') : 
-        (state.lang === 'en' ? 'Begin Focus' : 'Почати Фокус');
+        (state.lang === 'en' ? 'Begin Focus' : 'Сфокусуватись');
         
       card.innerHTML = `
         ${helpBtn}

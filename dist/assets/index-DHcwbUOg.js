@@ -44,7 +44,7 @@
         <div class="card-details">
           <p class="view-description">${r(o.lore)}</p>
         </div>
-      `}else{const b=d?e.lang==="en"?"Pause Focus":"Призупинити":e.lang==="en"?"Begin Focus":"Почати Фокус";x.innerHTML=`
+      `}else{const b=d?e.lang==="en"?"Pause Focus":"Призупинити":e.lang==="en"?"Begin Focus":"Сфокусуватись";x.innerHTML=`
         ${f}
         <div class="card-header">
           <h4 class="card-title">${r(o.name)}</h4>
