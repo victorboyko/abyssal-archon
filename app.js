@@ -656,7 +656,7 @@ const LOCALIZATION = {
     subtitle: "Overlord of the Pit",
     active_conquest: "ACTIVE CONQUEST",
     active_focus: "ACTIVE FOCUS",
-    save_status: "Progress Saved",
+    save_status: "💾",
     export: "Export",
     import: "Import",
     reset: "Reset",
@@ -696,7 +696,7 @@ const LOCALIZATION = {
     subtitle: "Володар Безодні",
     active_conquest: "АКТИВНЕ ЗАВОЮВАННЯ",
     active_focus: "АКТИВНИЙ ФОКУС",
-    save_status: "Прогрес Збережено",
+    save_status: "💾",
     export: "Експорт",
     import: "Імпорт",
     reset: "Скидання",
@@ -1963,10 +1963,16 @@ function saveGame() {
   localStorage.setItem("abyssal_archon_save", JSON.stringify(data));
   
   const status = document.getElementById("save-status");
-  status.innerText = state.lang === "en" ? "Saved!" : "Збережено!";
-  setTimeout(() => {
-    status.innerText = LOCALIZATION[state.lang].save_status;
-  }, 2000);
+  if (status) {
+    status.classList.remove("idle-icon");
+    status.classList.add("saved-confirm");
+    status.innerText = state.lang === "en" ? "Saved!" : "Збережено!";
+    setTimeout(() => {
+      status.classList.remove("saved-confirm");
+      status.classList.add("idle-icon");
+      status.innerText = LOCALIZATION[state.lang].save_status;
+    }, 2000);
+  }
 }
 
 function loadGame() {
