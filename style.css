@@ -1689,3 +1689,7 @@ body {
 .clickable-icon {
   cursor: pointer;
 }
+
+.clickable-path {
+  cursor: pointer;
+}

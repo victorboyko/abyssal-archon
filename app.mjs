@@ -4739,7 +4739,7 @@ function openCodex(id, type) {
       prodCategories.forEach(cat => {
         const pathName = LOCALIZATION[state.lang]["title_" + cat] || cat;
         producerHTML += `
-          <div style="margin-top: 8px; font-weight: bold; font-family: 'Cinzel'; font-size: 0.85rem; color: var(--color-yellow); border-bottom: 1px solid rgba(120, 120, 120, 0.15); padding-bottom: 2px;">
+          <div class="clickable-path" data-tab="${cat}" style="margin-top: 8px; font-weight: bold; font-family: 'Cinzel'; font-size: 0.85rem; color: var(--color-yellow); border-bottom: 1px solid rgba(120, 120, 120, 0.15); padding-bottom: 2px; cursor: pointer; display: inline-block;">
             🌋 ${pathName}
           </div>
           <ul style="font-size:0.8rem; padding-left:14px; list-style-type:square; margin: 4px 0 8px 0; line-height: 1.4; color: var(--color-text-secondary);">
@@ -4805,7 +4805,7 @@ function openCodex(id, type) {
       categoriesSorted.forEach(cat => {
         const pathName = LOCALIZATION[state.lang][`path_${cat}`] || cat;
         trainerHTML += `
-          <div style="margin-top: 8px; font-weight: bold; font-family: 'Cinzel'; font-size: 0.85rem; color: var(--color-yellow); border-bottom: 1px solid rgba(120, 120, 120, 0.15); padding-bottom: 2px;">
+          <div class="clickable-path" data-tab="${cat}" style="margin-top: 8px; font-weight: bold; font-family: 'Cinzel'; font-size: 0.85rem; color: var(--color-yellow); border-bottom: 1px solid rgba(120, 120, 120, 0.15); padding-bottom: 2px; cursor: pointer; display: inline-block;">
             ${pathName}
           </div>
           <ul style="font-size:0.8rem; padding-left:14px; list-style-type:square; margin: 4px 0 8px 0; line-height: 1.4; color: var(--color-text-secondary);">
@@ -4861,7 +4861,7 @@ function openCodex(id, type) {
     body.innerHTML = `
       <div class="codex-section">
         <h4 class="codex-section-title">${state.lang === 'en' ? 'Path Class' : 'Клас дії'}</h4>
-        <span style="font-size:0.85rem; color:var(--color-red); font-weight:600; font-family:'Cinzel';">
+        <span class="clickable-path" data-tab="${act.category}" style="font-size:0.85rem; color:var(--color-red); font-weight:600; font-family:'Cinzel'; cursor: pointer; display: inline-block;">
           ${(LOCALIZATION[state.lang][`path_${act.category}`] || act.category).toUpperCase()}
         </span>
       </div>
@@ -5580,6 +5580,18 @@ window.onload = () => {
       const id = clickable.getAttribute("data-id");
       if (id) {
         openCodex(id, "resource");
+      }
+    }
+  });
+
+  // Global listener for clickable path names
+  document.body.addEventListener("click", (e) => {
+    const clickable = e.target.closest(".clickable-path");
+    if (clickable) {
+      const tabId = clickable.getAttribute("data-tab");
+      if (tabId) {
+        document.getElementById("codex-panel").classList.remove("open");
+        switchTab(tabId);
       }
     }
   });
