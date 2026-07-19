@@ -247,11 +247,16 @@
         <h4 class="codex-section-title">${u}</h4>
         <ul style="font-size:0.8rem; padding-left:12px; list-style-type:square;">${h}</ul>
       </div>
-    `}else if(i===`stat`){let e=t[r],i=d.statLevels[r],a=d.statXP[r],s=_(i);o.innerText=p(e.name).toUpperCase();let l=n.filter(e=>e.statsTrained.some(e=>e.key===r)).map(e=>{let t=e.statsTrained.find(e=>e.key===r).xp;return`<li>✥ ${p(e.name)} (+${t} Base XP)</li>`}).join(``)||`<li>None</li>`;c.innerHTML=`
+    `}else if(i===`stat`){let e=t[r],i=d.statLevels[r],a=d.statXP[r],l=_(i);o.innerText=p(e.name).toUpperCase();let u=n.filter(e=>e.statsTrained.some(e=>e.key===r)),f={};u.forEach(e=>{f[e.category]||(f[e.category]=[]),f[e.category].push(e)});let m=``,h=Object.keys(f);h.length===0?m=`<div style="font-size:0.85rem; color:var(--color-text-dark);">${d.lang===`en`?`None`:`Немає`}</div>`:h.forEach(e=>{m+=`
+          <div style="margin-top: 8px; font-weight: bold; font-family: 'Cinzel'; font-size: 0.85rem; color: var(--color-yellow); border-bottom: 1px solid rgba(120, 120, 120, 0.15); padding-bottom: 2px;">
+            ${s[d.lang][`path_${e}`]||e}
+          </div>
+          <ul style="font-size:0.8rem; padding-left:14px; list-style-type:square; margin: 4px 0 8px 0; line-height: 1.4; color: var(--color-text-secondary);">
+        `,f[e].forEach(e=>{let t=e.statsTrained.find(e=>e.key===r).xp;m+=`<li>✥ ${p(e.name)} (+${t} Base XP)</li>`}),m+=`</ul>`}),c.innerHTML=`
       <div class="codex-section">
         <h4 class="codex-section-title">${d.lang===`en`?`Current Rank`:`Поточний ранг`}</h4>
         <span class="text-glow-yellow" style="font-weight:bold; font-size:1.1rem; font-family:'Cinzel';">Level ${i}</span>
-        <span style="font-size:0.75rem; color:var(--color-text-dark); margin-left:8px;">(${a} / ${s} XP)</span>
+        <span style="font-size:0.75rem; color:var(--color-text-dark); margin-left:8px;">(${a} / ${l} XP)</span>
       </div>
       <div class="codex-section">
         <h4 class="codex-section-title">${d.lang===`en`?`Impact On Gameplay`:`Вплив на гру`}</h4>
@@ -267,7 +272,7 @@
       </div>
       <div class="codex-section">
         <h4 class="codex-section-title">${d.lang===`en`?`Trained By`:`Тренується у`}</h4>
-        <ul style="font-size:0.8rem; padding-left:12px; list-style-type:square;">${l}</ul>
+        <div style="display:flex; flex-direction:column;">${m}</div>
       </div>
     `}else if(i===`activity`){let t=n.find(e=>e.id===r);o.innerText=p(t.name).toUpperCase();let i=T(t),a=t.cost&&Object.keys(t.cost).length>0?Object.entries(t.cost).map(([t,n])=>`${e[t].icon} ${n} ${p(e[t].name)}`).join(`, `):d.lang===`en`?`Free`:`Безкоштовно`,s=Object.entries(t.yield).map(([t,n])=>{let r=n;return n<1&&(r=`${(n*100).toFixed(0)}%`),`${e[t].icon} ${r} ${p(e[t].name)}`}).join(`, `);c.innerHTML=`
       <div class="codex-section">

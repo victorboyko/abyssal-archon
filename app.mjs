@@ -4738,10 +4738,34 @@ function openCodex(id, type) {
     title.innerText = t(stat.name).toUpperCase();
     
     const trainers = ACTIVITIES.filter(a => a.statsTrained.some(s => s.key === id));
-    let trainerHTML = trainers.map(tActivity => {
-      const xpVal = tActivity.statsTrained.find(s => s.key === id).xp;
-      return `<li>✥ ${t(tActivity.name)} (+${xpVal} Base XP)</li>`;
-    }).join("") || "<li>None</li>";
+    const grouped = {};
+    trainers.forEach(act => {
+      if (!grouped[act.category]) {
+        grouped[act.category] = [];
+      }
+      grouped[act.category].push(act);
+    });
+    
+    let trainerHTML = "";
+    const categoriesSorted = Object.keys(grouped);
+    if (categoriesSorted.length === 0) {
+      trainerHTML = `<div style="font-size:0.85rem; color:var(--color-text-dark);">${state.lang === 'en' ? 'None' : 'Немає'}</div>`;
+    } else {
+      categoriesSorted.forEach(cat => {
+        const pathName = LOCALIZATION[state.lang][`path_${cat}`] || cat;
+        trainerHTML += `
+          <div style="margin-top: 8px; font-weight: bold; font-family: 'Cinzel'; font-size: 0.85rem; color: var(--color-yellow); border-bottom: 1px solid rgba(120, 120, 120, 0.15); padding-bottom: 2px;">
+            ${pathName}
+          </div>
+          <ul style="font-size:0.8rem; padding-left:14px; list-style-type:square; margin: 4px 0 8px 0; line-height: 1.4; color: var(--color-text-secondary);">
+        `;
+        grouped[cat].forEach(tActivity => {
+          const xpVal = tActivity.statsTrained.find(s => s.key === id).xp;
+          trainerHTML += `<li>✥ ${t(tActivity.name)} (+${xpVal} Base XP)</li>`;
+        });
+        trainerHTML += `</ul>`;
+      });
+    }
     
     body.innerHTML = `
       <div class="codex-section">
@@ -4763,7 +4787,7 @@ function openCodex(id, type) {
       </div>
       <div class="codex-section">
         <h4 class="codex-section-title">${state.lang === 'en' ? 'Trained By' : 'Тренується у'}</h4>
-        <ul style="font-size:0.8rem; padding-left:12px; list-style-type:square;">${trainerHTML}</ul>
+        <div style="display:flex; flex-direction:column;">${trainerHTML}</div>
       </div>
     `;
   }
