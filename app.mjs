@@ -5048,9 +5048,31 @@ document.getElementById("btn-hard-reset").addEventListener("click", () => {
 });
 
 document.getElementById("btn-export-save").addEventListener("click", () => {
-  const saveString = btoa(JSON.stringify(state));
-  const promptMsg = state.lang === "en" ? "Copy this save string code:" : "Скопіюйте цей код збереження:";
-  prompt(promptMsg, saveString);
+  const data = {
+    theme: state.theme,
+    lang: state.lang,
+    resources: state.resources,
+    skillXP: state.skillXP,
+    skillLevels: state.skillLevels,
+    statXP: state.statXP,
+    statLevels: state.statLevels,
+    activeActivity: state.activeActivity,
+    milestoneIndex: state.milestoneIndex,
+    equipment: state.equipment,
+    minions: state.minions,
+    completedRaidsCount: state.completedRaidsCount,
+    prologueShown: state.prologueShown,
+    upgrades: state.upgrades,
+    boostersOwned: state.boostersOwned, activeBoosterId: state.activeBoosterId, activeBoosterType: state.activeBoosterType, boosterTimeRemaining: state.boosterTimeRemaining, boosterAutoConsume: state.boosterAutoConsume, boosterIsPaused: state.boosterIsPaused, timestamp: Date.now()
+  };
+  try {
+    const saveString = btoa(unescape(encodeURIComponent(JSON.stringify(data))));
+    const promptMsg = state.lang === "en" ? "Copy this save string code:" : "Скопіюйте цей код збереження:";
+    prompt(promptMsg, saveString);
+  } catch(err) {
+    const errorMsg = state.lang === "en" ? "Failed to export save!" : "Не вдалося експортувати збереження!";
+    alert(errorMsg);
+  }
 });
 
 document.getElementById("btn-import-save").addEventListener("click", () => {
@@ -5058,7 +5080,9 @@ document.getElementById("btn-import-save").addEventListener("click", () => {
   const saveStr = prompt(promptMsg);
   if (saveStr) {
     try {
-      const decoded = atob(saveStr);
+      const cleanStr = saveStr.trim();
+      const decoded = decodeURIComponent(escape(atob(cleanStr)));
+      JSON.parse(decoded); // Validate JSON format
       localStorage.setItem("abyssal_archon_save", decoded);
       location.reload();
     } catch(e) {
