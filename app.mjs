@@ -2234,7 +2234,7 @@ const BOOSTERS = {
     name: { en: "Brimstone Haste", ua: "Швидкість Бримстоуну" },
     type: "speed",
     duration: 180,
-    cost: { brimstone: 50, gold: 100 },
+    cost: { sulfur: 50, gold: 100 },
     unlockReq: { type: "milestone", target: 1 },
     desc: { en: "Augments raw movement, granting +15% Action Speed.", ua: "Збільшує швидкість переміщення, надаючи +15% до швидкості дій." }
   },
@@ -2243,7 +2243,7 @@ const BOOSTERS = {
     name: { en: "Hellfire Surge", ua: "Хвиля Пекельного Вогню" },
     type: "yield",
     duration: 180,
-    cost: { hellfire_oil: 10, gold: 250 },
+    cost: { hellfire: 10, gold: 250 },
     unlockReq: { type: "milestone", target: 2 },
     desc: { en: "Volcanic heat surges through yields, granting +20% Material yields.", ua: "Вулканічний жар збільшує вихід, надаючи +20% до збору Матеріалів." }
   },
@@ -2261,7 +2261,7 @@ const BOOSTERS = {
     name: { en: "Bloodlust Rage", ua: "Лють Кровожерливості" },
     type: "raid",
     duration: 180,
-    cost: { blood_essence: 20, gold: 400 },
+    cost: { demonic_blood: 20, gold: 400 },
     unlockReq: { type: "milestone", target: 4 },
     desc: { en: "Fills minions with bloodlust: +10% Raid Success chance, +15% Raid speed.", ua: "Наповнює міньйонів жагою крові: +10% до шансу успіху набігу, +15% до швидкості набігу." }
   },
@@ -2297,7 +2297,7 @@ const BOOSTERS = {
     name: { en: "Void Alacrity", ua: "Прудкість Порожнечі" },
     type: "speed",
     duration: 180,
-    cost: { void_crystals: 250, void_dust: 50, gold: 1000 },
+    cost: { void_crystals: 250, volcanic_ash: 50, gold: 1000 },
     unlockReq: { type: "milestone", target: 7 },
     desc: { en: "Bends spacetime around actions, granting +30% Action Speed.", ua: "Викривляє час навколо дій, надаючи +30% до швидкості дій." }
   },
@@ -2315,7 +2315,7 @@ const BOOSTERS = {
     name: { en: "Plague Catalyst", ua: "Каталізатор Пошесті" },
     type: "speed",
     duration: 180,
-    cost: { toxic_venom: 10, gold: 600 },
+    cost: { venom: 10, gold: 600 },
     unlockReq: { type: "milestone", target: 8 },
     desc: { en: "Spreads infection faster, granting +20% Plague category action speed.", ua: "Швидше поширює інфекцію, надаючи +20% до швидкості дій категорії Пошесті." }
   },
@@ -2324,7 +2324,7 @@ const BOOSTERS = {
     name: { en: "Astral Focus", ua: "Астральний Фокус" },
     type: "xp",
     duration: 180,
-    cost: { nebula_dust: 100, nebula_shards: 10, gold: 1200 },
+    cost: { star_dust: 100, nebula_shards: 10, gold: 1200 },
     unlockReq: { type: "milestone", target: 9 },
     desc: { en: "Connects consciousness to cosmic dust, granting +50% Attribute XP gain.", ua: "Підключає свідомість до космічного пилу, надаючи +50% до досвіду атрибутів." }
   },
@@ -2333,7 +2333,7 @@ const BOOSTERS = {
     name: { en: "Monarch's Dominion", ua: "Володіння Монарха" },
     type: "yield",
     duration: 180,
-    cost: { village_token: 5, monastery_token: 2, gold: 1500 },
+    cost: { iron_ore: 100, divine_essence: 15, gold: 1500 },
     unlockReq: { type: "milestone", target: 3 },
     desc: { en: "Subjugates market networks, granting +15% Gold gains.", ua: "Підпорядковує ринкові мережі, надаючи +15% до отримання золота." }
   },
@@ -2342,7 +2342,7 @@ const BOOSTERS = {
     name: { en: "Imperial Sovereignty", ua: "Імперський Суверенітет" },
     type: "raid",
     duration: 180,
-    cost: { vault_token: 3, empire_token: 1, gold: 2500 },
+    cost: { relic_fragments: 50, souls: 20, gold: 2500 },
     unlockReq: { type: "milestone", target: 9 },
     desc: { en: "Absolute tactician supremacy: +20% Raid Success chance.", ua: "Абсолютна тактична перевага: +20% до шансу успіху набігу." }
   },
@@ -2351,7 +2351,7 @@ const BOOSTERS = {
     name: { en: "Demonic Iron Tempering", ua: "Загартування Заліза" },
     type: "speed",
     duration: 180,
-    cost: { iron_ingot: 20, gold: 200 },
+    cost: { abyssal_iron: 20, gold: 200 },
     unlockReq: { type: "milestone", target: 2 },
     desc: { en: "Superheats metal workflows, granting +15% Forge category speed.", ua: "Супернагріває металеві процеси, надаючи +15% до швидкості дій категорії Кузні." }
   },
@@ -3417,7 +3417,7 @@ function calculateActivityYield(activity, resourceKey, amount) {
       finalAmt *= 1.20;
     } else if (state.activeBoosterId === "agony_catalyst" && RESOURCES[resourceKey].category === "ethereal") {
       finalAmt *= 1.30;
-    } else if (state.activeBoosterId === "sanguine_blessing" && (resourceKey === "blood_essence" || resourceKey === "lapis_sanguine")) {
+    } else if (state.activeBoosterId === "sanguine_blessing" && (resourceKey === "demonic_blood" || resourceKey === "lapis_sanguine")) {
       finalAmt *= 1.25;
     } else if (state.activeBoosterId === "chaos_singularity_boost" && resourceKey === "chaos_sparks") {
       finalAmt *= 1.50;
@@ -4028,7 +4028,7 @@ function renderTopBar() {
   categories.forEach(cat => {
     const el = document.getElementById(`nav-lvl-${cat}`);
     if (el) {
-      el.innerText = `Lv. ${state.skillLevels[cat] || 1}`;
+      el.innerText = `${state.lang === 'en' ? 'Lv.' : 'Рів.'} ${state.skillLevels[cat] || 1}`;
     }
   });
   
@@ -4245,7 +4245,7 @@ function renderStatsPanel() {
       <button class="btn-help-inline" data-id="${key}" data-type="stat">?</button>
       <div class="stat-header">
         <span class="stat-title">${t(stat.name)}</span>
-        <span class="stat-level">Lv. ${lvl}</span>
+        <span class="stat-level">${state.lang === 'en' ? 'Lv.' : 'Рів.'} ${lvl}</span>
       </div>
       <div class="stat-xp-bar">
         <div class="stat-xp-fill" style="width: ${fillPercent}%"></div>
@@ -4770,7 +4770,7 @@ function openCodex(id, type) {
     body.innerHTML = `
       <div class="codex-section">
         <h4 class="codex-section-title">${state.lang === 'en' ? 'Current Rank' : 'Поточний ранг'}</h4>
-        <span class="text-glow-yellow" style="font-weight:bold; font-size:1.1rem; font-family:'Cinzel';">Level ${lvl}</span>
+        <span class="text-glow-yellow" style="font-weight:bold; font-size:1.1rem; font-family:'Cinzel';">${state.lang === 'en' ? 'Level' : 'Рівень'} ${lvl}</span>
         <span style="font-size:0.75rem; color:var(--color-text-dark); margin-left:8px;">(${xp} / ${needed} XP)</span>
       </div>
       <div class="codex-section">
