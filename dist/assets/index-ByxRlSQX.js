@@ -233,6 +233,10 @@
           <ul style="font-size:0.8rem; padding-left:14px; list-style-type:square; margin: 4px 0 8px 0; line-height: 1.4; color: var(--color-text-secondary);">
         `,m[e].forEach(e=>{h+=`<li>✥ ${p(e.name)} (Base: ${(e.baseTime/1e3).toFixed(1)}s)</li>`}),h+=`</ul>`});let _=a.map(e=>`<li>⚙ ${p(e.name)}</li>`).join(``)||`<li>${f}</li>`;c.innerHTML=`
       <div class="codex-section">
+        <h4 class="codex-section-title">${d.lang===`en`?`Owned Amount`:`У власності`}</h4>
+        <span class="text-glow-yellow" style="font-weight:bold; font-size:1.1rem; font-family:'Cinzel';">${d.resources[r]||0}</span>
+      </div>
+      <div class="codex-section">
         <h4 class="codex-section-title">${d.lang===`en`?`Category`:`Категорія`}</h4>
         <span style="text-transform:uppercase; font-size:0.8rem; color:var(--color-red); font-weight:600;">${t.category}</span>
       </div>

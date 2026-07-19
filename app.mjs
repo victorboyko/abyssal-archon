@@ -4732,6 +4732,10 @@ function openCodex(id, type) {
     
     body.innerHTML = `
       <div class="codex-section">
+        <h4 class="codex-section-title">${state.lang === 'en' ? 'Owned Amount' : 'У власності'}</h4>
+        <span class="text-glow-yellow" style="font-weight:bold; font-size:1.1rem; font-family:'Cinzel';">${state.resources[id] || 0}</span>
+      </div>
+      <div class="codex-section">
         <h4 class="codex-section-title">${state.lang === 'en' ? 'Category' : 'Категорія'}</h4>
         <span style="text-transform:uppercase; font-size:0.8rem; color:var(--color-red); font-weight:600;">${res.category}</span>
       </div>
