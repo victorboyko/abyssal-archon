@@ -5361,6 +5361,19 @@ function renderBoosters() {
   
   const isEn = state.lang === "en";
   
+  const getLocalizedType = (type) => {
+    if (!isEn) {
+      const mappings = {
+        speed: "ШВИДКІСТЬ",
+        yield: "ВИХІД",
+        xp: "ДОСВІД",
+        raid: "НАБІГ"
+      };
+      return mappings[type] || type.toUpperCase();
+    }
+    return type.toUpperCase();
+  };
+  
   // 1. Render Active Panel
   if (state.activeBoosterId) {
     const b = BOOSTERS[state.activeBoosterId];
@@ -5389,7 +5402,7 @@ function renderBoosters() {
           </p>
           <div style="margin-top:8px; display:flex; align-items:center; gap:12px;">
             <span style="font-size:0.9rem; font-weight:bold; color:var(--color-text-green);">${timeLabel}: ${timeStr}</span>
-            <span style="font-size:0.75rem; color:var(--color-text-dark); background:rgba(120,120,120,0.15); padding:2px 6px; border-radius:4px;">${typeLabel}: ${b.type.toUpperCase()}</span>
+            <span style="font-size:0.75rem; color:var(--color-text-dark); background:rgba(120,120,120,0.15); padding:2px 6px; border-radius:4px;">${typeLabel}: ${getLocalizedType(b.type)}</span>
           </div>
         </div>
         <div style="display:flex; flex-direction:column; gap:8px; align-items:flex-end;">
@@ -5457,7 +5470,7 @@ function renderBoosters() {
       <div class="store-card-header">
         <strong class="store-card-name" style="font-family:'Cinzel';">${t(b.name)}</strong>
         <span style="font-size:0.75rem; font-weight:bold; color:var(--color-text-dark); border:1px solid rgba(120,120,120,0.2); padding:2px 6px; border-radius:4px;">
-          ${b.type.toUpperCase()}
+          ${getLocalizedType(b.type)}
         </span>
       </div>
       <div class="store-card-effect" style="border-left-color: var(--color-red); color: var(--color-text-primary); background:rgba(255,62,62,0.03);">
