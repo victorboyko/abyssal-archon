@@ -487,7 +487,7 @@ const ACTIVITIES = [
       { key: "avarice", xp: 6 }
     ],
     lore: { en: "Tap the smoking crust of the second circle to scrape raw, brittle sulfur dust.", ua: "Пробийте димлячу кору другого кола пекла, щоб зішкребти сирий, крихкий сірчаний пил." },
-    codex: { en: "A fundamental physical task. Yields Sulfur. Trains Brutality and Avarice.", ua: "Базове фізичне завдання. Дає Сірку. Тренує Жорстокість та Жадібність." }
+    codex: { en: "A fundamental physical task. Yields Sulfur. Trains Avarice.", ua: "Базове фізичне завдання. Дає Сірку. Тренує Жадібність." }
   },
 {
     id: "quarry_obsidian",
@@ -516,7 +516,7 @@ const ACTIVITIES = [
       { key: "infernal", xp: 25 }
     ],
     lore: { en: "Channel raw magma streams into iron thermal wells to condense liquid Hellfire.", ua: "Спрямуйте потоки сирої магми в залізні термальні колодязі, щоб згустити рідкий Пекельний Вогонь." },
-    codex: { en: "Requires Level 12. Yields Hellfire. Trains Infernal Power and Resilience.", ua: "Потребує рівня 12. Дає Пекельний Вогонь. Тренує Пекельну Силу та Стійкість." }
+    codex: { en: "Requires Level 12. Yields Hellfire. Trains Infernal Power.", ua: "Потребує рівня 12. Дає Пекельний Вогонь. Тренує Пекельну Силу." }
   },
 {
     id: "dredge_styx",
@@ -531,7 +531,7 @@ const ACTIVITIES = [
       { key: "corruption", xp: 15 }
     ],
     lore: { en: "Scrape death-rich black silt from the muddy banks of the River of Wails.", ua: "Зберіть багатий на смерть чорний мул з брудних берегів Річки Стогонів." },
-    codex: { en: "Requires Level 18. Yields Styx Clay. Trains Resilience and Corruption.", ua: "Потребує рівня 18. Дає Глину Стіксу. Тренує Стійкість та Корупцію." }
+    codex: { en: "Requires Level 18. Yields Styx Clay. Trains Resilience and Corruption.", ua: "Потребує рівня 18. Дає Глину Стіксу. Тренує Стійкість та Корупція." }
   },
 {
     id: "gather_ash",
@@ -545,7 +545,7 @@ const ACTIVITIES = [
       { key: "malice", xp: 10 }
     ],
     lore: { en: "Filter heavy falling flakes of ash close to basalt mountain crags.", ua: "Фільтруйте важкі пластівці падаючого попелу поблизу скелястих базальтових гір." },
-    codex: { en: "Requires Level 25. Yields Volcanic Ash. Trains Brutality and Malice.", ua: "Потребує рівня 25. Дає Вулканічний Попіл. Тренує Жорстокість та Злість." }
+    codex: { en: "Requires Level 25. Yields Volcanic Ash. Trains Malice.", ua: "Потребує рівня 25. Дає Вулканічний Попіл. Тренує Злість." }
   },
 {
     id: "mine_iron_ore",
@@ -574,7 +574,7 @@ const ACTIVITIES = [
       { key: "guile", xp: 45 }
     ],
     lore: { en: "Dig out ancient ruins buried under the red soils.", ua: "Розкопуйте древні руїни, поховані під червоним ґрунтом." },
-    codex: { en: "Requires Level 50. Yields Relic Fragments. Trains Guile and Avarice.", ua: "Потребує рівня 50. Дає Фрагменти Реліквій. Тренує Підступність та Жадібність." }
+    codex: { en: "Requires Level 50. Yields Relic Fragments. Trains Guile.", ua: "Потребує рівня 50. Дає Фрагменти Реліквій. Тренує Підступність." }
   },
 {
     id: "harvest_void_crystals",
@@ -603,7 +603,7 @@ const ACTIVITIES = [
       { key: "malice", xp: 15 }
     ],
     lore: { en: "Project your malice into the dreams of weak mortal rulers to stimulate evil acts.", ua: "Проектуйте свою злість у сни слабких смертних правителів, щоб підштовхнути їх до злих дій." },
-    codex: { en: "Primary magical task. Yields Evil Intent. Trains Malice and Guile.", ua: "Першочергове магічне завдання. Дає Злий Намір. Тренує Злість та Підступність." }
+    codex: { en: "Primary magical task. Yields Evil Intent. Trains Malice.", ua: "Першочергове магічне завдання. Дає Злий Намір. Тренує Злість." }
   },
 {
     id: "harvest_agony",
@@ -632,7 +632,7 @@ const ACTIVITIES = [
       { key: "guile", xp: 30 }
     ],
     lore: { en: "Feed on the deep fears of sleeping mortal scholars to compile Nightmares.", ua: "Харчуйтеся глибокими страхами сплячих смертних вчених, щоб збирати Кошмари." },
-    codex: { en: "Requires Level 10. Yields Nightmares. Trains Guile and Sorcery.", ua: "Потребує рівня 10. Дає Кошмари. Тренує Підступність та Чаклунство." }
+    codex: { en: "Requires Level 10. Yields Nightmares. Trains Guile.", ua: "Потребує рівня 10. Дає Кошмари. Тренує Підступність." }
   },
 {
     id: "channel_chaos",
@@ -647,7 +647,7 @@ const ACTIVITIES = [
       { key: "corruption", xp: 20 }
     ],
     lore: { en: "Tear a small rift directly into the raw Void, capturing unstable chaos energies.", ua: "Розірвіть маленьку тріщину прямо у порожнечу, захоплюючи нестабільну енергію хаосу." },
-    codex: { en: "Requires Level 18. Yields Chaos Essence. Trains Sorcery and Corruption.", ua: "Потребує рівня 18. Дає Есенцію Хаосу. Тренує Чаклунство та Корупцію." }
+    codex: { en: "Requires Level 18. Yields Chaos Essence. Trains Sorcery and Corruption.", ua: "Потребує рівня 18. Дає Есенцію Хаосу. Тренує Чаклунство та Корупція." }
   },
 {
     id: "siphon_faith",
@@ -661,7 +661,7 @@ const ACTIVITIES = [
       { key: "corruption", xp: 55 }
     ],
     lore: { en: "Desecrate the prayers of mortal clerics to capture and corrupt Divine Essence.", ua: "Оскверняйте молитви смертних священників, щоб захопити та розбестити Божественну Есенцію." },
-    codex: { en: "Requires Level 28. Yields Divine Essence. Trains Corruption and Willpower.", ua: "Потребує рівня 28. Дає Божественну Есенцію. Тренує Корупцію та Силу Волі." }
+    codex: { en: "Requires Level 28. Yields Divine Essence. Trains Corruption.", ua: "Потребує рівня 28. Дає Божественну Есенцію. Тренує Корупція." }
   },
 {
     id: "harvest_screams",
@@ -690,7 +690,7 @@ const ACTIVITIES = [
       { key: "willpower", xp: 35 }
     ],
     lore: { en: "Extract active electrical entropy charges floating inside the void.", ua: "Видобувайте активні електричні ентропійні заряди, що ширяють у пустоті." },
-    codex: { en: "Requires Level 55. Yields Chaos Sparks. Trains Sorcery and Willpower.", ua: "Потребує рівня 55. Дає Іскри Хаосу. Тренує Чаклунство та Силу Волі." }
+    codex: { en: "Requires Level 55. Yields Chaos Sparks. Trains Willpower.", ua: "Потребує рівня 55. Дає Іскри Хаосу. Тренує Силу Волі." }
   },
 {
     id: "summon_eldritch_orbs",
@@ -705,7 +705,7 @@ const ACTIVITIES = [
       { key: "corruption", xp: 45 }
     ],
     lore: { en: "Condense absolute pitch-black spatial anchors out of ethereal loops.", ua: "Згущуйте абсолютно чорні просторові якорі з ефірних петель." },
-    codex: { en: "Requires Level 75. Yields Eldritch Orbs. Trains Willpower and Corruption.", ua: "Потребує рівня 75. Дає Ельдричеві Сфери. Тренує Силу Волі та Корупцію." }
+    codex: { en: "Requires Level 75. Yields Eldritch Orbs. Trains Willpower and Corruption.", ua: "Потребує рівня 75. Дає Ельдричеві Сфери. Тренує Силу Волі та Корупція." }
   },
 {
     id: "smelt_iron",
@@ -719,7 +719,7 @@ const ACTIVITIES = [
       { key: "infernal", xp: 15 }
     ],
     lore: { en: "Melt human steel iron with hot sulfur to alloy dark Abyssal Iron.", ua: "Плавите залізо смертних із гарячою сіркою, щоб виплавити темне Безодневе Залізо." },
-    codex: { en: "Primary crafting. Consumes 2 Iron Ore and 1 Sulfur. Yields Abyssal Iron. Trains Infernal Power and Brutality.", ua: "Базове ковальство. Витрачає 2 Залізні Руди та 1 Сірку. Дає Безодневе Залізо. Тренує Пекельну Силу та Жорстокість." }
+    codex: { en: "Primary crafting. Consumes 2 Iron Ore and 1 Sulfur. Yields Abyssal Iron. Trains Infernal Power.", ua: "Базове ковальство. Витрачає 2 Залізні Руди та 1 Сірку. Дає Безодневе Залізо. Тренує Пекельну Силу." }
   },
 {
     id: "forge_brand",
@@ -734,7 +734,7 @@ const ACTIVITIES = [
       { key: "devotion", xp: 15 }
     ],
     lore: { en: "Inscribe runes of harvest onto hot volcanic brands to increase physical yields.", ua: "Нанесіть руни збору на гарячі вулканічні клейма, щоб збільшити фізичний збір." },
-    codex: { en: "Requires Level 10. Consumes 5 Abyssal Iron, 5 Sulfur, and 2 Hellfire. Yields 1 Brimstone Brand. Trains Infernal Power and Devotion.", ua: "Потребує рівня 10. Витрачає 5 Безодневого Заліза, 5 Сірки та 2 Пекельних Вогні. Дає 1 Клеймо Бримстоуну. Тренує Пекельну Силу та Відданість." }
+    codex: { en: "Requires Level 10. Consumes 5 Abyssal Iron, 5 Sulfur, and 2 Hellfire. Yields 1 Brimstone Brand. Trains Infernal Power and Devotion.", ua: "Потребує рівня 10. Витрачає 5 Безодневого Заліза, 5 Сірки та 2 Пекельних Вогні. Дає 1 Клеймо Бримстоуну. Тренує Пекельну Силу та Прихильність." }
   },
 {
     id: "sculpt_sigil",
@@ -748,7 +748,7 @@ const ACTIVITIES = [
       { key: "devotion", xp: 15 }
     ],
     lore: { en: "Carve geometric runes into volcanic obsidian glass to focus magical flow.", ua: "Вирізайте геометричні руни на вулканічному обсидіановому склі, щоб сфокусувати магічні потоки." },
-    codex: { en: "Requires Level 15. Consumes 5 Obsidian, 3 Volcanic Ash, and 1 Chaos Essence. Yields 1 Obsidian Sigil. Trains Sorcery and Devotion.", ua: "Потребує рівня 15. Витрачає 5 Обсидіану, 3 Вулканічного Попелу та 1 Есенцію Хаосу. Дає 1 Обсидіановий Сигіл. Тренує Чаклунство та Відданість." }
+    codex: { en: "Requires Level 15. Consumes 5 Obsidian, 3 Volcanic Ash, and 1 Chaos Essence. Yields 1 Obsidian Sigil. Trains Devotion.", ua: "Потребує рівня 15. Витрачає 5 Обсидіану, 3 Вулканічного Попелу та 1 Есенцію Хаосу. Дає 1 Обсидіановий Сигіл. Тренує Прихильність." }
   },
 {
     id: "forge_vials",
@@ -777,7 +777,7 @@ const ACTIVITIES = [
       { key: "devotion", xp: 20 }
     ],
     lore: { en: "Refine sharp wrath crystals by mixing hot hellfire and congealing anguish.", ua: "Виплавляйте гострі кристали гніву, поєднуючи пекельний вогонь та згущене страждання." },
-    codex: { en: "Requires Level 40. Consumes 5 Anguish and 3 Hellfire. Yields 1 Wrath Shard. Trains Brutality and Devotion.", ua: "Потребує рівня 40. Витрачає 5 Страждань та 3 Пекельних Вогні. Дає 1 Осколок Гніву. Тренує Жорстокість та Відданість." }
+    codex: { en: "Requires Level 40. Consumes 5 Anguish and 3 Hellfire. Yields 1 Wrath Shard. Trains Devotion.", ua: "Потребує рівня 40. Витрачає 5 Страждань та 3 Пекельних Вогні. Дає 1 Осколок Гніву. Тренує Прихильність." }
   },
 {
     id: "smelt_heavy_relics",
@@ -806,7 +806,7 @@ const ACTIVITIES = [
       { key: "guile", xp: 30 }
     ],
     lore: { en: "Distill unstable void flows into liquid metal mercury.", ua: "Дистилюйте нестабільні потоки пустоти у рідку металеву ртуть." },
-    codex: { en: "Requires Level 70. Consumes 4 Styx Clay and 2 Chaos Essence. Yields 2 Dark Mercury. Trains Sorcery and Guile.", ua: "Потребує рівня 70. Витрачає 4 Глини Стіксу та 2 Есенції Хаосу. Дає 2 Темної Ртуті. Тренує Чаклунство та Підступність." }
+    codex: { en: "Requires Level 70. Consumes 4 Styx Clay and 2 Chaos Essence. Yields 2 Dark Mercury. Trains Guile.", ua: "Потребує рівня 70. Витрачає 4 Глини Стіксу та 2 Есенції Хаосу. Дає 2 Темної Ртуті. Тренує Підступність." }
   },
 {
     id: "forge_void_gate",
@@ -850,7 +850,7 @@ const ACTIVITIES = [
       { key: "brutality", xp: 15 }
     ],
     lore: { en: "Animate fire-spirits within organic cages of raw flesh to summon a loyal hunting Hellhound.", ua: "Оживіть духів вогню всередині плоті, щоб призвати вірного мисливського Гончака." },
-    codex: { en: "Requires Level 10. Consumes 3 Flesh and 2 Hellfire. Yields 1 Hellhound. Trains Devotion and Brutality.", ua: "Потребує рівня 10. Витрачає 3 Плоті та 2 Пекельних Вогні. Дає 1 Гончака. Тренує Відданість та Жорстокість." }
+    codex: { en: "Requires Level 10. Consumes 3 Flesh and 2 Hellfire. Yields 1 Hellhound. Trains Devotion and Brutality.", ua: "Потребує рівня 10. Витрачає 3 Плоті та 2 Пекельних Вогні. Дає 1 Гончака. Тренує Прихильність та Жорстокість." }
   },
 {
     id: "animate_gargoyle",
@@ -864,7 +864,7 @@ const ACTIVITIES = [
       { key: "devotion", xp: 55 }
     ],
     lore: { en: "Carve clay and obsidian into a heavy gargoyle frame and bind it with demonic blood.", ua: "Виріжте з глини та обсидіану важке тіло гаргульї та скріпіть його демонічною кров'ю." },
-    codex: { en: "Requires Level 20. Consumes 5 Obsidian and 3 Demonic Blood. Yields 1 Gargoyle. Trains Devotion and Resilience.", ua: "Потребує рівня 20. Витрачає 5 Обсидіану та 3 Демонічної Крові. Дає 1 Гаргулью. Тренує Відданість та Стійкість." }
+    codex: { en: "Requires Level 20. Consumes 5 Obsidian and 3 Demonic Blood. Yields 1 Gargoyle. Trains Devotion.", ua: "Потребує рівня 20. Витрачає 5 Обсидіану та 3 Демонічної Крові. Дає 1 Гаргулью. Тренує Прихильність." }
   },
 {
     id: "conjure_phantom",
@@ -879,7 +879,7 @@ const ACTIVITIES = [
       { key: "sorcery", xp: 25 }
     ],
     lore: { en: "Anchor a weeping phantom into physical bone static.", ua: "Прив'яжіть ридаючого фантома до фізичних кісткових перешкод." },
-    codex: { en: "Requires Level 30. Consumes 5 Ectoplasm and 3 Screams. Yields 1 Phantom. Trains Devotion and Sorcery.", ua: "Потребує рівня 30. Витрачає 5 Ектоплазми та 3 Криків. Дає 1 Фантома. Тренує Відданість та Чаклунство." }
+    codex: { en: "Requires Level 30. Consumes 5 Ectoplasm and 3 Screams. Yields 1 Phantom. Trains Devotion and Sorcery.", ua: "Потребує рівня 30. Витрачає 5 Ектоплазми та 3 Криків. Дає 1 Фантома. Тренує Прихильність та Чаклунство." }
   },
 {
     id: "blood_coven",
@@ -893,7 +893,7 @@ const ACTIVITIES = [
       { key: "devotion", xp: 50 }
     ],
     lore: { en: "Convene dark covenants to extract demonic blood fluids.", ua: "Зберіть темні ковени, щоб отримати демонічну кров'яну рідину." },
-    codex: { en: "Requires Level 45. Consumes 5 Flesh and 2 Sulfur. Yields 3 Demonic Blood. Trains Devotion and Corruption.", ua: "Потребує рівня 45. Витрачає 5 Плоті та 2 Сірки. Дає 3 Демонічної Крові. Тренує Відданість та Корупцію." }
+    codex: { en: "Requires Level 45. Consumes 5 Flesh and 2 Sulfur. Yields 3 Demonic Blood. Trains Devotion.", ua: "Потребує рівня 45. Витрачає 5 Плоті та 2 Сірки. Дає 3 Демонічної Крові. Тренує Прихильність." }
   },
 {
     id: "summon_shadow_beast",
@@ -908,7 +908,7 @@ const ACTIVITIES = [
       { key: "malice", xp: 35 }
     ],
     lore: { en: "Conjure higher hounds out of flesh and nightmares.", ua: "Призивайте вищих гончаків із плоті та нічних кошмарів." },
-    codex: { en: "Requires Level 60. Consumes 8 Flesh and 2 Nightmares. Yields 2 Hellhounds. Trains Devotion and Malice.", ua: "Потребує рівня 60. Витрачає 8 Плоті та 2 Кошмари. Дає 2 Гончаків. Тренує Відданість та Злість." }
+    codex: { en: "Requires Level 60. Consumes 8 Flesh and 2 Nightmares. Yields 2 Hellhounds. Trains Devotion and Malice.", ua: "Потребує рівня 60. Витрачає 8 Плоті та 2 Кошмари. Дає 2 Гончаків. Тренує Прихильність та Злість." }
   },
 {
     id: "mass_gargoyle_binding",
@@ -922,7 +922,7 @@ const ACTIVITIES = [
       { key: "devotion", xp: 80 }
     ],
     lore: { en: "Bind multiple gargoyle sentinels in a single coven ritual.", ua: "Прив'яжіть кількох кам'яних вартових у єдиному ритуалі ковену." },
-    codex: { en: "Requires Level 75. Consumes 12 Obsidian and 8 Demonic Blood. Yields 2 Gargoyles. Trains Devotion and Resilience.", ua: "Потребує рівня 75. Витрачає 12 Обсидіану та 8 Демонічної Крові. Дає 2 Гаргулій. Тренує Відданість та Стійкість." }
+    codex: { en: "Requires Level 75. Consumes 12 Obsidian and 8 Demonic Blood. Yields 2 Gargoyles. Trains Devotion.", ua: "Потребує рівня 75. Витрачає 12 Обсидіану та 8 Демонічної Крові. Дає 2 Гаргулій. Тренує Прихильність." }
   },
 {
     id: "archon_covenant",
@@ -937,7 +937,7 @@ const ACTIVITIES = [
       { key: "willpower", xp: 50 }
     ],
     lore: { en: "Corrupt divine structures to secure a direct contract with the Archon.", ua: "Оскверніть божественні структури, щоб забезпечити прямий контракт з Архонтом." },
-    codex: { en: "Requires Level 90. Consumes 2 Divine Essence and 4 Chaos Essence. Yields 3 Souls. Trains Devotion and Willpower.", ua: "Потребує рівня 90. Витрачає 2 Божественні Есенції та 4 Есенції Хаосу. Дає 3 Душі. Тренує Відданість та Силу Волі." }
+    codex: { en: "Requires Level 90. Consumes 2 Divine Essence and 4 Chaos Essence. Yields 3 Souls. Trains Devotion and Willpower.", ua: "Потребує рівня 90. Витрачає 2 Божественні Есенції та 4 Есенції Хаосу. Дає 3 Душі. Тренує Прихильність та Силу Волі." }
   },
 {
     id: "raid_hamlets",
@@ -952,7 +952,7 @@ const ACTIVITIES = [
     ],
     failChance: 15,
     lore: { en: "Send shadow waves to plunder border towns. Harvests mortal flesh, gold, and iron ore.", ua: "Надсилайте тіньові хвилі для пограбування прикордонних селищ. Збирайте плоть, золото та залізну руду." },
-    codex: { en: "Requires Conquest Lv.1. Base 15% Failure. Yields Flesh, Gold, and Iron Ore. Trains Guile and Brutality.", ua: "Потребує рівня Завоювання 1. Базовий шанс провалу 15%. Дає Плоть, Золото та Залізну Руду. Тренує Підступність та Жорстокість." }
+    codex: { en: "Requires Conquest Lv.1. Base 15% Failure. Yields Flesh, Gold, and Iron Ore. Trains Guile.", ua: "Потребує рівня Завоювання 1. Базовий шанс провалу 15%. Дає Плоть, Золото та Залізну Руду. Тренує Підступність." }
   },
 {
     id: "plunder_cathedral",
@@ -968,7 +968,7 @@ const ACTIVITIES = [
     ],
     failChance: 25,
     lore: { en: "Infiltrate holy walls shielded by unholy elixirs to harvest raw human souls.", ua: "Проникайте у святі стіни, захистившись еліксирами, щоб зібрати свіжі людські душі." },
-    codex: { en: "Requires Level 10. Consumes 2 Unholy Elixirs. Base 25% Failure. Success yields 2 Souls and 1 Divine Essence. Trains Corruption and Malice.", ua: "Потребує рівня 10. Витрачає 2 Нечестивих Еліксири. Шанс провалу 25%. Дає 2 Душі та 1 Божественну Есенцію. Тренує Корупцію та Злість." }
+    codex: { en: "Requires Level 10. Consumes 2 Unholy Elixirs. Base 25% Failure. Success yields 2 Souls and 1 Divine Essence. Trains Corruption and Malice.", ua: "Потребує рівня 10. Витрачає 2 Нечестивих Еліксири. Шанс провалу 25%. Дає 2 Душі та 1 Божественну Есенцію. Тренує Корупція та Злість." }
   },
 {
     id: "subjugate_city",
@@ -983,7 +983,7 @@ const ACTIVITIES = [
     ],
     failChance: 35,
     lore: { en: "Direct a full assault to bind a city to the void, sacrificing a gargoyle and hellhound.", ua: "Спрямуйте повномасштабний штурм, щоб прив'язати місто до безодні, пожертвувавши гаргульєю та гончаком." },
-    codex: { en: "Requires Level 20. Consumes 1 Hellhound and 1 Gargoyle. Base 35% Failure. Success yields 5 Souls, 5 Flesh, and 200 Gold. Trains Willpower and Infernal.", ua: "Потребує рівня 20. Витрачає 1 Гончака та 1 Гаргулью. Шанс провалу 35%. Дає 5 Душ, 5 Плоті та 200 Золота. Тренує Силу Волі та Пекельну Силу." }
+    codex: { en: "Requires Level 20. Consumes 1 Hellhound and 1 Gargoyle. Base 35% Failure. Success yields 5 Souls, 5 Flesh, and 200 Gold. Trains Infernal Power.", ua: "Потребує рівня 20. Витрачає 1 Гончака та 1 Гаргулью. Шанс провалу 35%. Дає 5 Душ, 5 Плоті та 200 Золота. Тренує Пекельну Силу." }
   },
 {
     id: "raid_monasteries",
@@ -999,7 +999,7 @@ const ACTIVITIES = [
     ],
     failChance: 20,
     lore: { en: "Attack secluded holy monasteries to capture divine essence.", ua: "Атакуйте відокремлені святі монастирі, щоб захопити божественну есенцію." },
-    codex: { en: "Requires Level 30. Consumes 1 Unholy Elixir. Base 20% Failure. Success yields 2 Divine Essence and 120 Gold. Trains Corruption and Guile.", ua: "Потребує рівня 30. Витрачає 1 Нечестивий Еліксир. Шанс провалу 20%. Дає 2 Божественні Есенції та 120 Золота. Тренує Корупцію та Підступність." }
+    codex: { en: "Requires Level 30. Consumes 1 Unholy Elixir. Base 20% Failure. Success yields 2 Divine Essence and 120 Gold. Trains Corruption and Guile.", ua: "Потребує рівня 30. Витрачає 1 Нечестивий Еліксир. Шанс провалу 20%. Дає 2 Божественні Есенції та 120 Золота. Тренує Корупція та Підступність." }
   },
 {
     id: "ambush_trade_caravans",
@@ -1014,7 +1014,7 @@ const ACTIVITIES = [
     ],
     failChance: 10,
     lore: { en: "Sacrifice a minor imp to distract caravan guards and plunder gold.", ua: "Пожертвуйте малим імпом, щоб відволікти охорону каравану та захопити золото." },
-    codex: { en: "Requires Level 45. Consumes 1 Imp. Base 10% Failure. Success yields 300 Gold and 5 Iron Ore. Trains Guile and Avarice.", ua: "Потребує рівня 45. Витрачає 1 Імпа. Шанс провалу 10%. Дає 300 Золота та 5 Залізної Руди. Тренує Підступність та Жадібність." }
+    codex: { en: "Requires Level 45. Consumes 1 Imp. Base 10% Failure. Success yields 300 Gold and 5 Iron Ore. Trains Guile.", ua: "Потребує рівня 45. Витрачає 1 Імпа. Шанс провалу 10%. Дає 300 Золота та 5 Залізної Руди. Тренує Підступність." }
   },
 {
     id: "plunder_royal_vaults",
@@ -1045,7 +1045,7 @@ const ACTIVITIES = [
     ],
     failChance: 40,
     lore: { en: "Initiate full siege against mortal fortress walls.", ua: "Почніть повномасштабну облогу стін людської фортеці." },
-    codex: { en: "Requires Level 75. Consumes 2 Hellhounds and 1 Gargoyle. Base 40% Failure. Success yields 10 Souls and 3 Abyssal Iron. Trains Willpower and Brutality.", ua: "Потребує рівня 75. Витрачає 2 Гончаків та 1 Гаргулью. Шанс провалу 40%. Дає 10 Душ та 3 Безодневого Заліза. Тренує Силу Волі та Жорстокість." }
+    codex: { en: "Requires Level 75. Consumes 2 Hellhounds and 1 Gargoyle. Base 40% Failure. Success yields 10 Souls and 3 Abyssal Iron. Trains Brutality.", ua: "Потребує рівня 75. Витрачає 2 Гончаків та 1 Гаргулью. Шанс провалу 40%. Дає 10 Душ та 3 Безодневого Заліза. Тренує Жорстокість." }
   },
 {
     id: "overthrow_empire",
@@ -1061,7 +1061,7 @@ const ACTIVITIES = [
     ],
     failChance: 50,
     lore: { en: "Crush the capital walls of the mortal empire under a demonic siege.", ua: "Роздавіть стіни столиці смертної імперії під демонічною облогою." },
-    codex: { en: "Requires Level 90. Consumes 3 Hellhounds and 3 Gargoyles. Base 50% Failure. Success yields 25 Souls, 2000 Gold, and 5 Divine Essence. Trains Willpower and Infernal.", ua: "Потребує рівня 90. Витрачає 3 Гончаків та 3 Гаргулій. Шанс провалу 50%. Дає 25 Душ, 2000 Золота та 5 Божественних Есенцій. Тренує Силу Волі та Пекельну Силу." }
+    codex: { en: "Requires Level 90. Consumes 3 Hellhounds and 3 Gargoyles. Base 50% Failure. Success yields 25 Souls, 2000 Gold, and 5 Divine Essence. Trains Willpower and Infernal Power.", ua: "Потребує рівня 90. Витрачає 3 Гончаків та 3 Гаргулій. Шанс провалу 50%. Дає 25 Душ, 2000 Золота та 5 Божественних Есенцій. Тренує Силу Волі та Пекельну Силу." }
   },
 {
     id: "flay_souls",
@@ -1090,7 +1090,7 @@ const ACTIVITIES = [
       { key: "infernal", xp: 10 }
     ],
     lore: { en: "Burn eternal marks of despair on weeping souls.", ua: "Випалюйте вічні тавра розпачу на ридаючих душах." },
-    codex: { en: "Requires Level 8. Consumes 2 Sulfur. Yields Anguish. Trains Malice and Infernal.", ua: "Потребує рівня 8. Витрачає 2 Сірки. Дає Страждання. Тренує Злість та Пекельну Силу." }
+    codex: { en: "Requires Level 8. Consumes 2 Sulfur. Yields Anguish. Trains Malice and Infernal Power.", ua: "Потребує рівня 8. Витрачає 2 Сірки. Дає Страждання. Тренує Злість та Пекельну Силу." }
   },
 {
     id: "grind_bones",
@@ -1104,7 +1104,7 @@ const ACTIVITIES = [
       { key: "avarice", xp: 12 }
     ],
     lore: { en: "Grind skeletal remains into fine white dust inside heavy basalt basins.", ua: "Перемелюйте скелетні рештки на білий пил у важких базальтових басейнах." },
-    codex: { en: "Requires Level 15. Yields Bone Dust. Trains Brutality and Avarice.", ua: "Потребує рівня 15. Дає Кістяний Пил. Тренує Жорстокість та Жадібність." }
+    codex: { en: "Requires Level 15. Yields Bone Dust. Trains Avarice.", ua: "Потребує рівня 15. Дає Кістяний Пил. Тренує Жадібність." }
   },
 {
     id: "extract_agony",
@@ -1133,7 +1133,7 @@ const ACTIVITIES = [
       { key: "malice", xp: 20 }
     ],
     lore: { en: "Heat up chambers using hellfire to maximize suffering output.", ua: "Розігрійте камери пекельним вогнем для максимального виходу страждань." },
-    codex: { en: "Requires Level 40. Consumes 1 Hellfire. Yields Anguish and Screams. Trains Brutality and Malice.", ua: "Потребує рівня 40. Витрачає 1 Пекельний Вогонь. Дає Страждання та Крики. Тренує Жорстокість та Злість." }
+    codex: { en: "Requires Level 40. Consumes 1 Hellfire. Yields Anguish and Screams. Trains Malice.", ua: "Потребує рівня 40. Витрачає 1 Пекельний Вогонь. Дає Страждання та Крики. Тренує Злість." }
   },
 {
     id: "inflict_madness",
@@ -1162,7 +1162,7 @@ const ACTIVITIES = [
       { key: "corruption", xp: 30 }
     ],
     lore: { en: "Congeal screaming echoes until they form a solid human Soul.", ua: "Згущуйте звуки криків, доки вони не утворять цілу людську Душу." },
-    codex: { en: "Requires Level 70. Consumes 10 Screams. Yields 1 Soul. Trains Willpower and Corruption.", ua: "Потребує рівня 70. Витрачає 10 Криків. Дає 1 Душу. Тренує Силу Волі та Корупцію." }
+    codex: { en: "Requires Level 70. Consumes 10 Screams. Yields 1 Soul. Trains Corruption.", ua: "Потребує рівня 70. Витрачає 10 Криків. Дає 1 Душу. Тренує Корупція." }
   },
 {
     id: "sinners_damnation",
@@ -1177,7 +1177,7 @@ const ACTIVITIES = [
       { key: "infernal", xp: 45 }
     ],
     lore: { en: "Condemn high monarchs to eternal damnation, harvesting pride essence.", ua: "Прокляніть вищих монархів на вічну смерть, збираючи есенцію гордині." },
-    codex: { en: "Requires Level 85. Consumes 8 Agony and 8 Screams. Yields 2 Pride Essence. Trains Willpower and Infernal.", ua: "Потребує рівня 85. Витрачає 8 Агонії та 8 Криків. Дає 2 Есенції Гордині. Тренує Силу Волі та Пекельну Силу." }
+    codex: { en: "Requires Level 85. Consumes 8 Agony and 8 Screams. Yields 2 Pride Essence. Trains Willpower and Infernal Power.", ua: "Потребує рівня 85. Витрачає 8 Агонії та 8 Криків. Дає 2 Есенції Гордині. Тренує Силу Волі та Пекельну Силу." }
   },
 {
     id: "brew_acid",
@@ -1191,7 +1191,7 @@ const ACTIVITIES = [
       { key: "resilience", xp: 10 }
     ],
     lore: { en: "Mix mineral sulfur with basalt ash to distill a powerful corrosive solvent.", ua: "Змішайте мінеральну сірку з базальтовим попелом, щоб очистити сильний їдкий розчинник." },
-    codex: { en: "Consumes 2 Sulfur and 1 Volcanic Ash. Yields Corrosive Acid. Trains Sorcery and Resilience.", ua: "Витрачає 2 Сірки та 1 Вулканічний Попіл. Дає Їдку Кислоту. Тренує Чаклунство та Стійкість." }
+    codex: { en: "Consumes 2 Sulfur and 1 Volcanic Ash. Yields Corrosive Acid. Trains Resilience.", ua: "Витрачає 2 Сірки та 1 Вулканічний Попіл. Дає Їдку Кислоту. Тренує Стійкість." }
   },
 {
     id: "mix_unholy_elixir",
@@ -1206,7 +1206,7 @@ const ACTIVITIES = [
       { key: "devotion", xp: 10 }
     ],
     lore: { en: "Brew thick dark red fluids using ash to shield companions during invasions.", ua: "Варіть густу червону рідину з попелом, щоб прикрити приплічників під час набігів." },
-    codex: { en: "Requires Level 8. Consumes 1 Demonic Blood and 2 Volcanic Ash. Yields 1 Unholy Elixir. Trains Sorcery and Devotion.", ua: "Потребує рівня 8. Витрачає 1 Демонічну Кров та 2 Вулканічного Попелу. Дає 1 Нечестивий Еліксир. Тренує Чаклунство та Відданість." }
+    codex: { en: "Requires Level 8. Consumes 1 Demonic Blood and 2 Volcanic Ash. Yields 1 Unholy Elixir. Trains Sorcery and Devotion.", ua: "Потребує рівня 8. Витрачає 1 Демонічну Кров та 2 Вулканічного Попелу. Дає 1 Нечестивий Еліксир. Тренує Чаклунство та Прихильність." }
   },
 {
     id: "refine_mercury",
@@ -1220,7 +1220,7 @@ const ACTIVITIES = [
       { key: "guile", xp: 12 }
     ],
     lore: { en: "Filter heavy clay deposits to refine pure dark mercury.", ua: "Фільтруйте важкі глиняні поклади, щоб очистити чисту темну ртуть." },
-    codex: { en: "Requires Level 15. Consumes 2 Styx Clay and 2 Sulfur. Yields 1 Dark Mercury. Trains Sorcery and Guile.", ua: "Потребує рівня 15. Витрачає 2 Глини Стіксу та 2 Сірки. Дає 1 Темну Ртуть. Тренує Чаклунство та Підступність." }
+    codex: { en: "Requires Level 15. Consumes 2 Styx Clay and 2 Sulfur. Yields 1 Dark Mercury. Trains Guile.", ua: "Потребує рівня 15. Витрачає 2 Глини Стіксу та 2 Сірки. Дає 1 Темну Ртуть. Тренує Підступність." }
   },
 {
     id: "distill_plague",
@@ -1249,7 +1249,7 @@ const ACTIVITIES = [
       { key: "resilience", xp: 20 }
     ],
     lore: { en: "Refine vitriol solutions using corrosive solvents and mineral sulfur.", ua: "Очищайте розчини купоросу, використовуючи їдкі розчинники та мінеральну сірку." },
-    codex: { en: "Requires Level 40. Consumes 2 Corrosive Acid and 4 Sulfur. Yields 1 Vitriol. Trains Sorcery and Resilience.", ua: "Потребує рівня 40. Витрачає 2 Їдкої Кислоти та 4 Сірки. Дає 1 Купорос. Тренує Чаклунство та Стійкість." }
+    codex: { en: "Requires Level 40. Consumes 2 Corrosive Acid and 4 Sulfur. Yields 1 Vitriol. Trains Resilience.", ua: "Потребує рівня 40. Витрачає 2 Їдкої Кислоти та 4 Сірки. Дає 1 Купорос. Тренує Стійкість." }
   },
 {
     id: "brew_hellfire_oil",
@@ -1278,7 +1278,7 @@ const ACTIVITIES = [
       { key: "avarice", xp: 35 }
     ],
     lore: { en: "Dissolve abyssal iron using vitriol acid to synthesize gold coins.", ua: "Розчиніть безодневе залізо за допомогою купоросу, щоб синтезувати золоті монети." },
-    codex: { en: "Requires Level 70. Consumes 2 Abyssal Iron and 1 Vitriol. Yields 150 Gold. Trains Sorcery and Avarice.", ua: "Потребує рівня 70. Витрачає 2 Безодневого Заліза та 1 Купорос. Дає 150 Золота. Тренує Чаклунство та Жадібність." }
+    codex: { en: "Requires Level 70. Consumes 2 Abyssal Iron and 1 Vitriol. Yields 150 Gold. Trains Avarice.", ua: "Потребує рівня 70. Витрачає 2 Безодневого Заліза та 1 Купорос. Дає 150 Золота. Тренує Жадібність." }
   },
 {
     id: "elixir_of_the_void",
@@ -1307,7 +1307,7 @@ const ACTIVITIES = [
       { key: "brutality", xp: 8 }
     ],
     lore: { en: "Infuse residual life forces into skeletal bones to synthesize organic flesh.", ua: "Вдихайте залишки життєвих сил у кістки скелетів, щоб синтезувати плоть." },
-    codex: { en: "Consumes 2 Bone Dust. Yields 1 Flesh. Trains Sorcery and Brutality.", ua: "Витрачає 2 Кістяних Пили. Дає 1 Плоть. Тренує Чаклунство та Жорстокість." }
+    codex: { en: "Consumes 2 Bone Dust. Yields 1 Flesh. Trains Brutality.", ua: "Витрачає 2 Кістяних Пили. Дає 1 Плоть. Тренує Жорстокість." }
   },
 {
     id: "harvest_bone_dust",
@@ -1336,7 +1336,7 @@ const ACTIVITIES = [
       { key: "devotion", xp: 12 }
     ],
     lore: { en: "Summon spectral shadow wraiths out of weeping mortal echoes.", ua: "Призивайте спектральних тіньових примар із ридаючих смертних відлунь." },
-    codex: { en: "Requires Level 15. Consumes 3 Screams. Yields 1 Ectoplasm. Trains Sorcery and Devotion.", ua: "Потребує рівня 15. Витрачає 3 Криків. Дає 1 Ектоплазму. Тренує Чаклунство та Відданість." }
+    codex: { en: "Requires Level 15. Consumes 3 Screams. Yields 1 Ectoplasm. Trains Devotion.", ua: "Потребує рівня 15. Витрачає 3 Криків. Дає 1 Ектоплазму. Тренує Прихильність." }
   },
 {
     id: "infuse_golem",
@@ -1351,7 +1351,7 @@ const ACTIVITIES = [
       { key: "resilience", xp: 20 }
     ],
     lore: { en: "Bind heavy clay sentinels with bone dust to compress solid iron blocks.", ua: "Зв'язуйте важких глиняних вартових кістяним пилом, щоб спресувати залізні блоки." },
-    codex: { en: "Requires Level 25. Consumes 3 Styx Clay and 5 Bone Dust. Yields 1 Abyssal Iron. Trains Devotion and Resilience.", ua: "Потребує рівня 25. Витрачає 3 Глини Стіксу та 5 Кістяного Пили. Дає 1 Безодневе Залізо. Тренує Відданість та Стійкість." }
+    codex: { en: "Requires Level 25. Consumes 3 Styx Clay and 5 Bone Dust. Yields 1 Abyssal Iron. Trains Devotion and Resilience.", ua: "Потребує рівня 25. Витрачає 3 Глини Стіксу та 5 Кістяного Пили. Дає 1 Безодневе Залізо. Тренує Прихильність та Стійкість." }
   },
 {
     id: "reanimate_monsters",
@@ -1365,7 +1365,7 @@ const ACTIVITIES = [
       { key: "brutality", xp: 25 }
     ],
     lore: { en: "Use demonic blood to trigger cell regeneration of dead beast limbs.", ua: "Використовуйте демонічну кров, щоб запустити регенерацію мертвих кінцівок чудовиськ." },
-    codex: { en: "Requires Level 40. Consumes 1 Demonic Blood. Yields 4 Flesh and 4 Bone Dust. Trains Sorcery and Brutality.", ua: "Потребує рівня 40. Витрачає 1 Демонічну Кров. Дає 4 Плоті та 4 Кістяних Пили. Тренує Чаклунство та Жорстокість." }
+    codex: { en: "Requires Level 40. Consumes 1 Demonic Blood. Yields 4 Flesh and 4 Bone Dust. Trains Brutality.", ua: "Потребує рівня 40. Витрачає 1 Демонічну Кров. Дає 4 Плоті та 4 Кістяних Пили. Тренує Жорстокість." }
   },
 {
     id: "bind_lost_souls",
@@ -1394,7 +1394,7 @@ const ACTIVITIES = [
       { key: "avarice", xp: 30 }
     ],
     lore: { en: "Dredge death-enriched graveyard clay soils.", ua: "Видобувайте насичений смертю цвинтарний глиняний ґрунт." },
-    codex: { en: "Requires Level 70. Yields 5 Styx Clay. Trains Resilience and Avarice.", ua: "Потребує рівня 70. Дає 5 Глини Стіксу. Тренує Стійкість та Жадібність." }
+    codex: { en: "Requires Level 70. Yields 5 Styx Clay. Trains Avarice.", ua: "Потребує рівня 70. Дає 5 Глини Стіксу. Тренує Жадібність." }
   },
 {
     id: "summon_lich",
@@ -1423,7 +1423,7 @@ const ACTIVITIES = [
       { key: "avarice", xp: 6 }
     ],
     lore: { en: "Pluck thorny crimson blood roses grown in sulfur-rich soils.", ua: "Збирайте колючі червоні троянди крові, що виросли на багатих сіркою ґрунтах." },
-    codex: { en: "Yields 1 Blood Rose. Trains Resilience and Avarice.", ua: "Дає 1 Троянду Крові. Тренує Стійкість та Жадібність." }
+    codex: { en: "Yields 1 Blood Rose. Trains Avarice.", ua: "Дає 1 Троянду Крові. Тренує Жадібність." }
   },
 {
     id: "tend_nightshade",
@@ -1452,7 +1452,7 @@ const ACTIVITIES = [
       { key: "corruption", xp: 12 }
     ],
     lore: { en: "Collect explosive fungal spore pods inside dark chambers.", ua: "Збирайте вибухові грибні спорові стручки всередині темних камер." },
-    codex: { en: "Requires Level 15. Yields 1 Spore Pod. Trains Resilience and Corruption.", ua: "Потребує рівня 15. Дає 1 Споровий Стручок. Тренує Стійкість та Корупцію." }
+    codex: { en: "Requires Level 15. Yields 1 Spore Pod. Trains Corruption.", ua: "Потребує рівня 15. Дає 1 Споровий Стручок. Тренує Корупція." }
   },
 {
     id: "cultivate_toxic_roots",
@@ -1481,7 +1481,7 @@ const ACTIVITIES = [
       { key: "devotion", xp: 20 }
     ],
     lore: { en: "Spread volcanic ash to fertilize red rose plant matrices.", ua: "Розкидайте вулканічний попіл, щоб удобрити рослини червоних троянд." },
-    codex: { en: "Requires Level 40. Consumes 3 Volcanic Ash. Yields 4 Blood Roses. Trains Resilience and Devotion.", ua: "Потребує рівня 40. Витрачає 3 Вулканічного Попелу. Дає 4 Троянди Крові. Тренує Стійкість та Відданість." }
+    codex: { en: "Requires Level 40. Consumes 3 Volcanic Ash. Yields 4 Blood Roses. Trains Devotion.", ua: "Потребує рівня 40. Витрачає 3 Вулканічного Попелу. Дає 4 Троянди Крові. Тренує Прихильність." }
   },
 {
     id: "breed_spore_forests",
@@ -1496,7 +1496,7 @@ const ACTIVITIES = [
       { key: "corruption", xp: 25 }
     ],
     lore: { en: "Use damp clay from Styx River to cultivate dense spore matrices.", ua: "Використовуйте вологу глину з річки Стікс для вирощування густих спор." },
-    codex: { en: "Requires Level 55. Consumes 2 Styx Clay. Yields 3 Spore Pods. Trains Resilience and Corruption.", ua: "Потребує рівня 55. Витрачає 2 Глини Стіксу. Дає 3 Спорові Стручки. Тренує Стійкість та Корупцію." }
+    codex: { en: "Requires Level 55. Consumes 2 Styx Clay. Yields 3 Spore Pods. Trains Resilience and Corruption.", ua: "Потребує рівня 55. Витрачає 2 Глини Стіксу. Дає 3 Спорові Стручки. Тренує Стійкість та Корупція." }
   },
 {
     id: "crossbreed_demonic_flora",
@@ -1510,7 +1510,7 @@ const ACTIVITIES = [
       { key: "avarice", xp: 35 }
     ],
     lore: { en: "Extract hybrid fluids from toxic plants to synthesize scorpion-strength venom.", ua: "Видобувайте гібридні соки з отруйних рослин, щоб синтезувати сильну отруту." },
-    codex: { en: "Requires Level 70. Consumes 4 Nightshade and 4 Spore Pods. Yields 2 Venom. Trains Sorcery and Avarice.", ua: "Потребує рівня 70. Витрачає 4 Пасльону та 4 Спорові Стручки. Дає 2 Отрути. Тренує Чаклунство та Жадібність." }
+    codex: { en: "Requires Level 70. Consumes 4 Nightshade and 4 Spore Pods. Yields 2 Venom. Trains Avarice.", ua: "Потребує рівня 70. Витрачає 4 Пасльону та 4 Спорові Стручки. Дає 2 Отрути. Тренує Жадібність." }
   },
 {
     id: "tree_of_corruption",
@@ -1539,7 +1539,7 @@ const ACTIVITIES = [
       { key: "brutality", xp: 8 }
     ],
     lore: { en: "Squeeze mortal flesh resources to collect demonic blood volumes.", ua: "Стискайте плоть смертних, щоб зібрати об'єми демонічної крові." },
-    codex: { en: "Consumes 1 Flesh. Yields 1 Demonic Blood. Trains Sorcery and Brutality.", ua: "Витрачає 1 Плоть. Дає 1 Демонічну Кров. Тренує Чаклунство та Жорстокість." }
+    codex: { en: "Consumes 1 Flesh. Yields 1 Demonic Blood. Trains Brutality.", ua: "Витрачає 1 Плоть. Дає 1 Демонічну Кров. Тренує Жорстокість." }
   },
 {
     id: "coagulate_blood_pools",
@@ -1568,7 +1568,7 @@ const ACTIVITIES = [
       { key: "avarice", xp: 15 }
     ],
     lore: { en: "Refine and crystallize dark crimson blood into precious lapis sanguine gems.", ua: "Очищайте та кристалізуйте темну багряну кров у цінні самоцвіти лазуриту." },
-    codex: { en: "Requires Level 15. Consumes 5 Demonic Blood. Yields 1 Lapis Sanguine. Trains Sorcery and Avarice.", ua: "Потребує рівня 15. Витрачає 5 Демонічної Крові. Дає 1 Багряний Лазурит. Тренує Чаклунство та Жадібність." }
+    codex: { en: "Requires Level 15. Consumes 5 Demonic Blood. Yields 1 Lapis Sanguine. Trains Avarice.", ua: "Потребує рівня 15. Витрачає 5 Демонічної Крові. Дає 1 Багряний Лазурит. Тренує Жадібність." }
   },
 {
     id: "infuse_flesh",
@@ -1597,7 +1597,7 @@ const ACTIVITIES = [
       { key: "willpower", xp: 20 }
     ],
     lore: { en: "Filter and dissolve raw muscle meat to synthesize demonic blood fluids.", ua: "Фільтруйте та розчиняйте сиру плоть, щоб синтезувати демонічну кров." },
-    codex: { en: "Requires Level 40. Consumes 4 Flesh. Yields 5 Demonic Blood. Trains Sorcery and Willpower.", ua: "Потребує рівня 40. Витрачає 4 Плоті. Дає 5 Демонічної Крові. Тренує Чаклунство та Силу Волі." }
+    codex: { en: "Requires Level 40. Consumes 4 Flesh. Yields 5 Demonic Blood. Trains Willpower.", ua: "Потребує рівня 40. Витрачає 4 Плоті. Дає 5 Демонічної Крові. Тренує Силу Волі." }
   },
 {
     id: "coagulated_armor",
@@ -1626,7 +1626,7 @@ const ACTIVITIES = [
       { key: "willpower", xp: 40 }
     ],
     lore: { en: "Apply extreme magic pressure to coagulated blood clots to crystallize blood rubies.", ua: "Створіть високий магічний тиск на згустки крові, щоб кристалізувати багряні самоцвіти." },
-    codex: { en: "Requires Level 70. Consumes 5 Coagulated Blood. Yields 3 Lapis Sanguine. Trains Sorcery and Willpower.", ua: "Потребує рівня 70. Витрачає 5 Згущеної Крові. Дає 3 Багряних Лазурити. Тренує Чаклунство та Силу Волі." }
+    codex: { en: "Requires Level 70. Consumes 5 Coagulated Blood. Yields 3 Lapis Sanguine. Trains Willpower.", ua: "Потребує рівня 70. Витрачає 5 Згущеної Крові. Дає 3 Багряних Лазурити. Тренує Силу Волі." }
   },
 {
     id: "bloody_eclipse",
@@ -1655,7 +1655,7 @@ const ACTIVITIES = [
       { key: "corruption", xp: 15 }
     ],
     lore: { en: "Clear your mind to receive raw entropic chaos waves.", ua: "Очистіть розум, щоб сприймати первинні ентропійні хвилі хаосу." },
-    codex: { en: "Consumes 20 Evil Intent. Yields 1 Chaos Essence. Trains Corruption and Willpower.", ua: "Витрачає 20 Злого Наміру. Дає 1 Есенцію Хаосу. Тренує Корупцію та Силу Волі." }
+    codex: { en: "Consumes 20 Evil Intent. Yields 1 Chaos Essence. Trains Corruption.", ua: "Витрачає 20 Злого Наміру. Дає 1 Есенцію Хаосу. Тренує Корупція." }
   },
 {
     id: "ignite_chaos_sparks",
@@ -1670,7 +1670,7 @@ const ACTIVITIES = [
       { key: "sorcery", xp: 12 }
     ],
     lore: { en: "Ignite unstable chaos energy to output sparkling static sparks.", ua: "Запалюйте нестабільну енергію хаосу, щоб отримати іскристі заряди." },
-    codex: { en: "Requires Level 8. Consumes 1 Chaos Essence. Yields 1 Chaos Spark. Trains Corruption and Sorcery.", ua: "Потребує рівня 8. Витрачає 1 Есенцію Хаосу. Дає 1 Іскру Хаосу. Тренує Корупцію та Чаклунство." }
+    codex: { en: "Requires Level 8. Consumes 1 Chaos Essence. Yields 1 Chaos Spark. Trains Corruption and Sorcery.", ua: "Потребує рівня 8. Витрачає 1 Есенцію Хаосу. Дає 1 Іскру Хаосу. Тренує Корупція та Чаклунство." }
   },
 {
     id: "stabilize_void_fractures",
@@ -1684,7 +1684,7 @@ const ACTIVITIES = [
       { key: "resilience", xp: 15 }
     ],
     lore: { en: "Secure entropic void fractures using willpower structures.", ua: "Стабілізуйте ентропійні розломи за допомогою структур сили волі." },
-    codex: { en: "Requires Level 15. Consumes 3 Chaos Essence. Yields 1 Void Crystal. Trains Willpower and Resilience.", ua: "Потребує рівня 15. Дає 1 Кристал Пустоти. Тренує Силу Волі та Стійкість." }
+    codex: { en: "Requires Level 15. Consumes 3 Chaos Essence. Yields 1 Void Crystal. Trains Resilience.", ua: "Потребує рівня 15. Дає 1 Кристал Пустоти. Тренує Стійкість." }
   },
 {
     id: "harvest_chaos_wind",
@@ -1699,7 +1699,7 @@ const ACTIVITIES = [
       { key: "avarice", xp: 15 }
     ],
     lore: { en: "Gather volatile floating residues of chaos forces.", ua: "Збирайте нестабільні летючі залишки сил хаосу." },
-    codex: { en: "Requires Level 25. Yields 3 Chaos Essence. Trains Corruption and Avarice.", ua: "Потребує рівня 25. Дає 3 Есенції Хаосу. Тренує Корупцію та Жадібність." }
+    codex: { en: "Requires Level 25. Yields 3 Chaos Essence. Trains Corruption and Avarice.", ua: "Потребує рівня 25. Дає 3 Есенції Хаосу. Тренує Корупція та Жадібність." }
   },
 {
     id: "spark_storms",
@@ -1713,7 +1713,7 @@ const ACTIVITIES = [
       { key: "corruption", xp: 45 }
     ],
     lore: { en: "Focus chaos forces to invoke continuous static storm fields.", ua: "Фокусуйте сили хаосу, щоб викликати безперервні шторми іскор." },
-    codex: { en: "Requires Level 40. Consumes 2 Chaos Essence. Yields 4 Chaos Sparks. Trains Corruption and Sorcery.", ua: "Потребує рівня 40. Витрачає 2 Есенції Хаосу. Дає 4 Іскри Хаосу. Тренує Корупцію та Чаклунство." }
+    codex: { en: "Requires Level 40. Consumes 2 Chaos Essence. Yields 4 Chaos Sparks. Trains Corruption.", ua: "Потребує рівня 40. Витрачає 2 Есенції Хаосу. Дає 4 Іскри Хаосу. Тренує Корупція." }
   },
 {
     id: "grow_void_crystal_clusters",
@@ -1742,7 +1742,7 @@ const ACTIVITIES = [
       { key: "willpower", xp: 35 }
     ],
     lore: { en: "Dissolve spatial crystals to capture stardust fragments.", ua: "Розчиняйте просторові кристали, щоб зловити часточки зоряного пилу." },
-    codex: { en: "Requires Level 70. Consumes 2 Void Crystals. Yields 2 Star Dust. Trains Sorcery and Willpower.", ua: "Потребує рівня 70. Витрачає 2 Кристали Пустоти. Дає 2 Зоряного Пили. Тренує Чаклунство та Силу Волі." }
+    codex: { en: "Requires Level 70. Consumes 2 Void Crystals. Yields 2 Star Dust. Trains Willpower.", ua: "Потребує рівня 70. Витрачає 2 Кристали Пустоти. Дає 2 Зоряного Пили. Тренує Силу Волі." }
   },
 {
     id: "chaos_singularity",
@@ -1757,7 +1757,7 @@ const ACTIVITIES = [
       { key: "willpower", xp: 45 }
     ],
     lore: { en: "Implode dead star fragments to unleash a massive output of chaos essence.", ua: "Спровокуйте імплозію осколків мертвих зірок, щоб випустити велику кількість есенції хаосу." },
-    codex: { en: "Requires Level 85. Consumes 1 Nebula Shard. Yields 8 Chaos Essence. Trains Corruption and Willpower.", ua: "Потребує рівня 85. Витрачає 1 Осколок Туманності. Дає 8 Есенції Хаосу. Тренує Корупцію та Силу Волі." }
+    codex: { en: "Requires Level 85. Consumes 1 Nebula Shard. Yields 8 Chaos Essence. Trains Corruption and Willpower.", ua: "Потребує рівня 85. Витрачає 1 Осколок Туманності. Дає 8 Есенції Хаосу. Тренує Корупція та Силу Волі." }
   },
 {
     id: "sift_void_sands",
@@ -1771,7 +1771,7 @@ const ACTIVITIES = [
       { key: "avarice", xp: 6 }
     ],
     lore: { en: "Sift dry grey dust sands inside deep void fissures.", ua: "Просівайте сухий сірий попіл у глибоких розломах пустоти." },
-    codex: { en: "Yields 2 Volcanic Ash. Trains Brutality and Avarice.", ua: "Дає 2 Вулканічні Попели. Тренує Жорстокість та Жадібність." }
+    codex: { en: "Yields 2 Volcanic Ash. Trains Avarice.", ua: "Дає 2 Вулканічні Попели. Тренує Жадібність." }
   },
 {
     id: "dig_abyssal_trenches",
@@ -1800,7 +1800,7 @@ const ACTIVITIES = [
       { key: "avarice", xp: 15 }
     ],
     lore: { en: "Use corrosive solvents to melt basalt rocks covering old relics.", ua: "Використовуйте їдку кислоту, щоб розчинити базальт, який ховає старі реліквії." },
-    codex: { en: "Requires Level 15. Consumes 1 Corrosive Acid. Yields 1 Relic Fragment. Trains Brutality and Avarice.", ua: "Потребує рівня 15. Витрачає 1 Їдку Кислоту. Дає 1 Фрагмент Реліквії. Тренує Жорстокість та Жадібність." }
+    codex: { en: "Requires Level 15. Consumes 1 Corrosive Acid. Yields 1 Relic Fragment. Trains Avarice.", ua: "Потребує рівня 15. Витрачає 1 Їдку Кислоту. Дає 1 Фрагмент Реліквії. Тренує Жадібність." }
   },
 {
     id: "extract_void_dust",
@@ -1829,7 +1829,7 @@ const ACTIVITIES = [
       { key: "brutality", xp: 40 }
     ],
     lore: { en: "Dredge huge amounts of death silt from bottom channels.", ua: "Видобувайте велику кількість мулу смерті з донних каналів річки." },
-    codex: { en: "Requires Level 40. Yields 6 Styx Clay. Trains Brutality and Resilience.", ua: "Потребує рівня 40. Дає 6 Глини Стіксу. Тренує Жорстокість та Стійкість." }
+    codex: { en: "Requires Level 40. Yields 6 Styx Clay. Trains Brutality.", ua: "Потребує рівня 40. Дає 6 Глини Стіксу. Тренує Жорстокість." }
   },
 {
     id: "unearth_ancient_relics",
@@ -1858,7 +1858,7 @@ const ACTIVITIES = [
       { key: "infernal", xp: 70 }
     ],
     lore: { en: "Use relic fragments as coordinates to drill void crystal slots.", ua: "Використовуйте фрагменти реліквій як координати, щоб бурити поклади кристалів пустоти." },
-    codex: { en: "Requires Level 70. Consumes 2 Relic Fragments. Yields 2 Void Crystals. Trains Infernal Power and Willpower.", ua: "Потребує рівня 70. Витрачає 2 Фрагменти Реліквій. Дає 2 Кристали Пустоти. Тренує Пекельну Силу та Силу Волі." }
+    codex: { en: "Requires Level 70. Consumes 2 Relic Fragments. Yields 2 Void Crystals. Trains Infernal Power.", ua: "Потребує рівня 70. Витрачає 2 Фрагменти Реліквій. Дає 2 Кристали Пустоти. Тренує Пекельну Силу." }
   },
 {
     id: "void_well_activation",
@@ -1887,7 +1887,7 @@ const ACTIVITIES = [
       { key: "malice", xp: 12 }
     ],
     lore: { en: "Feed biological meat to locust larvae inside warm cages.", ua: "Годуйте личинки сарани свіжою плоттю в теплих інкубаторах." },
-    codex: { en: "Consumes 2 Flesh. Yields 1 Locust Swarm. Trains Malice and Avarice.", ua: "Витрачає 2 Плоті. Дає 1 Рій Сарани. Тренує Злість та Жадібність." }
+    codex: { en: "Consumes 2 Flesh. Yields 1 Locust Swarm. Trains Malice.", ua: "Витрачає 2 Плоті. Дає 1 Рій Сарани. Тренує Злість." }
   },
 {
     id: "extract_scorpion_venom",
@@ -1916,7 +1916,7 @@ const ACTIVITIES = [
       { key: "corruption", xp: 12 }
     ],
     lore: { en: "Mix spore pods and scorpion venom to distill toxic plague extract.", ua: "Змішуйте спорові стручки та отруту скорпіонів для очищення екстракту чуми." },
-    codex: { en: "Requires Level 15. Consumes 2 Spore Pods and 1 Venom. Yields 1 Plague Extract. Trains Sorcery and Corruption.", ua: "Потребує рівня 15. Витрачає 2 Спорові Стручки та 1 Отруту. Дає 1 Екстракт Чуми. Тренує Чаклунство та Корупцію." }
+    codex: { en: "Requires Level 15. Consumes 2 Spore Pods and 1 Venom. Yields 1 Plague Extract. Trains Corruption.", ua: "Потребує рівня 15. Витрачає 2 Спорові Стручки та 1 Отруту. Дає 1 Екстракт Чуми. Тренує Корупція." }
   },
 {
     id: "locust_infestation",
@@ -1945,7 +1945,7 @@ const ACTIVITIES = [
       { key: "guile", xp: 45 }
     ],
     lore: { en: "Refine scorpion venom by feeding them toxic nightshade vegetation.", ua: "Очищуйте скорпіонячу отруту, згодовуючи їм отруйні рослини пасльону." },
-    codex: { en: "Requires Level 40. Consumes 3 Nightshade. Yields 3 Venom. Trains Guile and Sorcery.", ua: "Потребує рівня 40. Витрачає 3 Пасльону. Дає 3 Отрути. Тренує Підступність та Чаклунство." }
+    codex: { en: "Requires Level 40. Consumes 3 Nightshade. Yields 3 Venom. Trains Guile.", ua: "Потребує рівня 40. Витрачає 3 Пасльону. Дає 3 Отрути. Тренує Підступність." }
   },
 {
     id: "plague_distillery",
@@ -1960,7 +1960,7 @@ const ACTIVITIES = [
       { key: "corruption", xp: 25 }
     ],
     lore: { en: "Brew higher plague extract variables inside heated boilers.", ua: "Варіть вищі форми чумного екстракту всередині розігрітих котлів." },
-    codex: { en: "Requires Level 55. Consumes 5 Spore Pods and 2 Venom. Yields 3 Plague Extract. Trains Sorcery and Corruption.", ua: "Потребує рівня 55. Витрачає 5 Спорових Стручків та 2 Отрути. Дає 3 Екстракти Чуми. Тренує Чаклунство та Корупцію." }
+    codex: { en: "Requires Level 55. Consumes 5 Spore Pods and 2 Venom. Yields 3 Plague Extract. Trains Sorcery and Corruption.", ua: "Потребує рівня 55. Витрачає 5 Спорових Стручків та 2 Отрути. Дає 3 Екстракти Чуми. Тренує Чаклунство та Корупція." }
   },
 {
     id: "contagion_spread",
@@ -1975,7 +1975,7 @@ const ACTIVITIES = [
     ],
     failChance: 10,
     lore: { en: "Infect border settlements using locust swarms to harvest human souls.", ua: "Заражайте прикордонні селища роями сарани, щоб зібрати людські душі." },
-    codex: { en: "Requires Level 70. Consumes 5 Locust Swarms. Base 10% Failure. Success yields 1 Soul. Trains Corruption and Willpower.", ua: "Потребує рівня 70. Витрачає 5 Роїв Сарани. Шанс провалу 10%. Дає 1 Душу. Тренує Корупцію та Силу Волі." }
+    codex: { en: "Requires Level 70. Consumes 5 Locust Swarms. Base 10% Failure. Success yields 1 Soul. Trains Corruption.", ua: "Потребує рівня 70. Витрачає 5 Роїв Сарани. Шанс провалу 10%. Дає 1 Душу. Тренує Корупція." }
   },
 {
     id: "apocalyptic_pestilence",
@@ -1991,7 +1991,7 @@ const ACTIVITIES = [
     ],
     failChance: 20,
     lore: { en: "Initiate absolute biological plague on mortal border cities.", ua: "Випустіть абсолютну біологічну моровицю на смертні прикордонні міста." },
-    codex: { en: "Requires Level 85. Consumes 5 Plague Extract and 10 Locust Swarms. Base 20% Failure. Success yields 5 Souls. Trains Willpower and Infernal.", ua: "Потребує рівня 85. Витрачає 5 Екстрактів Чуми та 10 Роїв Сарани. Шанс провалу 20%. Дає 5 Душ. Тренує Силу Волі та Пекельну Силу." }
+    codex: { en: "Requires Level 85. Consumes 5 Plague Extract and 10 Locust Swarms. Base 20% Failure. Success yields 5 Souls. Trains Willpower and Infernal Power.", ua: "Потребує рівня 85. Витрачає 5 Екстрактів Чуми та 10 Роїв Сарани. Шанс провалу 20%. Дає 5 Душ. Тренує Силу Волі та Пекельну Силу." }
   },
 {
     id: "siphon_starlight",
@@ -2005,7 +2005,7 @@ const ACTIVITIES = [
       { key: "willpower", xp: 8 }
     ],
     lore: { en: "Siphon silvery dust particles floating close to active portals.", ua: "Викачуйте сріблясті частинки пилу, що ширяють поблизу активних порталів." },
-    codex: { en: "Yields 1 Star Dust. Trains Sorcery and Willpower.", ua: "Дає 1 Зоряний Пил. Тренує Чаклунство та Силу Волі." }
+    codex: { en: "Yields 1 Star Dust. Trains Willpower.", ua: "Дає 1 Зоряний Пил. Тренує Силу Волі." }
   },
 {
     id: "gather_nebula_dust",
@@ -2020,7 +2020,7 @@ const ACTIVITIES = [
       { key: "corruption", xp: 10 }
     ],
     lore: { en: "Gather space dust components by splitting chaos essences inside portals.", ua: "Збирайте часточки космічного пилу, розщеплюючи есенції хаосу в порталах." },
-    codex: { en: "Requires Level 8. Consumes 1 Chaos Essence. Yields 1 Nebula Shard. Trains Sorcery and Corruption.", ua: "Потребує рівня 8. Витрачає 1 Есенцію Хаосу. Дає 1 Осколок Туманності. Тренує Чаклунство та Корупцію." }
+    codex: { en: "Requires Level 8. Consumes 1 Chaos Essence. Yields 1 Nebula Shard. Trains Sorcery and Corruption.", ua: "Потребує рівня 8. Витрачає 1 Есенцію Хаосу. Дає 1 Осколок Туманності. Тренує Чаклунство та Корупція." }
   },
 {
     id: "align_star_portals",
@@ -2034,7 +2034,7 @@ const ACTIVITIES = [
       { key: "willpower", xp: 15 }
     ],
     lore: { en: "Re-align starlight flows to increase portal dust extraction rates.", ua: "Вирівнюйте потоки зоряного світла, щоб збільшити видобуток пилу в порталах." },
-    codex: { en: "Requires Level 15. Yields 3 Star Dust. Trains Sorcery and Willpower.", ua: "Потребує рівня 15. Дає 3 Зоряного Пили. Тренує Чаклунство та Силу Волі." }
+    codex: { en: "Requires Level 15. Yields 3 Star Dust. Trains Willpower.", ua: "Потребує рівня 15. Дає 3 Зоряного Пили. Тренує Силу Волі." }
   },
 {
     id: "collect_nebula_clusters",
@@ -2049,7 +2049,7 @@ const ACTIVITIES = [
       { key: "corruption", xp: 15 }
     ],
     lore: { en: "Collect thick space clouds inside astral grids.", ua: "Збирайте густі космічні хмари всередині астральних сіток." },
-    codex: { en: "Requires Level 25. Consumes 2 Chaos Essence. Yields 3 Nebula Shards. Trains Sorcery and Corruption.", ua: "Потребує рівня 25. Витрачає 2 Есенції Хаосу. Дає 3 Осколки Туманності. Тренує Чаклунство та Корупцію." }
+    codex: { en: "Requires Level 25. Consumes 2 Chaos Essence. Yields 3 Nebula Shards. Trains Sorcery and Corruption.", ua: "Потребує рівня 25. Витрачає 2 Есенції Хаосу. Дає 3 Осколки Туманності. Тренує Чаклунство та Корупція." }
   },
 {
     id: "astral_telescope",
@@ -2063,7 +2063,7 @@ const ACTIVITIES = [
       { key: "willpower", xp: 20 }
     ],
     lore: { en: "Use spatial crystals to build clean magnifying lenses.", ua: "Використовуйте просторові кристали, щоб створити чисті збільшувальні лінзи." },
-    codex: { en: "Requires Level 40. Consumes 1 Void Crystal. Yields 6 Star Dust. Trains Sorcery and Willpower.", ua: "Потребує рівня 40. Витрачає 1 Кристал Пустоти. Дає 6 Зоряного Пили. Тренує Чаклунство та Силу Волі." }
+    codex: { en: "Requires Level 40. Consumes 1 Void Crystal. Yields 6 Star Dust. Trains Willpower.", ua: "Потребує рівня 40. Витрачає 1 Кристал Пустоти. Дає 6 Зоряного Пили. Тренує Силу Волі." }
   },
 {
     id: "nebula_implosion",
@@ -2078,7 +2078,7 @@ const ACTIVITIES = [
       { key: "corruption", xp: 25 }
     ],
     lore: { en: "Implode void crystal fields to output massive star dust debris.", ua: "Викликайте імплозію кристалічних полів для отримання великої кількості зоряного попелу." },
-    codex: { en: "Requires Level 55. Consumes 2 Void Crystals. Yields 6 Nebula Shards. Trains Sorcery and Corruption.", ua: "Потребує рівня 55. Витрачає 2 Кристали Пустоти. Дає 6 Осколків Туманності. Тренує Чаклунство та Корупцію." }
+    codex: { en: "Requires Level 55. Consumes 2 Void Crystals. Yields 6 Nebula Shards. Trains Sorcery and Corruption.", ua: "Потребує рівня 55. Витрачає 2 Кристали Пустоти. Дає 6 Осколків Туманності. Тренує Чаклунство та Корупція." }
   },
 {
     id: "harness_cosmic_tides",
@@ -2092,7 +2092,7 @@ const ACTIVITIES = [
       { key: "willpower", xp: 35 }
     ],
     lore: { en: "Offer divine essences to portal gates to attract stardust waves.", ua: "Жертвуйте божественну есенцію порталам, щоб притягнути хвилі зоряного пилу." },
-    codex: { en: "Requires Level 70. Consumes 1 Divine Essence. Yields 10 Star Dust. Trains Sorcery and Willpower.", ua: "Потребує рівня 70. Витрачає 1 Божественну Есенцію. Дає 10 Зоряного Пили. Тренує Чаклунство та Силу Волі." }
+    codex: { en: "Requires Level 70. Consumes 1 Divine Essence. Yields 10 Star Dust. Trains Willpower.", ua: "Потребує рівня 70. Витрачає 1 Божественну Есенцію. Дає 10 Зоряного Пили. Тренує Силу Волі." }
   },
 {
     id: "astral_eclipse",
@@ -2121,7 +2121,7 @@ const ACTIVITIES = [
       { key: "malice", xp: 12 }
     ],
     lore: { en: "Provoke blind fury inside human hearts, harvesting wrath structures.", ua: "Викликайте сліпучу лють у серцях смертних, збираючи кристали гніву." },
-    codex: { en: "Consumes 30 Evil Intent. Yields 1 Wrath Shard. Trains Malice and Brutality.", ua: "Витрачає 30 Злого Наміру. Дає 1 Осколок Гніву. Тренує Злість та Жорстокість." }
+    codex: { en: "Consumes 30 Evil Intent. Yields 1 Wrath Shard. Trains Malice.", ua: "Витрачає 30 Злого Наміру. Дає 1 Осколок Гніву. Тренує Злість." }
   },
 {
     id: "stimulate_pride",
@@ -2150,7 +2150,7 @@ const ACTIVITIES = [
       { key: "guile", xp: 30 }
     ],
     lore: { en: "Trigger massive mortal hearts temptation to collect desire vapor.", ua: "Збуджуйте пристрасть у серцях смертних, щоб зібрати пару бажання." },
-    codex: { en: "Requires Level 15. Consumes 40 Evil Intent. Yields 1 Desire. Trains Guile and Sorcery.", ua: "Потребує рівня 15. Витрачає 40 Злого Наміру. Дає 1 Бажання. Тренує Підступність та Чаклунство." }
+    codex: { en: "Requires Level 15. Consumes 40 Evil Intent. Yields 1 Desire. Trains Guile.", ua: "Потребує рівня 15. Витрачає 40 Злого Наміру. Дає 1 Бажання. Тренує Підступність." }
   },
 {
     id: "fuel_wrath_explosions",
@@ -2179,7 +2179,7 @@ const ACTIVITIES = [
       { key: "malice", xp: 45 }
     ],
     lore: { en: "Corrupt divine essence inside monarch hearts to output pride essence.", ua: "Оскверняйте божественну есенцію в серцях монархів, щоб отримати есенцію гордині." },
-    codex: { en: "Requires Level 40. Consumes 1 Divine Essence. Yields 3 Pride Essence. Trains Malice and Willpower.", ua: "Потребує рівня 40. Витрачає 1 Божественну Есенцію. Дає 3 Есенції Гордині. Тренує Злість та Силу Волі." }
+    codex: { en: "Requires Level 40. Consumes 1 Divine Essence. Yields 3 Pride Essence. Trains Malice.", ua: "Потребує рівня 40. Витрачає 1 Божественну Есенцію. Дає 3 Есенції Гордині. Тренує Злість." }
   },
 {
     id: "temptation_garden",
@@ -2208,7 +2208,7 @@ const ACTIVITIES = [
       { key: "corruption", xp: 35 }
     ],
     lore: { en: "Trigger total emotional collapse in mortal cities to secure human souls.", ua: "Викличте повний емоційний крах у містах смертних, щоб забрати людські душі." },
-    codex: { en: "Requires Level 70. Consumes 5 Desire and 5 Wrath Shards. Yields 2 Souls. Trains Willpower and Corruption.", ua: "Потребує рівня 70. Витрачає 5 Бажань та 5 Осколків Гніву. Дає 2 Душі. Тренує Силу Волі та Корупцію." }
+    codex: { en: "Requires Level 70. Consumes 5 Desire and 5 Wrath Shards. Yields 2 Souls. Trains Corruption.", ua: "Потребує рівня 70. Витрачає 5 Бажань та 5 Осколків Гніву. Дає 2 Душі. Тренує Корупція." }
   },
 {
     id: "seven_deadly_sins",
@@ -2223,9 +2223,9 @@ const ACTIVITIES = [
       { key: "infernal", xp: 50 }
     ],
     lore: { en: "Awaken seven ancient deadly sins across the mortal empire to secure major soul yields.", ua: "Пробудіть сім стародавніх смертних гріхів по всій імперії для отримання великої кількості душ." },
-    codex: { en: "Requires Level 85. Consumes 4 Pride Essence, 8 Desire, and 8 Wrath Shards. Yields 10 Souls. Trains Willpower and Infernal.", ua: "Потребує рівня 85. Витрачає 4 Есенції Гордині, 8 Бажань та 8 Осколків Гніву. Дає 10 Душ. Тренує Силу Волі та Пекельну Силу." }
+    codex: { en: "Requires Level 85. Consumes 4 Pride Essence, 8 Desire, and 8 Wrath Shards. Yields 10 Souls. Trains Willpower and Infernal Power.", ua: "Потребує рівня 85. Витрачає 4 Есенції Гордині, 8 Бажань та 8 Осколків Гніву. Дає 10 Душ. Тренує Силу Волі та Пекельну Силу." }
   }
-];;
+];;;
 
 
 const BOOSTERS = {
