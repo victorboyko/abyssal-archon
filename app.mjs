@@ -4810,7 +4810,9 @@ function openCodex(id, type) {
     body.innerHTML = `
       <div class="codex-section">
         <h4 class="codex-section-title">${state.lang === 'en' ? 'Path Class' : 'Клас дії'}</h4>
-        <span style="text-transform:uppercase; font-size:0.8rem; color:var(--color-red); font-weight:600;">${act.category}</span>
+        <span style="font-size:0.85rem; color:var(--color-red); font-weight:600; font-family:'Cinzel';">
+          ${(LOCALIZATION[state.lang][`path_${act.category}`] || act.category).toUpperCase()}
+        </span>
       </div>
       <div class="codex-section">
         <h4 class="codex-section-title">${state.lang === 'en' ? 'Description' : 'Опис'}</h4>
