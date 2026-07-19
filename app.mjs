@@ -2473,8 +2473,16 @@ const MILESTONES = [
       { type: "crafted", key: "imp", target: 1, label: { en: "Summon 1 Imp (under Companions)", ua: "Призвати 1 Імпа (у супутниках)" } }
     ],
     loreText: {
-      en: `Out of the shifting ashes of the Abyssal Pit, your consciousness coalesces. A spark of pure Malice strikes the brimstone. An Imp, mewling and smelling of sulfur, crawls out of the portal and bows. Your dominion has begun.`,
-      ua: `З мінливого попелу Безодні виникає ваша свідомість. Іскра чистої Злості вдаряє в бримстоун. Маленький імп, що жалібно пищить і тхне сіркою, виповзає з порталу і кланяється. Ваше володіння розпочалося.`
+      en: `<h3>Chapter I: The Coalescence of Will</h3>
+<p>For eons, you slumbered in the lowest, frozen pits of the Abyssal Void. You were a formless consciousness, a scattered whisper of pure malice bound by ancient, celestial seals that the creators of light had placed upon the world. But today, the celestial barriers have cracked under the weight of mortal decay. A single, hot spark of pure Malice strikes the dry brimstone floor, and your mind begins to assemble itself.</p>
+<p>The sensation of return is blinding and painful. As your consciousness draws in the raw volcanic winds, you shape a tiny, formless shadow into a physical vessel. Out of the shifting ashes of the Abyssal Pit, a minor Imp crawls. It is a pathetic, mewling creature, smelling of sulfur and wet clay, but as it opens its glowing yellow eyes, it looks upon you and bows. The seals are broken. Your eternal dominion has begun, starting in the dark dirt of the volcanic floor.</p>
+<h3>Chapter II: The First Command</h3>
+<p>You speak no words, but your thoughts project directly into the mind of the crawling creature. The Imp trembles, its tiny claws digging into the sulfur dust as it receives your unholy instructions. In the dark distance, the sulfuric vents of the first path glow with an amber light. You command it to harvest, to chisel, and to gather the raw brimstone. You will build your palace from the bones of the mountain, one stone at a time. The world above remains rich and unsuspecting, but here, in the deep dark, the seeds of their destruction are being planted.</p>`,
+      ua: `<h3>Розділ I: Злиття Волі</h3>
+<p>Цілими епохами ви дрімали в найнижчих, замерзлих глибинах Порожнечі Безодні. Ви були безтілесною свідомістю, розсіяним шепотом чистої злості, зв'язаним древніми небесними печатками, які творці світла наклали на світ. Але сьогодні небесні бар'єри дали тріщину під вагою смертного розпаду. Іскра чистої Злості вдаряє в суху підлогу з бримстоуну, і ваш розум починає збиратися докупи.</p>
+<p>Відчуття повернення є сліпучим і болісним. Коли ваша свідомість вдихає гарячі вулканічні вітри, ви формуєте крихітну тінь у фізичну оболонку. З мінливого попелу Безодні виповзає малий Імп. Це жалюгідне створіння, що пищить і пахне сіркою та вогкою глиною, але коли воно відкриває свої сяючі жовті очі, воно дивиться на вас і кланяється. Печатки зламані. Ваше вічне володіння розпочалося.</p>
+<h3>Розділ II: Перший Наказ</h3>
+<p>Ви не промовляєте жодного слова, але ваші думки проектуються безпосередньо в розум створіння. Імп тремтить, його крихітні кігті впиваються в сірчаний пил, коли він отримує ваші нечестиві вказівки. У темній далині сірчані джерела першого шляху світяться бурштиновим світлом. Ви наказуєте йому збирати, висікати та накопичувати бримстоун. Ви збудуєте свій палац із кісток гори, камінь за каменем. Світ смертних нагорі залишається багатим і ні про що не підозрює, але тут, у глибокій темряві, сіється насіння їхньої загибелі.</p>`
     }
   },
   {
@@ -2485,8 +2493,16 @@ const MILESTONES = [
       { type: "characteristic", key: "brutality", target: 10, label: { en: "Reach Level 10 Brutality", ua: "Досягти 10 рівня Жорстокості" } }
     ],
     loreText: {
-      en: `The heat of the Hellfire Forge is blinding, but your resolve is harder than the iron. With a final strike, the Brimstone Brand is quenched in blood. As you lift the glowing tool, the minor demons cow in terror. Your Brutality is recognized.`,
-      ua: `Жар Пекельної Кузні сліпить очі, але ваша рішучість міцніша за залізо. Останнім ударом молота Клеймо Бримстоуну гартується в крові. Коли ви піднімаєте палаючий інструмент, дрібні демони щуляться від жаху. Ваша Жорстокість визнана.`
+      en: `<h3>Chapter I: The Hearth of Hellfire</h3>
+<p>The heat of the Hellfire Forge is blinding, rising in waves of molten iron and unholy fire. Your servants have brought the raw iron ore from the deep mines, and you watch as they melt it down in the unholy furnaces. With every strike of the heavy black hammers, the cavern vibrates. You do not feel the heat; instead, you feed upon the chaotic energy of the flames. Your resolve is harder than the iron, and you guide the molten metal with your thoughts, shaping it into a tool of conquest.</p>
+<p>The Brimstone Brand is quenched in a pool of fresh blood, creating a massive cloud of hissing, crimson steam. As you lift the glowing tool, the minor demons around you cow in terror, shielding their eyes from the dark radiance of the brand. Your Brutality is recognized by the forge, and the fires burn brighter in your honor. The gatekeeper of your domain is forged, and the path to the surface begins to open.</p>
+<h3>Chapter II: The Decree of Iron</h3>
+<p>With the Brimstone Brand in your possession, you establish the Decree of Iron. Every demon, every servant, and every crawling beast must bow to the brand. Those who hesitate are cast into the molten vats, their life force absorbed by the forge. You stand before the burning hearth, looking out over the glowing plains of your territory. The first gate is secure. The mortal realm will soon feel the weight of your iron fist.</p>`,
+      ua: `<h3>Розділ I: Вогнище Пекельного Вогню</h3>
+<p>Жар Пекельної Кузні сліпить очі, піднімаючись хвилями розплавленого заліза та нечестивого вогню. Ваші слуги принесли залізну руду з глибоких шахт, і ви спостерігаєте, як вони плавлять її в нечестивих печах. З кожним ударом важких чорних молотів печера вібрує. Ви не відчуваєте жару; натомість ви живитеся хаотичною енергією полум'я. Ваша рішучість міцніша за залізо, і ви спрямовуєте розплавлений метал своїми думками, надаючи йому форми інструменту завоювання.</p>
+<p>Клеймо Бримстоуну гартується в басейні зі свіжою кров'ю, створюючи масивну хмару шиплячої червоної пари. Коли ви піднімаєте палаючий інструмент, дрібні демони навколо вас щуляться від жаху, закриваючи очі від темного сяйва клейма. Ваша Жорстокість визнана кузнею, і вогні горять яскравіше на вашу честь. Брамник вашого володіння викуваний, і шлях на поверхню починає відкриватися.</p>
+<h3>Розділ II: Указ Заліза</h3>
+<p>Володіючи Клеймом Бримстоуну, ви встановлюєте Указ Заліза. Кожен демон, кожен слуга і кожне повзуче створіння повинні вклонитися клейму. Ті, хто вагається, кидаються в чани з розплавленим металом, а їхня життєва сила поглинається кузнею. Ви стоїте перед палаючим вогнищем, дивлячись на палаючі рівнини вашої території. Перші ворота в безпеці. Світ смертних незабаром відчує вагу вашого залізного кулака.</p>`
     }
   },
   {
@@ -2497,8 +2513,16 @@ const MILESTONES = [
       { type: "characteristic", key: "sorcery", target: 15, label: { en: "Reach Level 15 Sorcery", ua: "Досягти 15 рівня Чаклунства" } }
     ],
     loreText: {
-      en: `You inhale the dark vapor of the Unholy Elixirs. In your mind, the barriers between the Abyss and the mortal world begin to fray. You hear the sweet, terrified prayers of humanity. The Veil is brittle. It is time to hunt.`,
-      ua: `Ви вдихаєте темні випари Нечестивих Еліксирів. У вашому розумі бар'єри між Безоднею та світом смертних починають розсипатися. Ви чуєте солодкі, сповнені жаху молитви людства. Завіса тонка. Час полювати.`
+      en: `<h3>Chapter I: The Unholy Elixirs</h3>
+<p>You inhale the dark, sweet vapor of the Unholy Elixirs. It flows through your form like liquid shadow, dissolving the remaining boundaries of your physical form. In your mind, the barriers between the Abyss and the mortal world begin to fray. You hear the sweet, terrified prayers of humanity. The Veil is brittle, and you can feel the weak spots where the light is thin. Your Sorcery has surpassed all limits, and you begin to project your presence beyond the gates.</p>
+<p>The mortals sleep in their warm beds, completely unaware of the dark shadow rising from the depths. With a final, decisive thought, you tear a small rift in the Veil. A cold wind blows through the mortal realm, carrying the scent of sulfur and ash. The hunt begins, and your servants are ready to cross the boundary.</p>
+<h3>Chapter II: The Whispering Darkness</h3>
+<p>As the rift opens, you send your thoughts through the gap. You whisper into the dreams of the weak, filling their minds with terror and madness. They awake screaming, unable to explain the shadow that stands in the corner of their rooms. The terror of the mortals feeds your power, and the rift grows wider. You are no longer bound to the Abyss; you are a shadow that walks the earth.</p>`,
+      ua: `<h3>Розділ I: Нечестиві Еліксири</h3>
+<p>Ви вдихаєте темну, солодку пару Нечестивих Еліксирів. Вона тече крізь вашу подобу, як рідка тінь, розчиняючи залишки меж вашої фізичної форми. У вашому розумі бар'єри між Безоднею та світом смертних починають розсипатися. Ви чуєте солодкі, сповнені жаху молитви людства. Завіса тонка, і ви відчуваєте слабкі місця, де світло слабшає. Ваше Чаклунство здолало всі межі, і ви починаєте проектувати свою присутність за межі воріт.</p>
+<p>Смертні сплять у своїх теплих ліжках, зовсім не підозрюючи про темну тінь, що піднімається з глибин. Останньою, рішучою думкою ви розриваєте невелику щілину в Завісі. Холодний вітер віє над світом смертних, приносячи запах сірки та попелу. Полювання починається, і ваші слуги готові перетнути кордон.</p>
+<h3>Розділ II: Шепіт Темряви</h3>
+<p>Коли щілина відкривається, ви направляєте свої думки крізь неї. Ви шепочете в сни слабких, наповнюючи їхній розум жахом і безумством. Вони прокидаються з криком, не в змозі пояснити тінь, що стоїть у кутку їхніх кімнат. Жах смертних живить вашу силу, і щілина стає ширшою. Ви більше не прив'язані до Безодні; ви — тінь, що ходить по землі.</p>`
     }
   },
   {
@@ -2509,8 +2533,16 @@ const MILESTONES = [
       { type: "equipped", key: "hellhound", target: 1, label: { en: "Equip 1 Hellhound in Companion Slots", ua: "Екіпірувати 1 Гончака в слоти супутників" } }
     ],
     loreText: {
-      en: `The screams of the border guards ring out as your Hellhounds tear through the wooden palisade. Mortal flesh and gold are loaded into your vaults. The high heavens may watch, but they are too slow to stop you. Your name is whispered in fear.`,
-      ua: `Крики прикордонників лунають повсюди, коли ваші Пекельні Гончаки прориваються крізь дерев'яний частокіл. Смертна плоть і золото завантажуються у ваші сховища. Високі небеса спостерігають, але вони надто повільні, щоб зупинити вас. Ваше ім'я шепочуть із жахом.`
+      en: `<h3>Chapter I: The Shattered Palisades</h3>
+<p>The screams of the border guards ring out as your Hellhounds tear through the wooden palisade. The village is quickly surrounded, the air filled with the scent of burning thatch and blood. Your servants move through the streets like shadows, collecting the mortal flesh and gold. The high heavens watch from above, but they are too slow to intervene. Your name is whispered in fear, a curse that the mortals use to ward off the dark.</p>
+<p>The vaults of your palace are filled with the spoils of war. Every coin, every soul, and every fragment of relic is a testament to your growing power. The first raid is a success, and the mortal world now knows that the Abyss has awakened.</p>
+<h3>Chapter II: The Spoils of War</h3>
+<p>You examine the stolen goods, the gold coins glowing with a faint, corrupted light. You use the gold to fund your expansion, building new furnaces and chambers to house your growing legions. The Hellhounds stand at your side, their jaws dripping with blood as they wait for the next command. The mortal realm is vast and rich, and this raid is only the beginning of your conquest.</p>`,
+      ua: `<h3>Розділ I: Розбитий Частокіл</h3>
+<p>Крики прикордонників лунають повсюди, коли ваші Пекельні Гончаки прориваються крізь дерев'яний частокіл. Селище швидко оточене, повітря наповнене запахом палаючої соломи та крові. Ваші слуги рухаються вулицями, як тіні, збираючи смертну плоть і золото. Високі небеса спостерігають згори, але вони надто повільні, щоб втрутитися. Ваше ім'я шепочуть із жахом, як прокляття, яке смертні використовують, щоб відігнати темряву.</p>
+<p>Сховища вашого палацу наповнюються військовою здобиччю. Кожна монета, кожна душа і кожен фрагмент реліквії є свідченням вашої зростаючої сили. Перший набіг завершився успішно, і світ смертних тепер знає, що Безодня прокинулася.</p>
+<h3>Розділ II: Військова Здобич</h3>
+<p>Ви оглядаєте вкрадені речі, золоті монети світяться слабким, зіпсованим світлом. Ви використовуєте золото для фінансування свого розширення, будуючи нові печі та палати для розміщення ваших зростаючих легіонів. Гончаки стоять поруч, з їхніх щелеп стікає кров, коли вони чекають на наступний наказ. Світ смертних величезний і багатий, і цей набіг — лише початок вашого завоювання.</p>`
     }
   },
   {
@@ -2522,8 +2554,16 @@ const MILESTONES = [
       { type: "raid_success", key: "cathedral", target: 50, label: { en: "Successfully Plunder Cathedrals 50 times", ua: "Успішно розграбувати собори 50 разів" } }
     ],
     loreText: {
-      en: `Deep within the sulfuric caverns, the sounds of agony begin to ring. You have built a grand Chamber of Torture. The screams of captive mortal spirits fill the air, crystallization of pure suffering. Your Malice grows absolute.`,
-      ua: `Глибоко у сірчаних печерах починають лунати звуки агонії. Ви побудували величну Катівню. Крики полонених смертних душ наповнюють повітря, кристалізуючи чисті страждання. Ваша Злість стає абсолютною.`
+      en: `<h3>Chapter I: The Echoes of Agony</h3>
+<p>Deep within the sulfuric caverns, the sounds of agony begin to ring. You have built a grand Chamber of Torture, a dark monument to your absolute malice. The walls are lined with iron spikes and chains, the floor covered in glowing red coals. The screams of captive mortal spirits fill the air, a crystallization of pure suffering that you feed upon. Your Malice grows absolute, and the energy of the chamber flows through you like a dark current.</p>
+<p>The mortal spirits weep and beg for mercy, but there is no mercy in the Abyss. You stand in the center of the chamber, watching as their souls are refined into pure energy. Every scream is a note in your unholy symphony, a song of triumph that echoes through the depths.</p>
+<h3>Chapter II: The Refinement of Suffering</h3>
+<p>You design new methods of extraction, ensuring that not a single drop of suffering is wasted. The screams are collected in obsidian jars, ready to be used in your unholy rituals. The minor demons look upon you with awe, their loyalty secured by the raw display of your power. The chamber is complete, and the energy of agony is yours to command.</p>`,
+      ua: `<h3>Розділ I: Відлуння Агонії</h3>
+<p>Глибоко у сірчаних печерах починають лунати звуки агонії. Ви побудували величну Катівню, темний монумент вашої абсолютної злості. Стіни завішані залізними шипами та ланцюгами, підлога вкрита палаючим червоним вугіллям. Крики полонених смертних душ наповнюють повітря, кристалізуючи чисті страждання, якими ви живитеся. Ваша Злість стає абсолютною, і енергія катівні тече крізь вас, як темна течія.</p>
+<p>Духи смертних плачуть і благають про милосердя, але в Безодні немає милосердя. Ви стоїте в центрі палати, спостерігаючи, як їхні душі перетворюються на чисту енергію. Кожен крик — це нота у вашій нечестивій симфонії, пісня тріумфу, що лунає в глибинах.</p>
+<h3>Розділ II: Очищення Страждань</h3>
+<p>Ви розробляєте нові методи вилучення, гарантуючи, що жодна крапля страждань не буде втрачена марно. Крики збираються в обсидіанові глеки, готові до використання у ваших нечестивих ритуалах. Демони дивляться на вас із благоговінням, їхня відданість забезпечена демонстрацією вашої сили. Катівня готова, і енергія агонії підкоряється вам.</p>`
     }
   },
   {
@@ -2535,8 +2575,16 @@ const MILESTONES = [
       { type: "characteristic", key: "corruption", target: 20, label: { en: "Reach Level 20 Corruption", ua: "Досягти 20 рівня Корупції" } }
     ],
     loreText: {
-      en: `From the silent graves, a rattle of bones rises. You have reanimated a legion of the dead. Under the cold wings of the bound Gargoyles, your undead army marches. Corruption spreads from the gates of your domain.`,
-      ua: `Зі східних могил долинає брязкіт кісток. Ви воскресили легіон мерців. Під холодними крилами зв'язаних Гаргуйлів ваше військо нежиті крокує вперед. Корупція розповсюджується від самих воріт вашого володіння.`
+      en: `<h3>Chapter I: The Rattle of Bones</h3>
+<p>From the silent graves of the mortal realm, a rattle of bones rises. You have reanimated a legion of the dead, pulling their skeletons from the cold earth. Under the cold wings of the bound Gargoyles, your undead army marches. Corruption spreads from the gates of your domain, turning the green fields above into a barren wasteland. Your power is absolute, and the dead obey your every command without hesitation.</p>
+<p>The mortal kings tremble in their castles, hearing the sound of marching feet that do not tire. Your legions grow with every battle, every fallen soldier rising to join your ranks. The army of the dead is yours, and the conquest of the surface is now inevitable.</p>
+<h3>Chapter II: The March of the Dead</h3>
+<p>You watch from your obsidian throne as the legions march through the gates. The Gargoyles fly above, their stony wings casting long shadows over the ranks of skeletons. The land is corrupted, the trees turning black and the water turning to poison. You are the lord of the dead, and the world of the living will soon be yours.</p>`,
+      ua: `<h3>Розділ I: Брязкіт Кісток</h3>
+<p>Зі мовчазних могил світу смертних долинає брязкіт кісток. Ви воскресили легіон мерців, витягуючи їхні скелети з холодної землі. Під холодними крилами зв'язаних Гаргуйлів ваше військо нежиті крокує вперед. Корупція розповсюджується від воріт вашого володіння, перетворюючи зелені поля на безплідну пустку. Ваша сила абсолютна, і мерці без вагань виконують кожен ваш наказ.</p>
+<p>Смертні королі тремтять у своїх замках, чуючи тупіт ніг крокуючого війська, яке не знає втоми. Ваші легіони зростають з кожною битвою, кожен полеглий воїн піднімається, щоб поповнити ваші лави. Армія мерців належить вам, і завоювання поверхні тепер неминуче.</p>
+<h3>Розділ II: Марш Мерців</h3>
+<p>Ви спостерігаєте зі свого обсидіанового трону, як легіони проходять крізь ворота. Гаргуйлі летять угорі, їхні кам'яні крила кидають довгі тіні на лави скелетів. Земля зіпсована, дерева чорніють, а вода перетворюється на отруту. Ви — владика мертвих, і світ живих незабаром належатиме вам.</p>`
     }
   },
   {
@@ -2548,8 +2596,16 @@ const MILESTONES = [
       { type: "characteristic", key: "sorcery", target: 35, label: { en: "Reach Level 35 Sorcery", ua: "Досягти 35 рівня Чаклунства" } }
     ],
     loreText: {
-      en: `As the blood rubies glow with celestial dread, the skies above turn a dark crimson. A Sanguine Eclipse covers the mortal realm. Bound by your Obsidian Sigil, the elements obey your dark spells. Your sorcery has surpassed all limits.`,
-      ua: `Коли рубіни крові спалахують небесним жахом, небеса нагорі стають темно-багряними. Криваве Затемнення накриває світ смертних. Зв'язані вашим Обсидіановим Сигілом, стихії підкоряються вашим темним заклинанням. Ваше чаклунство здолало всі межі.`
+      en: `<h3>Chapter I: The Crimson Sky</h3>
+<p>As the blood rubies glow with celestial dread, the skies above turn a dark, bruised crimson. A Sanguine Eclipse covers the mortal realm, blocking out the sun and plunging the world into a perpetual twilight. Bound by your Obsidian Sigil, the elemental forces of the world obey your dark spells. You can feel the heartbeat of the earth, and you command it to stop, turning the fertile soil into stone.</p>
+<p>The mortals weep and pray to their silent gods, but there is no answer from the heavens. Your Sorcery has surpassed all limits, and the world is now yours to shape. The eclipse is a sign of your coming, a warning to all who dare to oppose you.</p>
+<h3>Chapter II: The Reign of Shadow</h3>
+<p>You walk through the shadowed forests of the surface, your presence corrupting everything you touch. The eclipse remains, a permanent scar on the sky that reminds the mortals of their weakness. You are the master of the elements, and the earth itself bows to your unholy power. The age of light is over; the age of shadow has begun.</p>`,
+      ua: `<h3>Розділ I: Багряне Небо</h3>
+<p>Коли рубіни крові спалахують небесним жахом, небеса нагорі стають темно-багряними. Криваве Затемнення накриває світ смертних, закриваючи сонце і занурюючи світ у вічні сутінки. Зв'язані вашим Обсидіановим Сигілом, стихійні сили світу підкоряються вашим темним заклинанням. Ви відчуваєте серцебиття землі й наказуєте йому зупинитися, перетворюючи родючий ґрунт на камінь.</p>
+<p>Смертні плачуть і моляться своїм мовчазним богам, але з небес немає відповіді. Ваше Чаклунство здолало всі межі, і світ тепер у ваших руках. Затемнення — це знак вашого приходу, попередження для всіх, хто наважиться протистояти вам.</p>
+<h3>Розділ II: Правління Тіней</h3>
+<p>Ви йдете тінистими лісами поверхні, ваша присутність оскверняє все, чого ви торкаєтеся. Затемнення залишається постійним шрамом на небі, який нагадує смертним про їхню слабкість. Ви — володар стихій, і сама земля схиляється перед вашою нечестивою силою. Ера світла закінчилася; почалася ера тіней.</p>`
     }
   },
   {
@@ -2561,8 +2617,16 @@ const MILESTONES = [
       { type: "characteristic", key: "avarice", target: 30, label: { en: "Reach Level 30 Avarice", ua: "Досягти 30 рівня Жадібності" } }
     ],
     loreText: {
-      en: `Entropic dimensional portal cracks tear open wide. The Singularity of Chaos pulls raw energy from the deepest Void. Glowing crystal formations grow in the dark, siphoning infinity. Your Avarice knows no limits.`,
-      ua: `Ентропійні розриви завіси відчиняються навстіж. Сингулярність Хаосу витягує чисту енергію з найглибшої Безодні. Палаючі кристали ростуть у темряві, викачуючи нескінченність. Ваша Жадібність не знає меж.`
+      en: `<h3>Chapter I: The Entropic Rift</h3>
+<p>Entropic dimensional portal cracks tear open wide, releasing a torrent of pure, chaotic energy. The Singularity of Chaos pulls raw energy from the deepest Void, a swirling vortex of purple and black flames. Glowing crystal formations grow in the dark, siphoning infinity and feeding your vaults. Your Avarice knows no limits, and you watch as the wealth of the universe is drawn into your domain.</p>
+<p>The space around the singularity bends and warps, time losing its meaning. You stand at the edge of the vortex, absorbing the raw energy and using it to strengthen your form. You are no longer just a ruler; you are a force of nature, a vortex of chaos that threatens to consume the world.</p>
+<h3>Chapter II: The Void Harvest</h3>
+<p>Your servants gather the void crystals, their surfaces glowing with an unearthly light. These crystals are used to power your most complex rituals, opening new paths of conquest that were once closed to you. The singularity remains open, a constant source of power that ensures your supremacy over all realms.</p>`,
+      ua: `<h3>Розділ I: Ентропійний Розрив</h3>
+<p>Ентропійні розриви завіси відчиняються навстіж, вивільняючи потік чистої, хаотичної енергії. Сингулярність Хаосу витягує чисту енергію з найглибшої Безодні, створюючи вихор фіолетового та чорного полум'я. Палаючі кристали ростуть у темряві, викачуючи нескінченність і наповнюючи ваші сховища. Ваша Жадібність не знає меж, і ви спостерігаєте, як багатства всесвіту затягуються у ваше володіння.</p>
+<p>Простір навколо сингулярності вигинається і спотворюється, час втрачає свій сенс. Ви стоїте на краю вихру, поглинаючи чисту енергію і використовуючи її для зміцнення своєї подоби. Ви більше не просто правитель; ви — сила природи, вихор хаосу, який загрожує поглинути світ.</p>
+<h3>Розділ II: Жатва Порожнечі</h3>
+<p>Ваші слуги збирають кристали пустоти, їхні поверхні світяться неземним світлом. Ці кристали використовуються для живлення ваших найскладніших ритуалів, відкриваючи нові шляхи завоювання, які колись були закриті для вас. Сингулярність залишається відкритою, постійним джерелом сили, що забезпечує ваше панування над усіма світами.</p>`
     }
   },
   {
@@ -2574,8 +2638,16 @@ const MILESTONES = [
       { type: "characteristic", key: "infernal", target: 40, label: { en: "Reach Level 40 Infernal Power", ua: "Досягти 40 рівня Пекельної Сили" } }
     ],
     loreText: {
-      en: `Swarms of dark locusts and toxic scorpions blacken the sky. You have unleashed the Pestilence Scourge. Infused with celestial nebula dust and volcanically tempered infernal energy, your plagues are incurable.`,
-      ua: `Рої темної сарани та отруйних скорпіонів затьмарюють небо. Ви випустили на волю Пошесть Сарани. Насичені космічним пилом туманностей та загартовані вулканічною силою, ваші хвороби є невиліковними.`
+      en: `<h3>Chapter I: The Blackened Sky</h3>
+<p>Swarms of dark locusts and toxic scorpions blacken the sky, their wings creating a deafening roar. You have unleashed the Pestilence Scourge, a devastating plague that sweeps across the mortal realm. Infused with celestial nebula dust and volcanically tempered infernal energy, your plagues are incurable, turning once-fertile valleys into waste and bone.</p>
+<p>The crops wither and die, the water turns to blood, and the air is filled with the scent of decay. The mortals flee in terror, but there is no escape from the swarm. You watch from your palace as their civilizations crumble, their cities turned to silent tombs.</p>
+<h3>Chapter II: The Unholy Sickness</h3>
+<p>The sickness spreads to every corner of the world, infecting kings and peasants alike. The high temples of light are turned into hospitals, and then to ruins. Your power grows with every death, the life force of the fallen absorbed by your domain. The scourge is complete, and the mortal world is now too weak to resist your final advance.</p>`,
+      ua: `<h3>Розділ I: Почорніле Небо</h3>
+<p>Рої темної сарани та отруйних скорпіонів затьмарюють небо, їхні крила створюють оглушливий гул. Ви випустили на волю Пошесть Сарани, руйнівну хворобу, яка проноситься світом смертних. Насичені космічним пилом туманностей та загартовані вулканічною силою, ваші хвороби є невиліковними, перетворюючи колись родючі долини на пустку та кістки.</p>
+<p>Врожаї в'януть і гинуть, вода перетворюється на кров, а повітря наповнюється запахом тління. Смертні тікають у паніці, але від рою немає порятунку. Ви спостерігаєте зі свого палацу, як руйнуються їхні цивілізації, а міста перетворюються на мовчазні гробниці.</p>
+<h3>Розділ II: Нечестивий Осквернитель</h3>
+<p>Хвороба поширюється у кожен куточок світу, вражаючи королів і селян однаково. Храми світла перетворюються на шпиталі, а потім на руїни. Ваша сила зростає з кожною смертю, життєва сила полеглих поглинається вашим володінням. Пошесть завершена, і світ смертних тепер надто слабкий, щоб протистояти вашому остаточному наступу.</p>`
     }
   },
   {
@@ -2588,8 +2660,54 @@ const MILESTONES = [
       { type: "characteristic", key: "resilience", target: 50, label: { en: "Reach Level 50 Resilience", ua: "Досягти 50 рівня Стійкості" } }
     ],
     loreText: {
-      en: `The mortal realm collapses into the yawning void as the sky breaks. Ethereal chains pull their cities into the dark chambers of your palace. Bound by your iron Willpower and unbreakable Resilience, thousands of souls power your eternal throne. You are the absolute Sovereign of the Ascended Abyss!`,
-      ua: `Світ смертних остаточно обрушується у зяючу порожнечу, коли небо розколюється. Ефірні ланцюги затягують їхні міста в темні зали вашого палацу. Укріплені вашою Силою Волі та незламною Стійкістю, тисячі душ живлять ваш вічний трон. Ви — абсолютний Володар Воскреслої Безодні!`
+      en: `<h3>Chapter I: The Shattered Heavens</h3>
+<p>The mortal realm collapses into the yawning void as the sky breaks. Ethereal chains pull their cities into the dark chambers of your palace. Bound by your iron Willpower and unbreakable Resilience, thousands of souls power your eternal throne. You are the absolute Sovereign of the Ascended Abyss, and the universe now recognizes your supremacy.</p>
+<p>The high heavens are silent, the creators of light defeated and cast out. You stand upon your balcony, looking out over the conquered world. The once-bright cities are now dark fortresses, their citizens serving as your loyal slaves. Your reign is eternal, your rule absolute, and the Abyss is now the center of all existence.</p>
+<h3>Chapter II: The Eternal Throne</h3>
+<p>You sit upon the throne of souls, the energy of millions flowing through your form. You are no longer bound by the laws of physics or magic; you are the law. The universe trembles at your name, and your dominion expands into the infinite stars. The conquest of the mortal world is complete, but the stars are still rich and ripe for your advance.</p>`,
+      ua: `<h3>Розділ I: Розбиті Небеса</h3>
+<p>Світ смертних остаточно обрушується у зяючу порожнечу, коли небо розколюється. Ефірні ланцюги затягують їхні міста в темні зали вашого палацу. Укріплені вашою Силою Волі та незламною Стійкістю, тисячі душ живлять ваш вічний трон. Ви — абсолютний Володар Воскреслої Безодні, і всесвіт тепер визнає ваше панування.</p>
+<p>Високі небеса мовчать, творці світла переможені та вигнані. Ви стоїте на своєму балконі, дивлячись на завойований світ. Колись яскраві міста тепер перетворилися на темні фортеці, а їхні жителі служать вашими вірними рабами. Ваше правління вічне, ваша влада абсолютна, і Безодня тепер є центром усього існування.</p>
+<h3>Розділ II: Вічний Трон</h3>
+<p>Ви сидите на троні душ, енергія мільйонів тече крізь вашу подобу. Ви більше не пов'язані законами фізики чи магії; ви самі є законом. Всесвіт здригається від вашого імені, і ваше володіння розширюється до нескінченних зірок. Завоювання світу смертних завершено, але зірки все ще багаті й готові до вашого наступу.</p>`
+    }
+  },
+  {
+    index: 10,
+    title: { en: "Master of the Abyssal Paths", ua: "Майстер Шляхів Безодні" },
+    goals: [
+      { type: "paths_lvl", target: 85, count: 12, label: { en: "Reach Level 85 in at least 12 Abyssal Paths (80%)", ua: "Досягти 85 рівня у щонайменше 12 Шляхах Безодні (80%)" } }
+    ],
+    loreText: {
+      en: `<h3>Chapter I: The Unholy Synchronization</h3>
+<p>To master a single path is the work of a lifetime; to master twelve is to touch the mind of the Abyss itself. You have achieved the Unholy Synchronization. From Brimstone Extraction to the deepest chambers of Sins, twelve of the abyssal paths have bent to your absolute control. The energy of these disciplines flows through your mind, a perfect, chaotic harmony of dark powers.</p>
+<p>You can feel the volcanic heat of the forge, the cold shadows of the veil, and the toxic decay of the plagues all at once. They are no longer separate forces; they are parts of your form. Your mind is an archive of unholy knowledge, and your will is the spark that keeps the Abyss burning.</p>
+<h3>Chapter II: The Master's Decree</h3>
+<p>You establish new laws for the abyssal paths, optimizing the extraction of energy and resources. Your servants work with unprecedented efficiency, their actions guided by your synchronized mind. The balance of power has shifted, and the other lords of the dark bow to your superior wisdom. You are the master of the paths, and the universe is yours to command.</p>`,
+      ua: `<h3>Розділ I: Нечестиве Узгодження</h3>
+<p>Опанувати один шлях — це праця всього життя; опанувати дванадцять — це торкнутися самого розуму Безодні. Ви досягли Нечестивого Узгодження. Від видобутку сірки до найглибших палат Гріхів, дванадцять шляхів безодні схилилися перед вашою приборканою волею. Енергія цих дисциплін тече крізь ваш розум, створюючи ідеальну, хаотичну гармонію темних сил.</p>
+<p>Ви відчуваєте вулканічний жар кузні, холодні тіні завіси та отруйний розпад чуми одночасно. Вони більше не є окремими силами; вони є частиною вашої істоти. Ваш розум — це архів нечестивих знань, а ваша воля — іскра, яка підтримує вогонь Безодні.</p>
+<h3>Розділ II: Указ Майстра</h3>
+<p>Ви встановлюєте нові закони для шляхів безодні, оптимізуючи вилучення енергії та ресурсів. Ваші слуги працюють з безпрецедентною ефективністю, їхні дії керуються вашим узгодженим розумом. Баланс сил змінився, і інші володарі темряви схиляються перед вашою вищою мудрістю. Ви — майстер шляхів, і всесвіт підкоряється вам.</p>`
+    }
+  },
+  {
+    index: 11,
+    title: { en: "Grand Archon of the Sovereign Voids", ua: "Великий Архонт Суверенних Пустот" },
+    goals: [
+      { type: "paths_lvl", target: 100, count: 12, label: { en: "Reach Max Level 100 in at least 12 Abyssal Paths (80%)", ua: "Досягти макс. рівня 100 у щонайменше 12 Шляхах Безодні (80%)" } }
+    ],
+    loreText: {
+      en: `<h3>Chapter I: The Epilogue of the Ascended Void</h3>
+<p>The universe has ceased to struggle. Under your absolute will, the boundary between the mortal realm, the high heavens, and the Abyssal Void has ceased to exist. Ethereal chains of dark matter pull whole stellar systems down into the deep graphite vaults of your palace. The gods of light have fled into the infinite dark, and the screaming souls of millions power your eternal throne.</p>
+<p>You are no longer a mere dweller of the dark or a conqueror of worlds. You are the Grand Archon of the Sovereign Voids. Your dominion is eternal, your rule absolute, and your consciousness is woven into the very fabric of the cosmos. The light has been extinguished, and the dark reigns supreme.</p>
+<h3>Chapter II: The Infinite Future</h3>
+<p>You stand upon the edge of the infinite void, looking out over the dark expanse of your territory. The stars are black, their light swallowed by your power. There are no more worlds to conquer, no more gods to defeat. You have achieved the ultimate conquest. However, the Abyss is infinite, and your hunger is never satisfied. You may continue to play, amass wealth, and rule your dark kingdom until the end of time.</p>`,
+      ua: `<h3>Розділ I: Епілог Воскреслої Безодні</h3>
+<p>Всесвіт припинив боротьбу. Під вашою абсолютною волею кордон між світом смертних, високими небесами та Порожнечею Безодні перестав існувати. Ефірні ланцюги з темної матерії затягують цілі зоряні системи в глибокі графітові склепіння вашого палацу. Боги світла втекли в нескінченну темряву, а кричущі душі мільйонів живлять ваш вічний трон.</p>
+<p>Ви більше не просто мешканець темряви чи завойовник світів. Ви — Великий Архонт Суверенних Пустот. Ваше панування вічне, ваша влада абсолютна, а ваша свідомість вплетена в саму тканину космосу. Світло згасло, і темрява панує над усім.</p>
+<h3>Розділ II: Нескінченне Майбутнє</h3>
+<p>Ви стоїте на краю нескінченної порожнечі, дивлячись на темні простори вашої території. Зірки чорні, їхнє світло поглинене вашою силою. Більше немає світів для завоювання, немає богів для перемоги. Ви досягли остаточного завоювання. Однак Безодня нескінченна, і ваш голод ніколи не вгамується. Ви можете продовжувати грати, накопичувати багатства та правити своїм темним королівством до кінця часів.</p>`
     }
   }
 ];
@@ -2829,6 +2947,8 @@ const GENERATED_IMAGES = new Set([
   "mass_gargoyle_binding",
   "meditate_on_void",
   "milestone10_banner",
+  "milestone11_banner",
+  "milestone12_banner",
   "milestone1_banner",
   "milestone2_banner",
   "milestone3_banner",
@@ -3464,6 +3584,7 @@ function showPrologue() {
   const title = document.getElementById("modal-title");
   const banner = document.getElementById("modal-banner");
   if (banner) {
+    banner.style.display = "block";
     if (GENERATED_IMAGES.has("prologue_banner")) {
       banner.style.backgroundImage = "url('assets/images/prologue_banner.jpg')";
     } else {
@@ -3504,12 +3625,107 @@ function showPrologue() {
   document.getElementById("modal-overlay").classList.add("open");
 }
 
+function showAllAchievements() {
+  state.activeModalType = "all_achievements";
+  const title = document.getElementById("modal-title");
+  const banner = document.getElementById("modal-banner");
+  if (banner) {
+    banner.style.display = "none";
+  }
+  const content = document.getElementById("modal-body-content");
+  const actionBtn = document.getElementById("btn-modal-action");
+  
+  title.innerText = state.lang === "en" ? "ALL CONQUEST ACHIEVEMENTS" : "ВСІ ДОСЯГНЕННЯ ЗАВОЮВАНЬ";
+  actionBtn.innerText = state.lang === "en" ? "Dismiss" : "Закрити";
+  
+  let html = `<div style="max-height: 400px; overflow-y: auto; padding-right: 8px; display: flex; flex-direction: column; gap: 12px; margin-top: 10px;">`;
+  
+  MILESTONES.forEach((m, idx) => {
+    const isCompleted = state.milestoneIndex > idx;
+    const isActive = state.milestoneIndex === idx;
+    
+    let statusLabel = state.lang === "en" ? "LOCKED" : "ЗАБЛОКОВАНО";
+    let statusColor = "var(--color-text-dark)";
+    let borderStyle = "1px solid rgba(255, 62, 62, 0.1)";
+    let bgStyle = "rgba(0, 0, 0, 0.2)";
+    
+    if (isCompleted) {
+      statusLabel = state.lang === "en" ? "✓ COMPLETED" : "✓ ВИКОНАНО";
+      statusColor = "var(--color-text-green)";
+      borderStyle = "1px solid var(--color-text-green)";
+      bgStyle = "rgba(21, 128, 61, 0.08)";
+    } else if (isActive) {
+      statusLabel = state.lang === "en" ? "★ ACTIVE" : "★ АКТИВНИЙ";
+      statusColor = "var(--color-yellow)";
+      borderStyle = "2px solid var(--color-yellow)";
+      bgStyle = "rgba(245, 158, 11, 0.08)";
+    }
+    
+    const goalsList = m.goals.map(goal => {
+      let currentVal = 0;
+      if (goal.type === "resource") {
+        currentVal = state.resources[goal.key] || 0;
+      } else if (goal.type === "characteristic") {
+        currentVal = state.statLevels[goal.key] || 1;
+      } else if (goal.type === "crafted") {
+        if (goal.key === "imp") {
+          currentVal = (state.resources.imp || 0) + (hasMinionEquipped("imp") ? 1 : 0);
+        } else if (goal.key === "brimstone_brand") {
+          currentVal = (state.resources.brimstone_brand || 0) + (state.equipment.tool === "brimstone_brand" ? 1 : 0);
+        } else if (goal.key === "obsidian_sigil") {
+          currentVal = (state.resources.obsidian_sigil || 0) + (state.equipment.accessory === "obsidian_sigil" ? 1 : 0);
+        } else {
+          currentVal = state.resources[goal.key] || 0;
+        }
+      } else if (goal.type === "raid_success") {
+        currentVal = state.completedRaidsCount[goal.key] || 0;
+      } else if (goal.type === "equipped") {
+        currentVal = hasMinionEquipped(goal.key) ? 1 : 0;
+      } else if (goal.type === "paths_lvl") {
+        const allPaths = [
+          "extraction", "veil", "forge", "rites", "conquest",
+          "torture", "alchemy", "necromancy", "agriculture", "blood",
+          "chaos", "void", "plague", "astral", "sins"
+        ];
+        currentVal = allPaths.filter(cat => (state.skillLevels[cat] || 1) >= goal.target).length;
+      }
+      
+      const pct = Math.min(goal.target, currentVal);
+      const isGoalDone = currentVal >= goal.target;
+      return `<li style="font-size:0.8rem; color:${isGoalDone ? 'var(--color-text-green)' : 'var(--color-text-secondary)'}; margin-top:2px; list-style-type: none;">
+        ${isGoalDone ? '✓' : '✗'} ${t(goal.label)} (${pct}/${goal.target})
+      </li>`;
+    }).join("");
+    
+    html += `
+      <div style="border: ${borderStyle}; background: ${bgStyle}; padding: 12px; border-radius: 6px; display: flex; flex-direction: column; gap: 4px; text-align: left;">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,62,62,0.1); padding-bottom: 4px;">
+          <strong style="font-family:'Cinzel'; font-size: 0.9rem; color: ${statusColor};">
+            ${idx + 1}. ${t(m.title)}
+          </strong>
+          <span style="font-size: 0.7rem; font-weight: bold; color: ${statusColor};">${statusLabel}</span>
+        </div>
+        <p style="font-size: 0.8rem; font-style: italic; color: var(--color-text-secondary); margin: 4px 0 2px 0; line-height: 1.3;">
+          "${isCompleted ? t(m.loreText) : (state.lang === "en" ? "??? (Complete previous achievements to unlock lore)" : "??? (Виконайте попередні досягнення, щоб відкрити історію)")}"
+        </p>
+        ${!isCompleted ? `<ul style="margin: 4px 0 0 0; padding-left: 0;">${goalsList}</ul>` : ""}
+      </div>
+    `;
+  });
+  
+  html += `</div>`;
+  content.innerHTML = html;
+  
+  document.getElementById("modal-overlay").classList.add("open");
+}
+
 function triggerMilestonePopup(milestone) {
   state.isPaused = true;
   state.activeModalType = "milestone";
   const title = document.getElementById("modal-title");
   const banner = document.getElementById("modal-banner");
   if (banner) {
+    banner.style.display = "block";
     const key = `milestone${milestone.index + 1}_banner`;
     if (GENERATED_IMAGES.has(key)) {
       banner.style.backgroundImage = `url('assets/images/${key}.jpg')`;
@@ -3520,14 +3736,22 @@ function triggerMilestonePopup(milestone) {
   const content = document.getElementById("modal-body-content");
   const actionBtn = document.getElementById("btn-modal-action");
   
-  title.innerText = state.lang === "en" ? `CONQUEST REACHED: ${t(milestone.title).toUpperCase()}` : `ЗАВОЮВАННЯ: ${t(milestone.title).toUpperCase()}`;
+  if (milestone.index === 11) {
+    title.innerText = state.lang === "en" ? "THE SOVEREIGN OF THE ASCENDED ABYSS (EPILOGUE)" : "ВОЛОДАР ВОСКРЕСЛОЇ БЕЗОДНІ (ЕПІЛОГ)";
+    actionBtn.innerText = state.lang === "en" ? "Rule Eternally" : "Правити Вічно";
+  } else {
+    title.innerText = state.lang === "en" ? `CONQUEST REACHED: ${t(milestone.title).toUpperCase()}` : `ЗАВОЮВАННЯ: ${t(milestone.title).toUpperCase()}`;
+    actionBtn.innerText = state.lang === "en" ? "Claim Dominion" : "Заявити Права";
+  }
+  
   content.innerHTML = `
-    <blockquote>"${t(milestone.loreText)}"</blockquote>
-    <p style="color:#ffd23f; text-align:center; font-family:'Cinzel'; margin-top:20px;">
+    <div style="max-height: 350px; overflow-y: auto; padding-right: 8px; margin-top: 10px; font-size: 0.85rem; line-height: 1.5; text-align: left;">
+      ${t(milestone.loreText)}
+    </div>
+    <p style="color:#ffd23f; text-align:center; font-family:'Cinzel'; margin-top:16px; font-size:0.85rem;">
       ${state.lang === "en" ? "Your dark influence expands deeper into the Abyssal core..." : "Ваш темний вплив проникає глибше в ядро Безодні..."}
     </p>
   `;
-  actionBtn.innerText = state.lang === "en" ? "Claim Dominion" : "Заявити Права";
   
   document.getElementById("modal-overlay").classList.add("open");
 }
@@ -3580,6 +3804,15 @@ function isGoalComplete(goal) {
   }
   if (goal.type === "equipped") {
     return hasMinionEquipped(goal.key);
+  }
+  if (goal.type === "paths_lvl") {
+    const allPaths = [
+      "extraction", "veil", "forge", "rites", "conquest",
+      "torture", "alchemy", "necromancy", "agriculture", "blood",
+      "chaos", "void", "plague", "astral", "sins"
+    ];
+    const count = allPaths.filter(cat => (state.skillLevels[cat] || 1) >= goal.target).length;
+    return count >= goal.count;
   }
   return false;
 }
@@ -3653,7 +3886,12 @@ function renderTopBar() {
   
   if (state.activeActivity) {
     const act = ACTIVITIES.find(a => a.id === state.activeActivity);
-    activeName.innerText = act ? t(act.name) : (state.lang === "en" ? "Idle..." : "Бездіяльність...");
+    if (act) {
+      const pathName = LOCALIZATION[state.lang]["title_" + act.category] || act.category;
+      activeName.innerHTML = `<strong>${pathName}</strong> - ${t(act.name)}`;
+    } else {
+      activeName.innerText = state.lang === "en" ? "Idle..." : "Бездіяльність...";
+    }
     activeDisplay.classList.add("text-glow-yellow");
   } else {
     activeName.innerText = state.lang === "en" ? "Idle..." : "Бездіяльність...";
@@ -3773,12 +4011,12 @@ function renderWorkspace() {
           finalCost = Math.max(1, Math.round(amount * scale));
         }
         const hasEnough = (state.resources[key] || 0) >= finalCost;
-        const color = hasEnough ? "#3eff51" : "#ff3e51";
+        const color = hasEnough ? "var(--color-text-green)" : "var(--color-text-red)";
         return `<span style="color: ${color}; white-space: nowrap;">${RESOURCES[key].icon} ${finalCost} ${t(RESOURCES[key].name)}</span>`;
       }).join(", ");
       costHTML += `</span></div>`;
     } else {
-      costHTML = `<div class="card-cost-info"><span class="card-label">${state.lang === 'en' ? 'Consumes:' : 'Витрачає:'}</span><span class="card-value" style="color:#3eff51;">${state.lang === 'en' ? 'Free' : 'Безкоштовно'}</span></div>`;
+      costHTML = `<div class="card-cost-info"><span class="card-label">${state.lang === 'en' ? 'Consumes:' : 'Витрачає:'}</span><span class="card-value" style="color:var(--color-text-green);">${state.lang === 'en' ? 'Free' : 'Безкоштовно'}</span></div>`;
     }
     
     let yieldHTML = `<div class="card-yield-info"><span class="card-label">${state.lang === 'en' ? 'Yields:' : 'Дає:'}</span><span class="card-value">`;
@@ -4020,7 +4258,7 @@ function renderStore() {
         const count = state.resources[resKey] || 0;
         const affordable = count >= amount;
         if (!affordable) canBuy = false;
-        const color = affordable ? "#3eff51" : "#ff3e51";
+        const color = affordable ? "var(--color-text-green)" : "var(--color-text-red)";
         const icon = resKey === "gold" ? "🪙" : (RESOURCES[resKey]?.icon || "✦");
         const name = resKey === "gold" ? (state.lang === 'en' ? 'Gold Coins' : 'Золоті Монети') : t(RESOURCES[resKey]?.name);
         return `<span style="color: ${color}; white-space: nowrap; margin-right: 10px;">${icon} ${amount} ${name}</span>`;
@@ -4035,7 +4273,7 @@ function renderStore() {
       (state.lang === 'en' ? `Upgrade to Lvl ${lvl + 1}` : `Покращити до Рів. ${lvl + 1}`);
       
     const activeEffectHTML = lvl > 0 ? 
-      `<div style="font-size: 0.8rem; color: #3eff51; margin-bottom: 2px;">${state.lang === 'en' ? 'Active Bonus:' : 'Активний бонус:'} ${upg.getEffectText(lvl - 1, state.lang)}</div>` : 
+      `<div style="font-size: 0.8rem; color: var(--color-text-green); margin-bottom: 2px;">${state.lang === 'en' ? 'Active Bonus:' : 'Активний бонус:'} ${upg.getEffectText(lvl - 1, state.lang)}</div>` : 
       "";
       
     const nextEffectHTML = !isMax ? 
@@ -4337,7 +4575,10 @@ function openCodex(id, type) {
     let consLabel = state.lang === "en" ? "Consumed By" : "Використовується у";
     let noneLabel = state.lang === "en" ? "None" : "Немає";
     
-    let producerHTML = producers.map(p => `<li>🌋 ${t(p.name)} (Base: ${(p.baseTime/1000).toFixed(1)}s)</li>`).join("") || `<li>${noneLabel}</li>`;
+    let producerHTML = producers.map(p => {
+      const pathName = LOCALIZATION[state.lang]["title_" + p.category] || p.category;
+      return `<li>🌋 [${pathName}] ${t(p.name)} (Base: ${(p.baseTime/1000).toFixed(1)}s)</li>`;
+    }).join("") || `<li>${noneLabel}</li>`;
     let consumerHTML = consumers.map(c => `<li>⚙ ${t(c.name)}</li>`).join("") || `<li>${noneLabel}</li>`;
     
     body.innerHTML = `
@@ -4779,6 +5020,8 @@ document.getElementById("btn-modal-lang").addEventListener("click", () => {
     showPrologue();
   } else if (state.activeModalType === "milestone") {
     triggerMilestonePopup(MILESTONES[state.milestoneIndex - 1]);
+  } else if (state.activeModalType === "all_achievements") {
+    showAllAchievements();
   }
   
   renderTopBar();
@@ -4848,6 +5091,14 @@ window.onload = () => {
   renderWorkspace();
   renderStatsPanel();
   initGlobalTooltip();
+  
+  // Attach achievements button click listener
+  const btnShowUpg = document.getElementById("btn-show-achievements");
+  if (btnShowUpg) {
+    btnShowUpg.addEventListener("click", () => {
+      showAllAchievements();
+    });
+  }
   
   setInterval(tick, 50);
   setInterval(saveGame, 10000);

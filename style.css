@@ -22,6 +22,11 @@ html {
   --color-text-secondary-fixed: #a1a1aa;
   --color-text-dark: #71717a;
   
+  --color-text-green: #3eff51;
+  --color-text-red: #ff3e51;
+  --color-bg-modal-overlay: rgba(0, 0, 0, 0.85);
+  --box-shadow-codex: -10px 0 30px rgba(0, 0, 0, 0.85);
+  
   --body-gradient: linear-gradient(135deg, #070709 0%, #111115 50%, #050507 100%);
   --ambient-red-glow: rgba(225, 29, 72, 0.08);
   --ambient-purple-glow: rgba(0, 0, 0, 0);
@@ -55,6 +60,11 @@ html {
   --color-text-secondary: #455667;
   --color-text-secondary-fixed: #455667;
   --color-text-dark: #677889;
+  
+  --color-text-green: #15803d;
+  --color-text-red: #b91c1c;
+  --color-bg-modal-overlay: rgba(234, 240, 246, 0.85);
+  --box-shadow-codex: -10px 0 30px rgba(0, 0, 0, 0.12);
   
   --body-gradient: linear-gradient(135deg, #f0f4f8 0%, #e2eaf0 45%, #d5e0ea 100%);
   --ambient-red-glow: rgba(255, 62, 62, 0.05);
@@ -922,7 +932,7 @@ body {
   height: 100vh;
   background-color: var(--color-bg-panel);
   border-left: 2px solid var(--color-red);
-  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.85);
+  box-shadow: var(--box-shadow-codex);
   transform: translateX(100%);
   transition: var(--transition-normal);
   z-index: 100;
@@ -1024,7 +1034,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.85);
+  background: var(--color-bg-modal-overlay);
   backdrop-filter: blur(8px);
   z-index: 10000;
   display: flex;

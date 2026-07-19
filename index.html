@@ -18,6 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@500;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -37,9 +38,12 @@
       
       <!-- Current Milestone Progression -->
       <div class="milestone-tracker-card" id="milestone-tracker">
-        <div class="tracker-header">
-          <span class="tracker-label" data-i18n="active_conquest">ACTIVE CONQUEST</span>
-          <span class="milestone-name" id="active-milestone-name">Milestone 1: Awakening of the Archon</span>
+        <div class="tracker-header" style="display:flex; justify-content:space-between; align-items:center;">
+          <div style="display:flex; flex-direction:column; gap:2px;">
+            <span class="tracker-label" data-i18n="active_conquest">ACTIVE CONQUEST</span>
+            <span class="milestone-name" id="active-milestone-name">Milestone 1: Awakening of the Archon</span>
+          </div>
+          <button class="btn btn-secondary btn-sm" id="btn-show-achievements" style="font-size:0.7rem; padding:4px 8px; border-radius:4px; margin-left:8px;" title="View All Achievements">🏆 View All</button>
         </div>
         <div class="milestone-goals" id="active-milestone-goals">
           <!-- Goals will be generated dynamically -->
