@@ -4699,6 +4699,29 @@ function openCodex(id, type) {
     let prodLabel = state.lang === "en" ? "Produced By" : "Видобувається у";
     let consLabel = state.lang === "en" ? "Consumed By" : "Використовується у";
     let noneLabel = state.lang === "en" ? "None" : "Немає";
+
+    const getLocalizedResCategory = (cat) => {
+      if (state.lang === 'ua') {
+        const mappings = {
+          ethereal: "Ефірний",
+          geological: "Геологічний",
+          biological: "Біологічний",
+          crafted: "Виготовлений",
+          companion: "Супутник",
+          mortal: "Смертний"
+        };
+        return mappings[cat] || cat;
+      }
+      const mappingsEn = {
+        ethereal: "Ethereal",
+        geological: "Geological",
+        biological: "Biological",
+        crafted: "Crafted",
+        companion: "Companion",
+        mortal: "Mortal"
+      };
+      return mappingsEn[cat] || cat;
+    };
     
     const groupedProducers = {};
     producers.forEach(p => {
@@ -4737,7 +4760,7 @@ function openCodex(id, type) {
       </div>
       <div class="codex-section">
         <h4 class="codex-section-title">${state.lang === 'en' ? 'Category' : 'Категорія'}</h4>
-        <span style="text-transform:uppercase; font-size:0.8rem; color:var(--color-red); font-weight:600;">${res.category}</span>
+        <span style="font-size:0.85rem; color:var(--color-red); font-weight:600; font-family:'Cinzel';">${getLocalizedResCategory(res.category).toUpperCase()}</span>
       </div>
       <div class="codex-section">
         <h4 class="codex-section-title">${state.lang === 'en' ? 'Description' : 'Опис'}</h4>
