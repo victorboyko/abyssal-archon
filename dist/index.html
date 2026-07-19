@@ -19,8 +19,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@500;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="/assets/favicon-9dKz-2US.png">
-  <script type="module" crossorigin src="/assets/index-BLhWXVaj.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-CT73NA_l.css">
+  <script type="module" crossorigin src="/assets/index-CNJqJII4.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-segZjGtY.css">
 </head>
 <body>
 
@@ -44,7 +44,6 @@
             <span class="tracker-label" data-i18n="active_conquest">ACTIVE CONQUEST</span>
             <span class="milestone-name" id="active-milestone-name">Milestone 1: Awakening of the Archon</span>
           </div>
-          <button class="btn btn-secondary btn-sm" id="btn-show-achievements" style="font-size:0.7rem; padding:4px 8px; border-radius:4px; margin-left:8px;" title="View All Achievements">🏆 View All</button>
         </div>
         <div class="milestone-goals" id="active-milestone-goals">
           <!-- Goals will be generated dynamically -->
@@ -122,6 +121,9 @@
           <h3 class="category-title" data-i18n="dominion_header">Dominion</h3>
           <button class="nav-btn" data-tab="store">
             <span class="nav-icon">🪙</span> <span data-i18n="path_store">Abyssal Store</span>
+          </button>
+          <button class="nav-btn" data-tab="boosters">
+            <span class="nav-icon">⚡</span> <span data-i18n="path_boosters">Booster Shop</span>
           </button>
           <button class="nav-btn" data-tab="inventory">
             <span class="nav-icon">🎒</span> <span data-i18n="path_inventory">Vault & Armory</span>
@@ -348,6 +350,23 @@
           <div class="store-container">
             <div class="store-grid" id="store-grid">
               <!-- Populated dynamically via JS -->
+            </div>
+          </div>
+        </section>
+
+        <section class="tab-content" id="tab-boosters">
+          <div class="view-header">
+            <h2 data-i18n="title_boosters">Booster Shop & Control</h2>
+            <p class="view-description" data-i18n="desc_boosters">Acquire powerful, temporary unholy augmentations using your items or gold.</p>
+          </div>
+          <div class="boosters-container" style="display:flex; flex-direction:column; gap:20px;">
+            <!-- Active Booster Status panel -->
+            <div class="boosters-active-panel" id="boosters-active-panel">
+              <!-- Generated dynamically -->
+            </div>
+            <!-- Booster Cards Grid -->
+            <div class="boosters-grid" id="boosters-grid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:16px;">
+              <!-- Generated dynamically -->
             </div>
           </div>
         </section>

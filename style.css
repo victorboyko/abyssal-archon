@@ -428,7 +428,7 @@ body {
 }
 
 .slot-card {
-  background: rgba(20, 15, 15, 0.8);
+  background: var(--color-bg-card);
   border: 1px solid rgba(255, 62, 62, 0.1);
   padding: 6px 4px;
   border-radius: 4px;
@@ -842,7 +842,7 @@ body {
 
 /* Inventory Item Cell */
 .inventory-item {
-  background: rgba(10, 10, 10, 0.6);
+  background: var(--color-bg-card);
   border: 1px solid rgba(255, 62, 62, 0.12);
   border-radius: 6px;
   padding: 12px 8px;
@@ -857,12 +857,12 @@ body {
 
 .inventory-item:hover {
   border-color: var(--color-red);
-  background: rgba(255, 62, 62, 0.04);
+  background: var(--color-bg-card-hover);
 }
 
 .inventory-item.has-count {
   border-color: rgba(255, 62, 62, 0.25);
-  background: rgba(20, 15, 15, 0.85);
+  background: var(--color-bg-card-hover);
 }
 
 .item-icon {
@@ -1608,8 +1608,8 @@ body {
   font-family: var(--font-gothic);
   font-size: 1.05rem;
   letter-spacing: 1px;
-  color: #fff;
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.15);
+  color: var(--color-text-primary);
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
 }
 
 .store-owned-badge {
@@ -1637,7 +1637,7 @@ body {
 }
 
 .store-card-cost {
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(120, 120, 120, 0.15);
   padding-top: 8px;
 }
 
@@ -1674,4 +1674,14 @@ body {
   color: #3eff51;
   background-color: rgba(62, 255, 81, 0.05);
   cursor: default;
+}
+
+/* Booster Shop augmentations */
+.boosters-active-panel {
+  background: var(--color-bg-card);
+  border: 1px solid rgba(255, 62, 62, 0.15);
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: var(--box-shadow-codex);
+  transition: all 0.3s ease;
 }
