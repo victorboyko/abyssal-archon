@@ -5004,7 +5004,9 @@ function simulateOfflineProgress(ms) {
   
   isSimulatingOffline = true;
   
-  const simulatedMs = Math.min(ms, 43200000);
+  const pathLvl = state.skillLevels[act.category] || 1;
+  const maxMs = 86400000 + pathLvl * 15 * 60 * 1000;
+  const simulatedMs = Math.min(ms, maxMs);
   const duration = calculateDuration(act);
   let completions = 0;
   
