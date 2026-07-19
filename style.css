@@ -1685,3 +1685,7 @@ body {
   box-shadow: var(--box-shadow-codex);
   transition: all 0.3s ease;
 }
+
+.clickable-icon {
+  cursor: pointer;
+}

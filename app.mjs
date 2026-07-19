@@ -4137,7 +4137,7 @@ function renderWorkspace() {
         }
         const hasEnough = (state.resources[key] || 0) >= finalCost;
         const color = hasEnough ? "var(--color-text-green)" : "var(--color-text-red)";
-        return `<span style="color: ${color}; white-space: nowrap;">${RESOURCES[key].icon} ${finalCost} ${t(RESOURCES[key].name)}</span>`;
+        return `<span style="color: ${color}; white-space: nowrap;"><span class="clickable-icon" style="cursor: pointer; display: inline-block;" data-id="${key}">${RESOURCES[key].icon}</span> ${finalCost} ${t(RESOURCES[key].name)}</span>`;
       }).join(", ");
       costHTML += `</span></div>`;
     } else {
@@ -4151,7 +4151,7 @@ function renderWorkspace() {
       if (amount < 1 && finalAmt < 1) {
         displayAmt = `${(finalAmt * 100).toFixed(0)}%`;
       }
-      return `${RESOURCES[key].icon} ${displayAmt} ${t(RESOURCES[key].name)}`;
+      return `<span class="clickable-icon" style="cursor: pointer; display: inline-block;" data-id="${key}">${RESOURCES[key].icon}</span> ${displayAmt} ${t(RESOURCES[key].name)}`;
     }).join(", ");
     yieldHTML += `</span></div>`;
     
@@ -4301,7 +4301,7 @@ function renderInventory() {
     
     itemCell.innerHTML = `
       <button class="btn-help-inline" data-id="${key}" data-type="resource">?</button>
-      <span class="item-icon">${res.icon}</span>
+      <span class="item-icon clickable-icon" style="cursor: pointer; display: inline-block;" data-id="${key}">${res.icon}</span>
       <span class="item-name">${t(res.name)}</span>
       <span class="item-count">${count}</span>
       ${actionOverlay}
@@ -4386,7 +4386,7 @@ function renderStore() {
         const color = affordable ? "var(--color-text-green)" : "var(--color-text-red)";
         const icon = resKey === "gold" ? "🪙" : (RESOURCES[resKey]?.icon || "✦");
         const name = resKey === "gold" ? (state.lang === 'en' ? 'Gold Coins' : 'Золоті Монети') : t(RESOURCES[resKey]?.name);
-        return `<span style="color: ${color}; white-space: nowrap; margin-right: 10px;">${icon} ${amount} ${name}</span>`;
+        return `<span style="color: ${color}; white-space: nowrap; margin-right: 10px;"><span class="clickable-icon" style="cursor: pointer; display: inline-block;" data-id="${resKey}">${icon}</span> ${amount} ${name}</span>`;
       }).join(" ");
     }
     
@@ -4502,7 +4502,7 @@ function getSlotTooltipContent(id, slotType) {
   }
   
   return `
-    <div class="slot-tooltip-name">${res.icon} ${t(res.name)}</div>
+    <div class="slot-tooltip-name"><span class="clickable-icon" style="cursor: pointer; display: inline-block;" data-id="${id}">${res.icon}</span> ${t(res.name)}</div>
     <div class="slot-tooltip-effect">${effectText}</div>
   `;
 }
@@ -4798,13 +4798,13 @@ function openCodex(id, type) {
     const duration = calculateDuration(act);
     
     let costText = act.cost && Object.keys(act.cost).length > 0 ? 
-      Object.entries(act.cost).map(([k, v]) => `${RESOURCES[k].icon} ${v} ${t(RESOURCES[k].name)}`).join(", ") : 
+      Object.entries(act.cost).map(([k, v]) => `<span class="clickable-icon" style="cursor: pointer; display: inline-block;" data-id="${k}">${RESOURCES[k].icon}</span> ${v} ${t(RESOURCES[k].name)}`).join(", ") : 
       (state.lang === 'en' ? 'Free' : 'Безкоштовно');
       
     let yieldText = Object.entries(act.yield).map(([k, v]) => {
       let finalV = v;
       if (v < 1) finalV = `${(v*100).toFixed(0)}%`;
-      return `${RESOURCES[k].icon} ${finalV} ${t(RESOURCES[k].name)}`;
+      return `<span class="clickable-icon" style="cursor: pointer; display: inline-block;" data-id="${k}">${RESOURCES[k].icon}</span> ${finalV} ${t(RESOURCES[k].name)}`;
     }).join(", ");
     
     body.innerHTML = `
@@ -5452,9 +5452,9 @@ function renderBoosters() {
     
     // Build Cost display
     const costItems = Object.entries(b.cost).map(([key, val]) => {
-      if (key === "gold") return `💰 ${val}`;
+      if (key === "gold") return `<span class="clickable-icon" style="cursor: pointer; display: inline-block;" data-id="gold">💰</span> ${val}`;
       const icon = RESOURCES[key] ? RESOURCES[key].icon : "";
-      return `${icon} ${val}`;
+      return `<span class="clickable-icon" style="cursor: pointer; display: inline-block;" data-id="${key}">${icon}</span> ${val}`;
     }).join(", ");
     
     const unlockMsg = b.unlockReq ? 
@@ -5521,6 +5521,17 @@ window.onload = () => {
       showAllAchievements();
     });
   }
+
+  // Global listener for clickable resource icons
+  document.body.addEventListener("click", (e) => {
+    const clickable = e.target.closest(".clickable-icon");
+    if (clickable) {
+      const id = clickable.getAttribute("data-id");
+      if (id) {
+        openCodex(id, "resource");
+      }
+    }
+  });
   
   setInterval(tick, 50);
   setInterval(saveGame, 10000);
