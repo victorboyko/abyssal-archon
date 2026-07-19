@@ -5066,9 +5066,21 @@ document.getElementById("btn-export-save").addEventListener("click", () => {
     boostersOwned: state.boostersOwned, activeBoosterId: state.activeBoosterId, activeBoosterType: state.activeBoosterType, boosterTimeRemaining: state.boosterTimeRemaining, boosterAutoConsume: state.boosterAutoConsume, boosterIsPaused: state.boosterIsPaused, timestamp: Date.now()
   };
   try {
-    const saveString = btoa(unescape(encodeURIComponent(JSON.stringify(data))));
-    const promptMsg = state.lang === "en" ? "Copy this save string code:" : "Скопіюйте цей код збереження:";
-    prompt(promptMsg, saveString);
+    const binStr = Array.from(new TextEncoder().encode(JSON.stringify(data)), b => String.fromCharCode(b)).join("");
+    const saveString = btoa(binStr);
+    
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(saveString).then(() => {
+        const msg = state.lang === "en" ? "Save code copied to clipboard!" : "Код збереження скопійовано в буфер обміну!";
+        showNotification(msg, "success");
+      }).catch(() => {
+        const promptMsg = state.lang === "en" ? "Copy this save string code:" : "Скопіюйте цей код збереження:";
+        prompt(promptMsg, saveString);
+      });
+    } else {
+      const promptMsg = state.lang === "en" ? "Copy this save string code:" : "Скопіюйте цей код збереження:";
+      prompt(promptMsg, saveString);
+    }
   } catch(err) {
     const errorMsg = state.lang === "en" ? "Failed to export save!" : "Не вдалося експортувати збереження!";
     alert(errorMsg);
@@ -5080,9 +5092,30 @@ document.getElementById("btn-import-save").addEventListener("click", () => {
   const saveStr = prompt(promptMsg);
   if (saveStr) {
     try {
-      const cleanStr = saveStr.trim();
-      const decoded = decodeURIComponent(escape(atob(cleanStr)));
-      JSON.parse(decoded); // Validate JSON format
+      const cleanStr = saveStr.replace(/\s+/g, ''); // Remove all whitespace (spaces, tabs, newlines)
+      let decoded;
+      
+      // Try decoding using TextDecoder first (new standard)
+      try {
+        const binString = atob(cleanStr);
+        decoded = new TextDecoder().decode(Uint8Array.from(binString, m => m.charCodeAt(0)));
+        JSON.parse(decoded); // validate JSON
+      } catch(e1) {
+        // Try decoding using percent-encoding fallback
+        try {
+          decoded = decodeURIComponent(atob(cleanStr));
+          JSON.parse(decoded); // validate JSON
+        } catch(e2) {
+          // Try decoding using standard atob fallback
+          try {
+            decoded = atob(cleanStr);
+            JSON.parse(decoded); // validate JSON
+          } catch(e3) {
+            throw new Error("Unable to decode save string");
+          }
+        }
+      }
+      
       localStorage.setItem("abyssal_archon_save", decoded);
       location.reload();
     } catch(e) {
