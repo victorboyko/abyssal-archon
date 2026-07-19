@@ -1,177 +1,413 @@
 // ==========================================
-// ABYSSAL ARCHON: GAME DATABASE Definitions (Localized)
+// GAME DATABASE & CONFIGURATION
 // ==========================================
 
 const RESOURCES = {
+  // --- ETHEREAL RESOURCES ---
   evil_intent: {
     name: { en: "Evil Intent", ua: "Злий Намір" },
     icon: "✥",
     category: "ethereal",
     desc: { en: "The raw cognitive impulse of malice, siphoned from sleeping souls.", ua: "Первинний ментальний імпульс злості, викачаний із сплячих душ." },
-    lore: { en: "It floats like dark static in the ether, representing the fundamental building block of demonic manifestation.", ua: "Він ширяє у ефірі як темні перешкоди, представляючи основну цеглину демонічної матеріалізації." }
+    lore: { en: "It floats like dark static in the ether, representing the fundamental building block of demonic manifestation.", ua: "Він ширяє у ефірі як темні перешкоди, представляючи основну цеглину демонічної матеріалізації." },
+    sellPrice: 1
   },
   anguish: {
     name: { en: "Anguish", ua: "Страждання" },
     icon: "😭",
     category: "ethereal",
     desc: { en: "Pure distress harvested from weeping mortal spirits.", ua: "Чистий розпач, зібраний з ридаючих смертних душ." },
-    lore: { en: "A heavy, crimson vapor that solidifies when exposed to demonic iron.", ua: "Важка багряна пара, яка твердне при взаємодії з демонічним залізом." }
+    lore: { en: "A heavy, crimson vapor that solidifies when exposed to demonic iron.", ua: "Важка багряна пара, яка твердне при взаємодії з демонічним залізом." },
+    sellPrice: 3
   },
   nightmares: {
     name: { en: "Nightmares", ua: "Кошмари" },
     icon: "👁",
     category: "ethereal",
     desc: { en: "Condensed terror drawn from mortal slumber.", ua: "Конденсований жах, витягнутий зі сну смертних." },
-    lore: { en: "It pulses with a quiet panic, used as cognitive fuel to construct advanced minions.", ua: "Він пульсує тихою панікою, використовується як ментальне паливо для створення вищих приплічників." }
+    lore: { en: "It pulses with a quiet panic, used as cognitive fuel to construct advanced minions.", ua: "Він пульсує тихою панікою, використовується як ментальне паливо для створення вищих приплічників." },
+    sellPrice: 5
   },
   chaos_essence: {
     name: { en: "Chaos Essence", ua: "Есенція Хаосу" },
     icon: "🌀",
     category: "ethereal",
     desc: { en: "Unstable energy pulled from the deepest Void.", ua: "Нестабільна енергія, витягнута з найглибшої Безодні." },
-    lore: { en: "It warps the physical matter around it, humming with the power of entropic decay.", ua: "Вона викривляє фізичну матерію навколо себе, гудучи силою ентропійного розпаду." }
+    lore: { en: "It warps the physical matter around it, humming with the power of entropic decay.", ua: "Вона викривляє фізичну матерію навколо себе, гудучи силою ентропійного розпаду." },
+    sellPrice: 8
   },
   divine_essence: {
     name: { en: "Divine Essence", ua: "Божественна Есенція" },
     icon: "✦",
     category: "ethereal",
     desc: { en: "Stolen holy light corrupted into unholy static.", ua: "Вкрадене святе світло, осквернене в нечестиві перешкоди." },
-    lore: { en: "Pulsing with a blinding golden-red glow, it resists the darkness of the pit, making it highly valuable.", ua: "Пульсуючи сліпучим золотисто-червоним сяйвом, вона опирається темряві підземелля, що робить її надзвичайно цінною." }
+    lore: { en: "Pulsing with a blinding golden-red glow, it resists the darkness of the pit, making it highly valuable.", ua: "Пульсуючи сліпучим золотисто-червоним сяйвом, вона опирається темряві підземелля, що робить її надзвичайно цінною." },
+    sellPrice: 20
   },
   souls: {
     name: { en: "Souls", ua: "Душі" },
     icon: "👻",
     category: "ethereal",
     desc: { en: "The ultimate currency of the cosmic scales.", ua: "Остаточна валюта космічних терезів." },
-    lore: { en: "Whispering continuously of their past mortal lives, they fuel the Archon's ultimate ascent.", ua: "Вони безперервно шепочуть про свої минулі смертні життя, живлячи остаточне сходження Архонта." }
+    lore: { en: "Whispering continuously of their past mortal lives, they fuel the Archon's ultimate ascent.", ua: "Вони безперервно шепочуть про свої минулі смертні життя, живлячи остаточне сходження Архонта." },
+    sellPrice: 50
   },
+  screams: {
+    name: { en: "Screams", ua: "Крики" },
+    icon: "😱",
+    category: "ethereal",
+    desc: { en: "Echoes of pure shock and panic, harvested from tortured spirits.", ua: "Луна чистого шоку та паніки, зібрана з катованих душ." },
+    lore: { en: "It vibrates inside hollow bone jars, ringing with cold terror.", ua: "Він вібрує всередині порожніх кістяних глеків, брязкаючи холодним жахом." },
+    sellPrice: 4
+  },
+  agony: {
+    name: { en: "Agony", ua: "Агонія" },
+    icon: "💀",
+    category: "ethereal",
+    desc: { en: "The raw essence of enduring physical and spiritual pain.", ua: "Первинна есенція тривалого фізичного та духовного болю." },
+    lore: { en: "It flows like dark poison, sticking to the walls of the chambers.", ua: "Вона тече як темна отрута, осідаючи на стінах катівень." },
+    sellPrice: 7
+  },
+  terror: {
+    name: { en: "Terror", ua: "Жах" },
+    icon: "🧟",
+    category: "ethereal",
+    desc: { en: "The lingering dread that paralyzes mortal minds.", ua: "Тривалий переляк, що паралізує розум смертних." },
+    lore: { en: "A freezing cold cloud that dampens lights and extinguishes fires.", ua: "Крижана хмара, що гасить світло та загашує вогонь." },
+    sellPrice: 10
+  },
+  chaos_sparks: {
+    name: { en: "Chaos Sparks", ua: "Іскри Хаосу" },
+    icon: "⚡",
+    category: "ethereal",
+    desc: { en: "Crackling charges of entropic static from the Void.", ua: "Тріскучі розряди ентропійних перешкод із Пустоти." },
+    lore: { en: "They leap unpredictably, breaking physical bonds on contact.", ua: "Вони непередбачувано стрибають, руйнуючи фізичні зв'язки при контакті." },
+    sellPrice: 14
+  },
+  eldritch_orbs: {
+    name: { en: "Eldritch Orbs", ua: "Ельдричеві Сфери" },
+    icon: "🔮",
+    category: "ethereal",
+    desc: { en: "Spherical anchors of absolute darkness and void.", ua: "Сферичні якорі абсолютної темряви та порожнечі." },
+    lore: { en: "They hum with pitch-black energy, absorbing nearby heat and light.", ua: "Вони гудуть непроглядною енергією, поглинаючи сусіднє тепло та світло." },
+    sellPrice: 30
+  },
+  wrath_shards: {
+    name: { en: "Wrath Shards", ua: "Осколки Гніву" },
+    icon: "🔥",
+    category: "ethereal",
+    desc: { en: "Sharp crystalline structures grown from mortal fury.", ua: "Гострі кристалічні структури, вирощені зі смертної люті." },
+    lore: { en: "They burn hot to the touch, vibrating with unchannelled aggression.", ua: "Вони гарячі на дотик, вібруючи від некерованої агресії." },
+    sellPrice: 22
+  },
+  pride_essence: {
+    name: { en: "Pride Essence", ua: "Есенція Гордині" },
+    icon: "👑",
+    category: "ethereal",
+    desc: { en: "The condensed self-importance of fallen monarchs.", ua: "Конденсована самозакоханість полеглих монархів." },
+    lore: { en: "It shines with a false, blinding light, trying to dominate nearby minds.", ua: "Вона світиться фальшивим, сліпучим світлом, намагаючись підпорядкувати сусідній розум." },
+    sellPrice: 50
+  },
+  desire: {
+    name: { en: "Desire", ua: "Бажання" },
+    icon: "❤️",
+    category: "ethereal",
+    desc: { en: "Distilled temptation siphoned from mortal hearts.", ua: "Очищена спокуса, викачана зі смертних сердець." },
+    lore: { en: "Sweet-smelling but highly toxic, it weakens mortal resolves instantly.", ua: "Солодка на запах, але дуже токсична, вона миттєво послаблює волю смертних." },
+    sellPrice: 15
+  },
+
+  // --- GEOLOGICAL RESOURCES ---
   sulfur: {
     name: { en: "Sulfur", ua: "Сірка" },
     icon: "🌋",
     category: "geological",
     desc: { en: "Yellow brimstone dust mined from active lava vents.", ua: "Жовтий сірчаний пил, видобутий з активних лавових джерел." },
-    lore: { en: "Choking and toxic to mortals, it acts as an alchemical fuel in the underworld.", ua: "Задушлива й токсична для смертних, вона служить алхімічним паливом у підземному світі." }
+    lore: { en: "Choking and toxic to mortals, it acts as an alchemical fuel in the underworld.", ua: "Задушлива й токсична для смертних, вона служить алхімічним паливом у підземному світі." },
+    sellPrice: 0.5
   },
   obsidian: {
     name: { en: "Obsidian", ua: "Обсидіан" },
     icon: "💎",
     category: "geological",
     desc: { en: "Super-hard volcanic glass quarried from basalt cracks.", ua: "Надтверде вулканічне скло, видобуте з базальтових тріщин." },
-    lore: { en: "Brittle but incredibly sharp, it holds curses better than any metal.", ua: "Крихкий, але неймовірно гострий, він утримує прокляття краще за будь-який метал." }
+    lore: { en: "Brittle but incredibly sharp, it holds curses better than any metal.", ua: "Крихкий, але неймовірно гострий, він утримує прокляття краще за будь-який metal." },
+    sellPrice: 2
   },
   hellfire: {
     name: { en: "Hellfire", ua: "Пекельний Вогонь" },
     icon: "🔥",
     category: "geological",
     desc: { en: "Condensed thermal energy extracted from flowing lava.", ua: "Конденсована теплова енергія, видобута з гарячої лави." },
-    lore: { en: "It burns without wood or coal, sustained by the elemental heat of the core.", ua: "Він горить без дров чи вугілля, підтримуваний стихійним теплом ядра." }
+    lore: { en: "It burns without wood or coal, sustained by the elemental heat of the core.", ua: "Він горить без дров чи вугілля, підтримуваний стихійним теплом ядра." },
+    sellPrice: 1.5
   },
   styx_clay: {
     name: { en: "Styx Clay", ua: "Глина Стіксу" },
     icon: "🏺",
     category: "geological",
     desc: { en: "Death-infused soil dredged from the River Styx.", ua: "Насичений смертю мул, видобутий з дна річки Стікс." },
-    lore: { en: "Damp and smelling of silt, it forms the physical shells of gargoyles and minor monsters.", ua: "Вогка і пахне мулом, вона формує фізичні оболонки для гаргулій та дрібних чудовиськ." }
+    lore: { en: "Damp and smelling of silt, it forms the physical shells of gargoyles and minor monsters.", ua: "Вогка і пахне мулом, вона формує фізичні оболонки для гаргулій та дрібних чудовиськ." },
+    sellPrice: 3
   },
   volcanic_ash: {
     name: { en: "Volcanic Ash", ua: "Вулканічний Попіл" },
     icon: "🌪️",
     category: "geological",
     desc: { en: "Carbonized ash rich in mineral catalysts.", ua: "Обвуглений попіл, багатий на мінеральні каталізатори." },
-    lore: { en: "Acts as a perfect filtering agent in dark alchemical solutions.", ua: "Служить ідеальним фільтром у темних алхімічних розчинах." }
+    lore: { en: "Acts as a perfect filtering agent in dark alchemical solutions.", ua: "Служить ідеальним фільтром у темних алхімічних розчинах." },
+    sellPrice: 1
   },
   iron_ore: {
     name: { en: "Iron Ore", ua: "Залізна Руда" },
     icon: "🪨",
     category: "geological",
     desc: { en: "Mortal iron ore plundered from borderlands.", ua: "Залізна руда смертних, захоплена на прикордонних землях." },
-    lore: { en: "Unrefined steel, waiting to be bent and corrupted by hellfire.", ua: "Неочищена сталь, що чекає, поки її викривить і розбестить пекельний вогонь." }
+    lore: { en: "Unrefined steel, waiting to be bent and corrupted by hellfire.", ua: "Неочищена сталь, що чекає, поки її викривить і розбестить пекельний вогонь." },
+    sellPrice: 1.5
   },
+  bone_dust: {
+    name: { en: "Bone Dust", ua: "Кістяний Пил" },
+    icon: "☠️",
+    category: "geological",
+    desc: { en: "Decayed skeletal remains ground into fine white dust.", ua: "Зруйновані скелетні рештки, подрібнені на білий пил." },
+    lore: { en: "Smells of death and copper, used as a calcium anchor for minor summons.", ua: "Пахне смертю та міддю, використовується як кальцієвий якір для призовів." },
+    sellPrice: 1.5
+  },
+  lapis_sanguine: {
+    name: { en: "Lapis Sanguine", ua: "Багряний Лазурит" },
+    icon: "🔮",
+    category: "geological",
+    desc: { en: "A rare blood-crystallized geological gemstone.", ua: "Рідкісний геологічний самоцвіт із кристалізованої крові." },
+    lore: { en: "Grants heavy flow catalysts for high-level dark spells.", ua: "Дає потужні провідні каталізатори для вищих темних заклять." },
+    sellPrice: 40
+  },
+  void_crystals: {
+    name: { en: "Void Crystals", ua: "Кристали Пустоти" },
+    icon: "💎",
+    category: "geological",
+    desc: { en: "Deep geological cracks grown with spatial elements.", ua: "Глибокі геологічні тріщини, зарослі просторовими елементами." },
+    lore: { en: "They vibrate continuously, warping nearby coordinate lines.", ua: "Вони безперервно вібрують, викривляючи сусідні координатні лінії." },
+    sellPrice: 45
+  },
+  relic_fragments: {
+    name: { en: "Relic Fragments", ua: "Фрагменти Реліквій" },
+    icon: "🏺",
+    category: "geological",
+    desc: { en: "Decomposed clay ruins and fragments of ancient artifacts.", ua: "Розпалі глиняні руїни та уламки древніх артефактів." },
+    lore: { en: "They hold residual charges from long-forgotten owners.", ua: "Вони утримують залишковий заряд від давно забутих власників." },
+    sellPrice: 18
+  },
+  star_dust: {
+    name: { en: "Star Dust", ua: "Зоряний Пил" },
+    icon: "⭐",
+    category: "geological",
+    desc: { en: "Silvery sand collected from astral portals.", ua: "Сріблястий пісок, зібраний з астральних розломів." },
+    lore: { en: "Cold to the touch, but glows in the presence of raw magic.", ua: "Холодний на дотик, але світиться в присутності сирої магії." },
+    sellPrice: 10
+  },
+  nebula_shards: {
+    name: { en: "Nebula Shards", ua: "Осколки Туманності" },
+    icon: "🌌",
+    category: "geological",
+    desc: { en: "Shattered space dust from dead cosmic stars.", ua: "Роздроблений космічний пил від мертвих зірок." },
+    lore: { en: "They pulse with starlight, shifting colors in the dark.", ua: "Вони пульсують зоряним світлом, змінюючи кольори в темряві." },
+    sellPrice: 30
+  },
+
+  // --- BIOLOGICAL RESOURCES ---
   demonic_blood: {
     name: { en: "Demonic Blood", ua: "Демонічна Кров" },
     icon: "🩸",
     category: "biological",
     desc: { en: "Congealed life-force obtained through dark sacrifices.", ua: "Згущена життєва сила, отримана через темні ритуали самопожертви." },
-    lore: { en: "It binds the physical to the spiritual, breathing life into stone constructs.", ua: "Вона пов'язує фізичне з духовним, вдихаючи життя в кам'яні конструкції." }
+    lore: { en: "It binds the physical to the spiritual, breathing life into stone constructs.", ua: "Вона пов'язує фізичне з духовним, вдихаючи життя в кам'яні конструкції." },
+    sellPrice: 10
   },
   flesh: {
     name: { en: "Flesh", ua: "Плоть" },
     icon: "🥩",
     category: "biological",
     desc: { en: "Raw mortal meat plundered from border raids.", ua: "Сире м'ясо смертних, викрадене під час прикордонних набігів." },
-    lore: { en: "Used to feed savage beasts like hellhounds or to build muscular frames for abominations.", ua: "Використовується для годування диких звірів, таких як пекельні гончаки, або для побудови м'язових каркасів потвор." }
+    lore: { en: "Used to feed savage beasts like hellhounds or to build muscular frames for abominations.", ua: "Використовується для годування диких звірів, таких як пекельні гончаки, або для побудови м'язових каркасів потвор." },
+    sellPrice: 2
   },
   ectoplasm: {
     name: { en: "Ectoplasm", ua: "Ектоплазма" },
     icon: "🧪",
     category: "biological",
     desc: { en: "Spectral residue extracted from the river of death.", ua: "Спектральний осад, видобутий з річки смерті." },
-    lore: { en: "Used to anchor stray souls onto physical items.", ua: "Використовується для закріплення блукаючих душ на фізичних предметах." }
+    lore: { en: "Used to anchor stray souls onto physical items.", ua: "Використовується для закріплення блукаючих душ на фізичних предметах." },
+    sellPrice: 8
   },
+  blood_roses: {
+    name: { en: "Blood Roses", ua: "Троянди Крові" },
+    icon: "🌹",
+    category: "biological",
+    desc: { en: "Thorny demonic flora grown in sulfur-rich ash soils.", ua: "Колючі демонічні квіти, вирощені в багатих на сірку попелястих ґрунтах." },
+    lore: { en: "They feed on crimson fluids and emit a low, weeping sound.", ua: "Вони харчуються багряною рідиною та видають тихий плач." },
+    sellPrice: 3
+  },
+  nightshade: {
+    name: { en: "Nightshade", ua: "Паслін" },
+    icon: "🥀",
+    category: "biological",
+    desc: { en: "Toxic vegetation cultivated in deep volcanic soil.", ua: "Токсична зелень, вирощена в глибокому вулканічному ґрунті." },
+    lore: { en: "Extremely poisonous, its roots hold heavy darkness elements.", ua: "Надзвичайно отруйна, її коріння містить важкі елементи темряви." },
+    sellPrice: 6
+  },
+  spore_pods: {
+    name: { en: "Spore Pods", ua: "Спорові Стручки" },
+    icon: "🍄",
+    category: "biological",
+    desc: { en: "Demonic fungal pods filled with toxic spores.", ua: "Демонічні грибні стручки, наповнені отруйними спорами." },
+    lore: { en: "They rupture under pressure, spreading a blinding grey ash cloud.", ua: "Вони лопаються під тиском, розсіюючи задушливу хмару попелу." },
+    sellPrice: 10
+  },
+  coagulated_blood: {
+    name: { en: "Coagulated Blood", ua: "Згущена Кров" },
+    icon: "💉",
+    category: "biological",
+    desc: { en: "Crimson blood fluids refined into thick, dark clots.", ua: "Багряна кров'яна рідина, згущена у важкі темні тромби." },
+    lore: { en: "It acts as a dense physical binder for biological constructs.", ua: "Вона діє як щільний фізичний сполучник для біологічних створінь." },
+    sellPrice: 12
+  },
+  locust_swarms: {
+    name: { en: "Locust Swarms", ua: "Рої Сарани" },
+    icon: "🦗",
+    category: "biological",
+    desc: { en: "Swarms of biting demonic insects.", ua: "Рої кусючих демонічних комах." },
+    lore: { en: "They devour anything organic, leaving barren obsidian behind.", ua: "Вони пожирають будь-яку органіку, залишаючи після себе пустий обсидіан." },
+    sellPrice: 25
+  },
+  venom: {
+    name: { en: "Venom", ua: "Отрута" },
+    icon: "🦂",
+    category: "biological",
+    desc: { en: "Concentrated poison extracted from breeding scorpion nests.", ua: "Концентрована отрута, отримана з гнізд розведення скорпіонів." },
+    lore: { en: "A single drop can liquefy muscle and bone within minutes.", ua: "Всього одна крапля може розчинити м'язи та кістки за лічені хвилини." },
+    sellPrice: 15
+  },
+
+  // --- CURRENCY ---
   gold: {
     name: { en: "Gold Coins", ua: "Золоті Монети" },
     icon: "🪙",
     category: "mortal",
-    desc: { en: "Mortal money plundered from border villages.", ua: "Гроші смертних, викрадені з прикордонних сіл." },
-    lore: { en: "Worthless to higher demons, but useful to bribe mortal black-market merchants.", ua: "Не мають цінності для вищих демонів, але корисні для підкупу смертних торговців чорного ринку." }
+    desc: { en: "Mortal currency plundered from border villages or gained by selling stockpiles.", ua: "Валюта смертних, викрадена з сіл або отримана від продажу запасів." },
+    lore: { en: "Gold coins are worthless to higher demons, but can buy powerful store upgrades.", ua: "Золоті монети не мають цінності для вищих демонів, але за них можна купити потужні покращення в магазині." },
+    sellPrice: 0
   },
+
+  // --- CRAFTED RESOURCES ---
   abyssal_iron: {
     name: { en: "Abyssal Iron", ua: "Безодневе Залізо" },
     icon: "🛡",
     category: "crafted",
     desc: { en: "A black metal alloy smelted with sulfur and lava.", ua: "Сплав чорного металу, виплавлений з сіркою та лавою." },
-    lore: { en: "Extremely heavy and resistant to holy magic. The core component of hellish tools.", ua: "Надзвичайно важкий і стійкий до святої магії. Основний компонент пекельних інструментів." }
+    lore: { en: "Extremely heavy and resistant to holy magic. The core component of hellish tools.", ua: "Надзвичайно важкий і стійкий до святої магії. Основний компонент пекельних інструментів." },
+    sellPrice: 12
   },
   brimstone_brand: {
     name: { en: "Brimstone Brand", ua: "Клеймо Бримстоуну" },
     icon: "🔱",
     category: "crafted",
     desc: { en: "An equipped brand that glows with heat. Grants passive: -10.0% physical action duration (Extraction & Forge).", ua: "Екіпіроване тавро, що світиться жаром. Дає пасивно: -10.0% тривалості фізичних дій (Видобуток та Кузня)." },
-    lore: { en: "Engraved with runes of harvest, it vibrates in the presence of raw sulfur.", ua: "Вигравіруване рунами збору, воно вібрує в присутності сирої сірки." }
+    lore: { en: "Engraved with runes of harvest, it vibrates in the presence of raw sulfur.", ua: "Вигравіруване рунами збору, воно вібрує в присутності сирої сірки." },
+    sellPrice: 150
   },
   obsidian_sigil: {
     name: { en: "Obsidian Sigil", ua: "Обсидіановий Сигіл" },
     icon: "🧿",
     category: "crafted",
     desc: { en: "A pocket accessory that channels void energy. Grants passive: -10.0% magic action duration (Veil Tearing).", ua: "Кишеньковий аксесуар, який направляє енергію пустоти. Дає пасивно: -10.0% тривалості магічних дій (Розрив Завіси)." },
-    lore: { en: "Carved with complex mathematical geometries that channel the void's energy.", ua: "Вирізаний зі складними математичними геометріями, які направляють енергію порожнечі." }
+    lore: { en: "Carved with complex mathematical geometries that channel the void's energy.", ua: "Вирізаний зі складними математичними геометріями, які направляють енергію порожнечі." },
+    sellPrice: 200
   },
   corrosive_acid: {
     name: { en: "Corrosive Acid", ua: "Їдка Кислота" },
     icon: "☣",
     category: "crafted",
     desc: { en: "A powerful alchemical solvent.", ua: "Потужний алхімічний розчинник." },
-    lore: { en: "Dissolves anything except obsidian. Crucial for heavy refining.", ua: "Розчиняє все, крім обсидіану. Необхідна для важкого очищення." }
+    lore: { en: "Dissolves anything except obsidian. Crucial for heavy refining.", ua: "Розчиняє все, крім обсидіану. Необхідна для важкого очищення." },
+    sellPrice: 25
   },
   unholy_elixir: {
     name: { en: "Unholy Elixir", ua: "Нечестивий Еліксир" },
     icon: "🧪",
     category: "crafted",
     desc: { en: "Protective brew that shields demons during holy raids.", ua: "Захисне зілля, що прикриває демонів під час набігів на святині." },
-    lore: { en: "Tastes like ash and poison, but temporarily thickens demonic skin.", ua: "На смак як попіл і отрута, але тимчасово робить демонічну шкіру стійкішою." }
+    lore: { en: "Tastes like ash and poison, but temporarily thickens demonic skin.", ua: "На смак як попіл і отрута, але тимчасово робить демонічну шкіру стійкішою." },
+    sellPrice: 50
   },
+  dark_mercury: {
+    name: { en: "Dark Mercury", ua: "Темна Ртуть" },
+    icon: "🧪",
+    category: "crafted",
+    desc: { en: "A volatile liquid metal metal refined by shadow magic.", ua: "Нестабільний рідкий metal, очищений магією тіней." },
+    lore: { en: "Grants speed and flow multipliers to advanced smelting structures.", ua: "Дає прискорення та множники виходу для вищих плавильних конструкцій." },
+    sellPrice: 15
+  },
+  plague_extract: {
+    name: { en: "Plague Extract", ua: "Екстракт Чуми" },
+    icon: "🤢",
+    category: "crafted",
+    desc: { en: "A highly concentrated toxic distillate.", ua: "Висококонцентрований отруйний дистилят." },
+    lore: { en: "Stinks of decay, used as an active core reactant in advanced alchemy.", ua: "Смердить гниллю, використовується як реактивний реагент у вищій алхімії." },
+    sellPrice: 25
+  },
+  vitriol: {
+    name: { en: "Vitriol", ua: "Купорос" },
+    icon: "⚗️",
+    category: "crafted",
+    desc: { en: "A powerful acid used to smelt heavy relics and obsidian.", ua: "Потужна кислота, що використовується для плавлення важких реліквій та обсидіану." },
+    lore: { en: "It glows with a faint green light, dissolved by sulfur solvents.", ua: "Він світиться тьмяним зеленим світлом, розчинений сірчаними реагентами." },
+    sellPrice: 35
+  },
+  demonic_vials: {
+    name: { en: "Demonic Vials", ua: "Демонічні Флакони" },
+    icon: "🧪",
+    category: "crafted",
+    desc: { en: "Reinforced glass vials infused with demonic fire.", ua: "Загартовані скляні флакони, наповнені демонічним вогнем." },
+    lore: { en: "Perfect for holding high-level volatile fluids.", ua: "Ідеально підходять для утримання вищих нестабільних рідин." },
+    sellPrice: 60
+  },
+
+  // --- COMPANION RESOURCES ---
   hellhound: {
     name: { en: "Hellhound", ua: "Пекельний Гончак" },
     icon: "🐕",
     category: "companion",
     desc: { en: "A flame-breathing beast. Grants passive: +5.0% Brutality experience training rate.", ua: "Вогнедишний звір. Дає пасивно: +5.0% швидкості отримання досвіду Жорстокості." },
-    lore: { en: "Fiercely loyal to whoever feeds them flesh, they track down resources.", ua: "Неймовірно вірний кожному, хто годує його плоттю, допомагає вистежувати здобич." }
+    lore: { en: "Fiercely loyal to whoever feeds them flesh, they track down resources.", ua: "Неймовірно вірний кожному, хто годує його плоттю, допомагає вистежувати здобич." },
+    sellPrice: 500
   },
   gargoyle: {
     name: { en: "Gargoyle", ua: "Гаргулья" },
     icon: "🦇",
     category: "companion",
     desc: { en: "A stony sentinel. Grants passive: +10.0% Resilience (reduces resource losses on raid failures).", ua: "Кам'яний вартовий. Дає пасивно: +10.0% Стійкості (знижує втрату ресурсів при невдалих набігах)." },
-    lore: { en: "Stands motionless for centuries, absorbing kinetic attacks to shield its master.", ua: "Століттями стоїть нерухомо, поглинаючи кінетичні атаки для захисту свого господаря." }
+    lore: { en: "Stands motionless for centuries, absorbing kinetic attacks to shield its master.", ua: "Століттями стоїть нерухомо, поглинаючи кінетичні атаки для захисту свого господаря." },
+    sellPrice: 750
   },
   imp: {
     name: { en: "Minor Imp", ua: "Малий Імп" },
     icon: "😈",
     category: "companion",
     desc: { en: "A lesser demon. Grants passive: +1 Sulfur yield when chiseling sulfur vents.", ua: "Дрібний демон. Дає пасивно: +1 до збору Сірки при видовбуванні сірчаних джерел." },
-    lore: { en: "It grumbles continuously, but fears the brimstone whip.", ua: "Він постійно бурчить, але боїться батога з преісподньої." }
+    lore: { en: "It grumbles continuously, but fears the brimstone whip.", ua: "Він постійно бурчить, але боїться батога з преісподньої." },
+    sellPrice: 350
+  },
+  phantoms: {
+    name: { en: "Phantom", ua: "Фантом" },
+    icon: "👻",
+    category: "companion",
+    desc: { en: "A spectral shadow companion. Grants passive: +10.0% Sorcery experience training rate.", ua: "Примарний тіньовий супутник. Дає пасивно: +10.0% швидкості отримання досвіду Чаклунства." },
+    lore: { en: "Formed out of pure ectoplasm and screams, it whispers dark formulas.", ua: "Створений з чистої ектоплазми та криків, він шепоче темні формули." },
+    sellPrice: 400
   }
 };
+
 
 const CHARACTERISTICS = {
   malice: {
@@ -237,7 +473,7 @@ const CHARACTERISTICS = {
 };
 
 const ACTIVITIES = [
-  // CATEGORY A: Brimstone Extraction (Physical Gathering)
+  // --- Brimstone Extraction (extraction) ---
   {
     id: "chisel_sulfur",
     name: { en: "Chisel Sulfur Vents", ua: "Видовбувати Сірчані Венти" },
@@ -251,13 +487,13 @@ const ACTIVITIES = [
       { key: "avarice", xp: 6 }
     ],
     lore: { en: "Tap the smoking crust of the second circle to scrape raw, brittle sulfur dust.", ua: "Пробийте димлячу кору другого кола пекла, щоб зішкребти сирий, крихкий сірчаний пил." },
-    codex: { en: "A fundamental physical task. Yields Sulfur. Trains Brutality (speeds up) and Avarice (increases yield).", ua: "Базове фізичне завдання. Дає Сірку. Тренує Жорстокість (прискорює дію) та Жадібність (збільшує вихід)." }
+    codex: { en: "A fundamental physical task. Yields Sulfur. Trains Brutality and Avarice.", ua: "Базове фізичне завдання. Дає Сірку. Тренує Жорстокість та Жадібність." }
   },
   {
     id: "quarry_obsidian",
     name: { en: "Quarry Obsidian", ua: "Добувати Обсидіан" },
     category: "extraction",
-    levelReq: 10,
+    levelReq: 5,
     baseTime: 3500,
     cost: {},
     yield: { obsidian: 1 },
@@ -266,13 +502,13 @@ const ACTIVITIES = [
       { key: "resilience", xp: 10 }
     ],
     lore: { en: "Break deep basalt layers to harvest razor-sharp blocks of volcanic glass.", ua: "Руйнуйте глибокі базальтові шари, щоб зібрати гострі як бритва блоки вулканічного скла." },
-    codex: { en: "Requires Extraction Skill Lv.10. Yields Obsidian. Trains Brutality and Resilience.", ua: "Потребує рівня Видобутку 10. Дає Обсидіан. Тренує Жорстокість та Стійкість." }
+    codex: { en: "Requires Level 5. Yields Obsidian. Trains Brutality and Resilience.", ua: "Потребує рівня 5. Дає Обсидіан. Тренує Жорстокість та Стійкість." }
   },
   {
     id: "siphon_lava",
     name: { en: "Siphon Lava Flows", ua: "Відбирати Потоки Лави" },
     category: "extraction",
-    levelReq: 15,
+    levelReq: 12,
     baseTime: 4000,
     cost: {},
     yield: { hellfire: 1 },
@@ -281,40 +517,85 @@ const ACTIVITIES = [
       { key: "resilience", xp: 15 }
     ],
     lore: { en: "Channel raw magma streams into iron thermal wells to condense liquid Hellfire.", ua: "Спрямуйте потоки сирої магми в залізні термальні колодязі, щоб згустити рідкий Пекельний Вогонь." },
-    codex: { en: "Requires Extraction Skill Lv.15. Yields Hellfire (fuel). Trains Infernal Power and Resilience.", ua: "Потребує рівня Видобутку 15. Дає Пекельний Вогонь. Тренує Пекельну Силу та Стійкість." }
+    codex: { en: "Requires Level 12. Yields Hellfire. Trains Infernal Power and Resilience.", ua: "Потребує рівня 12. Дає Пекельний Вогонь. Тренує Пекельну Силу та Стійкість." }
   },
   {
     id: "dredge_styx",
-    name: { en: "Dredge River Styx", ua: "Очищати річку Стікс" },
+    name: { en: "Dredge Styx Clay", ua: "Видобувати Глину Стіксу" },
     category: "extraction",
-    levelReq: 25,
+    levelReq: 18,
     baseTime: 5000,
     cost: {},
-    yield: { styx_clay: 2, ectoplasm: 0.1 },
+    yield: { styx_clay: 1 },
     statsTrained: [
-      { key: "guile", xp: 35 },
-      { key: "willpower", xp: 20 }
+      { key: "resilience", xp: 30 },
+      { key: "corruption", xp: 15 }
     ],
-    lore: { en: "Scoop the mud of the dead from the banks of the Styx, filtering for stray ectoplasm.", ua: "Збирайте бруд мертвих з берегів Стіксу, виловлюючи випадкову ектоплазму." },
-    codex: { en: "Requires Extraction Skill Lv.25. Yields Styx Clay and 10% chance of Ectoplasm. Trains Guile and Willpower.", ua: "Потребує рівня Видобутку 25. Дає Глину Стіксу та 10% шанс на Ектоплазму. Тренує Підступність та Силу Волі." }
+    lore: { en: "Scrape death-rich black silt from the muddy banks of the River of Wails.", ua: "Зберіть багатий на смерть чорний мул з брудних берегів Річки Стогонів." },
+    codex: { en: "Requires Level 18. Yields Styx Clay. Trains Resilience and Corruption.", ua: "Потребує рівня 18. Дає Глину Стіксу. Тренує Стійкість та Корупцію." }
   },
   {
     id: "gather_ash",
     name: { en: "Gather Volcanic Ash", ua: "Збирати Вулканічний Попіл" },
     category: "extraction",
-    levelReq: 30,
+    levelReq: 25,
     baseTime: 3000,
     cost: {},
-    yield: { volcanic_ash: 3 },
+    yield: { volcanic_ash: 1 },
     statsTrained: [
-      { key: "brutality", xp: 30 },
-      { key: "malice", xp: 15 }
+      { key: "brutality", xp: 15 },
+      { key: "malice", xp: 10 }
     ],
-    lore: { en: "Shovel high-stability carbon ash from volcanic fallout fields.", ua: "Згрібайте лопатою стабільний вуглецевий попіл з вулканічних полів." },
-    codex: { en: "Requires Extraction Skill Lv.30. Yields Volcanic Ash. Trains Brutality and Malice.", ua: "Потребує рівня Видобутку 30. Дає Вулканічний Попіл. Тренує Жорстокість та Злість." }
+    lore: { en: "Filter heavy falling flakes of ash close to basalt mountain crags.", ua: "Фільтруйте важкі пластівці падаючого попелу поблизу скелястих базальтових гір." },
+    codex: { en: "Requires Level 25. Yields Volcanic Ash. Trains Brutality and Malice.", ua: "Потребує рівня 25. Дає Вулканічний Попіл. Тренує Жорстокість та Злість." }
+  },
+  {
+    id: "mine_iron_ore",
+    name: { en: "Mine Iron Ore", ua: "Видобувати Залізну Руду" },
+    category: "extraction",
+    levelReq: 35,
+    baseTime: 4500,
+    cost: {},
+    yield: { iron_ore: 2 },
+    statsTrained: [
+      { key: "brutality", xp: 35 },
+      { key: "avarice", xp: 20 }
+    ],
+    lore: { en: "Quarry hard ores of iron out of deep basalt pits.", ua: "Видобувайте важку залізну руду з базальтових шахт." },
+    codex: { en: "Requires Level 35. Yields Iron Ore. Trains Brutality and Avarice.", ua: "Потребує рівня 35. Дає Залізну Руду. Тренує Жорстокість та Жадібність." }
+  },
+  {
+    id: "excavate_relics",
+    name: { en: "Excavate Relic Fragments", ua: "Розкопувати Фрагменти Реліквій" },
+    category: "extraction",
+    levelReq: 50,
+    baseTime: 6000,
+    cost: {},
+    yield: { relic_fragments: 1 },
+    statsTrained: [
+      { key: "guile", xp: 45 },
+      { key: "avarice", xp: 25 }
+    ],
+    lore: { en: "Dig out ancient ruins buried under the red soils.", ua: "Розкопуйте древні руїни, поховані під червоним ґрунтом." },
+    codex: { en: "Requires Level 50. Yields Relic Fragments. Trains Guile and Avarice.", ua: "Потребує рівня 50. Дає Фрагменти Реліквій. Тренує Підступність та Жадібність." }
+  },
+  {
+    id: "harvest_void_crystals",
+    name: { en: "Harvest Void Crystals", ua: "Збирати Кристали Пустоти" },
+    category: "extraction",
+    levelReq: 70,
+    baseTime: 8000,
+    cost: {},
+    yield: { void_crystals: 1 },
+    statsTrained: [
+      { key: "infernal", xp: 60 },
+      { key: "resilience", xp: 40 }
+    ],
+    lore: { en: "Extract spatial gemstones crystallized inside deep dark cracks.", ua: "Видобувайте просторові самоцвіти, кристалізовані всередині глибоких темних тріщин." },
+    codex: { en: "Requires Level 70. Yields Void Crystals. Trains Infernal Power and Resilience.", ua: "Потребує рівня 70. Дає Кристали Пустоти. Тренує Пекельну Силу та Стійкість." }
   },
 
-  // CATEGORY B: Veil Tearing (Ethereal Channeling)
+  // --- Veil Tearing (veil) ---
   {
     id: "whisper_cruelty",
     name: { en: "Whisper Cruelty", ua: "Шепотіти Жорстокість" },
@@ -334,7 +615,7 @@ const ACTIVITIES = [
     id: "harvest_agony",
     name: { en: "Harvest Agony", ua: "Збирати Агонію" },
     category: "veil",
-    levelReq: 8,
+    levelReq: 5,
     baseTime: 4500,
     cost: {},
     yield: { anguish: 2 },
@@ -343,13 +624,13 @@ const ACTIVITIES = [
       { key: "sorcery", xp: 12 }
     ],
     lore: { en: "Siphon the spiritual cries of suffering mortals into congealing red orbs of Anguish.", ua: "Перетворюйте духовні крики страждаючих смертних у червоні сфери Страждання." },
-    codex: { en: "Requires Veil Tearing Skill Lv.8. Yields Anguish. Trains Malice and Sorcery.", ua: "Потребує рівня Розриву Завіси 8. Дає Страждання. Тренує Злість та Чаклунство." }
+    codex: { en: "Requires Level 5. Yields Anguish. Trains Malice and Sorcery.", ua: "Потребує рівня 5. Дає Страждання. Тренує Злість та Чаклунство." }
   },
   {
     id: "infiltrate_dreams",
     name: { en: "Infiltrate Dreams", ua: "Проникати в Сни" },
     category: "veil",
-    levelReq: 12,
+    levelReq: 10,
     baseTime: 5000,
     cost: {},
     yield: { nightmares: 1 },
@@ -358,13 +639,13 @@ const ACTIVITIES = [
       { key: "sorcery", xp: 15 }
     ],
     lore: { en: "Feed on the deep fears of sleeping mortal scholars to compile Nightmares.", ua: "Харчуйтеся глибокими страхами сплячих смертних вчених, щоб збирати Кошмари." },
-    codex: { en: "Requires Veil Tearing Skill Lv.12. Yields Nightmares. Trains Guile and Sorcery.", ua: "Потребує рівня Розриву Завіси 12. Дає Кошмари. Тренує Підступність та Чаклунство." }
+    codex: { en: "Requires Level 10. Yields Nightmares. Trains Guile and Sorcery.", ua: "Потребує рівня 10. Дає Кошмари. Тренує Підступність та Чаклунство." }
   },
   {
     id: "channel_chaos",
     name: { en: "Channel Chaos", ua: "Направляти Хаос" },
     category: "veil",
-    levelReq: 20,
+    levelReq: 18,
     baseTime: 6000,
     cost: {},
     yield: { chaos_essence: 1 },
@@ -373,13 +654,13 @@ const ACTIVITIES = [
       { key: "corruption", xp: 20 }
     ],
     lore: { en: "Tear a small rift directly into the raw Void, capturing unstable chaos energies.", ua: "Розірвіть маленьку тріщину прямо у порожнечу, захоплюючи нестабільну енергію хаосу." },
-    codex: { en: "Requires Veil Tearing Skill Lv.20. Yields Chaos Essence. Trains Sorcery and Corruption.", ua: "Потребує рівня Розриву Завіси 20. Дає Есенцію Хаосу. Тренує Чаклунство та Корупцію." }
+    codex: { en: "Requires Level 18. Yields Chaos Essence. Trains Sorcery and Corruption.", ua: "Потребує рівня 18. Дає Есенцію Хаосу. Тренує Чаклунство та Корупцію." }
   },
   {
     id: "siphon_faith",
     name: { en: "Siphon Faith", ua: "Висмоктувати Віру" },
     category: "veil",
-    levelReq: 35,
+    levelReq: 28,
     baseTime: 7500,
     cost: {},
     yield: { divine_essence: 1 },
@@ -388,132 +669,177 @@ const ACTIVITIES = [
       { key: "willpower", xp: 30 }
     ],
     lore: { en: "Desecrate the prayers of mortal clerics to capture and corrupt Divine Essence.", ua: "Оскверняйте молитви смертних священників, щоб захопити та розбестити Божественну Есенцію." },
-    codex: { en: "Requires Veil Tearing Skill Lv.35. Yields Divine Essence. Trains Corruption and Willpower.", ua: "Потребує рівня Розриву Завіси 35. Дає Божественну Есенцію. Тренує Корупцію та Силу Волі." }
+    codex: { en: "Requires Level 28. Yields Divine Essence. Trains Corruption and Willpower.", ua: "Потребує рівня 28. Дає Божественну Есенцію. Тренує Корупцію та Силу Волі." }
+  },
+  {
+    id: "harvest_screams",
+    name: { en: "Harvest Screams", ua: "Збирати Крики" },
+    category: "veil",
+    levelReq: 40,
+    baseTime: 4000,
+    cost: {},
+    yield: { screams: 3 },
+    statsTrained: [
+      { key: "malice", xp: 45 },
+      { key: "sorcery", xp: 25 }
+    ],
+    lore: { en: "Catch the audio echoes of pure fear from terrified mortals.", ua: "Ловіть звукові відлуння чистого страху наляканих смертних." },
+    codex: { en: "Requires Level 40. Yields Screams. Trains Malice and Sorcery.", ua: "Потребує рівня 40. Дає Крики. Тренує Злість та Чаклунство." }
+  },
+  {
+    id: "channel_chaos_sparks",
+    name: { en: "Channel Chaos Sparks", ua: "Направляти Іскри Хаосу" },
+    category: "veil",
+    levelReq: 55,
+    baseTime: 5500,
+    cost: {},
+    yield: { chaos_sparks: 2 },
+    statsTrained: [
+      { key: "sorcery", xp: 60 },
+      { key: "willpower", xp: 35 }
+    ],
+    lore: { en: "Extract active electrical entropy charges floating inside the void.", ua: "Видобувайте активні електричні ентропійні заряди, що ширяють у пустоті." },
+    codex: { en: "Requires Level 55. Yields Chaos Sparks. Trains Sorcery and Willpower.", ua: "Потребує рівня 55. Дає Іскри Хаосу. Тренує Чаклунство та Силу Волі." }
+  },
+  {
+    id: "summon_eldritch_orbs",
+    name: { en: "Summon Eldritch Orbs", ua: "Призивати Ельдричеві Сфери" },
+    category: "veil",
+    levelReq: 75,
+    baseTime: 8000,
+    cost: {},
+    yield: { eldritch_orbs: 1 },
+    statsTrained: [
+      { key: "willpower", xp: 80 },
+      { key: "corruption", xp: 45 }
+    ],
+    lore: { en: "Condense absolute pitch-black spatial anchors out of ethereal loops.", ua: "Згущуйте абсолютно чорні просторові якорі з ефірних петель." },
+    codex: { en: "Requires Level 75. Yields Eldritch Orbs. Trains Willpower and Corruption.", ua: "Потребує рівня 75. Дає Ельдричеві Сфери. Тренує Силу Волі та Корупцію." }
   },
 
-  // CATEGORY C: Hellfire Forge (Crafting & Refinement)
+  // --- Hellfire Forge (forge) ---
   {
     id: "smelt_iron",
     name: { en: "Smelt Abyssal Iron", ua: "Плавити Безодневе Залізо" },
     category: "forge",
     levelReq: 1,
     baseTime: 4000,
-    cost: { sulfur: 3, iron_ore: 2, hellfire: 1 },
+    cost: { iron_ore: 2, sulfur: 1 },
     yield: { abyssal_iron: 1 },
     statsTrained: [
-      { key: "infernal", xp: 20 },
+      { key: "infernal", xp: 15 },
       { key: "brutality", xp: 10 }
     ],
-    lore: { en: "Fuse iron ore with brimstone sulfur and superheat it in a forge to create Abyssal Iron.", ua: "Сплавляйте залізну руду з сіркою та сильно розігрівайте в кузні, щоб отримати Безодневе Залізо." },
-    codex: { en: "Smelting task. Consumes 3 Sulfur, 2 Iron Ore, and 1 Hellfire. Yields 1 Abyssal Iron. Trains Infernal Power and Brutality.", ua: "Завдання плавлення. Витрачає 3 Сірки, 2 Залізної Руди та 1 Пекельний Вогонь. Дає 1 Безодневе Залізо. Тренує Пекельну Силу та Жорстокість." }
+    lore: { en: "Melt human steel iron with hot sulfur to alloy dark Abyssal Iron.", ua: "Плавите залізо смертних із гарячою сіркою, щоб виплавити темне Безодневе Залізо." },
+    codex: { en: "Primary crafting. Consumes 2 Iron Ore and 1 Sulfur. Yields Abyssal Iron. Trains Infernal Power and Brutality.", ua: "Базове ковальство. Витрачає 2 Залізні Руди та 1 Сірку. Дає Безодневе Залізо. Тренує Пекельну Силу та Жорстокість." }
   },
   {
     id: "forge_brand",
     name: { en: "Forge Brimstone Brand", ua: "Кувати Клеймо Бримстоуну" },
     category: "forge",
     levelReq: 10,
-    baseTime: 6000,
-    cost: { abyssal_iron: 2, sulfur: 5 },
+    baseTime: 8000,
+    cost: { abyssal_iron: 5, sulfur: 5, hellfire: 2 },
     yield: { brimstone_brand: 1 },
     statsTrained: [
-      { key: "infernal", xp: 35 },
-      { key: "avarice", xp: 15 }
+      { key: "infernal", xp: 30 },
+      { key: "devotion", xp: 15 }
     ],
-    lore: { en: "Hammer abyssal iron into a glowing, volcanic tool to speed up manual mining operations.", ua: "Викуйте з безодневого заліза гарячий вулканічний інструмент для прискорення видобутку." },
-    codex: { en: "Requires Forge Skill Lv.10. Consumes 2 Abyssal Iron and 5 Sulfur. Yields 1 Brimstone Brand. Trains Infernal Power and Avarice.", ua: "Потребує рівня Кування 10. Витрачає 2 Безодневого Заліза та 5 Сірки. Дає 1 Клеймо Бримстоуну. Тренує Пекельну Силу та Жадібність." }
+    lore: { en: "Inscribe runes of harvest onto hot volcanic brands to increase physical yields.", ua: "Нанесіть руни збору на гарячі вулканічні клейма, щоб збільшити фізичний збір." },
+    codex: { en: "Requires Level 10. Consumes 5 Abyssal Iron, 5 Sulfur, and 2 Hellfire. Yields 1 Brimstone Brand. Trains Infernal Power and Devotion.", ua: "Потребує рівня 10. Витрачає 5 Безодневого Заліза, 5 Сірки та 2 Пекельних Вогні. Дає 1 Клеймо Бримстоуну. Тренує Пекельну Силу та Відданість." }
   },
   {
     id: "sculpt_sigil",
     name: { en: "Sculpt Obsidian Sigils", ua: "Різьбити Обсидіанові Сигіли" },
     category: "forge",
     levelReq: 15,
-    baseTime: 5000,
-    cost: { obsidian: 2, volcanic_ash: 1 },
+    baseTime: 8000,
+    cost: { obsidian: 5, volcanic_ash: 3, chaos_essence: 1 },
     yield: { obsidian_sigil: 1 },
     statsTrained: [
       { key: "sorcery", xp: 30 },
       { key: "devotion", xp: 15 }
     ],
     lore: { en: "Carve geometric runes into volcanic obsidian glass to focus magical flow.", ua: "Вирізайте геометричні руни на вулканічному обсидіановому склі, щоб сфокусувати магічні потоки." },
-    codex: { en: "Requires Forge Skill Lv.15. Consumes 2 Obsidian and 1 Volcanic Ash. Yields 1 Obsidian Sigil. Trains Sorcery and Devotion.", ua: "Потребує рівня Кування 15. Витрачає 2 Обсидіану та 1 Вулканічний Попіл. Дає 1 Обсидіановий Сигіл. Тренує Чаклунство та Відданість." }
+    codex: { en: "Requires Level 15. Consumes 5 Obsidian, 3 Volcanic Ash, and 1 Chaos Essence. Yields 1 Obsidian Sigil. Trains Sorcery and Devotion.", ua: "Потребує рівня 15. Витрачає 5 Обсидіану, 3 Вулканічного Попелу та 1 Есенцію Хаосу. Дає 1 Обсидіановий Сигіл. Тренує Чаклунство та Відданість." }
   },
   {
-    id: "distill_acid",
-    name: { en: "Distill Acid", ua: "Дистилювати Кислоту" },
+    id: "forge_vials",
+    name: { en: "Forge Demonic Vials", ua: "Виготовляти Демонічні Флакони" },
     category: "forge",
     levelReq: 25,
-    baseTime: 5500,
-    cost: { sulfur: 4, hellfire: 1 },
-    yield: { corrosive_acid: 1 },
+    baseTime: 4500,
+    cost: { obsidian: 2, sulfur: 2 },
+    yield: { demonic_vials: 2 },
     statsTrained: [
-      { key: "sorcery", xp: 35 },
-      { key: "willpower", xp: 20 }
+      { key: "infernal", xp: 25 },
+      { key: "resilience", xp: 15 }
     ],
-    lore: { en: "Boil sulfuric minerals in magma retorts to form a highly concentrated corrosive acid.", ua: "Кип'ятіть сірчані мінерали в магмових колбах, щоб отримати висококонцентровану їдку кислоту." },
-    codex: { en: "Requires Forge Skill Lv.25. Consumes 4 Sulfur and 1 Hellfire. Yields 1 Corrosive Acid. Trains Sorcery and Willpower.", ua: "Потребує рівня Кування 25. Витрачає 4 Сірки та 1 Пекельний Вогонь. Дає 1 Їдку Кислоту. Тренує Чаклунство та Силу Волі." }
-  },
-
-  // CATEGORY D: Rites & Summons
-  {
-    id: "concoct_elixir",
-    name: { en: "Concoct Unholy Elixir", ua: "Приготувати Нечестивий Еліксир" },
-    category: "rites",
-    levelReq: 5,
-    baseTime: 5000,
-    cost: { demonic_blood: 1, volcanic_ash: 2 },
-    yield: { unholy_elixir: 1 },
-    statsTrained: [
-      { key: "sorcery", xp: 22 },
-      { key: "devotion", xp: 10 }
-    ],
-    lore: { en: "Steep demonic blood in volcanic ash catalyst to create a warding elixir.", ua: "Настоюйте демонічну кров на вулканічному попелі, щоб створити захисний еліксир." },
-    codex: { en: "Requires Rites Skill Lv.5. Consumes 1 Demonic Blood and 2 Volcanic Ash. Yields 1 Unholy Elixir. Trains Sorcery and Devotion.", ua: "Потребує рівня Ритуалів 5. Витрачає 1 Демонічну Кров та 2 Вулканічного Попелу. Дає 1 Нечестивий Еліксир. Тренує Чаклунство та Відданість." }
+    lore: { en: "Blow hot volcanic glass under extreme fire pressure to craft reinforced vials.", ua: "Видувайте гаряче вулканічне скло під високим тиском вогню, щоб створити загартовані флакони." },
+    codex: { en: "Requires Level 25. Consumes 2 Obsidian and 2 Sulfur. Yields 2 Demonic Vials. Trains Infernal Power and Resilience.", ua: "Потребує рівня 25. Витрачає 2 Обсидіану та 2 Сірки. Дає 2 Демонічні Флакони. Тренує Пекельну Силу та Стійкість." }
   },
   {
-    id: "blood_rite",
-    name: { en: "Conduct Blood Rite", ua: "Провести Ритуал Крові" },
-    category: "rites",
-    levelReq: 12,
+    id: "forge_wrath_shards",
+    name: { en: "Forge Wrath Shards", ua: "Кувати Осколки Гніву" },
+    category: "forge",
+    levelReq: 40,
+    baseTime: 6000,
+    cost: { anguish: 5, hellfire: 3 },
+    yield: { wrath_shards: 1 },
+    statsTrained: [
+      { key: "brutality", xp: 45 },
+      { key: "devotion", xp: 20 }
+    ],
+    lore: { en: "Refine sharp wrath crystals by mixing hot hellfire and congealing anguish.", ua: "Виплавляйте гострі кристали гніву, поєднуючи пекельний вогонь та згущене страждання." },
+    codex: { en: "Requires Level 40. Consumes 5 Anguish and 3 Hellfire. Yields 1 Wrath Shard. Trains Brutality and Devotion.", ua: "Потребує рівня 40. Витрачає 5 Страждань та 3 Пекельних Вогні. Дає 1 Осколок Гніву. Тренує Жорстокість та Відданість." }
+  },
+  {
+    id: "smelt_heavy_relics",
+    name: { en: "Refine Relic Fragments", ua: "Очищати Фрагменти Реліквій" },
+    category: "forge",
+    levelReq: 55,
     baseTime: 7000,
-    cost: { evil_intent: 100 },
-    yield: { demonic_blood: 2 },
+    cost: { abyssal_iron: 4, volcanic_ash: 5 },
+    yield: { relic_fragments: 2 },
     statsTrained: [
-      { key: "devotion", xp: 30 },
-      { key: "corruption", xp: 15 }
-    ],
-    lore: { en: "Shed the congealed life of the Abyss to create pure, concentrated Demonic Blood.", ua: "Пролийте згорнуте життя Безодні, щоб створити чисту, концентровану Демонічну Кров." },
-    codex: { en: "Requires Rites Skill Lv.12. Consumes 100 Evil Intent. Yields 2 Demonic Blood. Trains Devotion and Corruption.", ua: "Потребує рівня Ритуалів 12. Витрачає 100 Злого Наміру. Дає 2 Демонічної Крові. Тренує Відданість та Корупцію." }
-  },
-  {
-    id: "summon_hellhound",
-    name: { en: "Summon Hellhounds", ua: "Призвати Пекельних Гончаків" },
-    category: "rites",
-    levelReq: 18,
-    baseTime: 8000,
-    cost: { flesh: 3, hellfire: 2 },
-    yield: { hellhound: 1 },
-    statsTrained: [
-      { key: "devotion", xp: 40 },
-      { key: "brutality", xp: 20 }
-    ],
-    lore: { en: "Animate fire-spirits within organic cages of raw flesh to summon a loyal hunting Hellhound.", ua: "Оживіть духів вогню всередині плоті, щоб призвати вірного мисливського Гончака." },
-    codex: { en: "Requires Rites Skill Lv.18. Consumes 3 Flesh and 2 Hellfire. Yields 1 Hellhound. Trains Devotion and Brutality.", ua: "Потребує рівня Ритуалів 18. Витрачає 3 Плоті та 2 Пекельних Вогні. Дає 1 Пекельного Гончака. Тренує Відданість та Жорстокість." }
-  },
-  {
-    id: "animate_gargoyle",
-    name: { en: "Animate Gargoyles", ua: "Оживити Гаргулій" },
-    category: "rites",
-    levelReq: 30,
-    baseTime: 10000,
-    cost: { obsidian: 5, demonic_blood: 3 },
-    yield: { gargoyle: 1 },
-    statsTrained: [
-      { key: "devotion", xp: 55 },
+      { key: "infernal", xp: 55 },
       { key: "resilience", xp: 30 }
     ],
-    lore: { en: "Carve clay and obsidian into a heavy gargoyle frame and bind it with demonic blood.", ua: "Виріжте з глини та обсидіану важке тіло гаргульї та скріпіть його демонічною кров'ю." },
-    codex: { en: "Requires Rites Skill Lv.30. Consumes 5 Obsidian and 3 Demonic Blood. Yields 1 Gargoyle. Trains Devotion and Resilience.", ua: "Потребує рівня Ритуалів 30. Витрачає 5 Обсидіану та 3 Демонічної Крові. Дає 1 Гаргулью. Тренує Відданість та Стійкість." }
+    lore: { en: "Purify raw iron and ash into complex clay anchors and relics.", ua: "Очищайте сире залізо та попіл у складні глиняні якорі та реліквії." },
+    codex: { en: "Requires Level 55. Consumes 4 Abyssal Iron and 5 Volcanic Ash. Yields 2 Relic Fragments. Trains Infernal Power and Resilience.", ua: "Потребує рівня 55. Витрачає 4 Безодневого Заліза та 5 Вулканічного Попелу. Дає 2 Фрагменти Реліквій. Тренує Пекельну Силу та Стійкість." }
   },
+  {
+    id: "craft_dark_mercury",
+    name: { en: "Craft Dark Mercury", ua: "Створювати Темну Ртуть" },
+    category: "forge",
+    levelReq: 70,
+    baseTime: 5000,
+    cost: { styx_clay: 4, chaos_essence: 2 },
+    yield: { dark_mercury: 2 },
+    statsTrained: [
+      { key: "sorcery", xp: 60 },
+      { key: "guile", xp: 30 }
+    ],
+    lore: { en: "Distill unstable void flows into liquid metal mercury.", ua: "Дистилюйте нестабільні потоки пустоти у рідку металеву ртуть." },
+    codex: { en: "Requires Level 70. Consumes 4 Styx Clay and 2 Chaos Essence. Yields 2 Dark Mercury. Trains Sorcery and Guile.", ua: "Потребує рівня 70. Витрачає 4 Глини Стіксу та 2 Есенції Хаосу. Дає 2 Темної Ртуті. Тренує Чаклунство та Підступність." }
+  },
+  {
+    id: "forge_void_gate",
+    name: { en: "Forge Void Crystal Matrix", ua: "Створювати Матрицю Кристалів Пустоти" },
+    category: "forge",
+    levelReq: 85,
+    baseTime: 10000,
+    cost: { abyssal_iron: 10, void_crystals: 1 },
+    yield: { void_crystals: 2 },
+    statsTrained: [
+      { key: "infernal", xp: 85 },
+      { key: "willpower", xp: 45 }
+    ],
+    lore: { en: "Warp deep spatial grids using heavy iron frames and active void crystals.", ua: "Викривляйте просторові сітки за допомогою важких залізних рам та активних кристалів пустоти." },
+    codex: { en: "Requires Level 85. Consumes 10 Abyssal Iron and 1 Void Crystal. Yields 2 Void Crystals. Trains Infernal Power and Willpower.", ua: "Потребує рівня 85. Витрачає 10 Безодневого Заліза та 1 Кристал Пустоти. Дає 2 Кристали Пустоти. Тренує Пекельну Силу та Силу Волі." }
+  },
+
+  // --- Dark Rites (rites) ---
   {
     id: "summon_imp",
     name: { en: "Summon Minor Imp", ua: "Призвати Малого Імпа" },
@@ -529,8 +855,113 @@ const ACTIVITIES = [
     lore: { en: "Conjure a minor imp out of raw cruelty and sulfur vapors.", ua: "Створіть малого імпа з чистої жорстокості та випарів сірки." },
     codex: { en: "Creates 1 Minor Imp. Consumes 100 Evil Intent. Basic step of the Awakening milestone.", ua: "Створює 1 Малого Імпа. Витрачає 100 Злого Наміру. Базовий крок першого етапу." }
   },
+  {
+    id: "conjure_hellhound",
+    name: { en: "Conjure Hellhound", ua: "Оживити Пекельного Гончака" },
+    category: "rites",
+    levelReq: 10,
+    baseTime: 6000,
+    cost: { flesh: 3, hellfire: 2 },
+    yield: { hellhound: 1 },
+    statsTrained: [
+      { key: "devotion", xp: 30 },
+      { key: "brutality", xp: 15 }
+    ],
+    lore: { en: "Animate fire-spirits within organic cages of raw flesh to summon a loyal hunting Hellhound.", ua: "Оживіть духів вогню всередині плоті, щоб призвати вірного мисливського Гончака." },
+    codex: { en: "Requires Level 10. Consumes 3 Flesh and 2 Hellfire. Yields 1 Hellhound. Trains Devotion and Brutality.", ua: "Потребує рівня 10. Витрачає 3 Плоті та 2 Пекельних Вогні. Дає 1 Гончака. Тренує Відданість та Жорстокість." }
+  },
+  {
+    id: "animate_gargoyle",
+    name: { en: "Animate Gargoyles", ua: "Оживити Гаргулій" },
+    category: "rites",
+    levelReq: 20,
+    baseTime: 8000,
+    cost: { obsidian: 5, demonic_blood: 3 },
+    yield: { gargoyle: 1 },
+    statsTrained: [
+      { key: "devotion", xp: 55 },
+      { key: "resilience", xp: 30 }
+    ],
+    lore: { en: "Carve clay and obsidian into a heavy gargoyle frame and bind it with demonic blood.", ua: "Виріжте з глини та обсидіану важке тіло гаргульї та скріпіть його демонічною кров'ю." },
+    codex: { en: "Requires Level 20. Consumes 5 Obsidian and 3 Demonic Blood. Yields 1 Gargoyle. Trains Devotion and Resilience.", ua: "Потребує рівня 20. Витрачає 5 Обсидіану та 3 Демонічної Крові. Дає 1 Гаргулью. Тренує Відданість та Стійкість." }
+  },
+  {
+    id: "conjure_phantom",
+    name: { en: "Conjure Phantom", ua: "Оживити Фантома" },
+    category: "rites",
+    levelReq: 30,
+    baseTime: 7000,
+    cost: { ectoplasm: 5, screams: 3 },
+    yield: { phantoms: 1 },
+    statsTrained: [
+      { key: "devotion", xp: 45 },
+      { key: "sorcery", xp: 25 }
+    ],
+    lore: { en: "Anchor a weeping phantom into physical bone static.", ua: "Прив'яжіть ридаючого фантома до фізичних кісткових перешкод." },
+    codex: { en: "Requires Level 30. Consumes 5 Ectoplasm and 3 Screams. Yields 1 Phantom. Trains Devotion and Sorcery.", ua: "Потребує рівня 30. Витрачає 5 Ектоплазми та 3 Криків. Дає 1 Фантома. Тренує Відданість та Чаклунство." }
+  },
+  {
+    id: "blood_coven",
+    name: { en: "Initiate Blood Coven", ua: "Почати Кровний Ковен" },
+    category: "rites",
+    levelReq: 45,
+    baseTime: 5000,
+    cost: { flesh: 5, sulfur: 2 },
+    yield: { demonic_blood: 3 },
+    statsTrained: [
+      { key: "devotion", xp: 50 },
+      { key: "corruption", xp: 30 }
+    ],
+    lore: { en: "Convene dark covenants to extract demonic blood fluids.", ua: "Зберіть темні ковени, щоб отримати демонічну кров'яну рідину." },
+    codex: { en: "Requires Level 45. Consumes 5 Flesh and 2 Sulfur. Yields 3 Demonic Blood. Trains Devotion and Corruption.", ua: "Потребує рівня 45. Витрачає 5 Плоті та 2 Сірки. Дає 3 Демонічної Крові. Тренує Відданість та Корупцію." }
+  },
+  {
+    id: "summon_shadow_beast",
+    name: { en: "Summon Shadow Beasts", ua: "Призвати Тіньових Звірів" },
+    category: "rites",
+    levelReq: 60,
+    baseTime: 8000,
+    cost: { flesh: 8, nightmares: 2 },
+    yield: { hellhound: 2 },
+    statsTrained: [
+      { key: "devotion", xp: 65 },
+      { key: "malice", xp: 35 }
+    ],
+    lore: { en: "Conjure higher hounds out of flesh and nightmares.", ua: "Призивайте вищих гончаків із плоті та нічних кошмарів." },
+    codex: { en: "Requires Level 60. Consumes 8 Flesh and 2 Nightmares. Yields 2 Hellhounds. Trains Devotion and Malice.", ua: "Потребує рівня 60. Витрачає 8 Плоті та 2 Кошмари. Дає 2 Гончаків. Тренує Відданість та Злість." }
+  },
+  {
+    id: "mass_gargoyle_binding",
+    name: { en: "Mass Gargoyle Binding", ua: "Масове Зв'язування Гаргулій" },
+    category: "rites",
+    levelReq: 75,
+    baseTime: 10000,
+    cost: { obsidian: 12, demonic_blood: 8 },
+    yield: { gargoyle: 2 },
+    statsTrained: [
+      { key: "devotion", xp: 80 },
+      { key: "resilience", xp: 40 }
+    ],
+    lore: { en: "Bind multiple gargoyle sentinels in a single coven ritual.", ua: "Прив'яжіть кількох кам'яних вартових у єдиному ритуалі ковену." },
+    codex: { en: "Requires Level 75. Consumes 12 Obsidian and 8 Demonic Blood. Yields 2 Gargoyles. Trains Devotion and Resilience.", ua: "Потребує рівня 75. Витрачає 12 Обсидіану та 8 Демонічної Крові. Дає 2 Гаргулій. Тренує Відданість та Стійкість." }
+  },
+  {
+    id: "archon_covenant",
+    name: { en: "Forge Archon Covenant", ua: "Створити Ковенант Архонта" },
+    category: "rites",
+    levelReq: 90,
+    baseTime: 12000,
+    cost: { divine_essence: 2, chaos_essence: 4 },
+    yield: { souls: 3 },
+    statsTrained: [
+      { key: "devotion", xp: 100 },
+      { key: "willpower", xp: 50 }
+    ],
+    lore: { en: "Corrupt divine structures to secure a direct contract with the Archon.", ua: "Оскверніть божественні структури, щоб забезпечити прямий контракт з Архонтом." },
+    codex: { en: "Requires Level 90. Consumes 2 Divine Essence and 4 Chaos Essence. Yields 3 Souls. Trains Devotion and Willpower.", ua: "Потребує рівня 90. Витрачає 2 Божественні Есенції та 4 Есенції Хаосу. Дає 3 Душі. Тренує Відданість та Силу Волі." }
+  },
 
-  // CATEGORY E: Abyssal Conquest (Invasions - High Risk)
+  // --- Abyssal Conquest (conquest) ---
   {
     id: "raid_hamlets",
     name: { en: "Raid Border Hamlets", ua: "Набіги на Прикордонні Селища" },
@@ -538,20 +969,20 @@ const ACTIVITIES = [
     levelReq: 1,
     baseTime: 6000,
     cost: {},
-    yield: { flesh: 2, gold: 50, iron_ore: 2, souls: 0.05 },
+    yield: { flesh: 2, gold: 50, iron_ore: 2 },
     statsTrained: [
       { key: "guile", xp: 25 },
       { key: "brutality", xp: 15 }
     ],
     failChance: 15,
     lore: { en: "Send shadow waves to plunder border towns. Harvests mortal flesh, gold, and iron ore.", ua: "Надсилайте тіньові хвилі для пограбування прикордонних селищ. Збирайте плоть, золото та залізну руду." },
-    codex: { en: "Requires Conquest Skill Lv.1. Has base 15% Failure Rate. Yields Flesh, Gold, Iron Ore, and 5% chance of Soul. Trains Guile and Brutality.", ua: "Потребує рівня Завоювання 1. Базовий шанс провалу 15%. Дає Плоть, Золото, Залізну Руду та 5% шанс на Душу. Тренує Підступність та Жорстокість." }
+    codex: { en: "Requires Conquest Lv.1. Base 15% Failure. Yields Flesh, Gold, and Iron Ore. Trains Guile and Brutality.", ua: "Потребує рівня Завоювання 1. Базовий шанс провалу 15%. Дає Плоть, Золото та Залізну Руду. Тренує Підступність та Жорстокість." }
   },
   {
     id: "plunder_cathedral",
     name: { en: "Plunder Cathedrals", ua: "Грабувати Собори" },
     category: "conquest",
-    levelReq: 20,
+    levelReq: 10,
     baseTime: 9000,
     cost: { unholy_elixir: 2 },
     yield: { souls: 2, divine_essence: 1 },
@@ -561,13 +992,13 @@ const ACTIVITIES = [
     ],
     failChance: 25,
     lore: { en: "Infiltrate holy walls shielded by unholy elixirs to harvest raw human souls.", ua: "Проникайте у святі стіни, захистившись еліксирами, щоб зібрати свіжі людські душі." },
-    codex: { en: "Requires Conquest Skill Lv.20. Consumes 2 Unholy Elixirs on start. Base 25% Failure Rate. Success yields 2 Souls and 1 Divine Essence. Trains Corruption and Malice.", ua: "Потребує рівня Завоювання 20. Витрачає 2 Нечестивих Еліксири на старті. Базовий шанс провалу 25%. Дає 2 Душі та 1 Божественну Есенцію. Тренує Корупцію та Злість." }
+    codex: { en: "Requires Level 10. Consumes 2 Unholy Elixirs. Base 25% Failure. Success yields 2 Souls and 1 Divine Essence. Trains Corruption and Malice.", ua: "Потребує рівня 10. Витрачає 2 Нечестивих Еліксири. Шанс провалу 25%. Дає 2 Душі та 1 Божественну Есенцію. Тренує Корупцію та Злість." }
   },
   {
     id: "subjugate_city",
     name: { en: "Subjugate Mortal Cities", ua: "Підкорювати Смертні Міста" },
     category: "conquest",
-    levelReq: 40,
+    levelReq: 20,
     baseTime: 12000,
     cost: { hellhound: 1, gargoyle: 1 },
     yield: { souls: 5, flesh: 5, gold: 200 },
@@ -575,11 +1006,1376 @@ const ACTIVITIES = [
       { key: "willpower", xp: 75 },
       { key: "infernal", xp: 45 }
     ],
-    failChance: 40,
+    failChance: 35,
     lore: { en: "Direct a full assault to bind a city to the void, sacrificing a gargoyle and hellhound.", ua: "Спрямуйте повномасштабний штурм, щоб прив'язати місто до безодні, пожертвувавши гаргульєю та гончаком." },
-    codex: { en: "Requires Conquest Skill Lv.40. Consumes 1 Hellhound and 1 Gargoyle on start. Base 40% Failure Rate. Success yields 5 Souls, 5 Flesh, and 200 Gold. Trains Willpower and Infernal Power.", ua: "Потребує рівня Завоювання 40. Витрачає 1 Гончака та 1 Гаргулью на старті. Шанс провалу 40%. Дає 5 Душ, 5 Плоті та 200 Золота. Тренує Силу Волі та Пекельну Силу." }
+    codex: { en: "Requires Level 20. Consumes 1 Hellhound and 1 Gargoyle. Base 35% Failure. Success yields 5 Souls, 5 Flesh, and 200 Gold. Trains Willpower and Infernal.", ua: "Потребує рівня 20. Витрачає 1 Гончака та 1 Гаргулью. Шанс провалу 35%. Дає 5 Душ, 5 Плоті та 200 Золота. Тренує Силу Волі та Пекельну Силу." }
+  },
+  {
+    id: "raid_monasteries",
+    name: { en: "Raid Monasteries", ua: "Набіги на Монастирі" },
+    category: "conquest",
+    levelReq: 30,
+    baseTime: 8000,
+    cost: { unholy_elixir: 1 },
+    yield: { divine_essence: 2, gold: 120 },
+    statsTrained: [
+      { key: "corruption", xp: 50 },
+      { key: "guile", xp: 30 }
+    ],
+    failChance: 20,
+    lore: { en: "Attack secluded holy monasteries to capture divine essence.", ua: "Атакуйте відокремлені святі монастирі, щоб захопити божественну есенцію." },
+    codex: { en: "Requires Level 30. Consumes 1 Unholy Elixir. Base 20% Failure. Success yields 2 Divine Essence and 120 Gold. Trains Corruption and Guile.", ua: "Потребує рівня 30. Витрачає 1 Нечестивий Еліксир. Шанс провалу 20%. Дає 2 Божественні Есенції та 120 Золота. Тренує Корупцію та Підступність." }
+  },
+  {
+    id: "ambush_trade_caravans",
+    name: { en: "Ambush Trade Caravans", ua: "Засада на Торгові Каравани" },
+    category: "conquest",
+    levelReq: 45,
+    baseTime: 7000,
+    cost: { imp: 1 },
+    yield: { gold: 300, iron_ore: 5 },
+    statsTrained: [
+      { key: "guile", xp: 55 },
+      { key: "avarice", xp: 35 }
+    ],
+    failChance: 10,
+    lore: { en: "Sacrifice a minor imp to distract caravan guards and plunder gold.", ua: "Пожертвуйте малим імпом, щоб відволікти охорону каравану та захопити золото." },
+    codex: { en: "Requires Level 45. Consumes 1 Imp. Base 10% Failure. Success yields 300 Gold and 5 Iron Ore. Trains Guile and Avarice.", ua: "Потребує рівня 45. Витрачає 1 Імпа. Шанс провалу 10%. Дає 300 Золота та 5 Залізної Руди. Тренує Підступність та Жадібність." }
+  },
+  {
+    id: "plunder_royal_vaults",
+    name: { en: "Plunder Royal Vaults", ua: "Грабувати Королівські Сховища" },
+    category: "conquest",
+    levelReq: 60,
+    baseTime: 10000,
+    cost: { gargoyle: 1 },
+    yield: { gold: 800, relic_fragments: 2 },
+    statsTrained: [
+      { key: "guile", xp: 70 },
+      { key: "avarice", xp: 40 }
+    ],
+    failChance: 30,
+    lore: { en: "Use a gargoyle as shield to smash royal vault gates.", ua: "Використовуйте гаргулью для захисту, щоб вибити браму королівського сховища." },
+    codex: { en: "Requires Level 60. Consumes 1 Gargoyle. Base 30% Failure. Success yields 800 Gold and 2 Relic Fragments. Trains Guile and Avarice.", ua: "Потребує рівня 60. Витрачає 1 Гаргулью. Шанс провалу 30%. Дає 800 Золота та 2 Фрагменти Реліквій. Тренує Підступність та Жадібність." }
+  },
+  {
+    id: "conquer_fortress",
+    name: { en: "Conquer Fortress", ua: "Завоювати Фортецю" },
+    category: "conquest",
+    levelReq: 75,
+    baseTime: 15000,
+    cost: { hellhound: 2, gargoyle: 1 },
+    yield: { souls: 10, abyssal_iron: 3 },
+    statsTrained: [
+      { key: "willpower", xp: 90 },
+      { key: "brutality", xp: 50 }
+    ],
+    failChance: 40,
+    lore: { en: "Initiate full siege against mortal fortress walls.", ua: "Почніть повномасштабну облогу стін людської фортеці." },
+    codex: { en: "Requires Level 75. Consumes 2 Hellhounds and 1 Gargoyle. Base 40% Failure. Success yields 10 Souls and 3 Abyssal Iron. Trains Willpower and Brutality.", ua: "Потребує рівня 75. Витрачає 2 Гончаків та 1 Гаргулью. Шанс провалу 40%. Дає 10 Душ та 3 Безодневого Заліза. Тренує Силу Волі та Жорстокість." }
+  },
+  {
+    id: "overthrow_empire",
+    name: { en: "Overthrow Empire", ua: "Повалити Імперію" },
+    category: "conquest",
+    levelReq: 90,
+    baseTime: 20000,
+    cost: { hellhound: 3, gargoyle: 3 },
+    yield: { souls: 25, gold: 2000, divine_essence: 5 },
+    statsTrained: [
+      { key: "willpower", xp: 120 },
+      { key: "infernal", xp: 70 }
+    ],
+    failChance: 50,
+    lore: { en: "Crush the capital walls of the mortal empire under a demonic siege.", ua: "Роздавіть стіни столиці смертної імперії під демонічною облогою." },
+    codex: { en: "Requires Level 90. Consumes 3 Hellhounds and 3 Gargoyles. Base 50% Failure. Success yields 25 Souls, 2000 Gold, and 5 Divine Essence. Trains Willpower and Infernal.", ua: "Потребує рівня 90. Витрачає 3 Гончаків та 3 Гаргулій. Шанс провалу 50%. Дає 25 Душ, 2000 Золота та 5 Божественних Есенцій. Тренує Силу Волі та Пекельну Силу." }
+  },
+
+  // --- Soul Torture (torture) ---
+  {
+    id: "flay_souls",
+    name: { en: "Flay Tormented Souls", ua: "Катувати Стражденні Душі" },
+    category: "torture",
+    levelReq: 1,
+    baseTime: 3000,
+    cost: {},
+    yield: { screams: 2 },
+    statsTrained: [
+      { key: "malice", xp: 15 },
+      { key: "brutality", xp: 10 }
+    ],
+    lore: { en: "Extract screams of terror by flaying the astral skins of sinners.", ua: "Видобувайте крики жаху, катуючи астральні тіла грішників." },
+    codex: { en: "Yields Screams. Trains Malice and Brutality.", ua: "Дає Крики. Тренує Злість та Жорстокість." }
+  },
+  {
+    id: "brand_despair",
+    name: { en: "Brand Despair", ua: "Таврувати Розпач" },
+    category: "torture",
+    levelReq: 8,
+    baseTime: 4500,
+    cost: { sulfur: 2 },
+    yield: { anguish: 3 },
+    statsTrained: [
+      { key: "malice", xp: 20 },
+      { key: "infernal", xp: 10 }
+    ],
+    lore: { en: "Burn eternal marks of despair on weeping souls.", ua: "Випалюйте вічні тавра розпачу на ридаючих душах." },
+    codex: { en: "Requires Level 8. Consumes 2 Sulfur. Yields Anguish. Trains Malice and Infernal.", ua: "Потребує рівня 8. Витрачає 2 Сірки. Дає Страждання. Тренує Злість та Пекельну Силу." }
+  },
+  {
+    id: "grind_bones",
+    name: { en: "Grind Skeleton Bones", ua: "Перемелювати Кістки Скелетів" },
+    category: "torture",
+    levelReq: 15,
+    baseTime: 4000,
+    cost: {},
+    yield: { bone_dust: 4 },
+    statsTrained: [
+      { key: "brutality", xp: 25 },
+      { key: "avarice", xp: 12 }
+    ],
+    lore: { en: "Grind skeletal remains into fine white dust inside heavy basalt basins.", ua: "Перемелюйте скелетні рештки на білий пил у важких базальтових басейнах." },
+    codex: { en: "Requires Level 15. Yields Bone Dust. Trains Brutality and Avarice.", ua: "Потребує рівня 15. Дає Кістяний Пил. Тренує Жорстокість та Жадібність." }
+  },
+  {
+    id: "extract_agony",
+    name: { en: "Extract Raw Agony", ua: "Видобувати Чисту Агонію" },
+    category: "torture",
+    levelReq: 25,
+    baseTime: 5000,
+    cost: {},
+    yield: { agony: 2 },
+    statsTrained: [
+      { key: "malice", xp: 30 },
+      { key: "resilience", xp: 15 }
+    ],
+    lore: { en: "Siphon physical suffering of congealed spirits.", ua: "Викачуйте фізичні страждання згущених духів." },
+    codex: { en: "Requires Level 25. Yields Agony. Trains Malice and Resilience.", ua: "Потребує рівня 25. Дає Агонію. Тренує Злість та Стійкість." }
+  },
+  {
+    id: "torture_chamber",
+    name: { en: "Expand Torture Chambers", ua: "Розширити Катівні" },
+    category: "torture",
+    levelReq: 40,
+    baseTime: 6500,
+    cost: { hellfire: 1 },
+    yield: { anguish: 5, screams: 5 },
+    statsTrained: [
+      { key: "brutality", xp: 40 },
+      { key: "malice", xp: 20 }
+    ],
+    lore: { en: "Heat up chambers using hellfire to maximize suffering output.", ua: "Розігрійте камери пекельним вогнем для максимального виходу страждань." },
+    codex: { en: "Requires Level 40. Consumes 1 Hellfire. Yields Anguish and Screams. Trains Brutality and Malice.", ua: "Потребує рівня 40. Витрачає 1 Пекельний Вогонь. Дає Страждання та Крики. Тренує Жорстокість та Злість." }
+  },
+  {
+    id: "inflict_madness",
+    name: { en: "Inflict Mental Madness", ua: "Насилати Божевілля" },
+    category: "torture",
+    levelReq: 55,
+    baseTime: 6000,
+    cost: { anguish: 2 },
+    yield: { nightmares: 3 },
+    statsTrained: [
+      { key: "guile", xp: 50 },
+      { key: "sorcery", xp: 25 }
+    ],
+    lore: { en: "Force weeping minds into complete nightmares.", ua: "Змушуйте страждаючий розум зануритися у суцільні кошмари." },
+    codex: { en: "Requires Level 55. Consumes 2 Anguish. Yields Nightmares. Trains Guile and Sorcery.", ua: "Потребує рівня 55. Витрачає 2 Страждання. Дає Кошмари. Тренує Підступність та Чаклунство." }
+  },
+  {
+    id: "harvest_weeping_souls",
+    name: { en: "Harvest Weeping Souls", ua: "Збирати Ридаючі Душі" },
+    category: "torture",
+    levelReq: 70,
+    baseTime: 8000,
+    cost: { screams: 10 },
+    yield: { souls: 1 },
+    statsTrained: [
+      { key: "willpower", xp: 60 },
+      { key: "corruption", xp: 30 }
+    ],
+    lore: { en: "Congeal screaming echoes until they form a solid human Soul.", ua: "Згущуйте звуки криків, доки вони не утворять цілу людську Душу." },
+    codex: { en: "Requires Level 70. Consumes 10 Screams. Yields 1 Soul. Trains Willpower and Corruption.", ua: "Потребує рівня 70. Витрачає 10 Криків. Дає 1 Душу. Тренує Силу Волі та Корупцію." }
+  },
+  {
+    id: "sinners_damnation",
+    name: { en: "Execute Sinners Damnation", ua: "Провести Прокляття Грішників" },
+    category: "torture",
+    levelReq: 85,
+    baseTime: 10000,
+    cost: { agony: 8, screams: 8 },
+    yield: { pride_essence: 2 },
+    statsTrained: [
+      { key: "willpower", xp: 85 },
+      { key: "infernal", xp: 45 }
+    ],
+    lore: { en: "Condemn high monarchs to eternal damnation, harvesting pride essence.", ua: "Прокляніть вищих монархів на вічну смерть, збираючи есенцію гордині." },
+    codex: { en: "Requires Level 85. Consumes 8 Agony and 8 Screams. Yields 2 Pride Essence. Trains Willpower and Infernal.", ua: "Потребує рівня 85. Витрачає 8 Агонії та 8 Криків. Дає 2 Есенції Гордині. Тренує Силу Волі та Пекельну Силу." }
+  },
+
+  // --- Shadow Alchemy (alchemy) ---
+  {
+    id: "brew_acid",
+    name: { en: "Distill Corrosive Acid", ua: "Очищати Їдку Кислоту" },
+    category: "alchemy",
+    levelReq: 1,
+    baseTime: 3000,
+    cost: { sulfur: 2, volcanic_ash: 1 },
+    yield: { corrosive_acid: 1 },
+    statsTrained: [
+      { key: "sorcery", xp: 15 },
+      { key: "resilience", xp: 10 }
+    ],
+    lore: { en: "Mix mineral sulfur with basalt ash to distill a powerful corrosive solvent.", ua: "Змішайте мінеральну сірку з базальтовим попелом, щоб очистити сильний їдкий розчинник." },
+    codex: { en: "Consumes 2 Sulfur and 1 Volcanic Ash. Yields Corrosive Acid. Trains Sorcery and Resilience.", ua: "Витрачає 2 Сірки та 1 Вулканічний Попіл. Дає Їдку Кислоту. Тренує Чаклунство та Стійкість." }
+  },
+  {
+    id: "mix_unholy_elixir",
+    name: { en: "Concoct Unholy Elixir", ua: "Варити Нечестивий Еліксир" },
+    category: "alchemy",
+    levelReq: 8,
+    baseTime: 4000,
+    cost: { demonic_blood: 1, volcanic_ash: 2 },
+    yield: { unholy_elixir: 1 },
+    statsTrained: [
+      { key: "sorcery", xp: 20 },
+      { key: "devotion", xp: 10 }
+    ],
+    lore: { en: "Brew thick dark red fluids using ash to shield companions during invasions.", ua: "Варіть густу червону рідину з попелом, щоб прикрити приплічників під час набігів." },
+    codex: { en: "Requires Level 8. Consumes 1 Demonic Blood and 2 Volcanic Ash. Yields 1 Unholy Elixir. Trains Sorcery and Devotion.", ua: "Потребує рівня 8. Витрачає 1 Демонічну Кров та 2 Вулканічного Попелу. Дає 1 Нечестивий Еліксир. Тренує Чаклунство та Відданість." }
+  },
+  {
+    id: "refine_mercury",
+    name: { en: "Refine Liquid Mercury", ua: "Очищати Рідку Ртуть" },
+    category: "alchemy",
+    levelReq: 15,
+    baseTime: 3500,
+    cost: { styx_clay: 2, sulfur: 2 },
+    yield: { dark_mercury: 1 },
+    statsTrained: [
+      { key: "sorcery", xp: 25 },
+      { key: "guile", xp: 12 }
+    ],
+    lore: { en: "Filter heavy clay deposits to refine pure dark mercury.", ua: "Фільтруйте важкі глиняні поклади, щоб очистити чисту темну ртуть." },
+    codex: { en: "Requires Level 15. Consumes 2 Styx Clay and 2 Sulfur. Yields 1 Dark Mercury. Trains Sorcery and Guile.", ua: "Потребує рівня 15. Витрачає 2 Глини Стіксу та 2 Сірки. Дає 1 Темну Ртуть. Тренує Чаклунство та Підступність." }
+  },
+  {
+    id: "distill_plague",
+    name: { en: "Distill Plague Extract", ua: "Дистилювати Екстракт Чуми" },
+    category: "alchemy",
+    levelReq: 25,
+    baseTime: 5000,
+    cost: { nightshade: 3, volcanic_ash: 2 },
+    yield: { plague_extract: 1 },
+    statsTrained: [
+      { key: "sorcery", xp: 30 },
+      { key: "willpower", xp: 15 }
+    ],
+    lore: { en: "Distill toxic nightshade foliage into active poison extract.", ua: "Дистилюйте отруйне листя пасльону в активний отруйний екстракт." },
+    codex: { en: "Requires Level 25. Consumes 3 Nightshade and 2 Volcanic Ash. Yields 1 Plague Extract. Trains Sorcery and Willpower.", ua: "Потребує рівня 25. Витрачає 3 Пасльону та 2 Вулканічного Попелу. Дає 1 Екстракт Чуми. Тренує Чаклунство та Силу Волі." }
+  },
+  {
+    id: "prepare_vitriol",
+    name: { en: "Prepare Acid Vitriol", ua: "Приготувати Кисний Купорос" },
+    category: "alchemy",
+    levelReq: 40,
+    baseTime: 6000,
+    cost: { corrosive_acid: 2, sulfur: 4 },
+    yield: { vitriol: 1 },
+    statsTrained: [
+      { key: "sorcery", xp: 45 },
+      { key: "resilience", xp: 20 }
+    ],
+    lore: { en: "Refine vitriol solutions using corrosive solvents and mineral sulfur.", ua: "Очищайте розчини купоросу, використовуючи їдкі розчинники та мінеральну сірку." },
+    codex: { en: "Requires Level 40. Consumes 2 Corrosive Acid and 4 Sulfur. Yields 1 Vitriol. Trains Sorcery and Resilience.", ua: "Потребує рівня 40. Витрачає 2 Їдкої Кислоти та 4 Сірки. Дає 1 Купорос. Тренує Чаклунство та Стійкість." }
+  },
+  {
+    id: "brew_hellfire_oil",
+    name: { en: "Refine Hellfire Oil", ua: "Очищати Пекельну Олію" },
+    category: "alchemy",
+    levelReq: 55,
+    baseTime: 4500,
+    cost: { sulfur: 5, volcanic_ash: 5 },
+    yield: { hellfire: 4 },
+    statsTrained: [
+      { key: "infernal", xp: 50 },
+      { key: "avarice", xp: 25 }
+    ],
+    lore: { en: "Cook geological dust at extreme temperatures to output massive hellfire oil.", ua: "Готуйте геологічний пил при екстремальних температурах, щоб отримати багато пекельного вогню." },
+    codex: { en: "Requires Level 55. Consumes 5 Sulfur and 5 Volcanic Ash. Yields 4 Hellfire. Trains Infernal Power and Avarice.", ua: "Потребує рівня 55. Витрачає 5 Сірки та 5 Вулканічного Попелу. Дає 4 Пекельних Вогні. Тренує Пекельну Силу та Жадібність." }
+  },
+  {
+    id: "transmute_gold",
+    name: { en: "Transmute Iron into Gold", ua: "Трансмутувати Залізо в Золото" },
+    category: "alchemy",
+    levelReq: 70,
+    baseTime: 7000,
+    cost: { abyssal_iron: 2, vitriol: 1 },
+    yield: { gold: 150 },
+    statsTrained: [
+      { key: "sorcery", xp: 65 },
+      { key: "avarice", xp: 35 }
+    ],
+    lore: { en: "Dissolve abyssal iron using vitriol acid to synthesize gold coins.", ua: "Розчиніть безодневе залізо за допомогою купоросу, щоб синтезувати золоті монети." },
+    codex: { en: "Requires Level 70. Consumes 2 Abyssal Iron and 1 Vitriol. Yields 150 Gold. Trains Sorcery and Avarice.", ua: "Потребує рівня 70. Витрачає 2 Безодневого Заліза та 1 Купорос. Дає 150 Золота. Тренує Чаклунство та Жадібність." }
+  },
+  {
+    id: "elixir_of_the_void",
+    name: { en: "Synthesize Elixir of the Void", ua: "Синтезувати Еліксир Пустоти" },
+    category: "alchemy",
+    levelReq: 85,
+    baseTime: 9000,
+    cost: { divine_essence: 1, dark_mercury: 4 },
+    yield: { chaos_essence: 3 },
+    statsTrained: [
+      { key: "sorcery", xp: 85 },
+      { key: "willpower", xp: 45 }
+    ],
+    lore: { en: "Refine spatial essences by dissolving divine items in dark mercury.", ua: "Очищайте просторові есенції, розчиняючи божественні предмети в темній ртуті." },
+    codex: { en: "Requires Level 85. Consumes 1 Divine Essence and 4 Dark Mercury. Yields 3 Chaos Essence. Trains Sorcery and Willpower.", ua: "Потребує рівня 85. Витрачає 1 Божественну Есенцію та 4 Темної Ртуті. Дає 3 Есенції Хаосу. Тренує Чаклунство та Силу Волі." }
+  },
+
+  // --- Necromancy (necromancy) ---
+  {
+    id: "raise_skeletons",
+    name: { en: "Raise Skeleton Servants", ua: "Піднімати Скелетів-Слуг" },
+    category: "necromancy",
+    levelReq: 1,
+    baseTime: 3500,
+    cost: { bone_dust: 2 },
+    yield: { flesh: 1 },
+    statsTrained: [
+      { key: "sorcery", xp: 12 },
+      { key: "brutality", xp: 8 }
+    ],
+    lore: { en: "Infuse residual life forces into skeletal bones to synthesize organic flesh.", ua: "Вдихайте залишки життєвих сил у кістки скелетів, щоб синтезувати плоть." },
+    codex: { en: "Consumes 2 Bone Dust. Yields 1 Flesh. Trains Sorcery and Brutality.", ua: "Витрачає 2 Кістяних Пили. Дає 1 Плоть. Тренує Чаклунство та Жорстокість." }
+  },
+  {
+    id: "harvest_bone_dust",
+    name: { en: "Sift Grave Bones", ua: "Просівати Могильні Кістки" },
+    category: "necromancy",
+    levelReq: 8,
+    baseTime: 3000,
+    cost: {},
+    yield: { bone_dust: 3 },
+    statsTrained: [
+      { key: "brutality", xp: 18 },
+      { key: "resilience", xp: 10 }
+    ],
+    lore: { en: "Dig graves of dead border soldiers to harvest bone fragments.", ua: "Розкопуйте могили полеглих солдатів, щоб зібрати уламки кісток." },
+    codex: { en: "Requires Level 8. Yields 3 Bone Dust. Trains Brutality and Resilience.", ua: "Потребує рівня 8. Дає 3 Кістяних Пили. Тренує Жорстокість та Стійкість." }
+  },
+  {
+    id: "summon_wraith",
+    name: { en: "Summon Wraith Companions", ua: "Призвати Примарних Супутників" },
+    category: "necromancy",
+    levelReq: 15,
+    baseTime: 5000,
+    cost: { screams: 3 },
+    yield: { ectoplasm: 1 },
+    statsTrained: [
+      { key: "sorcery", xp: 25 },
+      { key: "devotion", xp: 12 }
+    ],
+    lore: { en: "Summon spectral shadow wraiths out of weeping mortal echoes.", ua: "Призивайте спектральних тіньових примар із ридаючих смертних відлунь." },
+    codex: { en: "Requires Level 15. Consumes 3 Screams. Yields 1 Ectoplasm. Trains Sorcery and Devotion.", ua: "Потребує рівня 15. Витрачає 3 Криків. Дає 1 Ектоплазму. Тренує Чаклунство та Відданість." }
+  },
+  {
+    id: "infuse_golem",
+    name: { en: "Infuse Clay Golem", ua: "Наповнити Глиняного Голема" },
+    category: "necromancy",
+    levelReq: 25,
+    baseTime: 6000,
+    cost: { styx_clay: 3, bone_dust: 5 },
+    yield: { abyssal_iron: 1 },
+    statsTrained: [
+      { key: "devotion", xp: 35 },
+      { key: "resilience", xp: 20 }
+    ],
+    lore: { en: "Bind heavy clay sentinels with bone dust to compress solid iron blocks.", ua: "Зв'язуйте важких глиняних вартових кістяним пилом, щоб спресувати залізні блоки." },
+    codex: { en: "Requires Level 25. Consumes 3 Styx Clay and 5 Bone Dust. Yields 1 Abyssal Iron. Trains Devotion and Resilience.", ua: "Потребує рівня 25. Витрачає 3 Глини Стіксу та 5 Кістяного Пили. Дає 1 Безодневе Залізо. Тренує Відданість та Стійкість." }
+  },
+  {
+    id: "reanimate_monsters",
+    name: { en: "Reanimate Dead Monsters", ua: "Реанімувати Мертвих Чудовиськ" },
+    category: "necromancy",
+    levelReq: 40,
+    baseTime: 7000,
+    cost: { demonic_blood: 1 },
+    yield: { flesh: 4, bone_dust: 4 },
+    statsTrained: [
+      { key: "sorcery", xp: 45 },
+      { key: "brutality", xp: 25 }
+    ],
+    lore: { en: "Use demonic blood to trigger cell regeneration of dead beast limbs.", ua: "Використовуйте демонічну кров, щоб запустити регенерацію мертвих кінцівок чудовиськ." },
+    codex: { en: "Requires Level 40. Consumes 1 Demonic Blood. Yields 4 Flesh and 4 Bone Dust. Trains Sorcery and Brutality.", ua: "Потребує рівня 40. Витрачає 1 Демонічну Кров. Дає 4 Плоті та 4 Кістяних Пили. Тренує Чаклунство та Жорстокість." }
+  },
+  {
+    id: "bind_lost_souls",
+    name: { en: "Bind Wandering Souls", ua: "Зв'язати Блукаючі Душі" },
+    category: "necromancy",
+    levelReq: 55,
+    baseTime: 8000,
+    cost: { ectoplasm: 4 },
+    yield: { souls: 0.2 },
+    statsTrained: [
+      { key: "sorcery", xp: 55 },
+      { key: "willpower", xp: 30 }
+    ],
+    lore: { en: "Secure wandering ghost residues to form stable soul pieces.", ua: "Утримуйте блукаючі залишки привидів, щоб сформувати стабільні фрагменти душі." },
+    codex: { en: "Requires Level 55. Consumes 4 Ectoplasm. Yields 0.2 Souls (20% chance of 1). Trains Sorcery and Willpower.", ua: "Потребує рівня 55. Витрачає 4 Ектоплазми. Дає 0.2 Душі. Тренує Чаклунство та Силу Волі." }
+  },
+  {
+    id: "harvest_grave_dirt",
+    name: { en: "Dredge Grave Dirt", ua: "Видобувати Могильну Землю" },
+    category: "necromancy",
+    levelReq: 70,
+    baseTime: 5000,
+    cost: {},
+    yield: { styx_clay: 5 },
+    statsTrained: [
+      { key: "resilience", xp: 60 },
+      { key: "avarice", xp: 30 }
+    ],
+    lore: { en: "Dredge death-enriched graveyard clay soils.", ua: "Видобувайте насичений смертю цвинтарний глиняний ґрунт." },
+    codex: { en: "Requires Level 70. Yields 5 Styx Clay. Trains Resilience and Avarice.", ua: "Потребує рівня 70. Дає 5 Глини Стіксу. Тренує Стійкість та Жадібність." }
+  },
+  {
+    id: "summon_lich",
+    name: { en: "Reanimate Lich Lords", ua: "Реанімувати Лордів-Лічів" },
+    category: "necromancy",
+    levelReq: 85,
+    baseTime: 12000,
+    cost: { demonic_blood: 5, bone_dust: 20 },
+    yield: { souls: 2, phantoms: 1 },
+    statsTrained: [
+      { key: "sorcery", xp: 90 },
+      { key: "willpower", xp: 45 }
+    ],
+    lore: { en: "Rebuild ancient wizard skeletons to bind powerful lich minions.", ua: "Відновіть скелети древніх чарівників, щоб прив'язати потужних приплічників-лічів." },
+    codex: { en: "Requires Level 85. Consumes 5 Demonic Blood and 20 Bone Dust. Yields 2 Souls and 1 Phantom. Trains Sorcery and Willpower.", ua: "Потребує рівня 85. Витрачає 5 Демонічної Крові та 20 Кістяного Пили. Дає 2 Душі та 1 Фантома. Тренує Чаклунство та Силу Волі." }
+  },
+
+  // --- Abyssal Agriculture (agriculture) ---
+  {
+    id: "gather_blood_roses",
+    name: { en: "Gather Blood Roses", ua: "Збирати Троянди Крові" },
+    category: "agriculture",
+    levelReq: 1,
+    baseTime: 3000,
+    cost: {},
+    yield: { blood_roses: 1 },
+    statsTrained: [
+      { key: "resilience", xp: 12 },
+      { key: "avarice", xp: 6 }
+    ],
+    lore: { en: "Pluck thorny crimson blood roses grown in sulfur-rich soils.", ua: "Збирайте колючі червоні троянди крові, що виросли на багатих сіркою ґрунтах." },
+    codex: { en: "Yields 1 Blood Rose. Trains Resilience and Avarice.", ua: "Дає 1 Троянду Крові. Тренує Стійкість та Жадібність." }
+  },
+  {
+    id: "tend_nightshade",
+    name: { en: "Tend Volcanic Nightshade", ua: "Доглядати Вулканічний Паслін" },
+    category: "agriculture",
+    levelReq: 8,
+    baseTime: 4000,
+    cost: {},
+    yield: { nightshade: 1 },
+    statsTrained: [
+      { key: "resilience", xp: 20 },
+      { key: "guile", xp: 10 }
+    ],
+    lore: { en: "Water toxic nightshade vegetation grown inside deep volcanic vents.", ua: "Поливайте отруйні рослини пасльону, вирощені всередині глибоких вулканічних джерел." },
+    codex: { en: "Requires Level 8. Yields 1 Nightshade. Trains Resilience and Guile.", ua: "Потребує рівня 8. Дає 1 Паслін. Тренує Стійкість та Підступність." }
+  },
+  {
+    id: "harvest_spores",
+    name: { en: "Harvest Spore Pods", ua: "Збирати Спорові Стручки" },
+    category: "agriculture",
+    levelReq: 15,
+    baseTime: 4500,
+    cost: {},
+    yield: { spore_pods: 1 },
+    statsTrained: [
+      { key: "resilience", xp: 25 },
+      { key: "corruption", xp: 12 }
+    ],
+    lore: { en: "Collect explosive fungal spore pods inside dark chambers.", ua: "Збирайте вибухові грибні спорові стручки всередині темних камер." },
+    codex: { en: "Requires Level 15. Yields 1 Spore Pod. Trains Resilience and Corruption.", ua: "Потребує рівня 15. Дає 1 Споровий Стручок. Тренує Стійкість та Корупцію." }
+  },
+  {
+    id: "cultivate_toxic_roots",
+    name: { en: "Cultivate Nightshade Roots", ua: "Вирощувати Коріння Пасльону" },
+    category: "agriculture",
+    levelReq: 25,
+    baseTime: 5000,
+    cost: { sulfur: 1 },
+    yield: { nightshade: 3 },
+    statsTrained: [
+      { key: "resilience", xp: 30 },
+      { key: "avarice", xp: 15 }
+    ],
+    lore: { en: "Feed roots with mineral sulfur to trigger fast nightshade growth.", ua: "Підживлюйте коріння мінеральною сіркою для швидкого росту пасльону." },
+    codex: { en: "Requires Level 25. Consumes 1 Sulfur. Yields 3 Nightshade. Trains Resilience and Avarice.", ua: "Потребує рівня 25. Витрачає 1 Сірку. Дає 3 Пасльону. Тренує Стійкість та Жадібність." }
+  },
+  {
+    id: "fertilize_ash_gardens",
+    name: { en: "Fertilize Ash Gardens", ua: "Удобрювати Попелясті Сади" },
+    category: "agriculture",
+    levelReq: 40,
+    baseTime: 6000,
+    cost: { volcanic_ash: 3 },
+    yield: { blood_roses: 4 },
+    statsTrained: [
+      { key: "resilience", xp: 45 },
+      { key: "devotion", xp: 20 }
+    ],
+    lore: { en: "Spread volcanic ash to fertilize red rose plant matrices.", ua: "Розкидайте вулканічний попіл, щоб удобрити рослини червоних троянд." },
+    codex: { en: "Requires Level 40. Consumes 3 Volcanic Ash. Yields 4 Blood Roses. Trains Resilience and Devotion.", ua: "Потребує рівня 40. Витрачає 3 Вулканічного Попелу. Дає 4 Троянди Крові. Тренує Стійкість та Відданість." }
+  },
+  {
+    id: "breed_spore_forests",
+    name: { en: "Breed Fungal Spore Forests", ua: "Розводити Грибні Спорові Ліси" },
+    category: "agriculture",
+    levelReq: 55,
+    baseTime: 7000,
+    cost: { styx_clay: 2 },
+    yield: { spore_pods: 3 },
+    statsTrained: [
+      { key: "resilience", xp: 55 },
+      { key: "corruption", xp: 25 }
+    ],
+    lore: { en: "Use damp clay from Styx River to cultivate dense spore matrices.", ua: "Використовуйте вологу глину з річки Стікс для вирощування густих спор." },
+    codex: { en: "Requires Level 55. Consumes 2 Styx Clay. Yields 3 Spore Pods. Trains Resilience and Corruption.", ua: "Потребує рівня 55. Витрачає 2 Глини Стіксу. Дає 3 Спорові Стручки. Тренує Стійкість та Корупцію." }
+  },
+  {
+    id: "crossbreed_demonic_flora",
+    name: { en: "Crossbreed Demonic Flora", ua: "Схрещувати Демонічну Флору" },
+    category: "agriculture",
+    levelReq: 70,
+    baseTime: 8000,
+    cost: { nightshade: 4, spore_pods: 4 },
+    yield: { venom: 2 },
+    statsTrained: [
+      { key: "sorcery", xp: 70 },
+      { key: "avarice", xp: 35 }
+    ],
+    lore: { en: "Extract hybrid fluids from toxic plants to synthesize scorpion-strength venom.", ua: "Видобувайте гібридні соки з отруйних рослин, щоб синтезувати сильну отруту." },
+    codex: { en: "Requires Level 70. Consumes 4 Nightshade and 4 Spore Pods. Yields 2 Venom. Trains Sorcery and Avarice.", ua: "Потребує рівня 70. Витрачає 4 Пасльону та 4 Спорові Стручки. Дає 2 Отрути. Тренує Чаклунство та Жадібність." }
+  },
+  {
+    id: "tree_of_corruption",
+    name: { en: "Grow Tree of Corruption", ua: "Виростити Дерево Корупції" },
+    category: "agriculture",
+    levelReq: 85,
+    baseTime: 10000,
+    cost: { demonic_blood: 4, blood_roses: 10 },
+    yield: { pride_essence: 1 },
+    statsTrained: [
+      { key: "resilience", xp: 90 },
+      { key: "willpower", xp: 45 }
+    ],
+    lore: { en: "Feed blood and roses to a central corrupt tree, secure pride essence.", ua: "Підживлюйте кров'ю та трояндами центральне осквернене дерево, збираючи есенцію гордині." },
+    codex: { en: "Requires Level 85. Consumes 4 Demonic Blood and 10 Blood Roses. Yields 1 Pride Essence. Trains Resilience and Willpower.", ua: "Потребує рівня 85. Витрачає 4 Демонічної Крові та 10 Троянд Крові. Дає 1 Есенцію Гордині. Тренує Стійкість та Силу Волі." }
+  },
+
+  // --- Blood Sorcery (blood) ---
+  {
+    id: "siphon_veins",
+    name: { en: "Siphon Mortal Blood", ua: "Викачувати Кров Смертних" },
+    category: "blood",
+    levelReq: 1,
+    baseTime: 3000,
+    cost: { flesh: 1 },
+    yield: { demonic_blood: 1 },
+    statsTrained: [
+      { key: "sorcery", xp: 12 },
+      { key: "brutality", xp: 8 }
+    ],
+    lore: { en: "Squeeze mortal flesh resources to collect demonic blood volumes.", ua: "Стискайте плоть смертних, щоб зібрати об'єми демонічної крові." },
+    codex: { en: "Consumes 1 Flesh. Yields 1 Demonic Blood. Trains Sorcery and Brutality.", ua: "Витрачає 1 Плоть. Дає 1 Демонічну Кров. Тренує Чаклунство та Жорстокість." }
+  },
+  {
+    id: "coagulate_blood_pools",
+    name: { en: "Coagulate Blood Clots", ua: "Згущувати Тромби Крові" },
+    category: "blood",
+    levelReq: 8,
+    baseTime: 4000,
+    cost: { demonic_blood: 2 },
+    yield: { coagulated_blood: 1 },
+    statsTrained: [
+      { key: "sorcery", xp: 20 },
+      { key: "resilience", xp: 10 }
+    ],
+    lore: { en: "Boil crimson blood fluids into heavy biological bindings.", ua: "Згущуйте багряну кров'яну рідину у важкі біологічні сполучники." },
+    codex: { en: "Requires Level 8. Consumes 2 Demonic Blood. Yields 1 Coagulated Blood. Trains Sorcery and Resilience.", ua: "Потребує рівня 8. Витрачає 2 Демонічної Крові. Дає 1 Згущену Кров. Тренує Чаклунство та Стійкість." }
+  },
+  {
+    id: "refine_blood_rubies",
+    name: { en: "Refine Blood Rubies", ua: "Очищати Багряний Лазурит" },
+    category: "blood",
+    levelReq: 15,
+    baseTime: 6000,
+    cost: { demonic_blood: 5 },
+    yield: { lapis_sanguine: 1 },
+    statsTrained: [
+      { key: "sorcery", xp: 30 },
+      { key: "avarice", xp: 15 }
+    ],
+    lore: { en: "Refine and crystallize dark crimson blood into precious lapis sanguine gems.", ua: "Очищайте та кристалізуйте темну багряну кров у цінні самоцвіти лазуриту." },
+    codex: { en: "Requires Level 15. Consumes 5 Demonic Blood. Yields 1 Lapis Sanguine. Trains Sorcery and Avarice.", ua: "Потребує рівня 15. Витрачає 5 Демонічної Крові. Дає 1 Багряний Лазурит. Тренує Чаклунство та Жадібність." }
+  },
+  {
+    id: "infuse_flesh",
+    name: { en: "Infuse Blood into Flesh", ua: "Вливати Кров у Плоть" },
+    category: "blood",
+    levelReq: 25,
+    baseTime: 5000,
+    cost: { demonic_blood: 2 },
+    yield: { flesh: 3 },
+    statsTrained: [
+      { key: "sorcery", xp: 25 },
+      { key: "brutality", xp: 15 }
+    ],
+    lore: { en: "Feed dead muscle tissues with blood to expand biological flesh.", ua: "Підживлюйте мертві м'язові тканини кров'ю, щоб виростити біологічну плоть." },
+    codex: { en: "Requires Level 25. Consumes 2 Demonic Blood. Yields 3 Flesh. Trains Sorcery and Brutality.", ua: "Потребує рівня 25. Витрачає 2 Демонічної Крові. Дає 3 Плоті. Тренує Чаклунство та Жорстокість." }
+  },
+  {
+    id: "blood_transfusion",
+    name: { en: "Synthesize Demonic Blood", ua: "Синтезувати Демонічну Кров" },
+    category: "blood",
+    levelReq: 40,
+    baseTime: 6000,
+    cost: { flesh: 4 },
+    yield: { demonic_blood: 5 },
+    statsTrained: [
+      { key: "sorcery", xp: 45 },
+      { key: "willpower", xp: 20 }
+    ],
+    lore: { en: "Filter and dissolve raw muscle meat to synthesize demonic blood fluids.", ua: "Фільтруйте та розчиняйте сиру плоть, щоб синтезувати демонічну кров." },
+    codex: { en: "Requires Level 40. Consumes 4 Flesh. Yields 5 Demonic Blood. Trains Sorcery and Willpower.", ua: "Потребує рівня 40. Витрачає 4 Плоті. Дає 5 Демонічної Крові. Тренує Чаклунство та Силу Волі." }
+  },
+  {
+    id: "coagulated_armor",
+    name: { en: "Shape Coagulated Armor", ua: "Формувати Згущену Броню" },
+    category: "blood",
+    levelReq: 55,
+    baseTime: 7000,
+    cost: { demonic_blood: 6 },
+    yield: { coagulated_blood: 4 },
+    statsTrained: [
+      { key: "sorcery", xp: 55 },
+      { key: "resilience", xp: 30 }
+    ],
+    lore: { en: "Compress blood cells under shadow magic into thick defensive clots.", ua: "Стискайте клітини крові за допомогою тіньової магії у захисну броню." },
+    codex: { en: "Requires Level 55. Consumes 6 Demonic Blood. Yields 4 Coagulated Blood. Trains Sorcery and Resilience.", ua: "Потребує рівня 55. Витрачає 6 Демонічної Крові. Дає 4 Згущеної Крові. Тренує Чаклунство та Стійкість." }
+  },
+  {
+    id: "crystallize_crimson_heart",
+    name: { en: "Crystallize Crimson Gemstones", ua: "Кристалізувати Багряні Самоцвіти" },
+    category: "blood",
+    levelReq: 70,
+    baseTime: 8000,
+    cost: { coagulated_blood: 5 },
+    yield: { lapis_sanguine: 3 },
+    statsTrained: [
+      { key: "sorcery", xp: 75 },
+      { key: "willpower", xp: 40 }
+    ],
+    lore: { en: "Apply extreme magic pressure to coagulated blood clots to crystallize blood rubies.", ua: "Створіть високий магічний тиск на згустки крові, щоб кристалізувати багряні самоцвіти." },
+    codex: { en: "Requires Level 70. Consumes 5 Coagulated Blood. Yields 3 Lapis Sanguine. Trains Sorcery and Willpower.", ua: "Потребує рівня 70. Витрачає 5 Згущеної Крові. Дає 3 Багряних Лазурити. Тренує Чаклунство та Силу Волі." }
+  },
+  {
+    id: "bloody_eclipse",
+    name: { en: "Invoke Blood Eclipse", ua: "Закликати Кровне Затемнення" },
+    category: "blood",
+    levelReq: 85,
+    baseTime: 11000,
+    cost: { lapis_sanguine: 2, demonic_blood: 10 },
+    yield: { souls: 2 },
+    statsTrained: [
+      { key: "sorcery", xp: 100 },
+      { key: "willpower", xp: 50 }
+    ],
+    lore: { en: "Offer blood rubies to focus a crimson eclipse, securing human souls.", ua: "Пожертвуйте багряні самоцвіти, щоб викликати затемнення та забрати людські душі." },
+    codex: { en: "Requires Level 85. Consumes 2 Lapis Sanguine and 10 Demonic Blood. Yields 2 Souls. Trains Sorcery and Willpower.", ua: "Потребує рівня 85. Витрачає 2 Багряних Лазурити та 10 Демонічної Крові. Дає 2 Душі. Тренує Чаклунство та Силу Волі." }
+  },
+
+  // --- Chaos Cultivation (chaos) ---
+  {
+    id: "meditate_on_void",
+    name: { en: "Meditate on Void Waves", ua: "Медетувати на Хвилі Пустоти" },
+    category: "chaos",
+    levelReq: 1,
+    baseTime: 4000,
+    cost: { evil_intent: 20 },
+    yield: { chaos_essence: 1 },
+    statsTrained: [
+      { key: "corruption", xp: 15 },
+      { key: "willpower", xp: 10 }
+    ],
+    lore: { en: "Clear your mind to receive raw entropic chaos waves.", ua: "Очистіть розум, щоб сприймати первинні ентропійні хвилі хаосу." },
+    codex: { en: "Consumes 20 Evil Intent. Yields 1 Chaos Essence. Trains Corruption and Willpower.", ua: "Витрачає 20 Злого Наміру. Дає 1 Есенцію Хаосу. Тренує Корупцію та Силу Волі." }
+  },
+  {
+    id: "ignite_chaos_sparks",
+    name: { en: "Ignite Chaos Sparks", ua: "Запалювати Іскри Хаосу" },
+    category: "chaos",
+    levelReq: 8,
+    baseTime: 4500,
+    cost: { chaos_essence: 1 },
+    yield: { chaos_sparks: 1 },
+    statsTrained: [
+      { key: "corruption", xp: 20 },
+      { key: "sorcery", xp: 12 }
+    ],
+    lore: { en: "Ignite unstable chaos energy to output sparkling static sparks.", ua: "Запалюйте нестабільну енергію хаосу, щоб отримати іскристі заряди." },
+    codex: { en: "Requires Level 8. Consumes 1 Chaos Essence. Yields 1 Chaos Spark. Trains Corruption and Sorcery.", ua: "Потребує рівня 8. Витрачає 1 Есенцію Хаосу. Дає 1 Іскру Хаосу. Тренує Корупцію та Чаклунство." }
+  },
+  {
+    id: "stabilize_void_fractures",
+    name: { en: "Stabilize Void Fractures", ua: "Стабілізувати Розломи Пустоти" },
+    category: "chaos",
+    levelReq: 15,
+    baseTime: 6500,
+    cost: { chaos_essence: 3 },
+    yield: { void_crystals: 1 },
+    statsTrained: [
+      { key: "willpower", xp: 35 },
+      { key: "resilience", xp: 15 }
+    ],
+    lore: { en: "Secure entropic void fractures using willpower structures.", ua: "Стабілізуйте ентропійні розломи за допомогою структур сили волі." },
+    codex: { en: "Requires Level 15. Consumes 3 Chaos Essence. Yields 1 Void Crystal. Trains Willpower and Resilience.", ua: "Потребує рівня 15. Дає 1 Кристал Пустоти. Тренує Силу Волі та Стійкість." }
+  },
+  {
+    id: "harvest_chaos_wind",
+    name: { en: "Harvest Chaos Essence", ua: "Збирати Есенцію Хаосу" },
+    category: "chaos",
+    levelReq: 25,
+    baseTime: 5000,
+    cost: {},
+    yield: { chaos_essence: 3 },
+    statsTrained: [
+      { key: "corruption", xp: 30 },
+      { key: "avarice", xp: 15 }
+    ],
+    lore: { en: "Gather volatile floating residues of chaos forces.", ua: "Збирайте нестабільні летючі залишки сил хаосу." },
+    codex: { en: "Requires Level 25. Yields 3 Chaos Essence. Trains Corruption and Avarice.", ua: "Потребує рівня 25. Дає 3 Есенції Хаосу. Тренує Корупцію та Жадібність." }
+  },
+  {
+    id: "spark_storms",
+    name: { en: "Channel Spark Storms", ua: "Направляти Шторми Іскор" },
+    category: "chaos",
+    levelReq: 40,
+    baseTime: 6000,
+    cost: { chaos_essence: 2 },
+    yield: { chaos_sparks: 4 },
+    statsTrained: [
+      { key: "corruption", xp: 45 },
+      { key: "sorcery", xp: 20 }
+    ],
+    lore: { en: "Focus chaos forces to invoke continuous static storm fields.", ua: "Фокусуйте сили хаосу, щоб викликати безперервні шторми іскор." },
+    codex: { en: "Requires Level 40. Consumes 2 Chaos Essence. Yields 4 Chaos Sparks. Trains Corruption and Sorcery.", ua: "Потребує рівня 40. Витрачає 2 Есенції Хаосу. Дає 4 Іскри Хаосу. Тренує Корупцію та Чаклунство." }
+  },
+  {
+    id: "grow_void_crystal_clusters",
+    name: { en: "Grow Void Crystal Clusters", ua: "Вирощувати Кристали Пустоти" },
+    category: "chaos",
+    levelReq: 55,
+    baseTime: 8000,
+    cost: { chaos_sparks: 5 },
+    yield: { void_crystals: 3 },
+    statsTrained: [
+      { key: "willpower", xp: 60 },
+      { key: "avarice", xp: 30 }
+    ],
+    lore: { en: "Merge spark units to grow solid space crystal clusters.", ua: "Об'єднуйте заряди іскор, щоб виростити тверді просторові кристали." },
+    codex: { en: "Requires Level 55. Consumes 5 Chaos Sparks. Yields 3 Void Crystals. Trains Willpower and Avarice.", ua: "Потребує рівня 55. Витрачає 5 Іскор Хаосу. Дає 3 Кристали Пустоти. Тренує Силу Волі та Жадібність." }
+  },
+  {
+    id: "harness_star_shards",
+    name: { en: "Harness Astral Shards", ua: "Приборкувати Астральні Осколки" },
+    category: "chaos",
+    levelReq: 70,
+    baseTime: 7000,
+    cost: { void_crystals: 2 },
+    yield: { star_dust: 2 },
+    statsTrained: [
+      { key: "sorcery", xp: 70 },
+      { key: "willpower", xp: 35 }
+    ],
+    lore: { en: "Dissolve spatial crystals to capture stardust fragments.", ua: "Розчиняйте просторові кристали, щоб зловити часточки зоряного пилу." },
+    codex: { en: "Requires Level 70. Consumes 2 Void Crystals. Yields 2 Star Dust. Trains Sorcery and Willpower.", ua: "Потребує рівня 70. Витрачає 2 Кристали Пустоти. Дає 2 Зоряного Пили. Тренує Чаклунство та Силу Волі." }
+  },
+  {
+    id: "chaos_singularity",
+    name: { en: "Form Chaos Singularity", ua: "Формувати Сингулярність Хаосу" },
+    category: "chaos",
+    levelReq: 85,
+    baseTime: 10000,
+    cost: { nebula_shards: 1 },
+    yield: { chaos_essence: 8 },
+    statsTrained: [
+      { key: "corruption", xp: 90 },
+      { key: "willpower", xp: 45 }
+    ],
+    lore: { en: "Implode dead star fragments to unleash a massive output of chaos essence.", ua: "Спровокуйте імплозію осколків мертвих зірок, щоб випустити велику кількість есенції хаосу." },
+    codex: { en: "Requires Level 85. Consumes 1 Nebula Shard. Yields 8 Chaos Essence. Trains Corruption and Willpower.", ua: "Потребує рівня 85. Витрачає 1 Осколок Туманності. Дає 8 Есенції Хаосу. Тренує Корупцію та Силу Волі." }
+  },
+
+  // --- Void Excavation (void) ---
+  {
+    id: "sift_void_sands",
+    name: { en: "Sift Void Sands", ua: "Просівати Пісок Пустоти" },
+    category: "void",
+    levelReq: 1,
+    baseTime: 3000,
+    cost: {},
+    yield: { volcanic_ash: 2 },
+    statsTrained: [
+      { key: "brutality", xp: 12 },
+      { key: "avarice", xp: 6 }
+    ],
+    lore: { en: "Sift dry grey dust sands inside deep void fissures.", ua: "Просівайте сухий сірий попіл у глибоких розломах пустоти." },
+    codex: { en: "Yields 2 Volcanic Ash. Trains Brutality and Avarice.", ua: "Дає 2 Вулканічні Попели. Тренує Жорстокість та Жадібність." }
+  },
+  {
+    id: "dig_abyssal_trenches",
+    name: { en: "Dig Abyssal Trenches", ua: "Копати Траншеї Безодні" },
+    category: "void",
+    levelReq: 8,
+    baseTime: 4000,
+    cost: {},
+    yield: { styx_clay: 2 },
+    statsTrained: [
+      { key: "brutality", xp: 20 },
+      { key: "resilience", xp: 10 }
+    ],
+    lore: { en: "Excavate deep channels to secure river mud clay.", ua: "Викопуйте глибокі рови, щоб дістатися покладів річкової глини." },
+    codex: { en: "Requires Level 8. Yields 2 Styx Clay. Trains Brutality and Resilience.", ua: "Потребує рівня 8. Дає 2 Глини Стіксу. Тренує Жорстокість та Стійкість." }
+  },
+  {
+    id: "quarry_void_shards",
+    name: { en: "Quarry Relic Fragments", ua: "Видобувати Фрагменти Реліквій" },
+    category: "void",
+    levelReq: 15,
+    baseTime: 5000,
+    cost: { corrosive_acid: 1 },
+    yield: { relic_fragments: 1 },
+    statsTrained: [
+      { key: "brutality", xp: 25 },
+      { key: "avarice", xp: 15 }
+    ],
+    lore: { en: "Use corrosive solvents to melt basalt rocks covering old relics.", ua: "Використовуйте їдку кислоту, щоб розчинити базальт, який ховає старі реліквії." },
+    codex: { en: "Requires Level 15. Consumes 1 Corrosive Acid. Yields 1 Relic Fragment. Trains Brutality and Avarice.", ua: "Потребує рівня 15. Витрачає 1 Їдку Кислоту. Дає 1 Фрагмент Реліквії. Тренує Жорстокість та Жадібність." }
+  },
+  {
+    id: "extract_void_dust",
+    name: { en: "Gather Abyssal Ash", ua: "Збирати Попіл Безодні" },
+    category: "void",
+    levelReq: 25,
+    baseTime: 4500,
+    cost: {},
+    yield: { volcanic_ash: 5 },
+    statsTrained: [
+      { key: "brutality", xp: 25 },
+      { key: "resilience", xp: 15 }
+    ],
+    lore: { en: "Collect heavy carbonized ash deposits from the floor.", ua: "Збирайте важкі поклади обвугленого попелу з підлоги безодні." },
+    codex: { en: "Requires Level 25. Yields 5 Volcanic Ash. Trains Brutality and Resilience.", ua: "Потребує рівня 25. Дає 5 Вулканічного Попелу. Тренує Жорстокість та Стійкість." }
+  },
+  {
+    id: "dredge_deeper_trenches",
+    name: { en: "Dredge Styx Clay Deposits", ua: "Очищати Поклади Глини Стіксу" },
+    category: "void",
+    levelReq: 40,
+    baseTime: 6000,
+    cost: {},
+    yield: { styx_clay: 6 },
+    statsTrained: [
+      { key: "brutality", xp: 40 },
+      { key: "resilience", xp: 20 }
+    ],
+    lore: { en: "Dredge huge amounts of death silt from bottom channels.", ua: "Видобувайте велику кількість мулу смерті з донних каналів річки." },
+    codex: { en: "Requires Level 40. Yields 6 Styx Clay. Trains Brutality and Resilience.", ua: "Потребує рівня 40. Дає 6 Глини Стіксу. Тренує Жорстокість та Стійкість." }
+  },
+  {
+    id: "unearth_ancient_relics",
+    name: { en: "Unearth Ancient Relics", ua: "Розкопувати Древні Реліквії" },
+    category: "void",
+    levelReq: 55,
+    baseTime: 7500,
+    cost: { corrosive_acid: 2 },
+    yield: { relic_fragments: 3 },
+    statsTrained: [
+      { key: "guile", xp: 55 },
+      { key: "avarice", xp: 25 }
+    ],
+    lore: { en: "Dissolve basalt ruins to expose precious fragment components.", ua: "Розчиняйте базальтові руїни, щоб оголити цінні уламки стародавніх речей." },
+    codex: { en: "Requires Level 55. Consumes 2 Corrosive Acid. Yields 3 Relic Fragments. Trains Guile and Avarice.", ua: "Потребує рівня 55. Витрачає 2 Їдкі Кислоти. Дає 3 Фрагменти Реліквій. Тренує Підступність та Жадібність." }
+  },
+  {
+    id: "excavate_void_rift",
+    name: { en: "Excavate Void Rifts", ua: "Розкопувати Розломи Пустоти" },
+    category: "void",
+    levelReq: 70,
+    baseTime: 9000,
+    cost: { relic_fragments: 2 },
+    yield: { void_crystals: 2 },
+    statsTrained: [
+      { key: "infernal", xp: 70 },
+      { key: "willpower", xp: 35 }
+    ],
+    lore: { en: "Use relic fragments as coordinates to drill void crystal slots.", ua: "Використовуйте фрагменти реліквій як координати, щоб бурити поклади кристалів пустоти." },
+    codex: { en: "Requires Level 70. Consumes 2 Relic Fragments. Yields 2 Void Crystals. Trains Infernal Power and Willpower.", ua: "Потребує рівня 70. Витрачає 2 Фрагменти Реліквій. Дає 2 Кристали Пустоти. Тренує Пекельну Силу та Силу Волі." }
+  },
+  {
+    id: "void_well_activation",
+    name: { en: "Activate Void Extraction Wells", ua: "Активувати Колодязі Видобутку Пустоти" },
+    category: "void",
+    levelReq: 85,
+    baseTime: 11000,
+    cost: { dark_mercury: 3 },
+    yield: { void_crystals: 5 },
+    statsTrained: [
+      { key: "infernal", xp: 90 },
+      { key: "willpower", xp: 45 }
+    ],
+    lore: { en: "Feed extraction wells with mercury to speed up crystal collection.", ua: "Заправляйте колодязі видобутку ртуттю для прискорення збору кристалів пустоти." },
+    codex: { en: "Requires Level 85. Consumes 3 Dark Mercury. Yields 5 Void Crystals. Trains Infernal Power and Willpower.", ua: "Потребує рівня 85. Витрачає 3 Темної Ртуті. Дає 5 Кристалів Пустоти. Тренує Пекельну Силу та Силу Волі." }
+  },
+
+  // --- Plague Breeding (plague) ---
+  {
+    id: "breed_locusts",
+    name: { en: "Breed Locust Swarms", ua: "Розводити Рої Сарани" },
+    category: "plague",
+    levelReq: 1,
+    baseTime: 3000,
+    cost: { flesh: 2 },
+    yield: { locust_swarms: 1 },
+    statsTrained: [
+      { key: "malice", xp: 12 },
+      { key: "avarice", xp: 6 }
+    ],
+    lore: { en: "Feed biological meat to locust larvae inside warm cages.", ua: "Годуйте личинки сарани свіжою плоттю в теплих інкубаторах." },
+    codex: { en: "Consumes 2 Flesh. Yields 1 Locust Swarm. Trains Malice and Avarice.", ua: "Витрачає 2 Плоті. Дає 1 Рій Сарани. Тренує Злість та Жадібність." }
+  },
+  {
+    id: "extract_scorpion_venom",
+    name: { en: "Extract Scorpion Venom", ua: "Добувати Отруту Скорпіонів" },
+    category: "plague",
+    levelReq: 8,
+    baseTime: 4000,
+    cost: {},
+    yield: { venom: 1 },
+    statsTrained: [
+      { key: "guile", xp: 20 },
+      { key: "avarice", xp: 10 }
+    ],
+    lore: { en: "Milky poison fluids out of breeding scorpion nests.", ua: "Збирайте отруйну рідину з розплоджених гнізд скорпіонів." },
+    codex: { en: "Requires Level 8. Yields 1 Venom. Trains Guile and Avarice.", ua: "Потребує рівня 8. Дає 1 Отруту. Тренує Підступність та Жадібність." }
+  },
+  {
+    id: "concoct_plague_extract",
+    name: { en: "Distill Plague Extract", ua: "Очищати Екстракт Чуми" },
+    category: "plague",
+    levelReq: 15,
+    baseTime: 5000,
+    cost: { spore_pods: 2, venom: 1 },
+    yield: { plague_extract: 1 },
+    statsTrained: [
+      { key: "sorcery", xp: 25 },
+      { key: "corruption", xp: 12 }
+    ],
+    lore: { en: "Mix spore pods and scorpion venom to distill toxic plague extract.", ua: "Змішуйте спорові стручки та отруту скорпіонів для очищення екстракту чуми." },
+    codex: { en: "Requires Level 15. Consumes 2 Spore Pods and 1 Venom. Yields 1 Plague Extract. Trains Sorcery and Corruption.", ua: "Потребує рівня 15. Витрачає 2 Спорові Стручки та 1 Отруту. Дає 1 Екстракт Чуми. Тренує Чаклунство та Корупцію." }
+  },
+  {
+    id: "locust_infestation",
+    name: { en: "Unleash Locust Infestations", ua: "Вивільнити Навалу Сарани" },
+    category: "plague",
+    levelReq: 25,
+    baseTime: 5500,
+    cost: { flesh: 4 },
+    yield: { locust_swarms: 3 },
+    statsTrained: [
+      { key: "malice", xp: 30 },
+      { key: "avarice", xp: 15 }
+    ],
+    lore: { en: "Feed more biological meat to rapidly multiply insect numbers.", ua: "Годуйте комах великою кількістю плоті смертних, щоб швидко збільшити їхню кількість." },
+    codex: { en: "Requires Level 25. Consumes 4 Flesh. Yields 3 Locust Swarms. Trains Malice and Avarice.", ua: "Потребує рівня 25. Витрачає 4 Плоті. Дає 3 Рої Сарани. Тренує Злість та Жадібність." }
+  },
+  {
+    id: "venom_refining",
+    name: { en: "Refine Breeding Scorpion Venom", ua: "Очищати Отруту Скорпіонів" },
+    category: "plague",
+    levelReq: 40,
+    baseTime: 5000,
+    cost: { nightshade: 3 },
+    yield: { venom: 3 },
+    statsTrained: [
+      { key: "guile", xp: 45 },
+      { key: "sorcery", xp: 20 }
+    ],
+    lore: { en: "Refine scorpion venom by feeding them toxic nightshade vegetation.", ua: "Очищуйте скорпіонячу отруту, згодовуючи їм отруйні рослини пасльону." },
+    codex: { en: "Requires Level 40. Consumes 3 Nightshade. Yields 3 Venom. Trains Guile and Sorcery.", ua: "Потребує рівня 40. Витрачає 3 Пасльону. Дає 3 Отрути. Тренує Підступність та Чаклунство." }
+  },
+  {
+    id: "plague_distillery",
+    name: { en: "Brew Apocalyptic Plague Extracts", ua: "Варити Екстракти Апокаліптичної Чуми" },
+    category: "plague",
+    levelReq: 55,
+    baseTime: 7000,
+    cost: { spore_pods: 5, venom: 2 },
+    yield: { plague_extract: 3 },
+    statsTrained: [
+      { key: "sorcery", xp: 55 },
+      { key: "corruption", xp: 25 }
+    ],
+    lore: { en: "Brew higher plague extract variables inside heated boilers.", ua: "Варіть вищі форми чумного екстракту всередині розігрітих котлів." },
+    codex: { en: "Requires Level 55. Consumes 5 Spore Pods and 2 Venom. Yields 3 Plague Extract. Trains Sorcery and Corruption.", ua: "Потребує рівня 55. Витрачає 5 Спорових Стручків та 2 Отрути. Дає 3 Екстракти Чуми. Тренує Чаклунство та Корупцію." }
+  },
+  {
+    id: "contagion_spread",
+    name: { en: "Spread Contagion to Hamlets", ua: "Поширити Інфекцію на Селища" },
+    category: "plague",
+    levelReq: 70,
+    baseTime: 8500,
+    cost: { locust_swarms: 5 },
+    yield: { souls: 1 },
+    statsTrained: [
+      { key: "corruption", xp: 70 },
+      { key: "willpower", xp: 35 }
+    ],
+    failChance: 10,
+    lore: { en: "Infect border settlements using locust swarms to harvest human souls.", ua: "Заражайте прикордонні селища роями сарани, щоб зібрати людські душі." },
+    codex: { en: "Requires Level 70. Consumes 5 Locust Swarms. Base 10% Failure. Success yields 1 Soul. Trains Corruption and Willpower.", ua: "Потребує рівня 70. Витрачає 5 Роїв Сарани. Шанс провалу 10%. Дає 1 Душу. Тренує Корупцію та Силу Волі." }
+  },
+  {
+    id: "apocalyptic_pestilence",
+    name: { en: "Unleash Apocalyptic Pestilence", ua: "Вивільнити Апокаліптичну Моровицю" },
+    category: "plague",
+    levelReq: 85,
+    baseTime: 12000,
+    cost: { plague_extract: 5, locust_swarms: 10 },
+    yield: { souls: 5 },
+    statsTrained: [
+      { key: "willpower", xp: 90 },
+      { key: "infernal", xp: 45 }
+    ],
+    failChance: 20,
+    lore: { en: "Initiate absolute biological plague on mortal border cities.", ua: "Випустіть абсолютну біологічну моровицю на смертні прикордонні міста." },
+    codex: { en: "Requires Level 85. Consumes 5 Plague Extract and 10 Locust Swarms. Base 20% Failure. Success yields 5 Souls. Trains Willpower and Infernal.", ua: "Потребує рівня 85. Витрачає 5 Екстрактів Чуми та 10 Роїв Сарани. Шанс провалу 20%. Дає 5 Душ. Тренує Силу Волі та Пекельну Силу." }
+  },
+
+  // --- Astral Alignment (astral) ---
+  {
+    id: "siphon_starlight",
+    name: { en: "Siphon Astral Dust", ua: "Викачувати Зоряний Пил" },
+    category: "astral",
+    levelReq: 1,
+    baseTime: 4000,
+    cost: {},
+    yield: { star_dust: 1 },
+    statsTrained: [
+      { key: "sorcery", xp: 15 },
+      { key: "willpower", xp: 8 }
+    ],
+    lore: { en: "Siphon silvery dust particles floating close to active portals.", ua: "Викачуйте сріблясті частинки пилу, що ширяють поблизу активних порталів." },
+    codex: { en: "Yields 1 Star Dust. Trains Sorcery and Willpower.", ua: "Дає 1 Зоряний Пил. Тренує Чаклунство та Силу Волі." }
+  },
+  {
+    id: "gather_nebula_dust",
+    name: { en: "Gather Nebula Shards", ua: "Збирати Осколки Туманності" },
+    category: "astral",
+    levelReq: 8,
+    baseTime: 5000,
+    cost: { chaos_essence: 1 },
+    yield: { nebula_shards: 1 },
+    statsTrained: [
+      { key: "sorcery", xp: 20 },
+      { key: "corruption", xp: 10 }
+    ],
+    lore: { en: "Gather space dust components by splitting chaos essences inside portals.", ua: "Збирайте часточки космічного пилу, розщеплюючи есенції хаосу в порталах." },
+    codex: { en: "Requires Level 8. Consumes 1 Chaos Essence. Yields 1 Nebula Shard. Trains Sorcery and Corruption.", ua: "Потребує рівня 8. Витрачає 1 Есенцію Хаосу. Дає 1 Осколок Туманності. Тренує Чаклунство та Корупцію." }
+  },
+  {
+    id: "align_star_portals",
+    name: { en: "Align Astral Portals", ua: "Вирівнювати Астральні Портали" },
+    category: "astral",
+    levelReq: 15,
+    baseTime: 6000,
+    cost: {},
+    yield: { star_dust: 3 },
+    statsTrained: [
+      { key: "sorcery", xp: 25 },
+      { key: "willpower", xp: 15 }
+    ],
+    lore: { en: "Re-align starlight flows to increase portal dust extraction rates.", ua: "Вирівнюйте потоки зоряного світла, щоб збільшити видобуток пилу в порталах." },
+    codex: { en: "Requires Level 15. Yields 3 Star Dust. Trains Sorcery and Willpower.", ua: "Потребує рівня 15. Дає 3 Зоряного Пили. Тренує Чаклунство та Силу Волі." }
+  },
+  {
+    id: "collect_nebula_clusters",
+    name: { en: "Collect Nebula Clusters", ua: "Збирати Скупчення Туманностей" },
+    category: "astral",
+    levelReq: 25,
+    baseTime: 7000,
+    cost: { chaos_essence: 2 },
+    yield: { nebula_shards: 3 },
+    statsTrained: [
+      { key: "sorcery", xp: 35 },
+      { key: "corruption", xp: 15 }
+    ],
+    lore: { en: "Collect thick space clouds inside astral grids.", ua: "Збирайте густі космічні хмари всередині астральних сіток." },
+    codex: { en: "Requires Level 25. Consumes 2 Chaos Essence. Yields 3 Nebula Shards. Trains Sorcery and Corruption.", ua: "Потребує рівня 25. Витрачає 2 Есенції Хаосу. Дає 3 Осколки Туманності. Тренує Чаклунство та Корупцію." }
+  },
+  {
+    id: "astral_telescope",
+    name: { en: "Focus Astral Telescope", ua: "Фокусувати Астральний Телескоп" },
+    category: "astral",
+    levelReq: 40,
+    baseTime: 5500,
+    cost: { void_crystals: 1 },
+    yield: { star_dust: 6 },
+    statsTrained: [
+      { key: "sorcery", xp: 45 },
+      { key: "willpower", xp: 20 }
+    ],
+    lore: { en: "Use spatial crystals to build clean magnifying lenses.", ua: "Використовуйте просторові кристали, щоб створити чисті збільшувальні лінзи." },
+    codex: { en: "Requires Level 40. Consumes 1 Void Crystal. Yields 6 Star Dust. Trains Sorcery and Willpower.", ua: "Потребує рівня 40. Витрачає 1 Кристал Пустоти. Дає 6 Зоряного Пили. Тренує Чаклунство та Силу Волі." }
+  },
+  {
+    id: "nebula_implosion",
+    name: { en: "Trigger Nebula Implosions", ua: "Спровокувати Імплозії Туманностей" },
+    category: "astral",
+    levelReq: 55,
+    baseTime: 7500,
+    cost: { void_crystals: 2 },
+    yield: { nebula_shards: 6 },
+    statsTrained: [
+      { key: "sorcery", xp: 55 },
+      { key: "corruption", xp: 25 }
+    ],
+    lore: { en: "Implode void crystal fields to output massive star dust debris.", ua: "Викликайте імплозію кристалічних полів для отримання великої кількості зоряного попелу." },
+    codex: { en: "Requires Level 55. Consumes 2 Void Crystals. Yields 6 Nebula Shards. Trains Sorcery and Corruption.", ua: "Потребує рівня 55. Витрачає 2 Кристали Пустоти. Дає 6 Осколків Туманності. Тренує Чаклунство та Корупцію." }
+  },
+  {
+    id: "harness_cosmic_tides",
+    name: { en: "Harness Cosmic Tides", ua: "Приборкувати Космічні Припливи" },
+    category: "astral",
+    levelReq: 70,
+    baseTime: 8000,
+    cost: { divine_essence: 1 },
+    yield: { star_dust: 10 },
+    statsTrained: [
+      { key: "sorcery", xp: 75 },
+      { key: "willpower", xp: 35 }
+    ],
+    lore: { en: "Offer divine essences to portal gates to attract stardust waves.", ua: "Жертвуйте божественну есенцію порталам, щоб притягнути хвилі зоряного пилу." },
+    codex: { en: "Requires Level 70. Consumes 1 Divine Essence. Yields 10 Star Dust. Trains Sorcery and Willpower.", ua: "Потребує рівня 70. Витрачає 1 Божественну Есенцію. Дає 10 Зоряного Пили. Тренує Чаклунство та Силу Волі." }
+  },
+  {
+    id: "astral_eclipse",
+    name: { en: "Channel Astral Eclipse", ua: "Направляти Астральне Затемнення" },
+    category: "astral",
+    levelReq: 85,
+    baseTime: 10000,
+    cost: { nebula_shards: 5 },
+    yield: { divine_essence: 4 },
+    statsTrained: [
+      { key: "sorcery", xp: 95 },
+      { key: "willpower", xp: 45 }
+    ],
+    lore: { en: "Align nebula dust in active cycles to capture celestial holy static.", ua: "Вирівнюйте пил туманностей в активних циклах, щоб зловити небесну есенцію." },
+    codex: { en: "Requires Level 85. Consumes 5 Nebula Shards. Yields 4 Divine Essence. Trains Sorcery and Willpower.", ua: "Потребує рівня 85. Витрачає 5 Осколків Туманності. Дає 4 Божественні Есенції. Тренує Чаклунство та Силу Волі." }
+  },
+
+  // --- Tormenting Sins (sins) ---
+  {
+    id: "provoke_wrath",
+    name: { en: "Provoke Mortal Wrath", ua: "Провокувати Гнів Смертних" },
+    category: "sins",
+    levelReq: 1,
+    baseTime: 3000,
+    cost: { evil_intent: 30 },
+    yield: { wrath_shards: 1 },
+    statsTrained: [
+      { key: "malice", xp: 12 },
+      { key: "brutality", xp: 6 }
+    ],
+    lore: { en: "Provoke blind fury inside human hearts, harvesting wrath structures.", ua: "Викликайте сліпучу лють у серцях смертних, збираючи кристали гніву." },
+    codex: { en: "Consumes 30 Evil Intent. Yields 1 Wrath Shard. Trains Malice and Brutality.", ua: "Витрачає 30 Злого Наміру. Дає 1 Осколок Гніву. Тренує Злість та Жорстокість." }
+  },
+  {
+    id: "stimulate_pride",
+    name: { en: "Stimulate Monarchs Pride", ua: "Стимулювати Гординю Монархів" },
+    category: "sins",
+    levelReq: 8,
+    baseTime: 4500,
+    cost: { evil_intent: 50 },
+    yield: { pride_essence: 1 },
+    statsTrained: [
+      { key: "malice", xp: 18 },
+      { key: "willpower", xp: 10 }
+    ],
+    lore: { en: "Whisper self-important thoughts to mortal rulers, compiling pride essence.", ua: "Шепочіть марнославні думки правителям смертних, накопичуючи есенцію гордині." },
+    codex: { en: "Requires Level 8. Consumes 50 Evil Intent. Yields 1 Pride Essence. Trains Malice and Willpower.", ua: "Потребує рівня 8. Витрачає 50 Злого Наміру. Дає 1 Есенцію Гордині. Тренує Злість та Силу Волі." }
+  },
+  {
+    id: "awaken_desire",
+    name: { en: "Awaken Carnal Desire", ua: "Пробуджувати Плотські Бажання" },
+    category: "sins",
+    levelReq: 15,
+    baseTime: 4000,
+    cost: { evil_intent: 40 },
+    yield: { desire: 1 },
+    statsTrained: [
+      { key: "guile", xp: 22 },
+      { key: "sorcery", xp: 12 }
+    ],
+    lore: { en: "Trigger massive mortal hearts temptation to collect desire vapor.", ua: "Збуджуйте пристрасть у серцях смертних, щоб зібрати пару бажання." },
+    codex: { en: "Requires Level 15. Consumes 40 Evil Intent. Yields 1 Desire. Trains Guile and Sorcery.", ua: "Потребує рівня 15. Витрачає 40 Злого Наміру. Дає 1 Бажання. Тренує Підступність та Чаклунство." }
+  },
+  {
+    id: "fuel_wrath_explosions",
+    name: { en: "Fuel Wrath Shard Growth", ua: "Стимулювати Ріст Осколків Гніву" },
+    category: "sins",
+    levelReq: 25,
+    baseTime: 5000,
+    cost: { anguish: 4 },
+    yield: { wrath_shards: 3 },
+    statsTrained: [
+      { key: "malice", xp: 30 },
+      { key: "brutality", xp: 15 }
+    ],
+    lore: { en: "Use congealed anguish to feed growing wrath crystals.", ua: "Використовуйте згущене страждання, щоб живити кристали гніву." },
+    codex: { en: "Requires Level 25. Consumes 4 Anguish. Yields 3 Wrath Shards. Trains Malice and Brutality.", ua: "Потребує рівня 25. Витрачає 4 Страждання. Дає 3 Осколки Гніву. Тренує Злість та Жорстокість." }
+  },
+  {
+    id: "monarchs_vanity",
+    name: { en: "Exploit Monarchs Vanity", ua: "Використовувати Марнославство Монархів" },
+    category: "sins",
+    levelReq: 40,
+    baseTime: 6500,
+    cost: { divine_essence: 1 },
+    yield: { pride_essence: 3 },
+    statsTrained: [
+      { key: "malice", xp: 45 },
+      { key: "willpower", xp: 20 }
+    ],
+    lore: { en: "Corrupt divine essence inside monarch hearts to output pride essence.", ua: "Оскверняйте божественну есенцію в серцях монархів, щоб отримати есенцію гордині." },
+    codex: { en: "Requires Level 40. Consumes 1 Divine Essence. Yields 3 Pride Essence. Trains Malice and Willpower.", ua: "Потребує рівня 40. Витрачає 1 Божественну Есенцію. Дає 3 Есенції Гордині. Тренує Злість та Силу Волі." }
+  },
+  {
+    id: "temptation_garden",
+    name: { en: "Cultivate Garden of Desire", ua: "Вирощувати Сад Бажань" },
+    category: "sins",
+    levelReq: 55,
+    baseTime: 6000,
+    cost: { blood_roses: 5 },
+    yield: { desire: 4 },
+    statsTrained: [
+      { key: "guile", xp: 55 },
+      { key: "sorcery", xp: 25 }
+    ],
+    lore: { en: "Grow demonic roses inside mortal gardens to trigger desire vapor emissions.", ua: "Вирощуйте демонічні троянди в садах смертних, щоб викликати виділення пари бажання." },
+    codex: { en: "Requires Level 55. Consumes 5 Blood Roses. Yields 4 Desire. Trains Guile and Sorcery.", ua: "Потребує рівня 55. Витрачає 5 Троянд Крові. Дає 4 Бажання. Тренує Підступність та Чаклунство." }
+  },
+  {
+    id: "great_tribulation",
+    name: { en: "Unleash Great Tribulation", ua: "Вивільнити Велику Скорботу" },
+    category: "sins",
+    levelReq: 70,
+    baseTime: 9000,
+    cost: { desire: 5, wrath_shards: 5 },
+    yield: { souls: 2 },
+    statsTrained: [
+      { key: "willpower", xp: 75 },
+      { key: "corruption", xp: 35 }
+    ],
+    lore: { en: "Trigger total emotional collapse in mortal cities to secure human souls.", ua: "Викличте повний емоційний крах у містах смертних, щоб забрати людські душі." },
+    codex: { en: "Requires Level 70. Consumes 5 Desire and 5 Wrath Shards. Yields 2 Souls. Trains Willpower and Corruption.", ua: "Потребує рівня 70. Витрачає 5 Бажань та 5 Осколків Гніву. Дає 2 Душі. Тренує Силу Волі та Корупцію." }
+  },
+  {
+    id: "seven_deadly_sins",
+    name: { en: "Awaken Seven Deadly Sins", ua: "Пробудити Сім Смертних Гріхів" },
+    category: "sins",
+    levelReq: 85,
+    baseTime: 15000,
+    cost: { pride_essence: 4, desire: 8, wrath_shards: 8 },
+    yield: { souls: 10 },
+    statsTrained: [
+      { key: "willpower", xp: 100 },
+      { key: "infernal", xp: 50 }
+    ],
+    lore: { en: "Awaken seven ancient deadly sins across the mortal empire to secure major soul yields.", ua: "Пробудіть сім стародавніх смертних гріхів по всій імперії для отримання великої кількості душ." },
+    codex: { en: "Requires Level 85. Consumes 4 Pride Essence, 8 Desire, and 8 Wrath Shards. Yields 10 Souls. Trains Willpower and Infernal.", ua: "Потребує рівня 85. Витрачає 4 Есенції Гордині, 8 Бажань та 8 Осколків Гніву. Дає 10 Душ. Тренує Силу Волі та Пекельну Силу." }
   }
 ];
+
+const UPGRADES = {
+  brimstone_sledge: {
+    name: { en: "Brimstone Sledge", ua: "Бримстоунове Дворучне Молот-Тавро" },
+    effect: { en: "-15% Extraction action speed.", ua: "-15% швидкості дій Видобутку." },
+    cost: { gold: 500, obsidian: 50 },
+    desc: { en: "Heavy volcanic sledge that shatters sulfur vents instantly.", ua: "Важкий вулканічний молот, що миттєво пробиває сірчані венти." }
+  },
+  unholy_cauldron: {
+    name: { en: "Unholy Cauldron", ua: "Нечестивий Котел" },
+    effect: { en: "+25% Shadow Alchemy yields.", ua: "+25% виходу Тіньової Алхімії." },
+    cost: { gold: 1500, dark_mercury: 100 },
+    desc: { en: "Corrupted copper pot that multiplies alchemical output.", ua: "Осквернений мідний котел, який збільшує вихід алхімії." }
+  },
+  scythe_of_screams: {
+    name: { en: "Scythe of Screams", ua: "Коса Криків" },
+    effect: { en: "+25% Soul Torture yields.", ua: "+25% виходу Катування Душ." },
+    cost: { gold: 3000, screams: 200 },
+    desc: { en: "Serrated blade that harvests echoes of terror more efficiently.", ua: "Зубчасте лезо, яке ефективніше збирає відлуння жаху." }
+  },
+  crown_of_the_pit: {
+    name: { en: "Crown of the Pit", ua: "Корона Підземелля" },
+    effect: { en: "+15% Experience gain across all stats.", ua: "+15% до всього отриманого досвіду." },
+    cost: { gold: 8000 },
+    desc: { en: "Glowing crown of fallen monarchs that enhances mental capacities.", ua: "Сяюча корона полеглих монархів, що покращує ментальні здібності." }
+  },
+  blood_furnace: {
+    name: { en: "Blood Furnace", ua: "Кровне Горнило" },
+    effect: { en: "-15% Hellfire Forge action speed.", ua: "-15% швидкості дій Кузні Пекельного Вогню." },
+    cost: { gold: 1200, abyssal_iron: 20 },
+    desc: { en: "Heated furnace that smelt abyssal alloys much faster.", ua: "Розігріте горнило, що значно швидше плавить безодневі метали." }
+  },
+  necromancers_staff: {
+    name: { en: "Necromancer's Staff", ua: "Посох Некроманта" },
+    effect: { en: "+25% Necromancy yields.", ua: "+25% виходу Некромантії." },
+    cost: { gold: 2000, bone_dust: 150 },
+    desc: { en: "Bone-carved staff that channels necrotic rays.", ua: "Різьблений з кістки посох, що проводить некротичні промені." }
+  },
+  harvest_sickle: {
+    name: { en: "Harvest Sickle", ua: "Серп Збору" },
+    effect: { en: "+25% Abyssal Agriculture yields.", ua: "+25% виходу Сільського Господарства Безодні." },
+    cost: { gold: 1000, blood_roses: 100 },
+    desc: { en: "Sharp biological sickle that harvests flora cleanly.", ua: "Гострий біологічний серп, що чисто збирає потойбічну флору." }
+  },
+  chaos_stabilizer: {
+    name: { en: "Chaos Stabilizer", ua: "Стабілізатор Хаосу" },
+    effect: { en: "-15% Chaos Cultivation action speed.", ua: "-15% швидкості дій Культивації Хаосу." },
+    cost: { gold: 4000, chaos_sparks: 50 },
+    desc: { en: "Void device that channels entropic fractures cleanly.", ua: "Пристрій порожнечі, який безпечно фокусує ентропійні розломи." }
+  },
+  void_excavator: {
+    name: { en: "Void Excavator", ua: "Екскаватор Пустоти" },
+    effect: { en: "+25% Void Excavation yields.", ua: "+25% виходу Розкопок Пустоти." },
+    cost: { gold: 5000, void_crystals: 30 },
+    desc: { en: "Relic-powered drill that digs deep rift deposits.", ua: "Бурильний інструмент на реліквіях, що копає глибокі надра розломів." }
+  },
+  plague_nest: {
+    name: { en: "Plague Nest", ua: "Гніздо Моровиці" },
+    effect: { en: "+25% Plague Breeding yields.", ua: "+25% виходу Розведення Моровиці." },
+    cost: { gold: 6000, venom: 100 },
+    desc: { en: "Scorpion-breeding chamber that accelerates insect growth.", ua: "Гніздо розведення скорпіонів, що прискорює ріст комах." }
+  }
+};
 
 const MILESTONES = [
   {
@@ -666,6 +2462,17 @@ const LOCALIZATION = {
     path_forge: "Hellfire Forge",
     path_rites: "Rites & Summons",
     path_conquest: "Abyssal Conquest",
+    path_torture: "Soul Torture",
+    path_alchemy: "Shadow Alchemy",
+    path_necromancy: "Necromancy",
+    path_agriculture: "Abyssal Agriculture",
+    path_blood: "Blood Sorcery",
+    path_chaos: "Chaos Cultivation",
+    path_void: "Void Excavation",
+    path_plague: "Plague Breeding",
+    path_astral: "Astral Alignment",
+    path_sins: "Tormenting Sins",
+    path_store: "Upgrade Store",
     dominion_header: "Dominion",
     path_inventory: "Vault & Armory",
     quick_slots_header: "Companions & Gear",
@@ -683,6 +2490,28 @@ const LOCALIZATION = {
     desc_rites: "Brew dark elixirs, conduct sacrifices, and summon minions to serve in your slots.",
     title_conquest: "Abyssal Conquest",
     desc_conquest: "Raid mortal boundaries. High yields but carries failure risks. Level Willpower to stay safe.",
+    title_torture: "Soul Torture",
+    desc_torture: "Harvest screams and agony from mortal souls.",
+    title_alchemy: "Shadow Alchemy",
+    desc_alchemy: "Refine raw materials into toxic distillates and solutions.",
+    title_necromancy: "Necromancy",
+    desc_necromancy: "Reanimate the dead to harvest bone dust and phantom essence.",
+    title_agriculture: "Abyssal Agriculture",
+    desc_agriculture: "Grow toxic vegetation inside sulfuric crop grids.",
+    title_blood: "Blood Sorcery",
+    desc_blood: "Refine crimson life force into potent blood catalysts.",
+    title_chaos: "Chaos Cultivation",
+    desc_chaos: "Harness entropic fractures for chaotic energies.",
+    title_void: "Void Excavation",
+    desc_void: "Dig deep into entropic rifts to unearth ancient items.",
+    title_plague: "Plague Breeding",
+    desc_plague: "Sustain nests of insect swarms to gather venom and rot.",
+    title_astral: "Astral Alignment",
+    desc_astral: "Align dark space alignment nodes to draw nebula shards.",
+    title_sins: "Tormenting Sins",
+    desc_sins: "Distill the physical essence of the seven mortal sins.",
+    title_store: "Upgrade Store",
+    desc_store: "Spend gold coins and resources on premium passive upgrades.",
     title_inventory: "Vault & Armory",
     desc_inventory: "Your stored resources, artifacts, companions, and crafting materials.",
     panel_attributes: "Archon Attributes",
@@ -706,6 +2535,17 @@ const LOCALIZATION = {
     path_forge: "Кузня Пекельного Вогню",
     path_rites: "Ритуали та Призови",
     path_conquest: "Завоювання Безодні",
+    path_torture: "Катування Душ",
+    path_alchemy: "Тіньова Алхімія",
+    path_necromancy: "Некромантія",
+    path_agriculture: "Сільське Господарство",
+    path_blood: "Магія Крові",
+    path_chaos: "Культивація Хаосу",
+    path_void: "Розкопки Пустоти",
+    path_plague: "Розведення Моровиці",
+    path_astral: "Астральне Вирівнювання",
+    path_sins: "Катування Гріхів",
+    path_store: "Магазин Покращень",
     dominion_header: "Володіння",
     path_inventory: "Сховище та Арсенал",
     quick_slots_header: "Супутники та Спорядження",
@@ -723,6 +2563,28 @@ const LOCALIZATION = {
     desc_rites: "Варіть темні зілля, здійснюйте жертвоприношення та призивайте слуг у слоти.",
     title_conquest: "Завоювання Безодні",
     desc_conquest: "Робіть набіги на кордони смертних. Великі нагороди, але є ризики провалу. Тренуйте Силу Волі.",
+    title_torture: "Катування Душ",
+    desc_torture: "Збирайте крики та агонію зі смертних душ.",
+    title_alchemy: "Тіньова Алхімія",
+    desc_alchemy: "Очищуйте сировину в отруйні дистиляти та розчини.",
+    title_necromancy: "Некромантія",
+    desc_necromancy: "Оживляйте мертвих, щоб зібрати кістковий пил та есенцію привидів.",
+    title_agriculture: "Сільське Господарство",
+    desc_agriculture: "Вирощуйте токсичну рослинність на сірчаних грядках.",
+    title_blood: "Магія Крові",
+    desc_blood: "Перетворюйте багряну життєву силу на потужні каталізатори крові.",
+    title_chaos: "Культивація Хаосу",
+    desc_chaos: "Використовуйте ентропійні тріщини для хаотичної енергії.",
+    title_void: "Розкопки Пустоти",
+    desc_void: "Копайте глибоко в ентропійних розломах, щоб знайти стародавні предмети.",
+    title_plague: "Розведення Моровиці",
+    desc_plague: "Підтримуйте гнізда роїв комах, щоб збирати отруту та гниль.",
+    title_astral: "Астральне Вирівнювання",
+    desc_astral: "Вирівнюйте вузли темного простору, щоб притягнути осколки туманності.",
+    title_sins: "Катування Гріхів",
+    desc_sins: "Дистилюйте фізичну есенцію семи смертних гріхів.",
+    title_store: "Магазин Покращень",
+    desc_store: "Витрачайте золоті монети та ресурси на преміальні пасивні покращення.",
     title_inventory: "Сховище та Арсенал",
     desc_inventory: "Ваші збережені ресурси, артефакти, супутники та ковальні матеріали.",
     panel_attributes: "Атрибути Архонта",
@@ -761,37 +2623,126 @@ const GENERATED_IMAGES = new Set([
 ]);
 
 const ACTIVITY_IMAGE_MAP = {
-  // Category A
   chisel_sulfur: "chisel_sulfur",
   quarry_obsidian: "quarry_obsidian",
   siphon_lava: "siphon_lava",
   dredge_styx: "dredge_styx",
   gather_ash: "gather_ash",
-  
-  // Category B
+  mine_iron_ore: "smelt_iron",
+  excavate_relics: "smelt_iron",
+  harvest_void_crystals: "sculpt_sigil",
   whisper_cruelty: "whisper_cruelty",
   harvest_agony: "whisper_cruelty",
   infiltrate_dreams: "whisper_cruelty",
-  channel_chaos: "dredge_styx",
-  siphon_faith: "sculpt_sigil",
-  
-  // Category C
+  channel_chaos: "whisper_cruelty",
+  siphon_faith: "whisper_cruelty",
+  harvest_screams: "whisper_cruelty",
+  channel_chaos_sparks: "whisper_cruelty",
+  summon_eldritch_orbs: "whisper_cruelty",
   smelt_iron: "smelt_iron",
   forge_brand: "forge_brand",
   sculpt_sigil: "sculpt_sigil",
-  distill_acid: "distill_acid",
-  
-  // Category D
-  concoct_elixir: "concoct_elixir",
-  blood_rite: "concoct_elixir",
-  summon_hellhound: "siphon_lava",
-  animate_gargoyle: "quarry_obsidian",
-  summon_imp: "chisel_sulfur",
-  
-  // Category E
+  forge_vials: "forge_brand",
+  forge_wrath_shards: "forge_brand",
+  smelt_heavy_relics: "smelt_iron",
+  craft_dark_mercury: "forge_brand",
+  forge_void_gate: "forge_brand",
+  summon_imp: "concoct_elixir",
+  conjure_hellhound: "concoct_elixir",
+  animate_gargoyle: "concoct_elixir",
+  conjure_phantom: "concoct_elixir",
+  blood_coven: "concoct_elixir",
+  summon_shadow_beast: "concoct_elixir",
+  mass_gargoyle_binding: "concoct_elixir",
+  archon_covenant: "concoct_elixir",
   raid_hamlets: "smelt_iron",
-  plunder_cathedral: "forge_brand",
-  subjugate_city: "forge_brand"
+  plunder_cathedral: "smelt_iron",
+  subjugate_city: "forge_brand",
+  raid_monasteries: "smelt_iron",
+  ambush_trade_caravans: "smelt_iron",
+  plunder_royal_vaults: "smelt_iron",
+  conquer_fortress: "smelt_iron",
+  overthrow_empire: "smelt_iron",
+  flay_souls: "whisper_cruelty",
+  brand_despair: "forge_brand",
+  grind_bones: "whisper_cruelty",
+  extract_agony: "whisper_cruelty",
+  torture_chamber: "whisper_cruelty",
+  inflict_madness: "whisper_cruelty",
+  harvest_weeping_souls: "whisper_cruelty",
+  sinners_damnation: "whisper_cruelty",
+  brew_acid: "distill_acid",
+  mix_unholy_elixir: "concoct_elixir",
+  refine_mercury: "distill_acid",
+  distill_plague: "distill_acid",
+  prepare_vitriol: "distill_acid",
+  brew_hellfire_oil: "siphon_lava",
+  transmute_gold: "distill_acid",
+  elixir_of_the_void: "concoct_elixir",
+  raise_skeletons: "dredge_styx",
+  harvest_bone_dust: "gather_ash",
+  summon_wraith: "dredge_styx",
+  infuse_golem: "dredge_styx",
+  reanimate_monsters: "dredge_styx",
+  bind_lost_souls: "dredge_styx",
+  harvest_grave_dirt: "dredge_styx",
+  summon_lich: "dredge_styx",
+  gather_blood_roses: "gather_ash",
+  tend_nightshade: "gather_ash",
+  harvest_spores: "gather_ash",
+  cultivate_toxic_roots: "gather_ash",
+  fertilize_ash_gardens: "gather_ash",
+  breed_spore_forests: "gather_ash",
+  crossbreed_demonic_flora: "gather_ash",
+  tree_of_corruption: "gather_ash",
+  siphon_veins: "siphon_lava",
+  coagulate_blood_pools: "siphon_lava",
+  refine_blood_rubies: "siphon_lava",
+  infuse_flesh: "siphon_lava",
+  blood_transfusion: "siphon_lava",
+  coagulated_armor: "siphon_lava",
+  crystallize_crimson_heart: "sculpt_sigil",
+  bloody_eclipse: "siphon_lava",
+  meditate_on_void: "dredge_styx",
+  ignite_chaos_sparks: "dredge_styx",
+  stabilize_void_fractures: "dredge_styx",
+  harvest_chaos_wind: "dredge_styx",
+  spark_storms: "dredge_styx",
+  grow_void_crystal_clusters: "sculpt_sigil",
+  harness_star_shards: "sculpt_sigil",
+  chaos_singularity: "whisper_cruelty",
+  sift_void_sands: "quarry_obsidian",
+  dig_abyssal_trenches: "quarry_obsidian",
+  quarry_void_shards: "quarry_obsidian",
+  extract_void_dust: "gather_ash",
+  dredge_deeper_trenches: "quarry_obsidian",
+  unearth_ancient_relics: "smelt_iron",
+  excavate_void_rift: "quarry_obsidian",
+  void_well_activation: "quarry_obsidian",
+  breed_locusts: "gather_ash",
+  extract_scorpion_venom: "distill_acid",
+  concoct_plague_extract: "concoct_elixir",
+  locust_infestation: "gather_ash",
+  venom_refining: "distill_acid",
+  plague_distillery: "distill_acid",
+  contagion_spread: "gather_ash",
+  apocalyptic_pestilence: "gather_ash",
+  siphon_starlight: "sculpt_sigil",
+  gather_nebula_dust: "gather_ash",
+  align_star_portals: "sculpt_sigil",
+  collect_nebula_clusters: "dredge_styx",
+  astral_telescope: "dredge_styx",
+  nebula_implosion: "dredge_styx",
+  harness_cosmic_tides: "dredge_styx",
+  astral_eclipse: "dredge_styx",
+  provoke_wrath: "whisper_cruelty",
+  stimulate_pride: "whisper_cruelty",
+  awaken_desire: "whisper_cruelty",
+  fuel_wrath_explosions: "whisper_cruelty",
+  monarchs_vanity: "whisper_cruelty",
+  temptation_garden: "whisper_cruelty",
+  great_tribulation: "whisper_cruelty",
+  seven_deadly_sins: "whisper_cruelty"
 };
 
 function getSystemDefaultLanguage() {
@@ -808,8 +2759,17 @@ function getSystemDefaultLanguage() {
 let state = {
   lang: getSystemDefaultLanguage(), // Localization setting
   resources: {},
-  skillXP: { extraction: 0, veil: 0, forge: 0, rites: 0, conquest: 0 },
-  skillLevels: { extraction: 1, veil: 1, forge: 1, rites: 1, conquest: 1 },
+  skillXP: {
+    extraction: 0, veil: 0, forge: 0, rites: 0, conquest: 0,
+    torture: 0, alchemy: 0, necromancy: 0, agriculture: 0, blood: 0,
+    chaos: 0, void: 0, plague: 0, astral: 0, sins: 0
+  },
+  skillLevels: {
+    extraction: 1, veil: 1, forge: 1, rites: 1, conquest: 1,
+    torture: 1, alchemy: 1, necromancy: 1, agriculture: 1, blood: 1,
+    chaos: 1, void: 1, plague: 1, astral: 1, sins: 1
+  },
+  upgrades: {},
   statXP: {},
   statLevels: {},
   activeActivity: null,
@@ -952,16 +2912,26 @@ function calculateActivityYield(activity, resourceKey, amount) {
   
   // Multipliers
   if (RESOURCES[resourceKey].category === "ethereal") {
-    finalAmt = Math.round(finalAmt * getMaliceModifier());
+    finalAmt = finalAmt * getMaliceModifier();
   } else if (RESOURCES[resourceKey].category === "mortal") {
-    finalAmt = Math.round(finalAmt * getGuileGoldModifier());
+    finalAmt = finalAmt * getGuileGoldModifier();
   } else if (RESOURCES[resourceKey].category === "crafted" && resourceKey === "unholy_elixir") {
-    finalAmt = Math.round(finalAmt * getSorceryElixirModifier());
+    finalAmt = finalAmt * getSorceryElixirModifier();
   } else if (RESOURCES[resourceKey].category === "geological") {
-    finalAmt = Math.round(finalAmt * getAvariceLootModifier());
+    finalAmt = finalAmt * getAvariceLootModifier();
   }
   
-  return finalAmt;
+  // Upgrade multipliers
+  if (state.upgrades) {
+    if (activity.category === "alchemy" && state.upgrades.unholy_cauldron) finalAmt *= 1.25;
+    if (activity.category === "torture" && state.upgrades.scythe_of_screams) finalAmt *= 1.25;
+    if (activity.category === "necromancy" && state.upgrades.necromancers_staff) finalAmt *= 1.25;
+    if (activity.category === "agriculture" && state.upgrades.harvest_sickle) finalAmt *= 1.25;
+    if (activity.category === "void" && state.upgrades.void_excavator) finalAmt *= 1.25;
+    if (activity.category === "plague" && state.upgrades.plague_nest) finalAmt *= 1.25;
+  }
+  
+  return Math.round(finalAmt);
 }
 
 function getSorcerySpeedModifier() {
@@ -978,21 +2948,31 @@ function getAvariceLootModifier() {
 
 function calculateDuration(activity) {
   let mult = 1;
-  if (activity.category === "extraction") {
+  const physicalCats = ["extraction", "forge", "agriculture", "void", "plague"];
+  const magicCats = ["veil", "rites", "alchemy", "necromancy", "blood", "chaos", "astral", "sins"];
+  const mentalCats = ["conquest", "torture"];
+  
+  if (physicalCats.includes(activity.category)) {
     mult *= getBrutalityModifier();
-    if (state.equipment.tool === "brimstone_brand") mult *= 0.90;
-  } else if (activity.category === "veil") {
+  } else if (magicCats.includes(activity.category)) {
     mult *= getSorcerySpeedModifier();
-    if (state.equipment.accessory === "obsidian_sigil") mult *= 0.90;
-  } else if (activity.category === "forge") {
-    mult *= getInfernalSpeedModifier();
-    if (state.equipment.tool === "brimstone_brand") mult *= 0.90;
-  } else if (activity.category === "rites") {
-    mult *= getSorcerySpeedModifier();
-  } else if (activity.category === "conquest") {
+  } else if (mentalCats.includes(activity.category)) {
     mult *= 1 / (1 + (state.statLevels.willpower * 0.005));
   }
-  return Math.round(activity.baseTime * mult);
+  
+  if (activity.category === "extraction") {
+    if (state.equipment.tool === "brimstone_brand") mult *= 0.90;
+    if (state.upgrades && state.upgrades.brimstone_sledge) mult *= 0.85;
+  } else if (activity.category === "veil") {
+    if (state.equipment.accessory === "obsidian_sigil") mult *= 0.90;
+  } else if (activity.category === "forge") {
+    if (state.equipment.tool === "brimstone_brand") mult *= 0.90;
+    mult *= getInfernalSpeedModifier();
+    if (state.upgrades && state.upgrades.blood_furnace) mult *= 0.85;
+  } else if (activity.category === "chaos") {
+    if (state.upgrades && state.upgrades.chaos_stabilizer) mult *= 0.85;
+  }
+  return Math.max(100, Math.round(activity.baseTime * mult));
 }
 
 function canAfford(activity) {
@@ -1039,7 +3019,11 @@ function deductCost(activity) {
 // ==========================================
 
 function addSkillXP(category, amount) {
-  const xpGained = Math.round(amount * getCorruptionXPModifier());
+  let scale = 1;
+  if (state.upgrades && state.upgrades.crown_of_the_pit) {
+    scale *= 1.15;
+  }
+  const xpGained = Math.round(amount * getCorruptionXPModifier() * scale);
   state.skillXP[category] += xpGained;
   
   const currentLvl = state.skillLevels[category];
@@ -1061,6 +3045,9 @@ function addStatXP(statKey, amount) {
   let scale = 1;
   if (statKey === "brutality" && hasMinionEquipped("hellhound")) {
     scale += 0.05;
+  }
+  if (state.upgrades && state.upgrades.crown_of_the_pit) {
+    scale *= 1.15;
   }
   
   const xpGained = Math.round(amount * getCorruptionXPModifier() * scale);
@@ -1343,7 +3330,11 @@ function renderTopBar() {
   }
   
   // Update sidebar levels badges
-  const categories = ["extraction", "veil", "forge", "rites", "conquest"];
+  const categories = [
+    "extraction", "veil", "forge", "rites", "conquest",
+    "torture", "alchemy", "necromancy", "agriculture", "blood",
+    "chaos", "void", "plague", "astral", "sins"
+  ];
   categories.forEach(cat => {
     const el = document.getElementById(`nav-lvl-${cat}`);
     if (el) {
@@ -1385,6 +3376,10 @@ function renderWorkspace() {
     renderInventory();
     return;
   }
+  if (tabId === "store") {
+    renderStore();
+    return;
+  }
   
   updateActiveSkillHeaderProgress(tabId);
   
@@ -1406,10 +3401,24 @@ function renderWorkspace() {
       extraction: "⛏",
       veil: "🌌",
       forge: "⚒",
-      rites: "🩸",
-      conquest: "⚔"
+      rites: "🕯",
+      conquest: "⚔",
+      torture: "⛓",
+      alchemy: "⚗️",
+      necromancy: "☠️",
+      agriculture: "🌾",
+      blood: "🩸",
+      chaos: "🌀",
+      void: "🕳️",
+      plague: "🤢",
+      astral: "⭐",
+      sins: "😈"
     };
     const fallbackIcon = fallbackIcons[act.category] || "✦";
+    
+    const imgKey = ACTIVITY_IMAGE_MAP[act.id] || act.id;
+    const hasImg = GENERATED_IMAGES.has(imgKey);
+    const bgStyle = hasImg ? `background-image: url('assets/images/${imgKey}.jpg')` : '';
     
     const card = document.createElement("div");
     card.className = `activity-card ${isActive ? 'active-action' : ''} ${isLocked ? 'locked' : ''}`;
@@ -1459,7 +3468,7 @@ function renderWorkspace() {
           <h4 class="card-title">${state.lang === 'en' ? 'Locked Activity' : 'Заблоковано'}</h4>
           <span class="card-level-req">${state.lang === 'en' ? 'Requires' : 'Потребує'} ${localizedSkill} ${state.lang === 'en' ? 'Level' : 'Рівень'} ${act.levelReq}</span>
         </div>
-        <div class="activity-card-image" style="background-image: url('assets/images/${ACTIVITY_IMAGE_MAP[act.id] || act.id}.jpg')">
+        <div class="activity-card-image" style="${bgStyle}">
           <div class="activity-image-fallback">${fallbackIcon}</div>
           <div class="activity-image-overlay"></div>
         </div>
@@ -1478,7 +3487,7 @@ function renderWorkspace() {
           <h4 class="card-title">${t(act.name)}</h4>
           <span class="card-level-req" style="color:var(--color-text-secondary)">${state.lang === 'en' ? 'Level' : 'Рівень'} ${act.levelReq}</span>
         </div>
-        <div class="activity-card-image" style="background-image: url('assets/images/${ACTIVITY_IMAGE_MAP[act.id] || act.id}.jpg')">
+        <div class="activity-card-image" style="${bgStyle}">
           <div class="activity-image-fallback">${fallbackIcon}</div>
           <div class="activity-image-overlay"></div>
         </div>
@@ -1571,12 +3580,29 @@ function renderInventory() {
       }
     }
     
+    let sellPanel = "";
+    if (hasCount && res.sellPrice > 0) {
+      const sellText = state.lang === 'en' ? 'Sell' : 'Продати';
+      const allText = state.lang === 'en' ? 'All' : 'Все';
+      sellPanel = `
+        <div class="item-sell-panel">
+          <div class="sell-price-tag">💰 ${res.sellPrice}</div>
+          <div class="sell-btns">
+            <button class="btn-sell-action" data-id="${key}" data-qty="1">${sellText} 1</button>
+            <button class="btn-sell-action" data-id="${key}" data-qty="10">${sellText} 10</button>
+            <button class="btn-sell-action" data-id="${key}" data-qty="all">${sellText} ${allText}</button>
+          </div>
+        </div>
+      `;
+    }
+    
     itemCell.innerHTML = `
       <button class="btn-help-inline" data-id="${key}" data-type="resource">?</button>
       <span class="item-icon">${res.icon}</span>
       <span class="item-name">${t(res.name)}</span>
       <span class="item-count">${count}</span>
       ${actionOverlay}
+      ${sellPanel}
     `;
     
     itemCell.querySelector(".btn-help-inline").addEventListener("click", (e) => {
@@ -1594,8 +3620,134 @@ function renderInventory() {
         if (action === "equip-gear") equipGear(itemId);
       });
     }
+    
+    itemCell.querySelectorAll(".btn-sell-action").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const itemId = e.target.getAttribute("data-id");
+        const qtyStr = e.target.getAttribute("data-qty");
+        sellResource(itemId, qtyStr);
+      });
+    });
+    
     container.appendChild(itemCell);
   });
+}
+
+function sellResource(itemId, qtyStr) {
+  const count = state.resources[itemId] || 0;
+  if (count <= 0) return;
+  
+  const res = RESOURCES[itemId];
+  if (!res || !res.sellPrice) return;
+  
+  let sellQty = 0;
+  if (qtyStr === "all") {
+    sellQty = count;
+  } else {
+    sellQty = Math.min(count, parseInt(qtyStr, 10));
+  }
+  
+  if (sellQty <= 0) return;
+  
+  state.resources[itemId] -= sellQty;
+  state.resources.gold = (state.resources.gold || 0) + (sellQty * res.sellPrice);
+  
+  const msg = state.lang === "en" ? 
+    `💰 Sold ${sellQty}x ${t(res.name)} for ${sellQty * res.sellPrice} Gold Coins.` :
+    `💰 Продано ${sellQty}x ${t(res.name)} за ${sellQty * res.sellPrice} Золотих Монет.`;
+  showNotification(msg);
+  
+  saveGame();
+  renderInventory();
+  renderTopBar();
+}
+
+function renderStore() {
+  const container = document.getElementById("store-grid");
+  if (!container) return;
+  container.innerHTML = "";
+  
+  Object.entries(UPGRADES).forEach(([id, upg]) => {
+    const isOwned = state.upgrades && state.upgrades[id];
+    
+    let canBuy = !isOwned;
+    let costHTML = "";
+    if (upg.cost) {
+      costHTML = Object.entries(upg.cost).map(([resKey, amount]) => {
+        const count = state.resources[resKey] || 0;
+        const affordable = count >= amount;
+        if (!affordable) canBuy = false;
+        const color = affordable ? "#3eff51" : "#ff3e51";
+        const icon = resKey === "gold" ? "🪙" : (RESOURCES[resKey]?.icon || "✦");
+        const name = resKey === "gold" ? (state.lang === 'en' ? 'Gold Coins' : 'Золоті Монети') : t(RESOURCES[resKey]?.name);
+        return `<span style="color: ${color}; white-space: nowrap; margin-right: 10px;">${icon} ${amount} ${name}</span>`;
+      }).join(" ");
+    }
+    
+    const card = document.createElement("div");
+    card.className = `store-card ${isOwned ? 'owned' : ''}`;
+    
+    const buyBtnLabel = isOwned ? 
+      (state.lang === 'en' ? 'Owned' : 'Придбано') : 
+      (state.lang === 'en' ? 'Purchase' : 'Придбати');
+      
+    card.innerHTML = `
+      <div class="store-card-header">
+        <span class="store-card-name">${t(upg.name)}</span>
+        ${isOwned ? '<span class="store-owned-badge">✓</span>' : ''}
+      </div>
+      <div class="store-card-effect">${t(upg.effect)}</div>
+      <div class="store-card-desc">${t(upg.desc)}</div>
+      <div class="store-card-cost">
+        <div style="font-size: 0.8rem; color: #aaa; margin-bottom: 4px;">${state.lang === 'en' ? 'Requirements:' : 'Вимоги:'}</div>
+        <div>${costHTML}</div>
+      </div>
+      <button class="btn-purchase-upgrade ${isOwned ? 'disabled' : ''}" data-id="${id}" ${canBuy ? '' : 'disabled'}>${buyBtnLabel}</button>
+    `;
+    
+    const buyBtn = card.querySelector(".btn-purchase-upgrade");
+    if (buyBtn && !isOwned && canBuy) {
+      buyBtn.addEventListener("click", () => {
+        buyUpgrade(id);
+      });
+    }
+    
+    container.appendChild(card);
+  });
+}
+
+function buyUpgrade(id) {
+  const upg = UPGRADES[id];
+  if (!upg) return;
+  if (state.upgrades && state.upgrades[id]) return;
+  
+  let canAfford = true;
+  Object.entries(upg.cost).forEach(([resKey, amount]) => {
+    const count = state.resources[resKey] || 0;
+    if (count < amount) canAfford = false;
+  });
+  
+  if (!canAfford) {
+    const errorMsg = state.lang === "en" ? "Cannot afford this upgrade!" : "Недостатньо ресурсів для покращення!";
+    showNotification(errorMsg);
+    return;
+  }
+  
+  Object.entries(upg.cost).forEach(([resKey, amount]) => {
+    state.resources[resKey] -= amount;
+  });
+  
+  if (!state.upgrades) state.upgrades = {};
+  state.upgrades[id] = true;
+  
+  const msg = state.lang === "en" ? 
+    `🔮 Purchased upgrade: ${t(upg.name)}!` : 
+    `🔮 Придбано покращення: ${t(upg.name)}!`;
+  showNotification(msg);
+  
+  saveGame();
+  renderStore();
 }
 
 function getSlotTooltipContent(id, slotType) {
@@ -1958,6 +4110,7 @@ function saveGame() {
     minions: state.minions,
     completedRaidsCount: state.completedRaidsCount,
     prologueShown: state.prologueShown,
+    upgrades: state.upgrades,
     timestamp: Date.now()
   };
   localStorage.setItem("abyssal_archon_save", JSON.stringify(data));
@@ -2012,6 +4165,7 @@ function loadGame() {
     state.minions = data.minions || [null, null];
     state.completedRaidsCount = data.completedRaidsCount || { hamlet: 0, cathedral: 0, city: 0 };
     state.prologueShown = data.prologueShown || false;
+    state.upgrades = data.upgrades || {};
     
     if (!state.prologueShown) {
       showPrologue();

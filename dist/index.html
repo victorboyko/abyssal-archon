@@ -18,8 +18,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@500;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <script type="module" crossorigin src="/assets/index-6Q_BlBB9.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-BZm0K6LH.css">
+  <script type="module" crossorigin src="/assets/index-ptNQnxJA.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-CltrPoON.css">
 </head>
 <body>
 
@@ -55,6 +55,7 @@
         </div>
         <div class="save-indicator idle-icon" id="save-status" data-i18n="save_status">💾</div>
         <button class="btn btn-secondary btn-sm" id="btn-lang" title="Toggle Language">🌐 En</button>
+        <button class="btn btn-secondary btn-sm" id="btn-theme" title="Toggle Theme">🌓</button>
         <button class="btn btn-secondary btn-sm" id="btn-export-save" title="Export Save">✥ <span data-i18n="export">Export</span></button>
         <button class="btn btn-secondary btn-sm" id="btn-import-save" title="Import Save">✦ <span data-i18n="import">Import</span></button>
         <button class="btn btn-danger btn-sm" id="btn-hard-reset" title="Hard Reset">☠ <span data-i18n="reset">Reset</span></button>
@@ -81,10 +82,43 @@
           <button class="nav-btn" data-tab="conquest">
             <span class="nav-icon">⚔</span> <span data-i18n="path_conquest">Abyssal Conquest</span> <span class="nav-level-badge" id="nav-lvl-conquest">Lv. 1</span>
           </button>
+          <button class="nav-btn" data-tab="torture">
+            <span class="nav-icon">💀</span> <span data-i18n="path_torture">Soul Torture</span> <span class="nav-level-badge" id="nav-lvl-torture">Lv. 1</span>
+          </button>
+          <button class="nav-btn" data-tab="alchemy">
+            <span class="nav-icon">🧪</span> <span data-i18n="path_alchemy">Shadow Alchemy</span> <span class="nav-level-badge" id="nav-lvl-alchemy">Lv. 1</span>
+          </button>
+          <button class="nav-btn" data-tab="necromancy">
+            <span class="nav-icon">☠️</span> <span data-i18n="path_necromancy">Necromancy</span> <span class="nav-level-badge" id="nav-lvl-necromancy">Lv. 1</span>
+          </button>
+          <button class="nav-btn" data-tab="agriculture">
+            <span class="nav-icon">🍄</span> <span data-i18n="path_agriculture">Abyssal Agriculture</span> <span class="nav-level-badge" id="nav-lvl-agriculture">Lv. 1</span>
+          </button>
+          <button class="nav-btn" data-tab="blood">
+            <span class="nav-icon">💉</span> <span data-i18n="path_blood">Blood Sorcery</span> <span class="nav-level-badge" id="nav-lvl-blood">Lv. 1</span>
+          </button>
+          <button class="nav-btn" data-tab="chaos">
+            <span class="nav-icon">🌀</span> <span data-i18n="path_chaos">Chaos Cultivation</span> <span class="nav-level-badge" id="nav-lvl-chaos">Lv. 1</span>
+          </button>
+          <button class="nav-btn" data-tab="void">
+            <span class="nav-icon">🌌</span> <span data-i18n="path_void">Void Excavation</span> <span class="nav-level-badge" id="nav-lvl-void">Lv. 1</span>
+          </button>
+          <button class="nav-btn" data-tab="plague">
+            <span class="nav-icon">🦗</span> <span data-i18n="path_plague">Plague Breeding</span> <span class="nav-level-badge" id="nav-lvl-plague">Lv. 1</span>
+          </button>
+          <button class="nav-btn" data-tab="astral">
+            <span class="nav-icon">⭐</span> <span data-i18n="path_astral">Astral Alignment</span> <span class="nav-level-badge" id="nav-lvl-astral">Lv. 1</span>
+          </button>
+          <button class="nav-btn" data-tab="sins">
+            <span class="nav-icon">👑</span> <span data-i18n="path_sins">Tormenting Sins</span> <span class="nav-level-badge" id="nav-lvl-sins">Lv. 1</span>
+          </button>
         </div>
 
         <div class="sidebar-category mt-auto">
           <h3 class="category-title" data-i18n="dominion_header">Dominion</h3>
+          <button class="nav-btn" data-tab="store">
+            <span class="nav-icon">🪙</span> <span data-i18n="path_store">Abyssal Store</span>
+          </button>
           <button class="nav-btn" data-tab="inventory">
             <span class="nav-icon">🎒</span> <span data-i18n="path_inventory">Vault & Armory</span>
           </button>
@@ -178,6 +212,139 @@
           </div>
           <div class="activity-grid" id="grid-conquest">
             <!-- Populated dynamically via JS -->
+          </div>
+        </section>
+
+        <!-- Soul Torture Tab -->
+        <section class="tab-content" id="tab-torture">
+          <div class="view-header">
+            <h2 data-i18n="title_torture">Soul Torture</h2>
+            <p class="view-description" data-i18n="desc_torture">Punish captive souls to extract Anguish, Screams, and Terror.</p>
+            <div class="view-level-info" id="lvl-info-torture"></div>
+          </div>
+          <div class="activity-grid" id="grid-torture">
+            <!-- Populated dynamically via JS -->
+          </div>
+        </section>
+
+        <!-- Shadow Alchemy Tab -->
+        <section class="tab-content" id="tab-alchemy">
+          <div class="view-header">
+            <h2 data-i18n="title_alchemy">Shadow Alchemy</h2>
+            <p class="view-description" data-i18n="desc_alchemy">Refine raw materials into high-level reagents and catalysts.</p>
+            <div class="view-level-info" id="lvl-info-alchemy"></div>
+          </div>
+          <div class="activity-grid" id="grid-alchemy">
+            <!-- Populated dynamically via JS -->
+          </div>
+        </section>
+
+        <!-- Necromancy Tab -->
+        <section class="tab-content" id="tab-necromancy">
+          <div class="view-header">
+            <h2 data-i18n="title_necromancy">Necromancy</h2>
+            <p class="view-description" data-i18n="desc_necromancy">Raise legions of skeleton forces to gather Bone Dust and Ectoplasm.</p>
+            <div class="view-level-info" id="lvl-info-necromancy"></div>
+          </div>
+          <div class="activity-grid" id="grid-necromancy">
+            <!-- Populated dynamically via JS -->
+          </div>
+        </section>
+
+        <!-- Abyssal Agriculture Tab -->
+        <section class="tab-content" id="tab-agriculture">
+          <div class="view-header">
+            <h2 data-i18n="title_agriculture">Abyssal Agriculture</h2>
+            <p class="view-description" data-i18n="desc_agriculture">Grow toxic vegetation inside sulfuric crop grids.</p>
+            <div class="view-level-info" id="lvl-info-agriculture"></div>
+          </div>
+          <div class="activity-grid" id="grid-agriculture">
+            <!-- Populated dynamically via JS -->
+          </div>
+        </section>
+
+        <!-- Blood Sorcery Tab -->
+        <section class="tab-content" id="tab-blood">
+          <div class="view-header">
+            <h2 data-i18n="title_blood">Blood Sorcery</h2>
+            <p class="view-description" data-i18n="desc_blood">Channel biological energy into powerful sanguine catalysts.</p>
+            <div class="view-level-info" id="lvl-info-blood"></div>
+          </div>
+          <div class="activity-grid" id="grid-blood">
+            <!-- Populated dynamically via JS -->
+          </div>
+        </section>
+
+        <!-- Chaos Cultivation Tab -->
+        <section class="tab-content" id="tab-chaos">
+          <div class="view-header">
+            <h2 data-i18n="title_chaos">Chaos Cultivation</h2>
+            <p class="view-description" data-i18n="desc_chaos">Harness raw entropic energy out of dimensional portal cracks.</p>
+            <div class="view-level-info" id="lvl-info-chaos"></div>
+          </div>
+          <div class="activity-grid" id="grid-chaos">
+            <!-- Populated dynamically via JS -->
+          </div>
+        </section>
+
+        <!-- Void Excavation Tab -->
+        <section class="tab-content" id="tab-void">
+          <div class="view-header">
+            <h2 data-i18n="title_void">Void Excavation</h2>
+            <p class="view-description" data-i18n="desc_void">Dig deep inside void gaps to locate void crystals and relics.</p>
+            <div class="view-level-info" id="lvl-info-void"></div>
+          </div>
+          <div class="activity-grid" id="grid-void">
+            <!-- Populated dynamically via JS -->
+          </div>
+        </section>
+
+        <!-- Plague Breeding Tab -->
+        <section class="tab-content" id="tab-plague">
+          <div class="view-header">
+            <h2 data-i18n="title_plague">Plague Breeding</h2>
+            <p class="view-description" data-i18n="desc_plague">Spawn swarms of dark locusts to cultivate rot and poison.</p>
+            <div class="view-level-info" id="lvl-info-plague"></div>
+          </div>
+          <div class="activity-grid" id="grid-plague">
+            <!-- Populated dynamically via JS -->
+          </div>
+        </section>
+
+        <!-- Astral Alignment Tab -->
+        <section class="tab-content" id="tab-astral">
+          <div class="view-header">
+            <h2 data-i18n="title_astral">Astral Alignment</h2>
+            <p class="view-description" data-i18n="desc_astral">Harness cosmic elements and starlight from astronomical voids.</p>
+            <div class="view-level-info" id="lvl-info-astral"></div>
+          </div>
+          <div class="activity-grid" id="grid-astral">
+            <!-- Populated dynamically via JS -->
+          </div>
+        </section>
+
+        <!-- Tormenting Sins Tab -->
+        <section class="tab-content" id="tab-sins">
+          <div class="view-header">
+            <h2 data-i18n="title_sins">Tormenting Sins</h2>
+            <p class="view-description" data-i18n="desc_sins">Distill human vices like pride and wrath to collect sin shards.</p>
+            <div class="view-level-info" id="lvl-info-sins"></div>
+          </div>
+          <div class="activity-grid" id="grid-sins">
+            <!-- Populated dynamically via JS -->
+          </div>
+        </section>
+
+        <!-- Abyssal Store Tab -->
+        <section class="tab-content" id="tab-store">
+          <div class="view-header">
+            <h2 data-i18n="title_store">Abyssal Store</h2>
+            <p class="view-description" data-i18n="desc_store">Trade your gold coins and rare items for powerful passive upgrades.</p>
+          </div>
+          <div class="store-container">
+            <div class="store-grid" id="store-grid">
+              <!-- Populated dynamically via JS -->
+            </div>
           </div>
         </section>
 

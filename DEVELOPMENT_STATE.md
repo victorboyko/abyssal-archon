@@ -48,6 +48,8 @@ Each characteristic increases through specific activities and applies passive bo
 ## Resources
 The game uses a wide array of demonic, physical, and crafted resources:
 
+* **Currency**:
+  - `Gold Coins` (gold): The primary medium of exchange, acquired by selling items or raiding mortal cities.
 * **Ethereal**:
   - `Evil Intent`: Primary magical fuel.
   - `Anguish`: Extracted from suffering.
@@ -55,6 +57,11 @@ The game uses a wide array of demonic, physical, and crafted resources:
   - `Chaos Essence`: Power of the raw Void.
   - `Divine Essence`: Stolen holy energy.
   - `Souls`: High-value currency for elite progression.
+  - `Screams`: Echoes of terror harvested from souls.
+  - `Shadow Mercury` / `Dark Mercury`: Liquid alchemical conductor.
+  - `Chaos Sparks`: Volatile discharges from rift cultivation.
+  - `Nebula Shards`: Stellar dust drawn from alignment.
+  - `Pride Essence`, `Desire`, `Wrath Shards`: Pure distillates of human sins.
 * **Physical & Geological**:
   - `Sulfur`: Basic brimstone mineral.
   - `Obsidian`: Sturdy volcanic glass.
@@ -63,124 +70,85 @@ The game uses a wide array of demonic, physical, and crafted resources:
   - `Volcanic Ash`: Carbonized volcanic dust.
   - `Iron Ore`: Raw metal.
   - `Abyssal Iron`: Smelted demonic steel.
+  - `Bone Dust`: Reanimated remains.
+  - `Void Crystals`: Shards of rift core minerals.
 * **Biological**:
   - `Demonic Blood`: Used in blood rites.
   - `Flesh`: Meat used to sustain hounds or create constructs.
   - `Ectoplasm`: Ethereal slime.
+  - `Blood Roses` / `Doomshade`: Toxic flora grown in crops.
+  - `Venom` / `Rot`: Extracted from insect plagues.
 * **Crafted Items**:
   - `Brimstone Brand`: Demonic tool increasing physical speed.
   - `Obsidian Sigil`: Protective amulet.
   - `Corrosive Acid`: Powerful solvent.
   - `Unholy Elixir`: Temporary buffs/concoctions.
 
----
+## 120 Demonic Activities & 15 Abyssal Paths
+Only one activity can be active at a time. Progress loops automatically on cycle completion.
 
-## 21 Demonic Activities
-Only one can be active at a time. Each action ticks on a loop.
+The game features exactly **15 progressive paths**, each containing exactly **8 progressive activities** (a total of 120 activities) with level requirements ranging from 1 to 90:
 
-### Category A: Brimstone Extraction (Physical Gathering)
-1. **Chisel Sulfur Vents** (Lv.1)
-   - *Base Time*: 2.0s
-   - *Yield*: +2 Sulfur
-   - *Trains*: Brutality, Avarice
-2. **Quarry Obsidian** (Lv.10)
-   - *Base Time*: 3.5s
-   - *Yield*: +1 Obsidian
-   - *Trains*: Brutality, Resilience
-3. **Siphon Lava** (Lv.15)
-   - *Base Time*: 4.0s
-   - *Yield*: +1 Hellfire
-   - *Trains*: Infernal Power, Resilience
-4. **Dredge River Styx** (Lv.25)
-   - *Base Time*: 5.0s
-   - *Yield*: +2 Styx Clay, 5% chance of Ectoplasm
-   - *Trains*: Guile, Willpower
-5. **Gather Volcanic Ash** (Lv.30)
-   - *Base Time*: 3.0s
-   - *Yield*: +3 Volcanic Ash
-   - *Trains*: Brutality, Malice
-
-### Category B: Veil Tearing (Ethereal Channeling)
-6. **Whisper Cruelty** (Lv.1)
-   - *Base Time*: 3.0s
-   - *Yield*: +3 Evil Intent
-   - *Trains*: Malice, Guile
-7. **Harvest Agony** (Lv.8)
-   - *Base Time*: 4.5s
-   - *Yield*: +2 Anguish
-   - *Trains*: Malice, Sorcery
-8. **Infiltrate Dreams** (Lv.12)
-   - *Base Time*: 5.0s
-   - *Yield*: +1 Nightmares
-   - *Trains*: Guile, Sorcery
-9. **Channel Chaos** (Lv.20)
-   - *Base Time*: 6.0s
-   - *Yield*: +1 Chaos Essence
-   - *Trains*: Sorcery, Corruption
-10. **Siphon Faith** (Lv.35)
-    - *Base Time*: 7.5s
-    - *Yield*: +1 Divine Essence
-    - *Trains*: Corruption, Willpower
-
-### Category C: Hellfire Forge (Crafting & Refinement)
-11. **Smelt Abyssal Iron** (Lv.1)
-    - *Base Time*: 4.0s
-    - *Consumes*: 3 Sulfur, 2 Iron Ore, 1 Hellfire
-    - *Yield*: +1 Abyssal Iron
-    - *Trains*: Infernal Power, Brutality
-12. **Forge Brimstone Brand** (Lv.10)
-    - *Base Time*: 6.0s
-    - *Consumes*: 2 Abyssal Iron, 5 Sulfur
-    - *Yield*: +1 Brimstone Brand (Equippable Tool: +10% mining speed)
-    - *Trains*: Infernal Power, Avarice
-13. **Sculpt Obsidian Sigils** (Lv.15)
-    - *Base Time*: 5.0s
-    - *Consumes*: 2 Obsidian, 1 Volcanic Ash
-    - *Yield*: +1 Obsidian Sigil (Equippable Accessory: +5% Sorcery speed)
-    - *Trains*: Sorcery, Devotion
-14. **Distill Acid** (Lv.25)
-    - *Base Time*: 5.5s
-    - *Consumes*: 4 Sulfur, 1 Hellfire
-    - *Yield*: +1 Corrosive Acid
-    - *Trains*: Sorcery, Willpower
-
-### Category D: Rites & Summons
-15. **Concoct Elixirs** (Lv.5)
-    - *Base Time*: 5.0s
-    - *Consumes*: 1 Demonic Blood, 2 Volcanic Ash
-    - *Yield*: +1 Unholy Elixir
-    - *Trains*: Sorcery, Devotion
-16. **Conduct Blood Rite** (Lv.12)
-    - *Base Time*: 7.0s
-    - *Consumes*: 100 Evil Intent
-    - *Yield*: +2 Demonic Blood
-    - *Trains*: Devotion, Corruption
-17. **Summon Hellhounds** (Lv.18)
-    - *Base Time*: 8.0s
-    - *Consumes*: 3 Flesh, 2 Hellfire
-    - *Yield*: +1 Hellhound (Companion: +5% Brutality training speed)
-    - *Trains*: Devotion, Brutality
-18. **Animate Gargoyles** (Lv.30)
-    - *Base Time*: 10.0s
-    - *Consumes*: 5 Obsidian, 3 Demonic Blood
-    - *Yield*: +1 Gargoyle (Companion: +10% Resilience)
-    - *Trains*: Devotion, Resilience
-
-### Category E: Abyssal Conquest (Invasions)
-19. **Raid Border Hamlets** (Lv.1)
-    - *Base Time*: 6.0s
-    - *Yield*: +2 Flesh, +50 Gold, +2 Iron Ore (5% chance of soul)
-    - *Trains*: Guile, Brutality
-20. **Plunder Cathedrals** (Lv.20)
-    - *Base Time*: 9.0s
-    - *Consumes*: 2 Unholy Elixirs (for protection)
-    - *Yield*: +2 Souls, +1 Divine Essence
-    - *Trains*: Corruption, Malice
-21. **Subjugate Mortal Cities** (Lv.40)
-    - *Base Time*: 12.0s
-    - *Consumes*: 1 Gargoyle, 1 Hellhound
-    - *Yield*: +5 Souls, +5 Flesh, +200 Gold
-    - *Trains*: Willpower, Infernal Power
+1. **Brimstone Extraction** (extraction)
+   - *Focus*: Basic physical mining and geothermal extraction.
+   - *Yields*: Sulfur, Obsidian, Hellfire, Styx Clay, Volcanic Ash, Iron Ore, etc.
+   - *Trains*: Brutality, Resilience, Guile, Willpower, Infernal Power, Malice, Avarice.
+2. **Veil Tearing** (veil)
+   - *Focus*: Tearing dimensional rifts to siphon ethereal energies.
+   - *Yields*: Evil Intent, Anguish, Nightmares, Chaos Essence, Divine Essence.
+   - *Trains*: Malice, Sorcery, Guile, Corruption, Willpower.
+3. **Hellfire Forge** (forge)
+   - *Focus*: Smelting raw metals and crafting tools and sigils.
+   - *Yields*: Abyssal Iron, Brimstone Brand, Obsidian Sigil, Corrosive Acid.
+   - *Trains*: Infernal Power, Brutality, Avarice, Sorcery, Devotion, Willpower.
+4. **Rites & Summons** (rites)
+   - *Focus*: Conducting sacrifices, brewing unholy elixirs, and summoning helpers.
+   - *Yields*: Unholy Elixir, Demonic Blood, Hellhounds, Gargoyles, Souls.
+   - *Trains*: Sorcery, Devotion, Corruption, Brutality, Resilience.
+5. **Abyssal Conquest** (conquest)
+   - *Focus*: Plundering mortal settlements and cities. High yields but carries failure risks.
+   - *Yields*: Flesh, Gold, Iron Ore, Souls, Divine Essence.
+   - *Trains*: Guile, Brutality, Corruption, Malice, Willpower, Infernal Power.
+6. **Soul Torture** (torture)
+   - *Focus*: Extraction of Screams from mortal souls.
+   - *Yields*: Screams.
+   - *Trains*: Malice, Willpower.
+7. **Shadow Alchemy** (alchemy)
+   - *Focus*: Distillation and transmutation of volatile alchemical extracts.
+   - *Yields*: Vitriol, Dark Mercury.
+   - *Trains*: Sorcery, Corruption.
+8. **Necromancy** (necromancy)
+   - *Focus*: Reanimating undead and gathering necrotic remains.
+   - *Yields*: Bone Dust, Phantoms.
+   - *Trains*: Sorcery, Devotion.
+9. **Abyssal Agriculture** (agriculture)
+   - *Focus*: Cultivating hellish crops in sulfuric fields.
+   - *Yields*: Doomshade, Blood Roses.
+   - *Trains*: Brutality, Devotion.
+10. **Blood Sorcery** (blood)
+    - *Focus*: Refining crimson life force into catalysts.
+    - *Yields*: Blood Catalysts, Sanguine Crystals.
+    - *Trains*: Sorcery, Malice.
+11. **Chaos Cultivation** (chaos)
+    - *Focus*: Harvesting rift power from entropic cracks.
+    - *Yields*: Chaos Sparks, Chaos Shards.
+    - *Trains*: Sorcery, Corruption.
+12. **Void Excavation** (void)
+    - *Focus*: Deep exploration of rifts.
+    - *Yields*: Void Crystals, Decayed Relics.
+    - *Trains*: Brutality, Avarice.
+13. **Plague Breeding** (plague)
+    - *Focus*: Raising insect swarms to generate toxins.
+    - *Yields*: Venom, Plague Rot.
+    - *Trains*: Brutality, Guile.
+14. **Astral Alignment** (astral)
+    - *Focus*: Aligning cosmic space nodes.
+    - *Yields*: Nebula Shards, Astral Stardust.
+    - *Trains*: Sorcery, Guile.
+15. **Tormenting Sins** (sins)
+    - *Focus*: Extracting crystallizations of human sins.
+    - *Yields*: Pride Essence, Desire, Wrath Shards.
+    - *Trains*: Willpower, Infernal Power.
 
 ---
 
@@ -257,6 +225,17 @@ To support multi-language play, the game is localizable:
    - Static elements (e.g. sidebar navigation headers, labels, inventory slots headers, save messages) are mapped to a `LOCALIZATION` dictionary in `app.js` and updated via a `translateUI()` trigger.
 3. **Persisted Preference**:
    - The active language choice is saved in local storage and reloaded on start.
+
+---
+
+## Upgrades Store & Item Selling Marketplace
+1. **Vault Item Selling**:
+   - Each resource in the Vault (inventory tab) displays its unit sell price.
+   - Players can sell any quantity of resource using **Sell 1**, **Sell 10**, or **Sell All** buttons.
+   - Sold items are converted into **Gold Coins** at the designated rate.
+2. **Abyssal Upgrade Store**:
+   - Upgrades can be purchased from the store tab using gold and resources.
+   - Premium upgrades grant permanent multipliers to action speed, yield modifiers, and experience gain across all stats.
 
 ---
 
