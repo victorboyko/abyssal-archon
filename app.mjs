@@ -4010,13 +4010,16 @@ function renderTopBar() {
     if (act) {
       const pathName = LOCALIZATION[state.lang]["title_" + act.category] || act.category;
       activeName.innerHTML = `<strong>${pathName}</strong> - ${t(act.name)}`;
+      activeDisplay.style.cursor = "pointer";
     } else {
       activeName.innerText = state.lang === "en" ? "Idle..." : "Бездіяльність...";
+      activeDisplay.style.cursor = "default";
     }
     activeDisplay.classList.add("text-glow-yellow");
   } else {
     activeName.innerText = state.lang === "en" ? "Idle..." : "Бездіяльність...";
     activeDisplay.classList.remove("text-glow-yellow");
+    activeDisplay.style.cursor = "default";
   }
   
   // Update sidebar levels badges
@@ -5570,6 +5573,19 @@ window.onload = () => {
   if (btnShowUpg) {
     btnShowUpg.addEventListener("click", () => {
       showAllAchievements();
+    });
+  }
+
+  // Active focus display click listener
+  const activeDisplay = document.getElementById("active-task-display");
+  if (activeDisplay) {
+    activeDisplay.addEventListener("click", () => {
+      if (state.activeActivity) {
+        const act = ACTIVITIES.find(a => a.id === state.activeActivity);
+        if (act && act.category) {
+          switchTab(act.category);
+        }
+      }
     });
   }
 
