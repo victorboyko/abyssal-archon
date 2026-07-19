@@ -4700,10 +4700,34 @@ function openCodex(id, type) {
     let consLabel = state.lang === "en" ? "Consumed By" : "Використовується у";
     let noneLabel = state.lang === "en" ? "None" : "Немає";
     
-    let producerHTML = producers.map(p => {
-      const pathName = LOCALIZATION[state.lang]["title_" + p.category] || p.category;
-      return `<li>🌋 [${pathName}] ${t(p.name)} (Base: ${(p.baseTime/1000).toFixed(1)}s)</li>`;
-    }).join("") || `<li>${noneLabel}</li>`;
+    const groupedProducers = {};
+    producers.forEach(p => {
+      if (!groupedProducers[p.category]) {
+        groupedProducers[p.category] = [];
+      }
+      groupedProducers[p.category].push(p);
+    });
+    
+    let producerHTML = "";
+    const prodCategories = Object.keys(groupedProducers);
+    if (prodCategories.length === 0) {
+      producerHTML = `<div style="font-size:0.85rem; color:var(--color-text-dark);">${noneLabel}</div>`;
+    } else {
+      prodCategories.forEach(cat => {
+        const pathName = LOCALIZATION[state.lang]["title_" + cat] || cat;
+        producerHTML += `
+          <div style="margin-top: 8px; font-weight: bold; font-family: 'Cinzel'; font-size: 0.85rem; color: var(--color-yellow); border-bottom: 1px solid rgba(120, 120, 120, 0.15); padding-bottom: 2px;">
+            🌋 ${pathName}
+          </div>
+          <ul style="font-size:0.8rem; padding-left:14px; list-style-type:square; margin: 4px 0 8px 0; line-height: 1.4; color: var(--color-text-secondary);">
+        `;
+        groupedProducers[cat].forEach(p => {
+          producerHTML += `<li>✥ ${t(p.name)} (Base: ${(p.baseTime/1000).toFixed(1)}s)</li>`;
+        });
+        producerHTML += `</ul>`;
+      });
+    }
+    
     let consumerHTML = consumers.map(c => `<li>⚙ ${t(c.name)}</li>`).join("") || `<li>${noneLabel}</li>`;
     
     body.innerHTML = `
@@ -4721,7 +4745,7 @@ function openCodex(id, type) {
       </div>
       <div class="codex-section">
         <h4 class="codex-section-title">${prodLabel}</h4>
-        <ul style="font-size:0.8rem; padding-left:12px; list-style-type:square;">${producerHTML}</ul>
+        <div style="display:flex; flex-direction:column;">${producerHTML}</div>
       </div>
       <div class="codex-section">
         <h4 class="codex-section-title">${consLabel}</h4>
