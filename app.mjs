@@ -4050,8 +4050,8 @@ function updateActiveSkillHeaderProgress(tabId) {
         <span>${state.lang === 'en' ? 'Rank' : 'Ранг'} ${lvl}</span>
         <span>${xp} / ${needed} ${xpLabel} (${pct}%)</span>
       </div>
-      <div style="background:rgba(0,0,0,0.6); height:4px; border-radius:2px; overflow:hidden; margin-top:4px; border: 1px solid rgba(255, 62, 62, 0.08);">
-        <div style="background-color:var(--color-yellow); height:100%; width:${pct}%;"></div>
+      <div style="background:rgba(120, 120, 120, 0.15); height:8px; border-radius:4px; overflow:hidden; margin-top:4px; border: 1px solid rgba(120, 120, 120, 0.25);">
+        <div style="background:linear-gradient(90deg, var(--color-yellow), var(--color-red)); height:100%; width:${pct}%; border-radius:4px;"></div>
       </div>
     `;
   }
