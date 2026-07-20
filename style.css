@@ -796,6 +796,7 @@ body {
 
 :root.theme-light .stat-card.training {
   border: 2.5px solid #7c3aed !important;
+  background: var(--color-bg-card) !important;
   box-shadow: 0 0 10px rgba(124, 58, 237, 0.5) !important;
   animation: statPulseLight 2s infinite alternate !important;
 }
