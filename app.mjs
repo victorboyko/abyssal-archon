@@ -4275,6 +4275,7 @@ function renderStatsPanel() {
     
     const card = document.createElement("div");
     card.className = `stat-card${isTraining ? ' training' : ''}`;
+    card.setAttribute("data-stat-id", key);
     card.innerHTML = `
       <button class="btn-help-inline" data-id="${key}" data-type="stat">?</button>
       <div class="stat-header">

@@ -50,7 +50,7 @@ html {
   --color-bg-milestone: rgba(255, 255, 255, 0.5);
   
   --color-red: #c91e1e;
-  --color-red-glow: rgba(201, 30, 30, 0.2);
+  --color-red-glow: rgba(201, 30, 30, 0.5);
   --color-red-dim: #941313;
   
   --color-yellow: #b59218;
@@ -788,9 +788,17 @@ body {
 }
 
 .stat-card.training {
-  border-color: var(--color-red);
+  border: 2px solid var(--color-red);
+  background: rgba(255, 62, 62, 0.05);
   box-shadow: 0 0 8px var(--color-red-glow);
   animation: statPulse 2s infinite alternate;
+}
+
+:root.theme-light .stat-card.training {
+  border: 2.5px solid #7c3aed !important;
+  background: rgba(124, 58, 237, 0.08) !important;
+  box-shadow: 0 0 10px rgba(124, 58, 237, 0.5) !important;
+  animation: statPulseLight 2s infinite alternate !important;
 }
 
 @keyframes statPulse {
@@ -801,6 +809,17 @@ body {
   100% {
     box-shadow: 0 0 12px var(--color-red-glow);
     border-color: var(--color-red);
+  }
+}
+
+@keyframes statPulseLight {
+  0% {
+    box-shadow: 0 0 4px rgba(124, 58, 237, 0.3);
+    border-color: rgba(124, 58, 237, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 14px rgba(124, 58, 237, 0.7);
+    border-color: #7c3aed;
   }
 }
 
