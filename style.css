@@ -788,14 +788,14 @@ body {
 }
 
 .stat-card.training {
-  border: 2px solid var(--color-red);
+  border: 1.5px solid var(--color-red);
   background: rgba(255, 62, 62, 0.05);
   box-shadow: 0 0 8px var(--color-red-glow);
   animation: statPulse 2s infinite alternate;
 }
 
 :root.theme-light .stat-card.training {
-  border: 2.5px solid #7c3aed !important;
+  border: 1.5px solid #7c3aed !important;
   background: var(--color-bg-card) !important;
   box-shadow: 0 0 10px rgba(124, 58, 237, 0.5) !important;
   animation: statPulseLight 2s infinite alternate !important;
@@ -826,13 +826,13 @@ body {
 .stat-card.highlight-dot::after {
   content: '';
   position: absolute;
-  bottom: 8px;
-  right: 8px;
-  width: 8px;
-  height: 8px;
+  bottom: 6px;
+  right: 6px;
+  width: 5px;
+  height: 5px;
   background-color: #3eff51;
   border-radius: 50%;
-  box-shadow: 0 0 6px #3eff51, 0 0 12px rgba(62, 255, 81, 0.4);
+  box-shadow: 0 0 6px #3eff51, 0 0 10px rgba(62, 255, 81, 0.4);
   z-index: 5;
   animation: dotBlink 1s infinite alternate;
 }

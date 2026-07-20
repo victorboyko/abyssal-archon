@@ -3230,6 +3230,7 @@ let state = {
   boosterTimeRemaining: 0,
   boosterAutoConsume: true,
   boosterIsPaused: false,
+  shiftHeld: false,
 };
 let lastTickTime = Date.now(); // Separate timer for progress bar ticks
 
@@ -4322,12 +4323,14 @@ function renderInventory() {
     if (hasCount && res.sellPrice > 0) {
       const sellText = state.lang === 'en' ? 'Sell' : 'Продати';
       const allText = state.lang === 'en' ? 'All' : 'Все';
+      const qty1 = state.shiftHeld ? 10 : 1;
+      const qty2 = state.shiftHeld ? 100 : 10;
       sellPanel = `
         <div class="item-sell-panel">
           <div class="sell-price-tag">💰 ${res.sellPrice}</div>
           <div class="sell-btns">
-            <button class="btn-sell-action" data-id="${key}" data-qty="1">${sellText} 1</button>
-            <button class="btn-sell-action" data-id="${key}" data-qty="10">${sellText} 10</button>
+            <button class="btn-sell-action" data-id="${key}" data-qty="${qty1}" data-base-qty="1">${sellText} ${qty1}</button>
+            <button class="btn-sell-action" data-id="${key}" data-qty="${qty2}" data-base-qty="10">${sellText} ${qty2}</button>
             <button class="btn-sell-action" data-id="${key}" data-qty="all">${sellText} ${allText}</button>
           </div>
         </div>
@@ -5440,7 +5443,7 @@ function isBoosterUnlocked(booster) {
   return true;
 }
 
-function buyBooster(id) {
+function buyBooster(id, qty = 1) {
   const booster = BOOSTERS[id];
   if (!booster) return;
   if (!isBoosterUnlocked(booster)) {
@@ -5450,13 +5453,14 @@ function buyBooster(id) {
   
   // Check costs
   for (const [key, amount] of Object.entries(booster.cost)) {
+    const totalCost = amount * qty;
     if (key === "gold") {
-      if ((state.resources.gold || 0) < amount) {
+      if ((state.resources.gold || 0) < totalCost) {
         showNotification(state.lang === "en" ? "Cannot afford: Not enough gold." : "Недостатньо золота.", "danger");
         return;
       }
     } else {
-      if ((state.resources[key] || 0) < amount) {
+      if ((state.resources[key] || 0) < totalCost) {
         const itemLabel = RESOURCES[key] ? t(RESOURCES[key].name) : key;
         showNotification(state.lang === "en" ? `Cannot afford: Not enough ${itemLabel}.` : `Недостатньо ${itemLabel}.`, "danger");
         return;
@@ -5466,17 +5470,18 @@ function buyBooster(id) {
   
   // Deduct costs
   for (const [key, amount] of Object.entries(booster.cost)) {
+    const totalCost = amount * qty;
     if (key === "gold") {
-      state.resources.gold -= amount;
-      spawnGainIndicator(`-${amount} 💰`, "💰");
+      state.resources.gold -= totalCost;
+      spawnGainIndicator(`-${totalCost} 💰`, "💰");
     } else {
-      state.resources[key] -= amount;
-      spawnGainIndicator(`-${amount} ${RESOURCES[key].icon}`, RESOURCES[key].icon);
+      state.resources[key] -= totalCost;
+      spawnGainIndicator(`-${totalCost} ${RESOURCES[key].icon}`, RESOURCES[key].icon);
     }
   }
   
-  state.boostersOwned[id] = (state.boostersOwned[id] || 0) + 1;
-  showNotification(state.lang === "en" ? `Purchased 1 ${t(booster.name)}!` : `Придбано 1 ${t(booster.name)}!`);
+  state.boostersOwned[id] = (state.boostersOwned[id] || 0) + qty;
+  showNotification(state.lang === "en" ? `Purchased ${qty} ${t(booster.name)}!` : `Придбано ${qty} ${t(booster.name)}!`);
   saveGame();
   renderTopBar();
   renderBoosters();
@@ -5612,7 +5617,7 @@ function renderBoosters() {
     const durLabel = isEn ? "Duration" : "Тривалість";
     const ownLabel = isEn ? "Owned" : "У власності";
     const costLabel = isEn ? "Cost" : "Вартість";
-    const buyLabel = isEn ? "Buy 1" : "Купити 1";
+    const buyLabel = isEn ? (state.shiftHeld ? "Buy 10" : "Buy 1") : (state.shiftHeld ? "Купити 10" : "Купити 1");
     const actLabel = isEn ? "Activate" : "Активувати";
       
     card.innerHTML = `
@@ -5645,7 +5650,8 @@ function renderBoosters() {
     // Event listeners
     if (isUnlocked) {
       card.querySelector(".btn-buy-booster").addEventListener("click", () => {
-        buyBooster(b.id);
+        const qty = state.shiftHeld ? 10 : 1;
+        buyBooster(b.id, qty);
       });
       card.querySelector(".btn-activate-booster").addEventListener("click", () => {
         activateBooster(b.id);
@@ -5656,7 +5662,45 @@ function renderBoosters() {
   });
 }
 
+function handleShiftKeyChange(isHeld) {
+  state.shiftHeld = isHeld;
+  
+  // 1. Update sell actions in inventory
+  document.querySelectorAll(".btn-sell-action[data-base-qty]").forEach(btn => {
+    const baseQty = parseInt(btn.getAttribute("data-base-qty"), 10);
+    const sellText = state.lang === 'en' ? 'Sell' : 'Продати';
+    const newQty = isHeld ? baseQty * 10 : baseQty;
+    btn.setAttribute("data-qty", newQty);
+    btn.innerText = `${sellText} ${newQty}`;
+  });
+  
+  // 2. Update booster buy buttons
+  document.querySelectorAll(".btn-buy-booster").forEach(btn => {
+    const isEn = state.lang === 'en';
+    const buyText = isHeld ? 
+      (isEn ? "Buy 10" : "Купити 10") : 
+      (isEn ? "Buy 1" : "Купити 1");
+    btn.innerText = buyText;
+  });
+}
+
 window.onload = () => {
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Shift" && !state.shiftHeld) {
+      handleShiftKeyChange(true);
+    }
+  });
+  window.addEventListener("keyup", (e) => {
+    if (e.key === "Shift" && state.shiftHeld) {
+      handleShiftKeyChange(false);
+    }
+  });
+  window.addEventListener("blur", () => {
+    if (state.shiftHeld) {
+      handleShiftKeyChange(false);
+    }
+  });
+  
   loadGame();
   renderTopBar();
   renderWorkspace();
