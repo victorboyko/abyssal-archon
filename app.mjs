@@ -4065,6 +4065,11 @@ function renderWorkspace() {
   if (!activeTabBtn) return;
   const tabId = activeTabBtn.getAttribute("data-tab");
   
+  // Clear leftover highlight dots from previous tab or hovered element
+  document.querySelectorAll(".stat-card.highlight-dot").forEach(el => {
+    el.classList.remove("highlight-dot");
+  });
+  
   if (tabId === "inventory") {
     renderInventory();
     return;
@@ -4205,6 +4210,24 @@ function renderWorkspace() {
         <button class="card-action-btn mt-2" data-id="${act.id}">${activeBtnLabel}</button>
       `;
     }
+    
+    // Hover listeners to highlight trained stats with a dot
+    if (!isLocked) {
+      card.addEventListener("mouseenter", () => {
+        if (act.statsTrained) {
+          act.statsTrained.forEach(s => {
+            const statCard = document.querySelector(`.stat-card[data-stat-id="${s.key}"]`);
+            if (statCard) statCard.classList.add("highlight-dot");
+          });
+        }
+      });
+      card.addEventListener("mouseleave", () => {
+        document.querySelectorAll(".stat-card.highlight-dot").forEach(el => {
+          el.classList.remove("highlight-dot");
+        });
+      });
+    }
+    
     container.appendChild(card);
   });
   
@@ -4242,8 +4265,16 @@ function renderStatsPanel() {
     const needed = getStatXPNeededForLevel(lvl);
     const fillPercent = (xp / needed * 100).toFixed(1);
     
+    let isTraining = false;
+    if (state.activeActivity) {
+      const activeAct = ACTIVITIES.find(a => a.id === state.activeActivity);
+      if (activeAct && activeAct.statsTrained) {
+        isTraining = activeAct.statsTrained.some(s => s.key === key);
+      }
+    }
+    
     const card = document.createElement("div");
-    card.className = "stat-card";
+    card.className = `stat-card${isTraining ? ' training' : ''}`;
     card.innerHTML = `
       <button class="btn-help-inline" data-id="${key}" data-type="stat">?</button>
       <div class="stat-header">
@@ -4681,6 +4712,7 @@ function toggleActivity(id) {
   saveGame();
   renderTopBar();
   renderWorkspace();
+  renderStatsPanel();
 }
 
 // ==========================================
@@ -5263,6 +5295,7 @@ function tick() {
           showNotification(msg, "danger");
           renderTopBar();
           renderWorkspace();
+          renderStatsPanel();
         } else {
           deductCost(act);
         }
@@ -5276,6 +5309,7 @@ function tick() {
             showNotification(msg, "danger");
             renderTopBar();
             renderWorkspace();
+            renderStatsPanel();
           }
         } else {
           state.activeActivity = null;
@@ -5283,6 +5317,7 @@ function tick() {
           showNotification(msg, "danger");
           renderTopBar();
           renderWorkspace();
+          renderStatsPanel();
         }
       }
       

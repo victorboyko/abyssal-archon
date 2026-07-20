@@ -787,6 +787,48 @@ body {
   background: rgba(255, 62, 62, 0.02);
 }
 
+.stat-card.training {
+  border-color: var(--color-red);
+  box-shadow: 0 0 8px var(--color-red-glow);
+  animation: statPulse 2s infinite alternate;
+}
+
+@keyframes statPulse {
+  0% {
+    box-shadow: 0 0 4px var(--color-red-glow);
+    border-color: rgba(255, 62, 62, 0.35);
+  }
+  100% {
+    box-shadow: 0 0 12px var(--color-red-glow);
+    border-color: var(--color-red);
+  }
+}
+
+.stat-card.highlight-dot::after {
+  content: '';
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  width: 8px;
+  height: 8px;
+  background-color: #3eff51;
+  border-radius: 50%;
+  box-shadow: 0 0 6px #3eff51, 0 0 12px rgba(62, 255, 81, 0.4);
+  z-index: 5;
+  animation: dotBlink 1s infinite alternate;
+}
+
+@keyframes dotBlink {
+  0% {
+    opacity: 0.6;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
 .stat-header {
   display: flex;
   justify-content: space-between;
