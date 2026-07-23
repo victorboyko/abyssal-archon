@@ -4085,43 +4085,76 @@ function updateHeaderBoosterDisplay() {
     const boosterFullDesc = t(b.desc);
     
     container.style.display = "flex";
-    container.innerHTML = `
-      <div style="display: flex; flex-direction: column; gap: 2px; width: 100%;">
-        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; gap: 6px;">
-          <div style="display: flex; align-items: center; gap: 4px; max-width: 140px; overflow: hidden; white-space: nowrap;">
-            <span style="font-weight: bold; color: var(--color-yellow); font-family: 'Cinzel'; font-size: 0.75rem; text-overflow: ellipsis; overflow: hidden;" title="${boosterName}">⚡ ${boosterName}</span>
-            <span style="font-size: 0.65rem; color: var(--color-yellow); background: rgba(255, 210, 63, 0.15); padding: 0 4px; border-radius: 3px; font-family: var(--font-gothic); flex-shrink: 0;" title="${state.lang === 'en' ? 'Booster Inventory Count' : 'Кількість у запасі'}">x${count}</span>
+
+    let titleEl = container.querySelector("#booster-header-title");
+    if (!titleEl) {
+      container.innerHTML = `
+        <div style="display: flex; flex-direction: column; gap: 2px; width: 100%; pointer-events: none;">
+          <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; gap: 6px;">
+            <div style="display: flex; align-items: center; gap: 4px; max-width: 140px; overflow: hidden; white-space: nowrap;">
+              <span id="booster-header-title" style="font-weight: bold; color: var(--color-yellow); font-family: 'Cinzel'; font-size: 0.75rem; text-overflow: ellipsis; overflow: hidden;"></span>
+              <span id="booster-header-count" style="font-size: 0.65rem; color: var(--color-yellow); background: rgba(255, 210, 63, 0.15); padding: 0 4px; border-radius: 3px; font-family: var(--font-gothic); flex-shrink: 0;"></span>
+            </div>
+            <span id="booster-header-time" style="font-weight: bold; font-size: 0.75rem; font-family: var(--font-gothic); min-width: 34px; text-align: right;"></span>
           </div>
-          <span style="font-weight: bold; color: ${state.boosterIsPaused ? 'var(--color-text-dark)' : 'var(--color-text-green)'}; font-size: 0.75rem; font-family: var(--font-gothic); min-width: 34px; text-align: right;">${state.boosterIsPaused ? 'PAUSED' : timeStr}</span>
+          <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; gap: 6px; margin-top: 1px;">
+            <span id="booster-header-desc" style="color: var(--color-text-secondary); font-size: 0.65rem; max-width: 140px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left;"></span>
+            <button id="btn-booster-header-toggle" class="btn btn-secondary btn-sm" style="padding: 1px 5px; font-size: 0.65rem; line-height: 1; min-width: 20px; height: 18px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(120, 120, 120, 0.3); background: rgba(120, 120, 120, 0.15); pointer-events: auto;">
+            </button>
+          </div>
         </div>
-        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; gap: 6px; margin-top: 1px;">
-          <span style="color: var(--color-text-secondary); font-size: 0.65rem; max-width: 140px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left;" title="${boosterFullDesc}">${compactDesc}</span>
-          <button id="btn-booster-header-toggle" class="btn btn-secondary btn-sm" style="padding: 1px 5px; font-size: 0.65rem; line-height: 1; min-width: 20px; height: 18px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(120, 120, 120, 0.3); background: rgba(120, 120, 120, 0.15);" title="${state.boosterIsPaused ? (state.lang === 'en' ? 'Resume Booster' : 'Відновити бустер') : (state.lang === 'en' ? 'Pause Booster' : 'Призупинити бустер')}">
-            ${state.boosterIsPaused ? '▶' : '⏸'}
-          </button>
-        </div>
-      </div>
-    `;
-    
+      `;
+      
+      const toggleBtn = container.querySelector("#btn-booster-header-toggle");
+      if (toggleBtn) {
+        toggleBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          state.boosterIsPaused = !state.boosterIsPaused;
+          const isEn = state.lang === 'en';
+          showNotification(state.boosterIsPaused ? 
+            (isEn ? "Booster effect paused!" : "Дію бустера призупинено!") : 
+            (isEn ? "Booster effect resumed!" : "Дію бустера відновлено!")
+          );
+          saveGame();
+          updateHeaderBoosterDisplay();
+          
+          const activeTabBtn = document.querySelector(".nav-btn.active");
+          const currentTab = activeTabBtn ? activeTabBtn.getAttribute("data-tab") : null;
+          if (currentTab === "boosters") {
+            renderBoosters();
+          }
+        });
+      }
+
+      titleEl = container.querySelector("#booster-header-title");
+    }
+
+    const countEl = container.querySelector("#booster-header-count");
+    const timeEl = container.querySelector("#booster-header-time");
+    const descEl = container.querySelector("#booster-header-desc");
     const toggleBtn = container.querySelector("#btn-booster-header-toggle");
+
+    if (titleEl) {
+      titleEl.innerText = `⚡ ${boosterName}`;
+      titleEl.title = boosterName;
+    }
+    if (countEl) {
+      countEl.innerText = `x${count}`;
+      countEl.title = state.lang === 'en' ? 'Booster Inventory Count' : 'Кількість у запасі';
+    }
+    if (timeEl) {
+      timeEl.innerText = state.boosterIsPaused ? 'PAUSED' : timeStr;
+      timeEl.style.color = state.boosterIsPaused ? 'var(--color-text-dark)' : 'var(--color-text-green)';
+    }
+    if (descEl) {
+      descEl.innerText = compactDesc;
+      descEl.title = boosterFullDesc;
+    }
     if (toggleBtn) {
-      toggleBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        state.boosterIsPaused = !state.boosterIsPaused;
-        const isEn = state.lang === 'en';
-        showNotification(state.boosterIsPaused ? 
-          (isEn ? "Booster effect paused!" : "Дію бустера призупинено!") : 
-          (isEn ? "Booster effect resumed!" : "Дію бустера відновлено!")
-        );
-        saveGame();
-        updateHeaderBoosterDisplay();
-        
-        const activeTabBtn = document.querySelector(".nav-btn.active");
-        const currentTab = activeTabBtn ? activeTabBtn.getAttribute("data-tab") : null;
-        if (currentTab === "boosters") {
-          renderBoosters();
-        }
-      });
+      toggleBtn.innerText = state.boosterIsPaused ? '▶' : '⏸';
+      toggleBtn.title = state.boosterIsPaused ? 
+        (state.lang === 'en' ? 'Resume Booster' : 'Відновити бустер') : 
+        (state.lang === 'en' ? 'Pause Booster' : 'Призупинити бустер');
     }
   } else {
     container.style.display = "none";
@@ -5894,10 +5927,31 @@ window.onload = () => {
   // Active booster display click listener
   const activeBoosterDisplay = document.getElementById("active-booster-display");
   if (activeBoosterDisplay) {
-    activeBoosterDisplay.addEventListener("click", () => {
-      if (state.activeBoosterId) {
-        switchTab("boosters");
+    activeBoosterDisplay.addEventListener("click", (e) => {
+      if (!state.activeBoosterId) return;
+
+      const toggleBtn = document.getElementById("btn-booster-header-toggle");
+      if (toggleBtn) {
+        const btnRect = toggleBtn.getBoundingClientRect();
+        const w = btnRect.width;
+        const h = btnRect.height;
+        
+        // Exclusion rectangle centered on toggleBtn with side lengths 3 * w and 3 * h
+        const exLeft = btnRect.left - w;
+        const exRight = btnRect.left + 2 * w;
+        const exTop = btnRect.top - h;
+        const exBottom = btnRect.top + 2 * h;
+
+        const clickX = e.clientX;
+        const clickY = e.clientY;
+
+        if (clickX >= exLeft && clickX <= exRight && clickY >= exTop && clickY <= exBottom) {
+          // Click is inside 3x exclusion zone centered on play/pause button - do not navigate to shop
+          return;
+        }
       }
+
+      switchTab("boosters");
     });
   }
 
