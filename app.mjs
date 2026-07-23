@@ -2762,6 +2762,74 @@ const MILESTONES = [
   }
 ];
 
+const GOAL_KEY_TERMS = {
+  evil_intent: { en: ["Evil Intent"], ua: ["Злого Наміру", "Злий Намір"] },
+  imp: { en: ["Imp"], ua: ["Імпа", "Імп"] },
+  brimstone_brand: { en: ["Brimstone Brand"], ua: ["Клеймо Бримстоуну", "Клеймо"] },
+  brutality: { en: ["Brutality"], ua: ["Жорстокості", "Жорстокість"] },
+  unholy_elixir: { en: ["Unholy Elixirs", "Unholy Elixir"], ua: ["Нечестивих Еліксирів", "Нечестивий Еліксир"] },
+  sorcery: { en: ["Sorcery"], ua: ["Чаклунства", "Чаклунство"] },
+  hamlet: { en: ["Border Hamlets"], ua: ["прикордонні селища"] },
+  hellhound: { en: ["Hellhound"], ua: ["Гончака", "Гончак"] },
+  screams: { en: ["Screams"], ua: ["Криків", "Крик"] },
+  malice: { en: ["Malice"], ua: ["Злості", "Злість"] },
+  cathedral: { en: ["Cathedrals"], ua: ["собори"] },
+  bone_dust: { en: ["Bone Dust"], ua: ["Кістяного Пилу", "Кістяний Пил"] },
+  gargoyle: { en: ["Gargoyle"], ua: ["Гаргуйля", "Гаргуйль"] },
+  corruption: { en: ["Corruption"], ua: ["Корупції", "Корупція"] },
+  lapis_sanguine: { en: ["Blood Rubies (Lapis Sanguine)", "Blood Rubies"], ua: ["Багряних Лазуритів (Lapis Sanguine)", "Багряних Лазуритів"] },
+  obsidian_sigil: { en: ["Obsidian Sigil"], ua: ["Обсидіановий Сигіл"] },
+  chaos_sparks: { en: ["Chaos Sparks"], ua: ["Іскор Хаосу", "Іскра Хаосу"] },
+  void_crystals: { en: ["Void Crystals"], ua: ["Кристалів Пустоти", "Кристал Пустоти"] },
+  avarice: { en: ["Avarice"], ua: ["Жадібності", "Жадібність"] },
+  venom: { en: ["Venom"], ua: ["Отрути", "Отрута"] },
+  nebula_shards: { en: ["Nebula Shards"], ua: ["Осколків Туманності", "Осколок Туманності"] },
+  infernal: { en: ["Infernal Power"], ua: ["Пекельної Сили", "Пекельна Сила"] },
+  city: { en: ["Mortal Cities"], ua: ["Смертних Міст"] },
+  souls: { en: ["Souls"], ua: ["Душ", "Душа"] },
+  willpower: { en: ["Willpower"], ua: ["Сили Волі", "Сила Волі"] },
+  resilience: { en: ["Resilience"], ua: ["Стійкості", "Стійкість"] }
+};
+
+function formatGoalLabel(goal, lang) {
+  let labelText = t(goal.label);
+  if (!goal.key) return labelText;
+
+  let codexId = goal.key;
+  let codexType = "resource";
+  if (goal.type === "characteristic") {
+    codexType = "stat";
+  } else if (goal.type === "raid_success") {
+    codexId = "raid_" + goal.key;
+    codexType = "activity";
+  }
+
+  const termsObj = GOAL_KEY_TERMS[goal.key];
+  if (termsObj) {
+    const terms = termsObj[lang] || termsObj['en'] || [];
+    for (const term of terms) {
+      if (labelText.includes(term)) {
+        const replacement = `<span class="clickable-goal-target text-glow-yellow" data-id="${codexId}" data-type="${codexType}" style="cursor: pointer; text-decoration: underline dotted var(--color-yellow); font-weight: bold;" title="${lang === 'en' ? 'Click to view details' : 'Натисніть для перегляду деталей'}">${term}</span>`;
+        return labelText.replace(term, replacement);
+      }
+    }
+  }
+
+  let nameStr = "";
+  if (goal.type === "characteristic" && CHARACTERISTICS[goal.key]) {
+    nameStr = t(CHARACTERISTICS[goal.key].name);
+  } else if (RESOURCES[goal.key]) {
+    nameStr = t(RESOURCES[goal.key].name);
+  }
+
+  if (nameStr && labelText.includes(nameStr)) {
+    const replacement = `<span class="clickable-goal-target text-glow-yellow" data-id="${codexId}" data-type="${codexType}" style="cursor: pointer; text-decoration: underline dotted var(--color-yellow); font-weight: bold;" title="${lang === 'en' ? 'Click to view details' : 'Натисніть для перегляду деталей'}">${nameStr}</span>`;
+    return labelText.replace(nameStr, replacement);
+  }
+
+  return labelText;
+}
+
 // ==========================================
 // TRANSLATION DICTIONARY (Static UI Elements)
 // ==========================================
@@ -3993,11 +4061,12 @@ function renderTopBar() {
       else if (goal.type === "raid_success") current = state.completedRaidsCount[goal.key] || 0;
       else if (goal.type === "equipped") current = hasMinionEquipped(goal.key) ? 1 : 0;
       
+      const formattedLabel = formatGoalLabel(goal, state.lang);
       const goalItem = document.createElement("div");
       goalItem.className = `goal-item ${isDone ? 'done' : ''}`;
       goalItem.innerHTML = `
         <span class="goal-checkbox">${isDone ? '✓' : '✗'}</span>
-        <span>${t(goal.label)} (${current}/${goal.target})</span>
+        <span>${formattedLabel} (${current}/${goal.target})</span>
       `;
       goalsContainer.appendChild(goalItem);
     });
@@ -6016,6 +6085,18 @@ window.onload = () => {
       if (tabId) {
         document.getElementById("codex-panel").classList.remove("open");
         switchTab(tabId);
+      }
+    }
+  });
+  
+  // Global listener for clickable milestone goal targets (items / characteristics)
+  document.body.addEventListener("click", (e) => {
+    const clickable = e.target.closest(".clickable-goal-target");
+    if (clickable) {
+      const id = clickable.getAttribute("data-id");
+      const type = clickable.getAttribute("data-type");
+      if (id && type) {
+        openCodex(id, type);
       }
     }
   });
