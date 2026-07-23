@@ -2809,7 +2809,7 @@ function formatGoalLabel(goal, lang) {
     const terms = termsObj[lang] || termsObj['en'] || [];
     for (const term of terms) {
       if (labelText.includes(term)) {
-        const replacement = `<span class="clickable-goal-target text-glow-yellow" data-id="${codexId}" data-type="${codexType}" style="cursor: pointer; text-decoration: underline dotted var(--color-yellow); font-weight: bold;" title="${lang === 'en' ? 'Click to view details' : 'Натисніть для перегляду деталей'}">${term}</span>`;
+        const replacement = `<span class="clickable-goal-target" data-id="${codexId}" data-type="${codexType}" style="cursor: pointer;" title="${lang === 'en' ? 'Click to view details' : 'Натисніть для перегляду деталей'}">${term}</span>`;
         return labelText.replace(term, replacement);
       }
     }
@@ -2823,7 +2823,7 @@ function formatGoalLabel(goal, lang) {
   }
 
   if (nameStr && labelText.includes(nameStr)) {
-    const replacement = `<span class="clickable-goal-target text-glow-yellow" data-id="${codexId}" data-type="${codexType}" style="cursor: pointer; text-decoration: underline dotted var(--color-yellow); font-weight: bold;" title="${lang === 'en' ? 'Click to view details' : 'Натисніть для перегляду деталей'}">${nameStr}</span>`;
+    const replacement = `<span class="clickable-goal-target" data-id="${codexId}" data-type="${codexType}" style="cursor: pointer;" title="${lang === 'en' ? 'Click to view details' : 'Натисніть для перегляду деталей'}">${nameStr}</span>`;
     return labelText.replace(nameStr, replacement);
   }
 
