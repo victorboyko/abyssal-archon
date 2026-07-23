@@ -19,8 +19,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@500;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="/assets/favicon-9dKz-2US.png">
-  <script type="module" crossorigin src="/assets/index-aNR4Nf2G.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-n72AjFNJ.css">
+  <script type="module" crossorigin src="/assets/index-BtOyve_H.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-CoD2oSMs.css">
 </head>
 <body>
 
@@ -52,9 +52,12 @@
 
       <!-- Action Indicator / Save System -->
       <div class="top-bar-controls">
-        <div class="active-task-display" id="active-task-display">
-          <span class="label" data-i18n="active_focus">ACTIVE FOCUS</span>
-          <span class="value text-glow-red" id="active-task-name">Idle...</span>
+        <div style="display:flex; flex-direction:column; gap:6px; align-items:flex-end;">
+          <div class="active-task-display" id="active-task-display" style="min-width: 190px;">
+            <span class="label" data-i18n="active_focus">ACTIVE FOCUS</span>
+            <span class="value text-glow-red" id="active-task-name">Idle...</span>
+          </div>
+          <div class="active-booster-display" id="active-booster-display"></div>
         </div>
         <div class="save-indicator idle-icon" id="save-status" data-i18n="save_status">💾</div>
         <button class="btn btn-secondary btn-sm" id="btn-lang" title="Toggle Language">🌐 En</button>

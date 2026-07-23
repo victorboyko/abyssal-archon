@@ -4037,6 +4037,92 @@ function renderTopBar() {
   });
   
   renderQuickSlots();
+  updateHeaderBoosterDisplay();
+}
+
+function getCompactBoosterDesc(id, lang) {
+  const isEn = lang === 'en';
+  const descs = {
+    brimstone_haste: isEn ? "+15% Action Speed" : "+15% швидкість дій",
+    hellfire_surge: isEn ? "+20% Material Yields" : "+20% вихід матеріалів",
+    elixir_infusion: isEn ? "+25% Skill/Stat XP" : "+25% досвід навичок/атрибутів",
+    bloodlust_rage: isEn ? "+10% Raid Success, +15% Speed" : "+10% успіх набігу, +15% швидкість",
+    agony_catalyst: isEn ? "+30% Ethereal Yields" : "+30% вихід ефірних ресурсів",
+    bone_wall_fortitude: isEn ? "-50% Raid Fail Damage" : "-50% шкода від невдачі",
+    sanguine_blessing: isEn ? "+25% Blood Yields" : "+25% вихід ресурсів крові",
+    void_alacrity: isEn ? "+30% Action Speed" : "+30% швидкість дій",
+    chaos_singularity_boost: isEn ? "+50% Chaos Sparks" : "+50% іскор хаосу",
+    plague_catalyst: isEn ? "+20% Plague Speed" : "+20% швидкість дій пошесті",
+    astral_focus: isEn ? "+50% Stat XP" : "+50% досвід атрибутів",
+    monarch_dominion: isEn ? "+15% Gold" : "+15% золото",
+    imperial_sovereignty: isEn ? "+20% Raid Success" : "+20% успіх набігу",
+    demonic_iron_tempering: isEn ? "+15% Forge Speed" : "+15% швидкість дій кузні",
+    sins_overdrive: isEn ? "x2 Sin Yields, -5 Gold" : "x2 вихід гріхів, -5 золота"
+  };
+  return descs[id] || "";
+}
+
+function updateHeaderBoosterDisplay() {
+  const container = document.getElementById("active-booster-display");
+  if (!container) return;
+  
+  if (state.activeBoosterId) {
+    const b = BOOSTERS[state.activeBoosterId];
+    if (!b) {
+      container.style.display = "none";
+      container.innerHTML = "";
+      return;
+    }
+    
+    const secLeft = Math.max(0, Math.ceil(state.boosterTimeRemaining / 1000));
+    const minLeft = Math.floor(secLeft / 60);
+    const remSec = secLeft % 60;
+    const timeStr = `${minLeft}:${remSec < 10 ? '0' : ''}${remSec}`;
+    
+    const compactDesc = getCompactBoosterDesc(b.id, state.lang);
+    const boosterName = t(b.name);
+    const boosterFullDesc = t(b.desc);
+    
+    container.style.display = "flex";
+    container.innerHTML = `
+      <div style="display: flex; flex-direction: column; gap: 2px; width: 100%;">
+        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; gap: 6px;">
+          <span style="font-weight: bold; color: var(--color-yellow); font-family: 'Cinzel'; font-size: 0.75rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 130px;" title="${boosterName}">⚡ ${boosterName}</span>
+          <span style="font-weight: bold; color: ${state.boosterIsPaused ? 'var(--color-text-dark)' : 'var(--color-text-green)'}; font-size: 0.75rem; font-family: var(--font-gothic); min-width: 34px; text-align: right;">${state.boosterIsPaused ? 'PAUSED' : timeStr}</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; gap: 6px; margin-top: 1px;">
+          <span style="color: var(--color-text-secondary); font-size: 0.65rem; max-width: 140px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left;" title="${boosterFullDesc}">${compactDesc}</span>
+          <button id="btn-booster-header-toggle" class="btn btn-secondary btn-sm" style="padding: 1px 5px; font-size: 0.65rem; line-height: 1; min-width: 20px; height: 18px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(120, 120, 120, 0.3); background: rgba(120, 120, 120, 0.15);" title="${state.boosterIsPaused ? (state.lang === 'en' ? 'Resume Booster' : 'Відновити бустер') : (state.lang === 'en' ? 'Pause Booster' : 'Призупинити бустер')}">
+            ${state.boosterIsPaused ? '▶' : '⏸'}
+          </button>
+        </div>
+      </div>
+    `;
+    
+    const toggleBtn = container.querySelector("#btn-booster-header-toggle");
+    if (toggleBtn) {
+      toggleBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        state.boosterIsPaused = !state.boosterIsPaused;
+        const isEn = state.lang === 'en';
+        showNotification(state.boosterIsPaused ? 
+          (isEn ? "Booster effect paused!" : "Дію бустера призупинено!") : 
+          (isEn ? "Booster effect resumed!" : "Дію бустера відновлено!")
+        );
+        saveGame();
+        updateHeaderBoosterDisplay();
+        
+        const activeTabBtn = document.querySelector(".nav-btn.active");
+        const currentTab = activeTabBtn ? activeTabBtn.getAttribute("data-tab") : null;
+        if (currentTab === "boosters") {
+          renderBoosters();
+        }
+      });
+    }
+  } else {
+    container.style.display = "none";
+    container.innerHTML = "";
+  }
 }
 
 function updateActiveSkillHeaderProgress(tabId) {
@@ -5023,7 +5109,7 @@ if (!state.prologueShown) {
       state.prologueShown = true;
     }
     
-    if (data.timestamp && state.activeActivity) {
+    if (data.timestamp && (state.activeActivity || (state.activeBoosterId && !state.boosterIsPaused))) {
       const offlineTime = Date.now() - data.timestamp;
       if (offlineTime > 5000) {
         simulateOfflineProgress(offlineTime);
@@ -5035,44 +5121,114 @@ if (!state.prologueShown) {
 }
 
 function simulateOfflineProgress(ms) {
-  const act = ACTIVITIES.find(a => a.id === state.activeActivity);
-  if (!act) return;
-  
   isSimulatingOffline = true;
   
-  const pathLvl = state.skillLevels[act.category] || 1;
+  let pathLvl = 1;
+  if (state.activeActivity) {
+    const act = ACTIVITIES.find(a => a.id === state.activeActivity);
+    if (act) pathLvl = state.skillLevels[act.category] || 1;
+  } else if (state.activeBoosterId) {
+    pathLvl = Math.max(...Object.values(state.skillLevels || { base: 1 }), 1);
+  }
+  
   const maxMs = 86400000 + pathLvl * 15 * 60 * 1000;
   const simulatedMs = Math.min(ms, maxMs);
-  const duration = calculateDuration(act);
-  let completions = 0;
   
   let timeSpent = 0;
-  while (timeSpent + duration <= simulatedMs) {
-    if (!canAfford(act)) break;
-    deductCost(act);
-    if (act.category === "conquest") {
-      executeRaid(act);
-    } else {
-      payoutRewards(act);
+  let completions = 0;
+  const offlineBoostersConsumed = {};
+
+  function advanceBoosterTime(dt) {
+    if (!state.activeBoosterId || state.boosterIsPaused) return;
+    let remainingDt = dt;
+    
+    while (remainingDt > 0 && state.activeBoosterId && !state.boosterIsPaused) {
+      if (state.boosterTimeRemaining > remainingDt) {
+        state.boosterTimeRemaining -= remainingDt;
+        remainingDt = 0;
+      } else {
+        remainingDt -= state.boosterTimeRemaining;
+        const expiredId = state.activeBoosterId;
+        const b = BOOSTERS[expiredId];
+        
+        state.activeBoosterId = null;
+        state.activeBoosterType = null;
+        state.boosterTimeRemaining = 0;
+        
+        if (state.boosterAutoConsume && (state.boostersOwned[expiredId] || 0) > 0) {
+          state.boostersOwned[expiredId]--;
+          offlineBoostersConsumed[expiredId] = (offlineBoostersConsumed[expiredId] || 0) + 1;
+          
+          state.activeBoosterId = expiredId;
+          state.activeBoosterType = b ? b.type : null;
+          state.boosterTimeRemaining = b ? b.duration * 1000 : 0;
+        } else {
+          break;
+        }
+      }
     }
-    completions++;
-    timeSpent += duration;
+  }
+
+  const act = state.activeActivity ? ACTIVITIES.find(a => a.id === state.activeActivity) : null;
+  if (act) {
+    while (timeSpent < simulatedMs) {
+      if (!canAfford(act)) break;
+      const duration = calculateDuration(act);
+      if (timeSpent + duration > simulatedMs) break;
+      
+      advanceBoosterTime(duration);
+      deductCost(act);
+      if (act.category === "conquest") {
+        executeRaid(act);
+      } else {
+        payoutRewards(act);
+      }
+      completions++;
+      timeSpent += duration;
+    }
+    if (timeSpent < simulatedMs) {
+      advanceBoosterTime(simulatedMs - timeSpent);
+    }
+  } else {
+    advanceBoosterTime(simulatedMs);
   }
   
   isSimulatingOffline = false;
-  
+
+  const consumedDetails = Object.entries(offlineBoostersConsumed)
+    .map(([id, count]) => {
+      const bName = BOOSTERS[id] ? t(BOOSTERS[id].name) : id;
+      return `${count}x ${bName}`;
+    })
+    .join(", ");
+
+  checkMilestoneProgress();
+  renderTopBar();
+  renderStatsPanel();
+  renderWorkspace();
+  renderBoosters();
+  updateHeaderBoosterDisplay();
+
+  const hours = (simulatedMs / 3600000).toFixed(1);
+  let msg = "";
   if (completions > 0) {
-    checkMilestoneProgress();
-    renderTopBar();
-    renderStatsPanel();
-    renderWorkspace();
-    
-    const hours = (simulatedMs / 3600000).toFixed(1);
-    const msg = state.lang === "en" ? 
+    msg = state.lang === "en" ? 
       `⏳ Returned! Simulating ${hours}h of offline progress. Completed ${completions} tasks.` :
       `⏳ Повернення! Зімітовано ${hours}г офлайн-прогресу. Завершено ${completions} завдань.`;
-    showNotification(msg);
+  } else {
+    msg = state.lang === "en" ? 
+      `⏳ Returned! Simulating ${hours}h of offline progress.` :
+      `⏳ Повернення! Зімітовано ${hours}г офлайн-прогресу.`;
   }
+
+  if (consumedDetails) {
+    const boosterMsg = state.lang === "en" ? 
+      ` Consumed boosters: ${consumedDetails}.` : 
+      ` Витрачено бустерів: ${consumedDetails}.`;
+    msg += boosterMsg;
+  }
+
+  showNotification(msg);
 }
 
 document.getElementById("btn-hard-reset").addEventListener("click", () => {
@@ -5241,6 +5397,7 @@ function tick() {
   // Update active booster countdown (dt is in milliseconds)
   if (state.activeBoosterId && !state.boosterIsPaused) {
     state.boosterTimeRemaining -= dt;
+    updateHeaderBoosterDisplay();
     if (state.boosterTimeRemaining <= 0) {
       const expiredId = state.activeBoosterId;
       state.activeBoosterId = null;
@@ -5262,6 +5419,7 @@ function tick() {
         }
       }
       
+      updateHeaderBoosterDisplay();
       // Re-render boosters view if active
       const activeTabBtn = document.querySelector(".nav-btn.active");
       const currentTab = activeTabBtn ? activeTabBtn.getAttribute("data-tab") : null;
@@ -5576,6 +5734,7 @@ function renderBoosters() {
         (isEn ? "Booster effect resumed!" : "Дію бустера відновлено!")
       );
       saveGame();
+      updateHeaderBoosterDisplay();
       renderBoosters();
     });
     
