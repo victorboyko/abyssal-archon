@@ -4079,6 +4079,7 @@ function updateHeaderBoosterDisplay() {
     const remSec = secLeft % 60;
     const timeStr = `${minLeft}:${remSec < 10 ? '0' : ''}${remSec}`;
     
+    const count = state.boostersOwned[state.activeBoosterId] || 0;
     const compactDesc = getCompactBoosterDesc(b.id, state.lang);
     const boosterName = t(b.name);
     const boosterFullDesc = t(b.desc);
@@ -4087,7 +4088,10 @@ function updateHeaderBoosterDisplay() {
     container.innerHTML = `
       <div style="display: flex; flex-direction: column; gap: 2px; width: 100%;">
         <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; gap: 6px;">
-          <span style="font-weight: bold; color: var(--color-yellow); font-family: 'Cinzel'; font-size: 0.75rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 130px;" title="${boosterName}">⚡ ${boosterName}</span>
+          <div style="display: flex; align-items: center; gap: 4px; max-width: 140px; overflow: hidden; white-space: nowrap;">
+            <span style="font-weight: bold; color: var(--color-yellow); font-family: 'Cinzel'; font-size: 0.75rem; text-overflow: ellipsis; overflow: hidden;" title="${boosterName}">⚡ ${boosterName}</span>
+            <span style="font-size: 0.65rem; color: var(--color-yellow); background: rgba(255, 210, 63, 0.15); padding: 0 4px; border-radius: 3px; font-family: var(--font-gothic); flex-shrink: 0;" title="${state.lang === 'en' ? 'Booster Inventory Count' : 'Кількість у запасі'}">x${count}</span>
+          </div>
           <span style="font-weight: bold; color: ${state.boosterIsPaused ? 'var(--color-text-dark)' : 'var(--color-text-green)'}; font-size: 0.75rem; font-family: var(--font-gothic); min-width: 34px; text-align: right;">${state.boosterIsPaused ? 'PAUSED' : timeStr}</span>
         </div>
         <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; gap: 6px; margin-top: 1px;">
