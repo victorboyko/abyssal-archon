@@ -5891,6 +5891,16 @@ window.onload = () => {
     });
   }
 
+  // Active booster display click listener
+  const activeBoosterDisplay = document.getElementById("active-booster-display");
+  if (activeBoosterDisplay) {
+    activeBoosterDisplay.addEventListener("click", () => {
+      if (state.activeBoosterId) {
+        switchTab("boosters");
+      }
+    });
+  }
+
   // Global listener for clickable resource icons
   document.body.addEventListener("click", (e) => {
     const clickable = e.target.closest(".clickable-icon");
