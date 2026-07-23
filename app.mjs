@@ -4872,6 +4872,18 @@ document.getElementById("slot-accessory").addEventListener("click", () => unequi
 // ACTIONS AND TASK STATE CHANGERS
 // ==========================================
 
+function pauseBoosterOnActionStop() {
+  if (state.activeBoosterId && !state.boosterIsPaused) {
+    state.boosterIsPaused = true;
+    updateHeaderBoosterDisplay();
+    const activeTabBtn = document.querySelector(".nav-btn.active");
+    const currentTab = activeTabBtn ? activeTabBtn.getAttribute("data-tab") : null;
+    if (currentTab === "boosters") {
+      renderBoosters();
+    }
+  }
+}
+
 function toggleActivity(id) {
   const act = ACTIVITIES.find(a => a.id === id);
   if (!act) return;
@@ -4879,6 +4891,7 @@ function toggleActivity(id) {
   if (state.activeActivity === id) {
     state.activeActivity = null;
     state.activeProgress = 0;
+    pauseBoosterOnActionStop();
     const msg = state.lang === "en" ? "Focus paused." : "Фокус призупинено.";
     showNotification(msg);
   } else {
@@ -5278,7 +5291,11 @@ function simulateOfflineProgress(ms) {
   const act = state.activeActivity ? ACTIVITIES.find(a => a.id === state.activeActivity) : null;
   if (act) {
     while (timeSpent < simulatedMs) {
-      if (!canAfford(act)) break;
+      if (!canAfford(act)) {
+        state.activeActivity = null;
+        if (state.activeBoosterId) state.boosterIsPaused = true;
+        break;
+      }
       const duration = calculateDuration(act);
       if (timeSpent + duration > simulatedMs) break;
       
@@ -5540,6 +5557,7 @@ function tick() {
     const act = ACTIVITIES.find(a => a.id === state.activeActivity);
     if (!act) {
       state.activeActivity = null;
+      pauseBoosterOnActionStop();
       return;
     }
     
@@ -5559,6 +5577,7 @@ function tick() {
         executeRaid(act);
         if (!canAfford(act)) {
           state.activeActivity = null;
+          pauseBoosterOnActionStop();
           const msg = state.lang === "en" ? "Focus stopped: Ran out of resources to sustain conquest." : "Фокус зупинено: Недостатньо ресурсів для завоювання.";
           showNotification(msg, "danger");
           renderTopBar();
@@ -5573,6 +5592,7 @@ function tick() {
           payoutRewards(act);
           if (!canAfford(act)) {
             state.activeActivity = null;
+            pauseBoosterOnActionStop();
             const msg = state.lang === "en" ? "Focus stopped: Ran out of resources." : "Фокус зупинено: Закінчилися ресурси.";
             showNotification(msg, "danger");
             renderTopBar();
@@ -5581,6 +5601,7 @@ function tick() {
           }
         } else {
           state.activeActivity = null;
+          pauseBoosterOnActionStop();
           const msg = state.lang === "en" ? "Focus stopped: Ran out of resources." : "Фокус зупинено: Закінчилися ресурси.";
           showNotification(msg, "danger");
           renderTopBar();
