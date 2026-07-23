@@ -5924,9 +5924,51 @@ window.onload = () => {
     });
   }
 
-  // Active booster display click listener
+  // Active booster display click & cursor listeners
   const activeBoosterDisplay = document.getElementById("active-booster-display");
   if (activeBoosterDisplay) {
+    activeBoosterDisplay.addEventListener("mousemove", (e) => {
+      if (!state.activeBoosterId) return;
+
+      const toggleBtn = document.getElementById("btn-booster-header-toggle");
+      if (toggleBtn) {
+        const btnRect = toggleBtn.getBoundingClientRect();
+        const w = btnRect.width;
+        const h = btnRect.height;
+        
+        const isDirectlyOnBtn = (
+          e.clientX >= btnRect.left &&
+          e.clientX <= btnRect.right &&
+          e.clientY >= btnRect.top &&
+          e.clientY <= btnRect.bottom
+        );
+
+        if (isDirectlyOnBtn) {
+          activeBoosterDisplay.style.cursor = "pointer";
+          return;
+        }
+
+        const exLeft = btnRect.left - w;
+        const exRight = btnRect.left + 2 * w;
+        const exTop = btnRect.top - h;
+        const exBottom = btnRect.top + 2 * h;
+
+        const isInsideExclusionZone = (
+          e.clientX >= exLeft &&
+          e.clientX <= exRight &&
+          e.clientY >= exTop &&
+          e.clientY <= exBottom
+        );
+
+        if (isInsideExclusionZone) {
+          activeBoosterDisplay.style.cursor = "default";
+          return;
+        }
+      }
+
+      activeBoosterDisplay.style.cursor = "pointer";
+    });
+
     activeBoosterDisplay.addEventListener("click", (e) => {
       if (!state.activeBoosterId) return;
 
