@@ -4167,9 +4167,14 @@ function updateHeaderBoosterDisplay() {
             <span id="booster-header-time" style="font-weight: bold; font-size: 0.75rem; font-family: var(--font-gothic); min-width: 34px; text-align: right;"></span>
           </div>
           <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; gap: 6px; margin-top: 1px;">
-            <span id="booster-header-desc" style="color: var(--color-text-secondary); font-size: 0.65rem; max-width: 140px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left;"></span>
-            <button id="btn-booster-header-toggle" class="btn btn-secondary btn-sm" style="padding: 1px 5px; font-size: 0.65rem; line-height: 1; min-width: 20px; height: 18px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(120, 120, 120, 0.3); background: rgba(120, 120, 120, 0.15); pointer-events: auto;">
-            </button>
+            <span id="booster-header-desc" style="color: var(--color-text-secondary); font-size: 0.65rem; max-width: 115px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left;"></span>
+            <div style="display: flex; align-items: center; gap: 4px; pointer-events: auto;">
+              <button id="btn-booster-header-autorenew" class="btn btn-secondary btn-sm" style="padding: 1px 4px; font-size: 0.65rem; line-height: 1; min-width: 18px; height: 18px; display: flex; align-items: center; justify-content: center;">
+                🔄
+              </button>
+              <button id="btn-booster-header-toggle" class="btn btn-secondary btn-sm" style="padding: 1px 5px; font-size: 0.65rem; line-height: 1; min-width: 20px; height: 18px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(120, 120, 120, 0.3); background: rgba(120, 120, 120, 0.15);">
+              </button>
+            </div>
           </div>
         </div>
       `;
@@ -4195,6 +4200,27 @@ function updateHeaderBoosterDisplay() {
         });
       }
 
+      const autoBtn = container.querySelector("#btn-booster-header-autorenew");
+      if (autoBtn) {
+        autoBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          state.boosterAutoConsume = !state.boosterAutoConsume;
+          const isEn = state.lang === 'en';
+          showNotification(state.boosterAutoConsume ? 
+            (isEn ? "Booster auto-renew enabled!" : "Авто-продовження бустера увімкнено!") : 
+            (isEn ? "Booster auto-renew disabled!" : "Авто-продовження бустера вимкнено!")
+          );
+          saveGame();
+          updateHeaderBoosterDisplay();
+          
+          const activeTabBtn = document.querySelector(".nav-btn.active");
+          const currentTab = activeTabBtn ? activeTabBtn.getAttribute("data-tab") : null;
+          if (currentTab === "boosters") {
+            renderBoosters();
+          }
+        });
+      }
+
       titleEl = container.querySelector("#booster-header-title");
     }
 
@@ -4202,6 +4228,7 @@ function updateHeaderBoosterDisplay() {
     const timeEl = container.querySelector("#booster-header-time");
     const descEl = container.querySelector("#booster-header-desc");
     const toggleBtn = container.querySelector("#btn-booster-header-toggle");
+    const autoBtn = container.querySelector("#btn-booster-header-autorenew");
 
     if (titleEl) {
       titleEl.innerText = `⚡ ${boosterName}`;
@@ -4224,6 +4251,15 @@ function updateHeaderBoosterDisplay() {
       toggleBtn.title = state.boosterIsPaused ? 
         (state.lang === 'en' ? 'Resume Booster' : 'Відновити бустер') : 
         (state.lang === 'en' ? 'Pause Booster' : 'Призупинити бустер');
+    }
+    if (autoBtn) {
+      const isAuto = !!state.boosterAutoConsume;
+      autoBtn.style.border = isAuto ? "1px solid rgba(34, 197, 94, 0.5)" : "1px solid rgba(120, 120, 120, 0.3)";
+      autoBtn.style.background = isAuto ? "rgba(34, 197, 94, 0.2)" : "rgba(120, 120, 120, 0.15)";
+      autoBtn.style.opacity = isAuto ? "1" : "0.7";
+      autoBtn.title = isAuto ? 
+        (state.lang === 'en' ? 'Auto-Renew: ON (Click to disable)' : 'Авто-продовження: УВІМКНЕНО (Натисніть для вимкнення)') : 
+        (state.lang === 'en' ? 'Auto-Renew: OFF (Click to enable)' : 'Авто-продовження: ВИМКНЕНО (Натисніть для ввімкнення)');
     }
   } else {
     container.style.display = "none";
@@ -6017,43 +6053,34 @@ window.onload = () => {
   // Active booster display click & cursor listeners
   const activeBoosterDisplay = document.getElementById("active-booster-display");
   if (activeBoosterDisplay) {
+    const isPointOnBtn = (px, py, btn) => {
+      if (!btn) return false;
+      const r = btn.getBoundingClientRect();
+      return px >= r.left && px <= r.right && py >= r.top && py <= r.bottom;
+    };
+
+    const isPointInExZone = (px, py, btn) => {
+      if (!btn) return false;
+      const r = btn.getBoundingClientRect();
+      const w = r.width;
+      const h = r.height;
+      return px >= r.left - w && px <= r.left + 2 * w && py >= r.top - h && py <= r.top + 2 * h;
+    };
+
     activeBoosterDisplay.addEventListener("mousemove", (e) => {
       if (!state.activeBoosterId) return;
 
       const toggleBtn = document.getElementById("btn-booster-header-toggle");
-      if (toggleBtn) {
-        const btnRect = toggleBtn.getBoundingClientRect();
-        const w = btnRect.width;
-        const h = btnRect.height;
-        
-        const isDirectlyOnBtn = (
-          e.clientX >= btnRect.left &&
-          e.clientX <= btnRect.right &&
-          e.clientY >= btnRect.top &&
-          e.clientY <= btnRect.bottom
-        );
+      const autoBtn = document.getElementById("btn-booster-header-autorenew");
 
-        if (isDirectlyOnBtn) {
-          activeBoosterDisplay.style.cursor = "pointer";
-          return;
-        }
+      if (isPointOnBtn(e.clientX, e.clientY, toggleBtn) || isPointOnBtn(e.clientX, e.clientY, autoBtn)) {
+        activeBoosterDisplay.style.cursor = "pointer";
+        return;
+      }
 
-        const exLeft = btnRect.left - w;
-        const exRight = btnRect.left + 2 * w;
-        const exTop = btnRect.top - h;
-        const exBottom = btnRect.top + 2 * h;
-
-        const isInsideExclusionZone = (
-          e.clientX >= exLeft &&
-          e.clientX <= exRight &&
-          e.clientY >= exTop &&
-          e.clientY <= exBottom
-        );
-
-        if (isInsideExclusionZone) {
-          activeBoosterDisplay.style.cursor = "default";
-          return;
-        }
+      if (isPointInExZone(e.clientX, e.clientY, toggleBtn) || isPointInExZone(e.clientX, e.clientY, autoBtn)) {
+        activeBoosterDisplay.style.cursor = "default";
+        return;
       }
 
       activeBoosterDisplay.style.cursor = "pointer";
@@ -6063,24 +6090,11 @@ window.onload = () => {
       if (!state.activeBoosterId) return;
 
       const toggleBtn = document.getElementById("btn-booster-header-toggle");
-      if (toggleBtn) {
-        const btnRect = toggleBtn.getBoundingClientRect();
-        const w = btnRect.width;
-        const h = btnRect.height;
-        
-        // Exclusion rectangle centered on toggleBtn with side lengths 3 * w and 3 * h
-        const exLeft = btnRect.left - w;
-        const exRight = btnRect.left + 2 * w;
-        const exTop = btnRect.top - h;
-        const exBottom = btnRect.top + 2 * h;
+      const autoBtn = document.getElementById("btn-booster-header-autorenew");
 
-        const clickX = e.clientX;
-        const clickY = e.clientY;
-
-        if (clickX >= exLeft && clickX <= exRight && clickY >= exTop && clickY <= exBottom) {
-          // Click is inside 3x exclusion zone centered on play/pause button - do not navigate to shop
-          return;
-        }
+      if (isPointInExZone(e.clientX, e.clientY, toggleBtn) || isPointInExZone(e.clientX, e.clientY, autoBtn)) {
+        // Click is inside 3x exclusion zone centered on either button - do not navigate to shop
+        return;
       }
 
       switchTab("boosters");
