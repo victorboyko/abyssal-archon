@@ -4536,6 +4536,7 @@ function renderInventory() {
     
     const itemCell = document.createElement("div");
     itemCell.className = `inventory-item ${hasCount ? 'has-count' : ''}`;
+    itemCell.title = `${t(res.name)}${res.desc ? ': ' + t(res.desc) : ''}`;
     
     let actionOverlay = "";
     if (hasCount) {
@@ -4757,6 +4758,10 @@ function getSlotTooltipContent(id, slotType) {
     effectText = state.lang === "en" ? 
       "Increases Resilience by +10% (protects resources during failures)." :
       "Збільшує Стійкість на +10% (захищає ресурси при провалах).";
+  } else if (id === "phantoms") {
+    effectText = state.lang === "en" ? 
+      "Increases Sorcery experience training speed by +10%." :
+      "Збільшує швидкість отримання досвіду Чаклунства на +10%.";
   } else if (id === "brimstone_brand") {
     effectText = state.lang === "en" ? 
       "Reduces physical action duration (Extraction & Forge) by -10%." :
@@ -4765,6 +4770,8 @@ function getSlotTooltipContent(id, slotType) {
     effectText = state.lang === "en" ? 
       "Reduces magic action duration (Veil Tearing) by -10%." :
       "Скорочує час магічних дій (Розрив Завіси) на -10%.";
+  } else if (res && res.desc) {
+    effectText = t(res.desc);
   }
   
   return `
@@ -4779,16 +4786,25 @@ function renderQuickSlots() {
   const tool = document.getElementById("val-slot-tool");
   const accessory = document.getElementById("val-slot-accessory");
   
+  const cardMinion1 = document.getElementById("slot-minion-1");
+  const cardMinion2 = document.getElementById("slot-minion-2");
+  const cardTool = document.getElementById("slot-tool");
+  const cardAccessory = document.getElementById("slot-accessory");
+
   const slotsAvailable = getWillpowerMinionSlots();
   
   if (slotsAvailable < 2) {
-    document.getElementById("slot-minion-2").style.opacity = "0.35";
-    document.getElementById("slot-minion-2").style.pointerEvents = "none";
+    if (cardMinion2) {
+      cardMinion2.style.opacity = "0.35";
+      cardMinion2.style.pointerEvents = "none";
+    }
     companion2.innerText = LOCALIZATION[state.lang].locked_minion;
     companion2.className = "slot-value";
   } else {
-    document.getElementById("slot-minion-2").style.opacity = "1";
-    document.getElementById("slot-minion-2").style.pointerEvents = "auto";
+    if (cardMinion2) {
+      cardMinion2.style.opacity = "1";
+      cardMinion2.style.pointerEvents = "auto";
+    }
   }
   
   companion1.innerText = state.minions[0] ? t(RESOURCES[state.minions[0]].name) : LOCALIZATION[state.lang].empty;
@@ -4806,10 +4822,39 @@ function renderQuickSlots() {
   accessory.className = state.equipment.accessory ? "slot-value equipped" : "slot-value";
   
   // Render tooltips
-  document.getElementById("tip-slot-minion-1").innerHTML = getSlotTooltipContent(state.minions[0], "minion");
-  document.getElementById("tip-slot-minion-2").innerHTML = slotsAvailable >= 2 ? getSlotTooltipContent(state.minions[1], "minion") : getSlotTooltipContent(null, "minion");
-  document.getElementById("tip-slot-tool").innerHTML = getSlotTooltipContent(state.equipment.tool, "tool");
-  document.getElementById("tip-slot-accessory").innerHTML = getSlotTooltipContent(state.equipment.accessory, "accessory");
+  const tip1 = getSlotTooltipContent(state.minions[0], "minion");
+  const tip2 = slotsAvailable >= 2 ? getSlotTooltipContent(state.minions[1], "minion") : getSlotTooltipContent(null, "minion");
+  const tipTool = getSlotTooltipContent(state.equipment.tool, "tool");
+  const tipAcc = getSlotTooltipContent(state.equipment.accessory, "accessory");
+
+  const tipElement1 = document.getElementById("tip-slot-minion-1");
+  const tipElement2 = document.getElementById("tip-slot-minion-2");
+  const tipElementTool = document.getElementById("tip-slot-tool");
+  const tipElementAcc = document.getElementById("tip-slot-accessory");
+
+  if (tipElement1) tipElement1.innerHTML = tip1;
+  if (tipElement2) tipElement2.innerHTML = tip2;
+  if (tipElementTool) tipElementTool.innerHTML = tipTool;
+  if (tipElementAcc) tipElementAcc.innerHTML = tipAcc;
+
+  const getCleanTipText = (id) => {
+    if (!id || !RESOURCES[id]) return state.lang === 'en' ? 'Empty Slot - Equip gear/companions from Vault.' : 'Порожній Слот - Екіпіруйте спорядження чи супутників зі Сховища.';
+    const res = RESOURCES[id];
+    let eff = "";
+    if (id === "imp") eff = state.lang === 'en' ? "Increases Sulfur yields by +1 when chiseling vents." : "Збільшує збір Сірки на +1 при видовбуванні.";
+    else if (id === "hellhound") eff = state.lang === 'en' ? "Increases Brutality experience training speed by +5%." : "Збільшує швидкість отримання досвіду Жорстокості на +5%.";
+    else if (id === "gargoyle") eff = state.lang === 'en' ? "Increases Resilience by +10% (protects resources during failures)." : "Збільшує Стійкість на +10% (захищає ресурси при провалах).";
+    else if (id === "phantoms") eff = state.lang === 'en' ? "Increases Sorcery experience training speed by +10%." : "Збільшує швидкість отримання досвіду Чаклунства на +10%.";
+    else if (id === "brimstone_brand") eff = state.lang === 'en' ? "Reduces physical action duration (Extraction & Forge) by -10%." : "Скорочує час фізичних дій (Видобуток та Кузня) на -10%.";
+    else if (id === "obsidian_sigil") eff = state.lang === 'en' ? "Reduces magic action duration (Veil Tearing) by -10%." : "Скорочує час магічних дій (Розрив Завіси) на -10%.";
+    else if (res.desc) eff = t(res.desc);
+    return `${t(res.name)}: ${eff}`;
+  };
+
+  if (cardMinion1) cardMinion1.title = getCleanTipText(state.minions[0]);
+  if (cardMinion2) cardMinion2.title = slotsAvailable >= 2 ? getCleanTipText(state.minions[1]) : (state.lang === 'en' ? 'Locked Companion Slot (Requires Willpower Lv. 25)' : 'Заблокований Слот (Потрібна Сила Волі Рів. 25)');
+  if (cardTool) cardTool.title = getCleanTipText(state.equipment.tool);
+  if (cardAccessory) cardAccessory.title = getCleanTipText(state.equipment.accessory);
 }
 
 // ==========================================
